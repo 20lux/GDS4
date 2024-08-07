@@ -8,7 +8,6 @@ public class PlayerActions : MonoBehaviour
     [Header("Player Interation Properties")]
     [SerializeField] private float interactDistance = 2f;
     [SerializeField] private TextMeshProUGUI UIText;
-    int layerMask = 1 >> 8;
     private InteractableObject interactableObject;
 
     void Start()
@@ -18,20 +17,11 @@ public class PlayerActions : MonoBehaviour
 
     void FixedUpdate()
     {
-        RaycastHit hit;
+        Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactDistance);
 
-        if (Physics.Raycast(transform.position, Vector3.forward, out hit, interactDistance))
+        foreach (Collider collider in colliderArray)
         {
-            if(hit.collider.tag == "InteractObject")
-            {
-                Debug.DrawRay(transform.position, Vector3.forward, Color.yellow);
-                HighlightObject(hit);
-            }
-            else
-            {
-                Debug.DrawRay(transform.position, Vector3.forward, Color.white);
-                ClearUI();
-            }
+            Debug.Log("Detected collider object: " + collider.gameObject.name);
         }
     }
 
@@ -40,9 +30,9 @@ public class PlayerActions : MonoBehaviour
         Debug.Log("Interacting with object");
     }
 
-    public void HighlightObject(RaycastHit hit)
+    public void HighlightObject(Collider col)
     {
-        UIText.text = hit.collider.gameObject.GetComponent<InteractableObject>().objectName;
+        Debug.Log("Highlighting object");
     }
 
     public void ClearUI()
