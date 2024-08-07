@@ -23,31 +23,77 @@ public class PlayerActions : MonoBehaviour
         {
             if (collider.TryGetComponent(out interactableObject))
             {
-                HighlightObject(collider);
+                var obj = GetInteractableObject();
+
+                HighlightObject(obj);
             }
         }
+    }
+
+    public InteractableObject GetInteractableObject()
+    {
+        List<InteractableObject> interactableObjectList = new List<InteractableObject>();
+
+        Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactDistance);
+        foreach (Collider collider in colliderArray)
+        {
+            if (collider.TryGetComponent(out interactableObject))
+            {
+                interactableObjectList.Add(interactableObject);
+            }
+        }
+
+        // gets closest interactable object in the array
+        InteractableObject closestInteractable = null;
+        foreach (InteractableObject interactableObject in interactableObjectList)
+        {
+            if (!closestInteractable)
+            {
+                closestInteractable = interactableObject;
+            }
+            else
+            {
+                if (Vector3.Distance(transform.position, interactableObject.transform.position) <
+                    Vector3.Distance(transform.position, closestInteractable.transform.position))
+                    {
+                        closestInteractable = interactableObject;
+                    }
+
+            }
+        }
+
+        return closestInteractable;
     }
 
     public void InteractWithObject()
     {
         RaycastHit hit;
+        LayerMask mask = LayerMask.GetMask("InteractObjects");
 
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, interactDistance))
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, interactDistance, mask))
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
             Debug.Log("Did hit");
         }
         else
         {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.white);
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.white, mask);
             Debug.Log("Did not hit");    
         }
     }
 
-    public void HighlightObject(Collider col)
+    public void HighlightObject(InteractableObject interactableObject)
     {
-        UIText.text = col.gameObject.GetComponent<InteractableObject>().objectName;
-        Debug.Log("Highlighting object");
+        if (interactableObject)
+        {
+            UIText.text = interactableObject.GetInteractText();
+            Debug.Log("Highlighting object");
+        }
+        else
+        {
+            ClearUI();
+        }
+
     }
 
     public void ClearUI()
