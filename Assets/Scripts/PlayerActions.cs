@@ -9,24 +9,31 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] private float interactDistance = 2f;
     [SerializeField] private TextMeshProUGUI UIText;
     private InteractableObject interactableObject;
+    private LayerMask mask;
 
     void Start()
     {
+        mask = LayerMask.GetMask("InteractObjects");
         ClearUI();
     }
 
     void FixedUpdate()
     {
-        Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactDistance);
+        Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactDistance, mask);
 
-        foreach (Collider collider in colliderArray)
+        if (colliderArray.Length > 0)
         {
-            if (collider.TryGetComponent(out interactableObject))
+            foreach (Collider collider in colliderArray)
             {
-                var obj = GetInteractableObject();
-
-                HighlightObject(obj);
+                if (collider.gameObject.TryGetComponent(out interactableObject))
+                {
+                    HighlightObject(interactableObject);
+                }
             }
+        }
+        else
+        {
+            ClearUI();
         }
     }
 
@@ -68,7 +75,6 @@ public class PlayerActions : MonoBehaviour
     public void InteractWithObject()
     {
         RaycastHit hit;
-        LayerMask mask = LayerMask.GetMask("InteractObjects");
 
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, interactDistance, mask))
         {
@@ -89,11 +95,6 @@ public class PlayerActions : MonoBehaviour
             UIText.text = interactableObject.GetInteractText();
             Debug.Log("Highlighting object");
         }
-        else
-        {
-            ClearUI();
-        }
-
     }
 
     public void ClearUI()
