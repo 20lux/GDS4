@@ -17,76 +17,78 @@ public class PlayerActions : MonoBehaviour
         ClearUI();
     }
 
-    void FixedUpdate()
-    {
-        Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactDistance, mask);
 
-        if (colliderArray.Length > 0)
-        {
-            foreach (Collider collider in colliderArray)
-            {
-                if (collider.gameObject.TryGetComponent(out interactableObject))
-                {
-                    HighlightObject(interactableObject);
-                }
-            }
-        }
-        else
-        {
-            ClearUI();
-        }
-    }
+    // Grab names from interactive objects in surrounding areas
+    // void FixedUpdate()
+    // {
+    //     Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactDistance, mask);
 
-    public InteractableObject GetInteractableObject()
-    {
-        List<InteractableObject> interactableObjectList = new List<InteractableObject>();
+    //     if (colliderArray.Length > 0)
+    //     {
+    //         foreach (Collider collider in colliderArray)
+    //         {
+    //             if (collider.gameObject.TryGetComponent(out interactableObject))
+    //             {
+    //                 HighlightObject(interactableObject);
+    //             }
+    //         }
+    //     }
+    //     else
+    //     {
+    //         ClearUI();
+    //     }
+    // }
 
-        Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactDistance);
-        foreach (Collider collider in colliderArray)
-        {
-            if (collider.TryGetComponent(out interactableObject))
-            {
-                interactableObjectList.Add(interactableObject);
-            }
-        }
+    // public InteractableObject GetInteractableObject()
+    // {
+    //     List<InteractableObject> interactableObjectList = new List<InteractableObject>();
 
-        // gets closest interactable object in the array
-        InteractableObject closestInteractable = null;
-        foreach (InteractableObject interactableObject in interactableObjectList)
-        {
-            if (!closestInteractable)
-            {
-                closestInteractable = interactableObject;
-            }
-            else
-            {
-                if (Vector3.Distance(transform.position, interactableObject.transform.position) <
-                    Vector3.Distance(transform.position, closestInteractable.transform.position))
-                    {
-                        closestInteractable = interactableObject;
-                    }
+    //     Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactDistance);
+    //     foreach (Collider collider in colliderArray)
+    //     {
+    //         if (collider.TryGetComponent(out interactableObject))
+    //         {
+    //             interactableObjectList.Add(interactableObject);
+    //         }
+    //     }
 
-            }
-        }
+    //     // gets closest interactable object in the array
+    //     InteractableObject closestInteractable = null;
+    //     foreach (InteractableObject interactableObject in interactableObjectList)
+    //     {
+    //         if (!closestInteractable)
+    //         {
+    //             closestInteractable = interactableObject;
+    //         }
+    //         else
+    //         {
+    //             if (Vector3.Distance(transform.position, interactableObject.transform.position) <
+    //                 Vector3.Distance(transform.position, closestInteractable.transform.position))
+    //                 {
+    //                     closestInteractable = interactableObject;
+    //                 }
 
-        return closestInteractable;
-    }
+    //         }
+    //     }
 
-    public void InteractWithObject()
-    {
-        RaycastHit hit;
+    //     return closestInteractable;
+    // }
 
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, interactDistance, mask))
-        {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-            Debug.Log("Did hit");
-        }
-        else
-        {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.white, mask);
-            Debug.Log("Did not hit");    
-        }
-    }
+    // public void InteractWithObject()
+    // {
+    //     RaycastHit hit;
+
+    //     if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, interactDistance, mask))
+    //     {
+    //         Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
+    //         Debug.Log("Did hit");
+    //     }
+    //     else
+    //     {
+    //         Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.white, mask);
+    //         Debug.Log("Did not hit");    
+    //     }
+    // }
 
     public void HighlightObject(InteractableObject interactableObject)
     {

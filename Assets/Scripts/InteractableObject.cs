@@ -7,6 +7,9 @@ public class InteractableObject : MonoBehaviour, IInteractable
     [Header("Interactable Object Properties")]
     [SerializeField] private string ObjectName;
     [HideInInspector] public string objectName => ObjectName;
+    [SerializeField] private bool objectIsDoor;
+    [SerializeField] private bool objectIsPickable;
+    [SerializeField] private bool objectIsConsole;
 
     public void Interact(Transform interactorTransform)
     {
