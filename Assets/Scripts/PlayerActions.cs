@@ -5,28 +5,33 @@ public class PlayerActions : MonoBehaviour
 {
     [Header("Player Interation Properties")]
     [SerializeField] private float interactDistance = 2f;
+    [SerializeField] private Camera cam;
     [SerializeField] private TextMeshProUGUI UIText;
     private InteractableObject interactableObject;
     private Transform playerLook;
     [HideInInspector] public Transform PlayerLook => playerLook;
 
+    private RaycastHit hitInfo;
+    private Ray ray;
+    
     void Start()
     {
+        cam = transform.GetChild(0).GetComponent<Camera>();
+        ray = cam.ScreenPointToRay(Vector3.one * 0.5f);
         ClearUI();
     }
 
     private void FixedUpdate()
     {
-
+        Debug.DrawRay(cam.transform.position, cam.transform.forward, Color.yellow);
     }
 
     public void PickUpObject()
     {
-        RaycastHit hitInfo;
-
-        if (Physics.Raycast(transform.position, Vector3.forward, out hitInfo))
+        if (Physics.Raycast(ray, out hitInfo))
         {
-            if (hitInfo.collider.gameObject.GetComponent<InteractableObject>())
+            Collider collider = hitInfo.collider;
+            if (collider.TryGetComponent(out interactableObject))
             {
                 interactableObject.ObjectAction(gameObject);
             }
