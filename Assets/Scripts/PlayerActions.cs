@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerActions : MonoBehaviour
@@ -9,14 +11,23 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] private float interactDistance = 2f;
     [SerializeField] private TextMeshProUGUI UIText;
     private InteractableObject interactableObject;
-    private LayerMask mask;
+    private Transform playerLook;
+    [HideInInspector] public Transform PlayerLook => playerLook;
 
     void Start()
     {
-        mask = LayerMask.GetMask("InteractObjects");
         ClearUI();
     }
 
+    private void FixedUpdate()
+    {
+        RaycastHit hitInfo;
+
+        if (Physics.Raycast(transform.position, Vector3.forward, out hitInfo))
+        {
+
+        }
+    }
 
     // Grab names from interactive objects in surrounding areas
     // void FixedUpdate()
