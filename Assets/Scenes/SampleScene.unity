@@ -349,7 +349,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aab9c10c1a47e0941b6a79e6d0397606, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectType: 0
   ObjectName: Video Screen
+  objectToInteractWith: {fileID: 0}
+  type: 0
 --- !u!1001 &299126578
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1446,8 +1449,34 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 621731768782347580, guid: a7558168957162b4ebbde83366ab66ce,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1330326570}
   m_SourcePrefab: {fileID: 100100000, guid: a7558168957162b4ebbde83366ab66ce, type: 3}
+--- !u!1 &1330326569 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 621731768782347580, guid: a7558168957162b4ebbde83366ab66ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 1330326568}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1330326570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1330326569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aab9c10c1a47e0941b6a79e6d0397606, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectType: 4
+  ObjectName: Inspect Me!
+  objectToInteractWith: {fileID: 0}
+  type: 0
 --- !u!1 &1335731665
 GameObject:
   m_ObjectHideFlags: 0
@@ -2505,7 +2534,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2082581437}
         m_TargetAssemblyTypeName: PlayerActions, Assembly-CSharp
-        m_MethodName: InteractWithObject
+        m_MethodName: PickUpObject
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2549,14 +2578,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 7d046b1de5c6f45de8f20035cfb42c08, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 7d046b1de5c6f45de8f20035cfb42c08, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 7d046b1de5c6f45de8f20035cfb42c08, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.5
@@ -2595,10 +2616,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 7d046b1de5c6f45de8f20035cfb42c08, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2300000, guid: 7d046b1de5c6f45de8f20035cfb42c08, type: 3}
-      propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6415318062900184177, guid: 7d046b1de5c6f45de8f20035cfb42c08,
@@ -3447,8 +3464,34 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 621731768782347580, guid: a7558168957162b4ebbde83366ab66ce,
+        type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 7779565698397333888}
   m_SourcePrefab: {fileID: 100100000, guid: a7558168957162b4ebbde83366ab66ce, type: 3}
+--- !u!1 &7779565698397333887 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 621731768782347580, guid: a7558168957162b4ebbde83366ab66ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 7779565698397333886}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7779565698397333888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7779565698397333887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aab9c10c1a47e0941b6a79e6d0397606, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectType: 3
+  ObjectName: Pick Me Up!
+  objectToInteractWith: {fileID: 0}
+  type: 0
 --- !u!1001 &8854319106863073831
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3612,7 +3655,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aab9c10c1a47e0941b6a79e6d0397606, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectType: 0
   ObjectName: Control Pad
+  objectToInteractWith: {fileID: 0}
+  type: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

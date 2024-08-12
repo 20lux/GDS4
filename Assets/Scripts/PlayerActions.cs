@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerActions : MonoBehaviour
@@ -24,7 +20,7 @@ public class PlayerActions : MonoBehaviour
 
     }
 
-    private void PickUpObject()
+    public void PickUpObject()
     {
         RaycastHit hitInfo;
 
@@ -37,7 +33,7 @@ public class PlayerActions : MonoBehaviour
         }
     }
 
-    private void CheckIfHolding()
+    public void CheckIfHolding()
     {
 
     }
@@ -114,11 +110,11 @@ public class PlayerActions : MonoBehaviour
     //     }
     // }
 
-    public void HighlightObject(InteractableObject interactableObject)
+    public void HighlightObject()
     {
         if (interactableObject)
         {
-            UIText.text = interactableObject.GetInteractText();
+            UIText.text = "Press [E] to interact";
             Debug.Log("Highlighting object");
         }
     }
