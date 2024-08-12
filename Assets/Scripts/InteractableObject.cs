@@ -5,10 +5,12 @@ using UnityEngine;
 
 public class InteractableObject : MonoBehaviour, IInteractable
 {
+    [Serializable]
     public enum ObjectType {    None = 0, 
                                 Console = 1, 
                                 Key = 2, 
-                                PickableObject = 3 }
+                                PickableObject = 3,
+                                InspectObject = 4 }
 
     [Header("Interactable Object Properties")]
     [SerializeField] private string ObjectName;
@@ -21,7 +23,7 @@ public class InteractableObject : MonoBehaviour, IInteractable
         gameObject.transform.position = interactorTransform.position;  
     }
 
-    public void ObjectAction()
+    public void ObjectAction(GameObject playerObject)
     {
         switch (type)
         {
@@ -32,6 +34,10 @@ public class InteractableObject : MonoBehaviour, IInteractable
             case ObjectType.Key:
                 break;
             case ObjectType.PickableObject:
+                Transform playerLookTransform = playerObject.transform.GetChild(1).transform;
+                transform.SetParent(playerLookTransform);
+                break;
+            case ObjectType.InspectObject:
                 break;
         }
     }

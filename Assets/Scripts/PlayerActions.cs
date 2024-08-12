@@ -21,12 +21,25 @@ public class PlayerActions : MonoBehaviour
 
     private void FixedUpdate()
     {
+
+    }
+
+    private void PickUpObject()
+    {
         RaycastHit hitInfo;
 
         if (Physics.Raycast(transform.position, Vector3.forward, out hitInfo))
         {
-
+            if (hitInfo.collider.gameObject.GetComponent<InteractableObject>())
+            {
+                interactableObject.ObjectAction(gameObject);
+            }
         }
+    }
+
+    private void CheckIfHolding()
+    {
+
     }
 
     // Grab names from interactive objects in surrounding areas
