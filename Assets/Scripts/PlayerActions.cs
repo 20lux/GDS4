@@ -12,6 +12,7 @@ public class PlayerActions : MonoBehaviour
 
     private RaycastHit hitInfo;
     private Ray ray;
+    private QueryTriggerInteraction queryTriggerInteraction;
     [HideInInspector] public int layerToIgnoreRaycast;
     [HideInInspector] public int layerInteractable;
  
@@ -21,18 +22,29 @@ public class PlayerActions : MonoBehaviour
         layerToIgnoreRaycast = LayerMask.NameToLayer("Ignore Raycast");
         layerInteractable = LayerMask.NameToLayer("InteractObjects");
         ray = cam.ViewportPointToRay(Vector3.one * 0.5f);
-        ClearUI();
+        HighlightObject(false);
     }
 
-    private void FixedUpdate()
+    void Update()
     {
-        Debug.DrawRay(cam.transform.position, cam.transform.forward, Color.yellow);
+        Debug.DrawRay(cam.transform.position, cam.transform.forward * interactDistance, Color.red);
 
-        if (Physics.Raycast(ray, out hitInfo, interactDistance, layerInteractable))
-        {
-            HighlightObject();
-        }
+        // if (Physics.Raycast(cam.transform.position, cam.transform.forward * interactDistance, out hitInfo, 
+        //     interactDistance, layerInteractable, queryTriggerInteraction))
+        // {
+        //     Debug.DrawLine(cam.transform.position, hitInfo.point, Color.green);
+
+        //     if (hitInfo.collider.CompareTag("InteractObject"))
+        //     {
+        //         Debug.Log("Found object to highlight!");
+        //         HighlightObject(true);
+        //         return;
+        //     }
+
+        //     return;
+        // }
     }
+
 
     public void Interact()
     {
@@ -121,18 +133,20 @@ public class PlayerActions : MonoBehaviour
         }
     }
 
-    public void HighlightObject()
+    public void HighlightObject(bool isActive)
     {
-        if (interactableObject)
+        if (isActive)
         {
-            UIText.text = "Press [E] to interact";
-            Debug.Log("Highlighting object");
+            if (interactableObject)
+            {
+                UIText.text = "Press [E] to interact";
+                Debug.Log("Highlighting object");
+            }
         }
-    }
-
-    public void ClearUI()
-    {
-        UIText.text = " ";
+        else
+        {
+            UIText.text = " ";
+        }
     }
 
     // Grab names from interactive objects in surrounding areas
