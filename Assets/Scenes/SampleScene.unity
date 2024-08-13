@@ -352,7 +352,6 @@ MonoBehaviour:
   objectType: 0
   ObjectName: Video Screen
   objectToInteractWith: {fileID: 0}
-  type: 0
 --- !u!1001 &299126578
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1467,7 +1466,6 @@ MonoBehaviour:
   objectType: 4
   ObjectName: Inspect Me!
   objectToInteractWith: {fileID: 0}
-  type: 0
 --- !u!1 &1335731665
 GameObject:
   m_ObjectHideFlags: 0
@@ -1746,6 +1744,74 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1513665868
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 157d4b80ba71038459f1d6e1a3356ca0,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 157d4b80ba71038459f1d6e1a3356ca0,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.0198278
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 157d4b80ba71038459f1d6e1a3356ca0,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.948665
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 157d4b80ba71038459f1d6e1a3356ca0,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 157d4b80ba71038459f1d6e1a3356ca0,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 157d4b80ba71038459f1d6e1a3356ca0,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 157d4b80ba71038459f1d6e1a3356ca0,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 157d4b80ba71038459f1d6e1a3356ca0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 157d4b80ba71038459f1d6e1a3356ca0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 157d4b80ba71038459f1d6e1a3356ca0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 157d4b80ba71038459f1d6e1a3356ca0,
+        type: 3}
+      propertyPath: m_Name
+      value: ME_cassette
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 157d4b80ba71038459f1d6e1a3356ca0, type: 3}
 --- !u!1001 &1555561417
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2525,7 +2591,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2082581437}
         m_TargetAssemblyTypeName: PlayerActions, Assembly-CSharp
-        m_MethodName: PickUpObject
+        m_MethodName: Interact
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3447,42 +3513,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pickup
       objectReference: {fileID: 0}
-    - target: {fileID: 1414176255543573737, guid: a7558168957162b4ebbde83366ab66ce,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 5e647e92312dd1447bc3e9cb68be6809, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 621731768782347580, guid: a7558168957162b4ebbde83366ab66ce,
-        type: 3}
-      insertIndex: 3
-      addedObject: {fileID: 7779565698397333888}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7558168957162b4ebbde83366ab66ce, type: 3}
---- !u!1 &7779565698397333887 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 621731768782347580, guid: a7558168957162b4ebbde83366ab66ce,
-    type: 3}
-  m_PrefabInstance: {fileID: 7779565698397333886}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &7779565698397333888
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7779565698397333887}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aab9c10c1a47e0941b6a79e6d0397606, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectType: 3
-  ObjectName: Pick Me Up!
-  objectToInteractWith: {fileID: 0}
-  type: 0
 --- !u!1001 &8854319106863073831
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3649,7 +3684,6 @@ MonoBehaviour:
   objectType: 0
   ObjectName: Control Pad
   objectToInteractWith: {fileID: 0}
-  type: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -3695,3 +3729,4 @@ SceneRoots:
   - {fileID: 8913959699511199778}
   - {fileID: 1229716527891455569}
   - {fileID: 7137617539425357374}
+  - {fileID: 1513665868}
