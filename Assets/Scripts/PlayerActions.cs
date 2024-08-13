@@ -4,12 +4,11 @@ using UnityEngine;
 public class PlayerActions : MonoBehaviour
 {
     [Header("Player Interation Properties")]
-    [SerializeField] private float interactDistance = 2f;
+    [SerializeField] private float interactDistance = 4f;
     [SerializeField] private Camera cam;
     [SerializeField] private TextMeshProUGUI UIText;
-    private InteractableObject interactableObject;
+    public InteractableObject interactableObject;
     private Transform playerLook;
-    [HideInInspector] public Transform PlayerLook => playerLook;
 
     private RaycastHit hitInfo;
     private Ray ray;
@@ -17,7 +16,6 @@ public class PlayerActions : MonoBehaviour
     void Start()
     {
         cam = transform.GetChild(0).GetComponent<Camera>();
-        ray = cam.ScreenPointToRay(Vector3.one * 0.5f);
         ClearUI();
     }
 
@@ -28,19 +26,31 @@ public class PlayerActions : MonoBehaviour
 
     public void PickUpObject()
     {
-        if (Physics.Raycast(ray, out hitInfo))
+        if (Physics.Raycast(ray, out hitInfo, interactDistance))
         {
-            Collider collider = hitInfo.collider;
-            if (collider.TryGetComponent(out interactableObject))
+            if (hitInfo.collider.TryGetComponent(out interactableObject))
             {
-                interactableObject.ObjectAction(gameObject);
+                Debug.Log("Attempting to interact!");
             }
+        }
+        else
+        {
+            interactableObject = null;
         }
     }
 
     public void CheckIfHolding()
     {
+        ray = cam.ViewportPointToRay(Vector3.one * 0.5f);
+        
+        if (playerLook.GetChild(0) == null)
+        {
+            PickUpObject();
+        }
+        else
+        {
 
+        }
     }
 
     // Grab names from interactive objects in surrounding areas

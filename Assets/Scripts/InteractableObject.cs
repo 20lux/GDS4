@@ -10,7 +10,6 @@ public class InteractableObject : MonoBehaviour, IInteractable
     [SerializeField] private string ObjectName;
     [HideInInspector] public string objectName => ObjectName;
     [SerializeField] private GameObject objectToInteractWith;
-    [HideInInspector] public ObjectType type;
 
     public void GetObjectTransform(Transform interactorTransform)
     {
@@ -28,7 +27,7 @@ public class InteractableObject : MonoBehaviour, IInteractable
 
     public void ObjectAction(GameObject playerObject)
     {
-        switch (type)
+        switch (objectType)
         {
             case ObjectType.None:
                 break;
@@ -37,8 +36,7 @@ public class InteractableObject : MonoBehaviour, IInteractable
             case ObjectType.Key:
                 break;
             case ObjectType.PickableObject:
-                Transform playerLookTransform = playerObject.transform.GetChild(1).transform;
-                transform.SetParent(playerLookTransform);
+                Debug.Log("Interacting with object!");
                 break;
             case ObjectType.InspectObject:
                 break;
