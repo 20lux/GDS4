@@ -10,6 +10,8 @@ public class InteractableObject : MonoBehaviour, IInteractable
     [SerializeField] private string ObjectName;
     [HideInInspector] public string objectName => ObjectName;
     [SerializeField] private GameObject objectToInteractWith;
+    private Rigidbody Rb;
+    [HideInInspector] public Rigidbody rb => Rb;
 
     public void GetObjectTransform(Transform interactorTransform)
     {
@@ -22,7 +24,8 @@ public class InteractableObject : MonoBehaviour, IInteractable
         Console = 1, 
         Key = 2, 
         PickableObject = 3,
-        InspectObject = 4 
+        PlaceableSpace = 4,
+        InspectObject = 5 
     }
 
     public void ObjectAction(GameObject playerObject)
@@ -37,6 +40,8 @@ public class InteractableObject : MonoBehaviour, IInteractable
                 break;
             case ObjectType.PickableObject:
                 Debug.Log("Interacting with object!");
+                break;
+            case ObjectType.PlaceableSpace:
                 break;
             case ObjectType.InspectObject:
                 break;

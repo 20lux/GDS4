@@ -12,16 +12,55 @@ public class PlayerActions : MonoBehaviour
 
     private RaycastHit hitInfo;
     private Ray ray;
-    
+    [HideInInspector] public int layerToIgnoreRaycast;
+    [HideInInspector] public int layerInteractable;
+ 
     void Start()
     {
-        cam = transform.GetChild(0).GetComponent<Camera>();
+        cam = Camera.main;
+        layerToIgnoreRaycast = LayerMask.NameToLayer("Ignore Raycast");
+        layerInteractable = LayerMask.NameToLayer("InteractObjects");
+        ray = cam.ViewportPointToRay(Vector3.one * 0.5f);
         ClearUI();
     }
 
     private void FixedUpdate()
     {
         Debug.DrawRay(cam.transform.position, cam.transform.forward, Color.yellow);
+
+        if (Physics.Raycast(ray, out hitInfo, interactDistance, layerInteractable))
+        {
+            HighlightObject();
+        }
+    }
+
+    public void Interact()
+    {
+        if (gameObject.TryGetComponent(out interactableObject))
+        {
+            //Check if player picked some item already
+            if (interactableObject)
+            {
+                CheckIfHolding();
+            }
+            else
+            {
+                NotHoldingAnything();
+            }
+        }
+    }
+
+    public void CheckIfHolding()
+    {
+        //Check if ray hits something
+        if (Physics.Raycast(ray, out hitInfo, interactDistance))
+        {
+            //If ray does hit tag "Placeable", grab held item and find child within object hit with ray
+            if (hitInfo.collider.tag == "Placeable")
+            {
+                PlaceItem(interactableObject);
+            }     
+        }
     }
 
     public void PickUpObject()
@@ -39,18 +78,61 @@ public class PlayerActions : MonoBehaviour
         }
     }
 
-    public void CheckIfHolding()
+    // Picks up item
+    public void PickItem(InteractableObject interactedObject)
     {
-        ray = cam.ViewportPointToRay(Vector3.one * 0.5f);
-        
-        if (playerLook.GetChild(0) == null)
-        {
-            PickUpObject();
-        }
-        else
-        {
+        interactedObject = interactableObject;
+        interactedObject.gameObject.layer = layerToIgnoreRaycast;
 
+        interactedObject.rb.isKinematic = true;
+
+        interactedObject.transform.SetParent(playerLook);
+
+        interactedObject.transform.localPosition = Vector3.zero;
+
+        interactedObject.transform.localRotation = Quaternion.Euler(-90, 180, 0);
+    }
+
+    // Places item in a set position in scene
+    public void PlaceItem(InteractableObject placeObject)
+    {
+        placeObject = null;
+
+        placeObject.rb.isKinematic = false;
+
+        placeObject.transform.localPosition = Vector3.zero;
+
+        placeObject.transform.localRotation = Quaternion.Euler(-90, 180, 0);
+    }
+
+    public void NotHoldingAnything()
+    {
+        //Shoot ray to find object to pick
+        if (Physics.Raycast(ray, out hitInfo, interactDistance))
+        {
+            //Check if object is pickable
+            var pickable = hitInfo.transform.GetComponent<InteractableObject>();
+
+            //If object has PickableItem class
+            if (pickable)
+            {
+                PickItem(pickable);
+            }
         }
+    }
+
+    public void HighlightObject()
+    {
+        if (interactableObject)
+        {
+            UIText.text = "Press [E] to interact";
+            Debug.Log("Highlighting object");
+        }
+    }
+
+    public void ClearUI()
+    {
+        UIText.text = " ";
     }
 
     // Grab names from interactive objects in surrounding areas
@@ -124,18 +206,4 @@ public class PlayerActions : MonoBehaviour
     //         Debug.Log("Did not hit");    
     //     }
     // }
-
-    public void HighlightObject()
-    {
-        if (interactableObject)
-        {
-            UIText.text = "Press [E] to interact";
-            Debug.Log("Highlighting object");
-        }
-    }
-
-    public void ClearUI()
-    {
-        UIText.text = " ";
-    }
 }
