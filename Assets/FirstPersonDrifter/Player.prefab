@@ -34,7 +34,8 @@ Transform:
   m_LocalPosition: {x: -0.16698846, y: 0.5, z: 0.18605071}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7220192261601568743}
   m_Father: {fileID: 400002}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &2000000
@@ -217,7 +218,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 400000}
-  - {fileID: 7220192261601568743}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3300000
@@ -356,8 +356,12 @@ MonoBehaviour:
   cam: {fileID: 0}
   UIText: {fileID: 0}
   interactableObject: {fileID: 0}
-  layerToIgnoreRaycast: 0
-  layerInteractable: 0
+  layerToIgnoreRaycast:
+    serializedVersion: 2
+    m_Bits: 0
+  layerInteractable:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &6503241596347810795
 GameObject:
   m_ObjectHideFlags: 0
@@ -384,12 +388,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6503241596347810795}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.068294376, y: 0.5, z: 0.9976653}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 400002}
+  m_Father: {fileID: 400000}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5290705294731954930
 MeshFilter:

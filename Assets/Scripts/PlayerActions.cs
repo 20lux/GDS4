@@ -50,7 +50,7 @@ public class PlayerActions : MonoBehaviour
 
                     if (interactableObject)
                     {
-                        CheckIfHolding(interactableObject);
+                        PickItem(interactableObject);
                     }
                 }
             }
@@ -60,41 +60,36 @@ public class PlayerActions : MonoBehaviour
     public void CheckIfHolding(InteractableObject interactableObject)
     {
         Debug.Log("Checking if holding something");
-        // if (interactableObject)
-        // {
-        //     PlaceItem(interactableObject);
-        // }
-        // else
-        // {
-        //     PickItem(interactableObject);
-        // }
+        if (interactableObject)
+        {
+            PlaceItem(interactableObject);
+        }
+        else
+        {
+            PickItem(interactableObject);
+        }
     }
 
     // Picks up item
     public void PickItem(InteractableObject interactedObject)
     {
+        Debug.Log("Picking up item!");
+
         interactedObject = interactableObject;
         interactedObject.gameObject.layer = layerToIgnoreRaycast;
-
         interactedObject.rb.isKinematic = true;
-
         interactedObject.transform.SetParent(playerLook);
-
         interactedObject.transform.localPosition = Vector3.zero;
-
-        interactedObject.transform.localRotation = Quaternion.Euler(-90, 180, 0);
+        //interactedObject.transform.localRotation = Quaternion.identity;
     }
 
     // Places item in a set position in scene
     public void PlaceItem(InteractableObject placeObject)
     {
         placeObject = null;
-
         placeObject.rb.isKinematic = false;
-
         placeObject.transform.localPosition = Vector3.zero;
-
-        placeObject.transform.localRotation = Quaternion.Euler(-90, 180, 0);
+        //placeObject.transform.localRotation = Quaternion.identity;
     }
 
     // public void NotHoldingAnything()

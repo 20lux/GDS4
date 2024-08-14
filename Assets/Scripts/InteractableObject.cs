@@ -13,6 +13,11 @@ public class InteractableObject : MonoBehaviour, IInteractable
     private Rigidbody Rb;
     [HideInInspector] public Rigidbody rb => Rb;
 
+    void Awake()
+    {
+        Rb = GetComponent<Rigidbody>();
+    }
+    
     public void GetObjectTransform(Transform interactorTransform)
     {
         gameObject.transform.position = interactorTransform.position;  
