@@ -7,103 +7,105 @@ using UnityEngine;
 public class PlayerActions : MonoBehaviour
 {
     [Header("Player Interation Properties")]
-    [SerializeField] private float interactDistance = 4f;
+    [SerializeField] private float interactDistance = 10f;
     [SerializeField] private Camera cam;
     [SerializeField] private TextMeshProUGUI UIText;
-    public InteractableObject interactableObject;
-    private RaycastHit hitInfo;
-    private Ray ray;
-    private Transform playerLook;
+    [HideInInspector] public InteractableObject interactableObject;
+    [SerializeField] private Transform playerLook;
     [SerializeField] private LayerMask layerToIgnoreRaycast;
     [SerializeField] private LayerMask layerInteractable;
+    private GameObject carriedObject = null;
  
     void Start()
     {
         cam = Camera.main;
         layerToIgnoreRaycast = LayerMask.NameToLayer("Ignore Raycast");
-        ray = cam.ViewportPointToRay(Vector3.one * 0.5f);
         HighlightObject(false);
     }
 
-    public void Interact()
+    public void Update()
     {
-        Debug.DrawRay(cam.transform.position, cam.transform.forward, Color.red, 2f);
-        
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, 
-                        out RaycastHit hit, interactDistance, layerInteractable))
+        Debug.DrawRay(cam.transform.position, cam.transform.forward, Color.red);
+
+        var ray = new Ray(cam.transform.position, cam.transform.forward);
+        if (Physics.Raycast(ray, interactDistance, layerInteractable))
         {
-            Debug.Log(hit.transform);
+            HighlightObject(true);
+        }
+        else
+        {
+            HighlightObject(false);
         }
 
-        // if (gameObject.TryGetComponent(out interactableObject))
-        // {
-        //     //Check if player picked some item already
-        //     if (interactableObject)
-        //     {
-        //         CheckIfHolding();
-        //     }
-        //     else
-        //     {
-        //         NotHoldingAnything();
-        //     }
-        // }
+        PlayerInteract();
     }
 
+    public void PlayerInteract()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (!carriedObject)
+            {
+                if (Physics.Raycast(cam.transform.position, cam.transform.forward, 
+                                out RaycastHit hit, interactDistance, layerInteractable))
+                {
+                    Debug.DrawLine(cam.transform.position, hit.point, Color.green, 1f);
+                    Debug.Log(hit.transform);
 
-    // public void PickUpObject()
-    // {
-    //     if (Physics.Raycast(ray, out hitInfo, interactDistance))
-    //     {
-    //         if (hitInfo.collider.TryGetComponent(out interactableObject))
-    //         {
-    //             Debug.Log("Attempting to interact!");
-    //         }
-    //     }
-    //     else
-    //     {
-    //         interactableObject = null;
-    //     }
-    // }
+
+                        if (hit.transform.TryGetComponent(out interactableObject))
+                        {
+                            Debug.Log("Trying to pick up interactable object!");
+
+                            carriedObject = interactableObject.gameObject;
+                            if (interactableObject)
+                            {
+                                PickItem(carriedObject);
+                            }
+                        }
+                }
+            }
+            else
+            {
+                PlaceItem(carriedObject);
+            }
+        }
+    }
     
-    // public void CheckIfHolding()
-    // {
-    //     //Check if ray hits something
-    //     if (Physics.Raycast(ray, out hitInfo, interactDistance))
-    //     {
-    //         //If ray does hit tag "Placeable", grab held item and find child within object hit with ray
-    //         if (hitInfo.collider.tag == "Placeable")
-    //         {
-    //             PlaceItem(interactableObject);
-    //         }     
-    //     }
-    // }
+    public void CheckIfHolding(InteractableObject interactableObject)
+    {
+        Debug.Log("Checking if holding something");
+        if (interactableObject)
+        {
+            PlaceItem(interactableObject.gameObject);
+        }
+        else
+        {
+            PickItem(interactableObject.gameObject);
+        }
+    }
 
-    // // Picks up item
-    // public void PickItem(InteractableObject interactedObject)
-    // {
-    //     interactedObject = interactableObject;
-    //     interactedObject.gameObject.layer = layerToIgnoreRaycast;
+    // Picks up item
+    public void PickItem(GameObject interactedObject)
+    {
+        Debug.Log("Picking up item!");
 
-    //     interactedObject.rb.isKinematic = true;
+        interactedObject = interactableObject.gameObject;
+        interactedObject.layer = layerToIgnoreRaycast;
+        interactedObject.GetComponent<Rigidbody>().isKinematic = true;
+        interactedObject.transform.SetParent(playerLook);
+        interactedObject.transform.localPosition = Vector3.zero;
+        //interactedObject.transform.localRotation = Quaternion.identity;
+    }
 
-    //     interactedObject.transform.SetParent(playerLook);
-
-    //     interactedObject.transform.localPosition = Vector3.zero;
-
-    //     interactedObject.transform.localRotation = Quaternion.Euler(-90, 180, 0);
-    // }
-
-    // // Places item in a set position in scene
-    // public void PlaceItem(InteractableObject placeObject)
-    // {
-    //     placeObject = null;
-
-    //     placeObject.rb.isKinematic = false;
-
-    //     placeObject.transform.localPosition = Vector3.zero;
-
-    //     placeObject.transform.localRotation = Quaternion.Euler(-90, 180, 0);
-    // }
+    // Places item in a set position in scene
+    public void PlaceItem(GameObject placeObject)
+    {
+        placeObject.GetComponent<Rigidbody>().isKinematic = false;
+        placeObject.transform.position = new Vector3 (cam.transform.position.x, cam.transform.position.y, cam.transform.position.z - 2);
+        placeObject.transform.SetParent(null);
+        //placeObject.transform.localRotation = Quaternion.identity;
+    }
 
     // public void NotHoldingAnything()
     // {
@@ -125,11 +127,8 @@ public class PlayerActions : MonoBehaviour
     {
         if (isActive)
         {
-            if (interactableObject)
-            {
-                UIText.text = "Press [E] to interact";
-                Debug.Log("Highlighting object");
-            }
+            UIText.text = "Press [E] to interact";
+            Debug.Log("Highlighting object");
         }
         else
         {
