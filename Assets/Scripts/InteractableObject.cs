@@ -10,17 +10,24 @@ public class InteractableObject : MonoBehaviour, IInteractable
     [SerializeField] private string ObjectName;
     [HideInInspector] public string objectName => ObjectName;
     [SerializeField] private GameObject objectToInteractWith;
-    private Rigidbody Rb;
-    [HideInInspector] public Rigidbody rb => Rb;
-
-    void Awake()
-    {
-        Rb = GetComponent<Rigidbody>();
-    }
+    private Rigidbody objectRigidBody;
+    private Transform objectGrabTransform;
     
-    public void GetObjectTransform(Transform interactorTransform)
+    private void Awake()
     {
-        gameObject.transform.position = interactorTransform.position;  
+        objectRigidBody = GetComponent<Rigidbody>();
+    }
+
+    public void Grab(Transform playerLookTransform)
+    {
+        objectGrabTransform = playerLookTransform;
+        objectRigidBody.useGravity = false;
+    }
+
+    public void Drop()
+    {
+        objectGrabTransform = null;
+        objectRigidBody.useGravity = true;
     }
 
     public enum ObjectType 
@@ -33,7 +40,16 @@ public class InteractableObject : MonoBehaviour, IInteractable
         InspectObject = 5 
     }
 
-    public void ObjectAction(GameObject playerObject)
+    private void FixedUpdate()
+    {
+        if (objectGrabTransform != null)
+        {
+            Vector3 newPosition = objectGrabTransform.position;
+            objectRigidBody.MovePosition(newPosition);
+        }
+    }
+
+    public void ObjectAction(GameObject playerLookObject)
     {
         switch (objectType)
         {
@@ -45,6 +61,7 @@ public class InteractableObject : MonoBehaviour, IInteractable
                 break;
             case ObjectType.PickableObject:
                 Debug.Log("Interacting with object!");
+                Grab(playerLookObject.transform);
                 break;
             case ObjectType.PlaceableSpace:
                 break;

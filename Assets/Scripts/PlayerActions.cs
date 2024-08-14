@@ -8,26 +8,24 @@ public class PlayerActions : MonoBehaviour
 {
     [Header("Player Interation Properties")]
     [SerializeField] private float interactDistance = 10f;
-    [SerializeField] private Camera cam;
+    [SerializeField] private Camera playerCam;
     [SerializeField] private TextMeshProUGUI UIText;
-    [HideInInspector] public InteractableObject interactableObject;
-    [SerializeField] private Transform playerLook;
-    [SerializeField] private LayerMask layerToIgnoreRaycast;
+    private InteractableObject interactableObject;
+    [SerializeField] private Transform playerLookTransform;
     [SerializeField] private LayerMask layerInteractable;
-    private GameObject carriedObject = null;
  
     void Start()
     {
-        cam = Camera.main;
-        layerToIgnoreRaycast = LayerMask.NameToLayer("Ignore Raycast");
+        playerCam = Camera.main;
+        layerInteractable = LayerMask.GetMask("InteractObjects");
         HighlightObject(false);
     }
 
     public void Update()
     {
-        Debug.DrawRay(cam.transform.position, cam.transform.forward, Color.red);
+        Debug.DrawRay(playerCam.transform.position, playerCam.transform.forward, Color.red);
 
-        var ray = new Ray(cam.transform.position, cam.transform.forward);
+        var ray = new Ray(playerCam.transform.position, playerCam.transform.forward);
         if (Physics.Raycast(ray, interactDistance, layerInteractable))
         {
             HighlightObject(true);
@@ -44,12 +42,13 @@ public class PlayerActions : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (!carriedObject)
+            if (interactableObject == null)
             {
-                if (Physics.Raycast(cam.transform.position, cam.transform.forward, 
+                // not carrying anything and trying to grab
+                if (Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, 
                                 out RaycastHit hit, interactDistance, layerInteractable))
                 {
-                    Debug.DrawLine(cam.transform.position, hit.point, Color.green, 1f);
+                    Debug.DrawLine(playerCam.transform.position, hit.point, Color.green, 1f);
                     Debug.Log(hit.transform);
 
 
@@ -57,71 +56,18 @@ public class PlayerActions : MonoBehaviour
                         {
                             Debug.Log("Trying to pick up interactable object!");
 
-                            carriedObject = interactableObject.gameObject;
-                            if (interactableObject)
-                            {
-                                PickItem(carriedObject);
-                            }
+                            interactableObject.Grab(playerLookTransform.transform);
                         }
                 }
             }
             else
             {
-                PlaceItem(carriedObject);
+                // Currently carrying something, drop
+                interactableObject.Drop();
+                interactableObject = null;
             }
         }
     }
-    
-    public void CheckIfHolding(InteractableObject interactableObject)
-    {
-        Debug.Log("Checking if holding something");
-        if (interactableObject)
-        {
-            PlaceItem(interactableObject.gameObject);
-        }
-        else
-        {
-            PickItem(interactableObject.gameObject);
-        }
-    }
-
-    // Picks up item
-    public void PickItem(GameObject interactedObject)
-    {
-        Debug.Log("Picking up item!");
-
-        interactedObject = interactableObject.gameObject;
-        interactedObject.layer = layerToIgnoreRaycast;
-        interactedObject.GetComponent<Rigidbody>().isKinematic = true;
-        interactedObject.transform.SetParent(playerLook);
-        interactedObject.transform.localPosition = Vector3.zero;
-        //interactedObject.transform.localRotation = Quaternion.identity;
-    }
-
-    // Places item in a set position in scene
-    public void PlaceItem(GameObject placeObject)
-    {
-        placeObject.GetComponent<Rigidbody>().isKinematic = false;
-        placeObject.transform.position = new Vector3 (cam.transform.position.x, cam.transform.position.y, cam.transform.position.z - 2);
-        placeObject.transform.SetParent(null);
-        //placeObject.transform.localRotation = Quaternion.identity;
-    }
-
-    // public void NotHoldingAnything()
-    // {
-    //     //Shoot ray to find object to pick
-    //     if (Physics.Raycast(ray, out hitInfo, interactDistance))
-    //     {
-    //         //Check if object is pickable
-    //         var pickable = hitInfo.transform.GetComponent<InteractableObject>();
-
-    //         //If object has PickableItem class
-    //         if (pickable)
-    //         {
-    //             PickItem(pickable);
-    //         }
-    //     }
-    // }
 
     public void HighlightObject(bool isActive)
     {

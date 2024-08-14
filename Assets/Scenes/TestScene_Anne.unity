@@ -2294,10 +2294,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 691262572612810311, guid: b5c5294977f98e1429e4d836e6fd86d4,
+    - target: {fileID: 2056609802235540056, guid: b5c5294977f98e1429e4d836e6fd86d4,
         type: 3}
-      propertyPath: m_Layer
-      value: 8
+      propertyPath: m_Interpolate
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2170586187613415979, guid: b5c5294977f98e1429e4d836e6fd86d4,
         type: 3}
@@ -2349,30 +2349,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5217227656053023068, guid: b5c5294977f98e1429e4d836e6fd86d4,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7953908530477307747, guid: b5c5294977f98e1429e4d836e6fd86d4,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 8171504419972645415, guid: b5c5294977f98e1429e4d836e6fd86d4,
         type: 3}
       propertyPath: m_Name
       value: PR_cassette_01 (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8171504419972645415, guid: b5c5294977f98e1429e4d836e6fd86d4,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 8171504419972645415, guid: b5c5294977f98e1429e4d836e6fd86d4,
-        type: 3}
-      propertyPath: m_TagString
-      value: InteractObject
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4918,6 +4898,10 @@ PrefabInstance:
       propertyPath: near clip plane
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 14300000, guid: 7d046b1de5c6f45de8f20035cfb42c08, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 5346064800649243297, guid: 7d046b1de5c6f45de8f20035cfb42c08,
         type: 3}
       propertyPath: m_Dithering
@@ -4936,6 +4920,11 @@ PrefabInstance:
     - target: {fileID: 6415318062900184177, guid: 7d046b1de5c6f45de8f20035cfb42c08,
         type: 3}
       propertyPath: playerLook
+      value: 
+      objectReference: {fileID: 172147457}
+    - target: {fileID: 6415318062900184177, guid: 7d046b1de5c6f45de8f20035cfb42c08,
+        type: 3}
+      propertyPath: playerLookTransform
       value: 
       objectReference: {fileID: 172147457}
     - target: {fileID: 6415318062900184177, guid: 7d046b1de5c6f45de8f20035cfb42c08,

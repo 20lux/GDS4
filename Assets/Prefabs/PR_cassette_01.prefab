@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 2704029694359478051}
   - component: {fileID: 2056609802235540056}
   - component: {fileID: 367693973626227220}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PR_cassette_01
-  m_TagString: Untagged
+  m_TagString: InteractObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64,7 +64,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8171504419972645415}
   serializedVersion: 4
-  m_Mass: 0.1
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -160,6 +160,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ME_cassette
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 157d4b80ba71038459f1d6e1a3356ca0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3082657399214164846, guid: 157d4b80ba71038459f1d6e1a3356ca0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7725722708412619893, guid: 157d4b80ba71038459f1d6e1a3356ca0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
