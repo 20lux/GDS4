@@ -10,8 +10,8 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] private float interactDistance = 4f;
     [SerializeField] private Camera cam;
     [SerializeField] private TextMeshProUGUI UIText;
-    public InteractableObject interactableObject;
-    private Transform playerLook;
+    [HideInInspector] public InteractableObject interactableObject;
+    [SerializeField] private Transform playerLook;
     [SerializeField] private LayerMask layerToIgnoreRaycast;
     [SerializeField] private LayerMask layerInteractable;
  
@@ -27,7 +27,7 @@ public class PlayerActions : MonoBehaviour
         Debug.DrawRay(cam.transform.position, cam.transform.forward, Color.red);
 
         var ray = new Ray(cam.transform.position, cam.transform.forward);
-        if (Physics.Raycast(ray, out RaycastHit hitInfo, interactDistance, layerInteractable))
+        if (Physics.Raycast(ray, interactDistance, layerInteractable))
         {
             HighlightObject(true);
         }
@@ -50,7 +50,7 @@ public class PlayerActions : MonoBehaviour
 
                     if (interactableObject)
                     {
-                        PickItem(interactableObject);
+                        PickItem(interactableObject.gameObject);
                     }
                 }
             }
@@ -62,32 +62,32 @@ public class PlayerActions : MonoBehaviour
         Debug.Log("Checking if holding something");
         if (interactableObject)
         {
-            PlaceItem(interactableObject);
+            PlaceItem(interactableObject.gameObject);
         }
         else
         {
-            PickItem(interactableObject);
+            PickItem(interactableObject.gameObject);
         }
     }
 
     // Picks up item
-    public void PickItem(InteractableObject interactedObject)
+    public void PickItem(GameObject interactedObject)
     {
         Debug.Log("Picking up item!");
 
-        interactedObject = interactableObject;
-        interactedObject.gameObject.layer = layerToIgnoreRaycast;
-        interactedObject.rb.isKinematic = true;
+        interactedObject = interactableObject.gameObject;
+        interactedObject.layer = layerToIgnoreRaycast;
+        interactedObject.GetComponent<Rigidbody>().isKinematic = true;
         interactedObject.transform.SetParent(playerLook);
         interactedObject.transform.localPosition = Vector3.zero;
         //interactedObject.transform.localRotation = Quaternion.identity;
     }
 
     // Places item in a set position in scene
-    public void PlaceItem(InteractableObject placeObject)
+    public void PlaceItem(GameObject placeObject)
     {
         placeObject = null;
-        placeObject.rb.isKinematic = false;
+        placeObject.GetComponent<Rigidbody>().isKinematic = false;
         placeObject.transform.localPosition = Vector3.zero;
         //placeObject.transform.localRotation = Quaternion.identity;
     }
