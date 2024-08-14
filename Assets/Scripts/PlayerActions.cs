@@ -1,4 +1,7 @@
+using System;
 using TMPro;
+using UnityEditor;
+using UnityEditor.Search;
 using UnityEngine;
 
 public class PlayerActions : MonoBehaviour
@@ -8,130 +11,115 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] private Camera cam;
     [SerializeField] private TextMeshProUGUI UIText;
     public InteractableObject interactableObject;
-    private Transform playerLook;
-
     private RaycastHit hitInfo;
     private Ray ray;
-    private QueryTriggerInteraction queryTriggerInteraction;
-    [HideInInspector] public int layerToIgnoreRaycast;
-    [HideInInspector] public int layerInteractable;
+    private Transform playerLook;
+    [SerializeField] private LayerMask layerToIgnoreRaycast;
+    [SerializeField] private LayerMask layerInteractable;
  
     void Start()
     {
         cam = Camera.main;
         layerToIgnoreRaycast = LayerMask.NameToLayer("Ignore Raycast");
-        layerInteractable = LayerMask.NameToLayer("InteractObjects");
         ray = cam.ViewportPointToRay(Vector3.one * 0.5f);
         HighlightObject(false);
     }
 
-    void Update()
+    public void Interact()
     {
-        Debug.DrawRay(cam.transform.position, cam.transform.forward * interactDistance, Color.red);
+        Debug.DrawRay(cam.transform.position, cam.transform.forward, Color.red, 2f);
+        
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, 
+                        out RaycastHit hit, interactDistance, layerInteractable))
+        {
+            Debug.Log(hit.transform);
+        }
 
-        // if (Physics.Raycast(cam.transform.position, cam.transform.forward * interactDistance, out hitInfo, 
-        //     interactDistance, layerInteractable, queryTriggerInteraction))
+        // if (gameObject.TryGetComponent(out interactableObject))
         // {
-        //     Debug.DrawLine(cam.transform.position, hitInfo.point, Color.green);
-
-        //     if (hitInfo.collider.CompareTag("InteractObject"))
+        //     //Check if player picked some item already
+        //     if (interactableObject)
         //     {
-        //         Debug.Log("Found object to highlight!");
-        //         HighlightObject(true);
-        //         return;
+        //         CheckIfHolding();
         //     }
-
-        //     return;
+        //     else
+        //     {
+        //         NotHoldingAnything();
+        //     }
         // }
     }
 
 
-    public void Interact()
-    {
-        if (gameObject.TryGetComponent(out interactableObject))
-        {
-            //Check if player picked some item already
-            if (interactableObject)
-            {
-                CheckIfHolding();
-            }
-            else
-            {
-                NotHoldingAnything();
-            }
-        }
-    }
+    // public void PickUpObject()
+    // {
+    //     if (Physics.Raycast(ray, out hitInfo, interactDistance))
+    //     {
+    //         if (hitInfo.collider.TryGetComponent(out interactableObject))
+    //         {
+    //             Debug.Log("Attempting to interact!");
+    //         }
+    //     }
+    //     else
+    //     {
+    //         interactableObject = null;
+    //     }
+    // }
+    
+    // public void CheckIfHolding()
+    // {
+    //     //Check if ray hits something
+    //     if (Physics.Raycast(ray, out hitInfo, interactDistance))
+    //     {
+    //         //If ray does hit tag "Placeable", grab held item and find child within object hit with ray
+    //         if (hitInfo.collider.tag == "Placeable")
+    //         {
+    //             PlaceItem(interactableObject);
+    //         }     
+    //     }
+    // }
 
-    public void CheckIfHolding()
-    {
-        //Check if ray hits something
-        if (Physics.Raycast(ray, out hitInfo, interactDistance))
-        {
-            //If ray does hit tag "Placeable", grab held item and find child within object hit with ray
-            if (hitInfo.collider.tag == "Placeable")
-            {
-                PlaceItem(interactableObject);
-            }     
-        }
-    }
+    // // Picks up item
+    // public void PickItem(InteractableObject interactedObject)
+    // {
+    //     interactedObject = interactableObject;
+    //     interactedObject.gameObject.layer = layerToIgnoreRaycast;
 
-    public void PickUpObject()
-    {
-        if (Physics.Raycast(ray, out hitInfo, interactDistance))
-        {
-            if (hitInfo.collider.TryGetComponent(out interactableObject))
-            {
-                Debug.Log("Attempting to interact!");
-            }
-        }
-        else
-        {
-            interactableObject = null;
-        }
-    }
+    //     interactedObject.rb.isKinematic = true;
 
-    // Picks up item
-    public void PickItem(InteractableObject interactedObject)
-    {
-        interactedObject = interactableObject;
-        interactedObject.gameObject.layer = layerToIgnoreRaycast;
+    //     interactedObject.transform.SetParent(playerLook);
 
-        interactedObject.rb.isKinematic = true;
+    //     interactedObject.transform.localPosition = Vector3.zero;
 
-        interactedObject.transform.SetParent(playerLook);
+    //     interactedObject.transform.localRotation = Quaternion.Euler(-90, 180, 0);
+    // }
 
-        interactedObject.transform.localPosition = Vector3.zero;
+    // // Places item in a set position in scene
+    // public void PlaceItem(InteractableObject placeObject)
+    // {
+    //     placeObject = null;
 
-        interactedObject.transform.localRotation = Quaternion.Euler(-90, 180, 0);
-    }
+    //     placeObject.rb.isKinematic = false;
 
-    // Places item in a set position in scene
-    public void PlaceItem(InteractableObject placeObject)
-    {
-        placeObject = null;
+    //     placeObject.transform.localPosition = Vector3.zero;
 
-        placeObject.rb.isKinematic = false;
+    //     placeObject.transform.localRotation = Quaternion.Euler(-90, 180, 0);
+    // }
 
-        placeObject.transform.localPosition = Vector3.zero;
+    // public void NotHoldingAnything()
+    // {
+    //     //Shoot ray to find object to pick
+    //     if (Physics.Raycast(ray, out hitInfo, interactDistance))
+    //     {
+    //         //Check if object is pickable
+    //         var pickable = hitInfo.transform.GetComponent<InteractableObject>();
 
-        placeObject.transform.localRotation = Quaternion.Euler(-90, 180, 0);
-    }
-
-    public void NotHoldingAnything()
-    {
-        //Shoot ray to find object to pick
-        if (Physics.Raycast(ray, out hitInfo, interactDistance))
-        {
-            //Check if object is pickable
-            var pickable = hitInfo.transform.GetComponent<InteractableObject>();
-
-            //If object has PickableItem class
-            if (pickable)
-            {
-                PickItem(pickable);
-            }
-        }
-    }
+    //         //If object has PickableItem class
+    //         if (pickable)
+    //         {
+    //             PickItem(pickable);
+    //         }
+    //     }
+    // }
 
     public void HighlightObject(bool isActive)
     {
@@ -148,76 +136,4 @@ public class PlayerActions : MonoBehaviour
             UIText.text = " ";
         }
     }
-
-    // Grab names from interactive objects in surrounding areas
-    // void FixedUpdate()
-    // {
-    //     Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactDistance, mask);
-
-    //     if (colliderArray.Length > 0)
-    //     {
-    //         foreach (Collider collider in colliderArray)
-    //         {
-    //             if (collider.gameObject.TryGetComponent(out interactableObject))
-    //             {
-    //                 HighlightObject(interactableObject);
-    //             }
-    //         }
-    //     }
-    //     else
-    //     {
-    //         ClearUI();
-    //     }
-    // }
-
-    // public InteractableObject GetInteractableObject()
-    // {
-    //     List<InteractableObject> interactableObjectList = new List<InteractableObject>();
-
-    //     Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactDistance);
-    //     foreach (Collider collider in colliderArray)
-    //     {
-    //         if (collider.TryGetComponent(out interactableObject))
-    //         {
-    //             interactableObjectList.Add(interactableObject);
-    //         }
-    //     }
-
-    //     // gets closest interactable object in the array
-    //     InteractableObject closestInteractable = null;
-    //     foreach (InteractableObject interactableObject in interactableObjectList)
-    //     {
-    //         if (!closestInteractable)
-    //         {
-    //             closestInteractable = interactableObject;
-    //         }
-    //         else
-    //         {
-    //             if (Vector3.Distance(transform.position, interactableObject.transform.position) <
-    //                 Vector3.Distance(transform.position, closestInteractable.transform.position))
-    //                 {
-    //                     closestInteractable = interactableObject;
-    //                 }
-
-    //         }
-    //     }
-
-    //     return closestInteractable;
-    // }
-
-    // public void InteractWithObject()
-    // {
-    //     RaycastHit hit;
-
-    //     if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, interactDistance, mask))
-    //     {
-    //         Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-    //         Debug.Log("Did hit");
-    //     }
-    //     else
-    //     {
-    //         Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.white, mask);
-    //         Debug.Log("Did not hit");    
-    //     }
-    // }
 }
