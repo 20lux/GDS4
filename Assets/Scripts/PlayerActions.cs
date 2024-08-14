@@ -7,13 +7,14 @@ using UnityEngine;
 public class PlayerActions : MonoBehaviour
 {
     [Header("Player Interation Properties")]
-    [SerializeField] private float interactDistance = 4f;
+    [SerializeField] private float interactDistance = 10f;
     [SerializeField] private Camera cam;
     [SerializeField] private TextMeshProUGUI UIText;
     [HideInInspector] public InteractableObject interactableObject;
     [SerializeField] private Transform playerLook;
     [SerializeField] private LayerMask layerToIgnoreRaycast;
     [SerializeField] private LayerMask layerInteractable;
+    private GameObject carriedObject = null;
  
     void Start()
     {
@@ -36,23 +37,37 @@ public class PlayerActions : MonoBehaviour
             HighlightObject(false);
         }
 
+        PlayerInteract();
+    }
+
+    public void PlayerInteract()
+    {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (Physics.Raycast(cam.transform.position, cam.transform.forward, 
-                            out RaycastHit hit, interactDistance, layerInteractable))
+            if (!carriedObject)
             {
-                Debug.DrawLine(cam.transform.position, hit.point, Color.green, 1f);
-                Debug.Log(hit.transform);
-
-                if (hit.transform.TryGetComponent(out interactableObject))
+                if (Physics.Raycast(cam.transform.position, cam.transform.forward, 
+                                out RaycastHit hit, interactDistance, layerInteractable))
                 {
-                    Debug.Log("Trying to pick up interactable object!");
+                    Debug.DrawLine(cam.transform.position, hit.point, Color.green, 1f);
+                    Debug.Log(hit.transform);
 
-                    if (interactableObject)
-                    {
-                        PickItem(interactableObject.gameObject);
-                    }
+
+                        if (hit.transform.TryGetComponent(out interactableObject))
+                        {
+                            Debug.Log("Trying to pick up interactable object!");
+
+                            carriedObject = interactableObject.gameObject;
+                            if (interactableObject)
+                            {
+                                PickItem(carriedObject);
+                            }
+                        }
                 }
+            }
+            else
+            {
+                PlaceItem(carriedObject);
             }
         }
     }
@@ -86,9 +101,9 @@ public class PlayerActions : MonoBehaviour
     // Places item in a set position in scene
     public void PlaceItem(GameObject placeObject)
     {
-        placeObject = null;
         placeObject.GetComponent<Rigidbody>().isKinematic = false;
-        placeObject.transform.localPosition = Vector3.zero;
+        placeObject.transform.position = new Vector3 (cam.transform.position.x, cam.transform.position.y, cam.transform.position.z - 2);
+        placeObject.transform.SetParent(null);
         //placeObject.transform.localRotation = Quaternion.identity;
     }
 
