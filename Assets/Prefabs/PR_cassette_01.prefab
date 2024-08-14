@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2170586187613415979}
   - component: {fileID: 2704029694359478051}
   - component: {fileID: 2056609802235540056}
+  - component: {fileID: 367693973626227220}
   m_Layer: 0
   m_Name: PR_cassette_01
   m_TagString: Untagged
@@ -82,6 +83,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &367693973626227220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8171504419972645415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aab9c10c1a47e0941b6a79e6d0397606, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectType: 3
+  ObjectName: Cassette #1
+  objectToInteractWith: {fileID: 0}
 --- !u!1001 &7106852265478171186
 PrefabInstance:
   m_ObjectHideFlags: 0
