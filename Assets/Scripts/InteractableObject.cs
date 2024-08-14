@@ -12,10 +12,13 @@ public class InteractableObject : MonoBehaviour, IInteractable
     [SerializeField] private GameObject objectToInteractWith;
     private Rigidbody objectRigidBody;
     private Transform objectGrabTransform;
-    
-    private void Awake()
+
+    private void Start()
     {
-        objectRigidBody = GetComponent<Rigidbody>();
+        if (objectType != ObjectType.Console)
+        {
+            objectRigidBody = GetComponent<Rigidbody>();
+        }
     }
 
     public void Grab(Transform playerLookTransform)
@@ -35,9 +38,8 @@ public class InteractableObject : MonoBehaviour, IInteractable
         None = 0, 
         Console = 1, 
         Key = 2, 
-        PickableObject = 3,
-        PlaceableSpace = 4,
-        InspectObject = 5 
+        GrabObject = 3,
+        InspectObject = 4 
     }
 
     private void FixedUpdate()
@@ -46,27 +48,6 @@ public class InteractableObject : MonoBehaviour, IInteractable
         {
             Vector3 newPosition = objectGrabTransform.position;
             objectRigidBody.MovePosition(newPosition);
-        }
-    }
-
-    public void ObjectAction(GameObject playerLookObject)
-    {
-        switch (objectType)
-        {
-            case ObjectType.None:
-                break;
-            case ObjectType.Console:
-                break;
-            case ObjectType.Key:
-                break;
-            case ObjectType.PickableObject:
-                Debug.Log("Interacting with object!");
-                Grab(playerLookObject.transform);
-                break;
-            case ObjectType.PlaceableSpace:
-                break;
-            case ObjectType.InspectObject:
-                break;
         }
     }
 

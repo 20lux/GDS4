@@ -24,6 +24,7 @@ public class PlayerActions : MonoBehaviour
     {
         Debug.DrawRay(playerCam.transform.position, playerCam.transform.forward, Color.red);
 
+        // when looking at interactable object, highlight
         var ray = new Ray(playerCam.transform.position, playerCam.transform.forward);
         if (Physics.Raycast(ray, interactDistance, layerInteractable))
         {
@@ -43,7 +44,7 @@ public class PlayerActions : MonoBehaviour
         {
             if (interactableObject == null)
             {
-                // not carrying anything and trying to grab
+                // not carrying anything and trying to interact
                 if (Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, 
                                 out RaycastHit hit, interactDistance, layerInteractable))
                 {
@@ -53,19 +54,54 @@ public class PlayerActions : MonoBehaviour
 
                         if (hit.transform.TryGetComponent(out interactableObject))
                         {
-                            Debug.Log("Trying to pick up interactable object!");
-
-                            interactableObject.Grab(playerLookTransform.transform);
+                            //Debug.Log("Trying to pick up interactable object!");
+                            switch (interactableObject.objectType)
+                            {
+                                case InteractableObject.ObjectType.GrabObject:
+                                    interactableObject.Grab(playerLookTransform.transform);
+                                    break;
+                                case InteractableObject.ObjectType.Console:
+                                    Debug.Log("Looking at screen!");
+                                    FreeMouse();
+                                    break;
+                            }
                         }
                 }
             }
             else
             {
-                // Currently carrying something, drop
-                interactableObject.Drop();
-                interactableObject = null;
+                switch (interactableObject.objectType)
+                {
+                    // Currently carrying something, drop
+                    case InteractableObject.ObjectType.GrabObject:
+                        interactableObject.Drop();
+                        interactableObject = null;
+                        break;
+                }
             }
         }
+    }
+
+    public void FreeMouse()
+    {
+        Debug.Log("Freeing mouse!");
+    }
+
+    public void LockMouse()
+    {
+        Debug.Log("Locking mouse!");
+    }
+
+    public void UseConsole()
+    {
+        FreeMouse();
+        Debug.Log("Using console!");
+    }
+
+    public void CloseConsole()
+    {
+        LockMouse();
+        Debug.Log("Closing console!");
     }
 
     public void HighlightObject(bool isActive)
