@@ -13,6 +13,7 @@ public class PlayerActions : MonoBehaviour
     private InteractableObject interactableObject;
     [SerializeField] private Transform playerLookTransform;
     [SerializeField] private LayerMask layerInteractable;
+    private GameObject carriedObject = null;
  
     void Start()
     {
