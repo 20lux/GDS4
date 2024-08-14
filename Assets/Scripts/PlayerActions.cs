@@ -25,14 +25,18 @@ public class PlayerActions : MonoBehaviour
         HighlightObject(false);
     }
 
-    public void Interact()
+    public void Update()
     {
-        Debug.DrawRay(cam.transform.position, cam.transform.forward, Color.red, 2f);
-        
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, 
-                        out RaycastHit hit, interactDistance, layerInteractable))
+        Debug.DrawRay(cam.transform.position, cam.transform.forward, Color.red);
+
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log(hit.transform);
+            if (Physics.Raycast(cam.transform.position, cam.transform.forward, 
+                            out RaycastHit hit, interactDistance, layerInteractable))
+            {
+                Debug.DrawLine(cam.transform.position, hit.point, Color.green, 1f);
+                Debug.Log(hit.transform);
+            }
         }
 
         // if (gameObject.TryGetComponent(out interactableObject))
