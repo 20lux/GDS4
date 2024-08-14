@@ -1,7 +1,6 @@
 using System;
 using TMPro;
 using UnityEditor;
-using UnityEditor.Search;
 using UnityEngine;
 
 public class PlayerActions : MonoBehaviour
