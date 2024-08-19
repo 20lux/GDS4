@@ -7,6 +7,7 @@ public class DoorController : MonoBehaviour
     [SerializeField] private GameObject keyObject;
     private IDoor door;
     private bool isLocked = true;
+    public bool needKey;
 
     private void Awake()
     {
@@ -17,9 +18,13 @@ public class DoorController : MonoBehaviour
     {
         if (other.GetComponent<FirstPersonDrifter>() != null)
         {
-            if (!isLocked)
+            if (!isLocked || needKey)
             {
                 // Player entered collider
+                door.OpenDoor();
+            }
+            else if (!needKey)
+            {
                 door.OpenDoor();
             }
 
@@ -30,9 +35,13 @@ public class DoorController : MonoBehaviour
     {
         if (other.GetComponent<FirstPersonDrifter>() != null)
         {
-            if (!isLocked)
+            if (!isLocked || needKey)
             {
                 // Player exited collider
+                door.CloseDoor();
+            }
+            else if (!needKey)
+            {
                 door.CloseDoor();
             }
         }        

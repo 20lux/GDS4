@@ -53,6 +53,7 @@ public class InteractableObject : MonoBehaviour, IInteractable
             interactedLock.IsLocked = false;
             objectToInteractWith.GetComponentInChildren<MeshRenderer>().material = objectToInteractWith.GetComponent<InteractableObject>().newMaterial;
             objectToInteractWith.gameObject.transform.GetChild(0).gameObject.layer = layerIgnoreRaycast;
+            gameObject.SetActive(false);
         }
     }
 
