@@ -1,9 +1,12 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DoorController : MonoBehaviour
 {
     [SerializeField] private GameObject doorGameObject;
+    [SerializeField] private GameObject keyObject;
     private IDoor door;
+    private bool isLocked = true;
 
     private void Awake()
     {
@@ -14,8 +17,12 @@ public class DoorController : MonoBehaviour
     {
         if (other.GetComponent<FirstPersonDrifter>() != null)
         {
-            // Player entered collider
-            door.OpenDoor();
+            if (!isLocked)
+            {
+                // Player entered collider
+                door.OpenDoor();
+            }
+
         }
     }
 
@@ -23,8 +30,16 @@ public class DoorController : MonoBehaviour
     {
         if (other.GetComponent<FirstPersonDrifter>() != null)
         {
-            // Player exited collider
-            door.CloseDoor();
+            if (!isLocked)
+            {
+                // Player exited collider
+                door.CloseDoor();
+            }
         }        
+    }
+
+    public void UnlockDoor()
+    {
+        isLocked = false;
     }
 }

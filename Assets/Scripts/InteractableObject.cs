@@ -10,8 +10,10 @@ public class InteractableObject : MonoBehaviour, IInteractable
     [SerializeField] private string ObjectName;
     [HideInInspector] public string objectName => ObjectName;
     [SerializeField] private GameObject objectToInteractWith;
+    [SerializeField] private Material newMaterial;
     private Rigidbody objectRigidBody;
     private Transform objectGrabTransform;
+    private int layerIgnoreRaycast = LayerMask.NameToLayer("Ignore Raycast");
 
     private void Start()
     {
@@ -33,13 +35,28 @@ public class InteractableObject : MonoBehaviour, IInteractable
         objectRigidBody.useGravity = true;
     }
 
+    public void UseKey()
+    {
+        objectToInteractWith.GetComponentInChildren<MeshRenderer>().material = newMaterial;
+        objectToInteractWith.gameObject.transform.GetChild(0).gameObject.layer = layerIgnoreRaycast;
+    }
+
+    public void RemoteDoorUnlock()
+    {
+        if (objectToInteractWith.TryGetComponent(out DoorController doorController))
+        {
+            doorController.UnlockDoor();
+        }        
+    }
+
     public enum ObjectType 
     {    
         None = 0, 
         Console = 1, 
-        Key = 2, 
-        GrabObject = 3,
-        InspectObject = 4 
+        Key = 2,
+        Lock = 3, 
+        GrabObject = 4,
+        InspectObject = 5 
     }
 
     private void FixedUpdate()
