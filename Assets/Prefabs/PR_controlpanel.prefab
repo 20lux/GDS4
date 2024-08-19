@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7663897731064284643}
-  m_Layer: 0
+  - component: {fileID: 2488463076454372560}
+  m_Layer: 8
   m_Name: PR_controlpanel
-  m_TagString: Untagged
+  m_TagString: InteractObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,6 +33,21 @@ Transform:
   - {fileID: 2528675218864391664}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2488463076454372560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8284718595904593916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aab9c10c1a47e0941b6a79e6d0397606, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectType: 0
+  ObjectName: Console
+  objectToInteractWith: {fileID: 0}
 --- !u!1001 &2638284523271594523
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -104,6 +120,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ME_block_0.5x0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 40d2929da3c416c49a5b810ad70616b3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
