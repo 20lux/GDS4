@@ -13,13 +13,22 @@ public class InteractableObject : MonoBehaviour, IInteractable
     [SerializeField] private Material newMaterial;
     private Rigidbody objectRigidBody;
     private Transform objectGrabTransform;
-    private int layerIgnoreRaycast = LayerMask.NameToLayer("Ignore Raycast");
+    [SerializeField] private bool IsLocked;
+    [HideInInspector] public bool isLocked => IsLocked;
+    int layerIgnoreRaycast;
 
     private void Start()
     {
+        layerIgnoreRaycast = LayerMask.NameToLayer("Ignore Raycast");
+
         if (objectType != ObjectType.Console)
         {
             objectRigidBody = GetComponent<Rigidbody>();
+        }
+        
+        if (objectType == ObjectType.Lock)
+        {
+            IsLocked = true;
         }
     }
 
@@ -37,16 +46,14 @@ public class InteractableObject : MonoBehaviour, IInteractable
 
     public void UseKey()
     {
-        objectToInteractWith.GetComponentInChildren<MeshRenderer>().material = newMaterial;
-        objectToInteractWith.gameObject.transform.GetChild(0).gameObject.layer = layerIgnoreRaycast;
-    }
-
-    public void RemoteDoorUnlock()
-    {
-        if (objectToInteractWith.TryGetComponent(out DoorController doorController))
+        if (objectToInteractWith.TryGetComponent(out InteractableObject interactedLock))
         {
-            doorController.UnlockDoor();
-        }        
+            Debug.Log("Interacting with lock");
+
+            interactedLock.IsLocked = false;
+            objectToInteractWith.GetComponentInChildren<MeshRenderer>().material = objectToInteractWith.GetComponent<InteractableObject>().newMaterial;
+            objectToInteractWith.gameObject.transform.GetChild(0).gameObject.layer = layerIgnoreRaycast;
+        }
     }
 
     public enum ObjectType 
@@ -68,7 +75,7 @@ public class InteractableObject : MonoBehaviour, IInteractable
         }
     }
 
-    public string GetInteractText()
+    public string GetObjectName()
     {
         return ObjectName;
     }

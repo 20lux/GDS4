@@ -51,7 +51,6 @@ public class PlayerActions : MonoBehaviour
                     Debug.DrawLine(playerCam.transform.position, hit.point, Color.green, 1f);
                     Debug.Log(hit.transform);
 
-
                         if (hit.transform.TryGetComponent(out interactableObject))
                         {
                             //Debug.Log("Trying to pick up interactable object!");
@@ -80,6 +79,7 @@ public class PlayerActions : MonoBehaviour
                         interactableObject.Drop();
                         interactableObject = null;
                         break;
+                    // Currently holding key, unlock if used on right lock
                     case InteractableObject.ObjectType.Key:
                         interactableObject.UseKey();
                         break;

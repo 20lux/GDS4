@@ -38,8 +38,18 @@ public class DoorController : MonoBehaviour
         }        
     }
 
-    public void UnlockDoor()
+    private void Update()
     {
-        isLocked = false;
+        if (keyObject != null)
+        {
+            if (keyObject.TryGetComponent(out InteractableObject keyInteract))
+            {
+                if (!keyInteract.isLocked)
+                {
+                    Debug.Log("Unlocking door!");
+                    isLocked = false;
+                }
+            }
+        }
     }
 }
