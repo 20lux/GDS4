@@ -10,14 +10,25 @@ public class InteractableObject : MonoBehaviour, IInteractable
     [SerializeField] private string ObjectName;
     [HideInInspector] public string objectName => ObjectName;
     [SerializeField] private GameObject objectToInteractWith;
+    [SerializeField] private Material newMaterial;
     private Rigidbody objectRigidBody;
     private Transform objectGrabTransform;
+    [SerializeField] private bool IsLocked;
+    [HideInInspector] public bool isLocked => IsLocked;
+    int layerIgnoreRaycast;
 
     private void Start()
     {
+        layerIgnoreRaycast = LayerMask.NameToLayer("Ignore Raycast");
+
         if (objectType != ObjectType.Console)
         {
             objectRigidBody = GetComponent<Rigidbody>();
+        }
+        
+        if (objectType == ObjectType.Lock)
+        {
+            IsLocked = true;
         }
     }
 
@@ -33,13 +44,27 @@ public class InteractableObject : MonoBehaviour, IInteractable
         objectRigidBody.useGravity = true;
     }
 
+    public void UseKey()
+    {
+        if (objectToInteractWith.TryGetComponent(out InteractableObject interactedLock))
+        {
+            Debug.Log("Interacting with lock");
+
+            interactedLock.IsLocked = false;
+            objectToInteractWith.GetComponentInChildren<MeshRenderer>().material = objectToInteractWith.GetComponent<InteractableObject>().newMaterial;
+            objectToInteractWith.gameObject.transform.GetChild(0).gameObject.layer = layerIgnoreRaycast;
+            gameObject.SetActive(false);
+        }
+    }
+
     public enum ObjectType 
     {    
         None = 0, 
         Console = 1, 
-        Key = 2, 
-        GrabObject = 3,
-        InspectObject = 4 
+        Key = 2,
+        Lock = 3, 
+        GrabObject = 4,
+        InspectObject = 5 
     }
 
     private void FixedUpdate()
@@ -51,7 +76,7 @@ public class InteractableObject : MonoBehaviour, IInteractable
         }
     }
 
-    public string GetInteractText()
+    public string GetObjectName()
     {
         return ObjectName;
     }

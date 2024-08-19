@@ -5,5 +5,5 @@ using UnityEngine;
 public interface IInteractable
 {
     void Grab (Transform playerLookTransform);
-    string GetInteractText();
+    string GetObjectName();
 }
