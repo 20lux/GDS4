@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8674450903973965829}
   - component: {fileID: 7722294752432841414}
+  - component: {fileID: 6273673160505597366}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -53,6 +54,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6273673160505597366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974262861149880638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01843eb9498d20d4bbf0a9e1f7c71a4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1424462927732168946}
 --- !u!1001 &754841858366451745
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -148,6 +162,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 3659776804624630081}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3c86707aaf8d8f54da751c3bb19bc090,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1424462927732168946}
     - targetCorrespondingSourceObject: {fileID: 6969098876907156981, guid: 3c86707aaf8d8f54da751c3bb19bc090,
         type: 3}
       insertIndex: -1
@@ -185,6 +203,27 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -6109138333043434130, guid: 3c86707aaf8d8f54da751c3bb19bc090, type: 3}
+--- !u!95 &1424462927732168946
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 484371681407274352}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 16a271c97d434d5428453be70ead91e6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &1005153561790273482 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3c86707aaf8d8f54da751c3bb19bc090,
