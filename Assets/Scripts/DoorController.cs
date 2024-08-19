@@ -2,11 +2,12 @@ using UnityEngine;
 
 public class DoorController : MonoBehaviour
 {
-    [SerializeField] private Animator animator;
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private GameObject doorGameObject;
+    private IDoor door;
+
+    private void Awake()
     {
-        animator = GetComponent<Animator>();
+        door = doorGameObject.GetComponent<IDoor>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -14,6 +15,16 @@ public class DoorController : MonoBehaviour
         if (other.GetComponent<FirstPersonDrifter>() != null)
         {
             // Player entered collider
+            door.OpenDoor();
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.GetComponent<FirstPersonDrifter>() != null)
+        {
+            // Player exited collider
+            door.CloseDoor();
+        }        
     }
 }

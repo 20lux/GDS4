@@ -4,18 +4,20 @@ using UnityEngine;
 
 public class DoorAnimations : MonoBehaviour, IDoor
 {
+    [SerializeField] private Animator doorAnim;
+
+    private void Awake()
+    {
+        doorAnim = GetComponent<Animator>();
+    }
+
     public void OpenDoor()
     {
-
+        doorAnim.SetBool("isEntering", true);
     }
 
     public void CloseDoor()
     {
-
-    }
-
-    public void ToggleDoor()
-    {
-
+        doorAnim.SetBool("isEntering", false);
     }
 }
