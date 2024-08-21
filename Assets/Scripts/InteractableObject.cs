@@ -12,7 +12,6 @@ public class InteractableObject : MonoBehaviour, IInteractable
     [SerializeField] private GameObject objectToInteractWith;
     [SerializeField] private Material newMaterial;
     private Rigidbody objectRigidBody;
-    private Transform objectGrabTransform;
     [SerializeField] private bool IsLocked;
     [HideInInspector] public bool isLocked => IsLocked;
     int layerIgnoreRaycast;
@@ -32,29 +31,30 @@ public class InteractableObject : MonoBehaviour, IInteractable
         }
     }
 
-    public void Grab(Transform playerLookTransform)
+    public void Grab(GameObject grabCam)
     {
-        objectGrabTransform = playerLookTransform;
-        objectRigidBody.useGravity = false;
+        // Puts object in front of grab camera
+        gameObject.transform.SetParent(grabCam.transform);
+        gameObject.transform.position = grabCam.transform.position;
+        objectRigidBody.isKinematic = true;
     }
 
-    public void Drop()
+    public void Drop(Transform playerCamTransform)
     {
-        objectGrabTransform = null;
-        objectRigidBody.useGravity = true;
+        // Drops object in front of player
+        gameObject.transform.SetParent(null);
+        gameObject.transform.position = playerCamTransform.position;
+        objectRigidBody.isKinematic = false;
     }
 
-    public void UseKey()
+    public void UseKey(InteractableObject obj)
     {
-        if (objectToInteractWith.TryGetComponent(out InteractableObject interactedLock))
-        {
-            Debug.Log("Interacting with lock");
+        Debug.Log("Interacting with lock");
 
-            interactedLock.IsLocked = false;
-            objectToInteractWith.GetComponentInChildren<MeshRenderer>().material = objectToInteractWith.GetComponent<InteractableObject>().newMaterial;
-            objectToInteractWith.gameObject.transform.GetChild(0).gameObject.layer = layerIgnoreRaycast;
-            gameObject.SetActive(false);
-        }
+        obj.IsLocked = false;
+        objectToInteractWith.GetComponentInChildren<MeshRenderer>().material = objectToInteractWith.GetComponent<InteractableObject>().newMaterial;
+        objectToInteractWith.gameObject.transform.GetChild(0).gameObject.layer = layerIgnoreRaycast;
+        gameObject.SetActive(false);
     }
 
     public enum ObjectType 
@@ -65,15 +65,6 @@ public class InteractableObject : MonoBehaviour, IInteractable
         Lock = 3, 
         GrabObject = 4,
         InspectObject = 5 
-    }
-
-    private void FixedUpdate()
-    {
-        if (objectGrabTransform != null)
-        {
-            Vector3 newPosition = objectGrabTransform.position;
-            objectRigidBody.MovePosition(newPosition);
-        }
     }
 
     public string GetObjectName()
