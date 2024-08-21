@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System;
 using UnityEngine;
 
 public class InteractableObject : MonoBehaviour, IInteractable
@@ -14,20 +11,13 @@ public class InteractableObject : MonoBehaviour, IInteractable
     private Rigidbody objectRigidBody;
     [SerializeField] private bool IsLocked;
     [HideInInspector] public bool isLocked => IsLocked;
-    int layerIgnoreRaycast;
 
     private void Start()
     {
-        layerIgnoreRaycast = LayerMask.NameToLayer("Ignore Raycast");
-
-        if (objectType != ObjectType.Console)
+        if (objectType == ObjectType.Key ||
+            objectType == ObjectType.GrabObject)
         {
             objectRigidBody = GetComponent<Rigidbody>();
-        }
-        
-        if (objectType == ObjectType.Lock)
-        {
-            IsLocked = true;
         }
     }
 
@@ -47,13 +37,21 @@ public class InteractableObject : MonoBehaviour, IInteractable
         objectRigidBody.isKinematic = false;
     }
 
-    public void UseKey(InteractableObject obj)
+    public void UseKey()
     {
-        Debug.Log("Interacting with lock");
+        //Debug.Log("Interacting with lock");
+        if (objectToInteractWith.TryGetComponent(out DoorController doorController))
+        {
+            if (doorController.isGrate)
+            {
+                doorController.OpenGrate();
+            }
+            else
+            {
+                doorController.isDoorLocked = false;
+            }
+        }
 
-        obj.IsLocked = false;
-        objectToInteractWith.GetComponentInChildren<MeshRenderer>().material = objectToInteractWith.GetComponent<InteractableObject>().newMaterial;
-        objectToInteractWith.gameObject.transform.GetChild(0).gameObject.layer = layerIgnoreRaycast;
         gameObject.SetActive(false);
     }
 
@@ -64,7 +62,7 @@ public class InteractableObject : MonoBehaviour, IInteractable
         Key = 2,
         Lock = 3, 
         GrabObject = 4,
-        InspectObject = 5 
+        PlaceObject = 5 
     }
 
     public string GetObjectName()

@@ -3,62 +3,62 @@ using UnityEngine;
 
 public class DoorController : MonoBehaviour
 {
+    [Header("Is this a grate?")]
+    public bool isGrate;
     [SerializeField] private GameObject doorGameObject;
+    
+    [Header("Door Properties (Not needed for grates)")]
     [SerializeField] private GameObject keyObject;
     private IDoor door;
-    private bool isLocked = true;
-    public bool needKey;
+    public bool isDoorLocked;
+    public bool doorNeedsKey;
 
     private void Awake()
     {
-        door = doorGameObject.GetComponent<IDoor>();
+        door = doorGameObject.GetComponent<DoorAnimations>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if (other.GetComponent<FirstPersonDrifter>() != null)
+        if (!isGrate)
         {
-            if (!isLocked || needKey)
+            if (other.GetComponent<FirstPersonDrifter>() != null)
             {
-                // Player entered collider
-                door.OpenDoor();
-            }
-            else if (!needKey)
-            {
-                door.OpenDoor();
-            }
+                if (!isDoorLocked || doorNeedsKey)
+                {
+                    // Player entered collider
+                    door.OpenDoor();
+                }
+                else if (!doorNeedsKey)
+                {
+                    door.OpenDoor();
+                }
 
+            }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.GetComponent<FirstPersonDrifter>() != null)
+        if (!isGrate)
         {
-            if (!isLocked || needKey)
+            if (other.GetComponent<FirstPersonDrifter>() != null)
             {
-                // Player exited collider
-                door.CloseDoor();
-            }
-            else if (!needKey)
-            {
-                door.CloseDoor();
+                if (!isDoorLocked || doorNeedsKey)
+                {
+                    // Player exited collider
+                    door.CloseDoor();
+                }
+                else if (!doorNeedsKey)
+                {
+                    door.CloseDoor();
+                }
             }
         }        
     }
 
-    private void Update()
+    public void OpenGrate()
     {
-        if (keyObject != null)
-        {
-            if (keyObject.TryGetComponent(out InteractableObject keyInteract))
-            {
-                if (!keyInteract.isLocked)
-                {
-                    Debug.Log("Unlocking door!");
-                    isLocked = false;
-                }
-            }
-        }
+        door.OpenDoor();
     }
 }
