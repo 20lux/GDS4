@@ -52,6 +52,7 @@ public class FirstPersonDrifter: MonoBehaviour
     private Vector3 contactPoint;
     private bool playerControl = false;
     private int jumpTimer;
+    private bool climbing;
  
     void Start()
     {
@@ -83,6 +84,19 @@ public class FirstPersonDrifter: MonoBehaviour
                 Physics.Raycast(contactPoint + Vector3.up, -Vector3.up, out hit);
                 if (Vector3.Angle(hit.normal, Vector3.up) > slideLimit)
                     sliding = true;
+            }
+
+            // Check if we're looking at a ladder and climb if we do see a ladder
+            if (Physics.Raycast(myTransform.position, Vector3.forward, out hit, rayDistance))
+            {
+                if (hit.collider.TryGetComponent(out Ladder ladder))
+                {
+                    climbing = true;
+                }
+                else
+                {
+                    climbing = false;
+                }
             }
  
             // If we were falling, and we fell a vertical distance greater than the threshold, run a falling damage routine
@@ -133,10 +147,18 @@ public class FirstPersonDrifter: MonoBehaviour
                 moveDirection.z = inputY * speed * inputModifyFactor;
                 moveDirection = myTransform.TransformDirection(moveDirection);
             }
+
+            if (climbing)
+            {
+
+            }
         }
- 
-        // Apply gravity
-        moveDirection.y -= gravity * Time.deltaTime;
+
+        if (!climbing)
+        {
+            // Apply gravity only when not climbing
+            moveDirection.y -= gravity * Time.deltaTime;
+        }
  
         // Move the controller, and set grounded true or false depending on whether we're standing on something
         grounded = (controller.Move(moveDirection * Time.deltaTime) & CollisionFlags.Below) != 0;

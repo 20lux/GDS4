@@ -10,7 +10,7 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] private Camera playerCam;
     [SerializeField] private TextMeshProUGUI UIText;
     private InteractableObject interactableObject;
-    [SerializeField] private Transform playerLookTransform;
+    [SerializeField] private Transform grabCamTransform;
     [SerializeField] private LayerMask layerInteractable;
  
     void Start()
@@ -57,14 +57,14 @@ public class PlayerActions : MonoBehaviour
                             switch (interactableObject.objectType)
                             {
                                 case InteractableObject.ObjectType.GrabObject:
-                                    interactableObject.Grab(playerLookTransform.transform);
+                                    interactableObject.Grab(grabCamTransform.transform);
                                     break;
                                 case InteractableObject.ObjectType.Console:
                                     Debug.Log("Looking at screen!");
                                     FreeMouse();
                                     break;
                                 case InteractableObject.ObjectType.Key:
-                                    interactableObject.Grab(playerLookTransform.transform);
+                                    interactableObject.Grab(grabCamTransform.transform);
                                     break;
                             }
                         }
@@ -72,17 +72,31 @@ public class PlayerActions : MonoBehaviour
             }
             else
             {
-                switch (interactableObject.objectType)
+                // Otherwise, if holding object and interacting, check to see what we're interacting with
+                if (Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, 
+                    out RaycastHit hit, interactDistance, layerInteractable))
                 {
-                    // Currently carrying something, drop
-                    case InteractableObject.ObjectType.GrabObject:
+                    // If we hit something on the interatable layer, do something
+                    if (hit.collider)
+                    {
+                        switch (interactableObject.objectType)
+                        {
+                            // Currently carrying something, drop
+                            case InteractableObject.ObjectType.GrabObject:
+                                interactableObject.Drop();
+                                interactableObject = null;
+                                break;
+                            // Currently holding key, unlock if used on right lock
+                            case InteractableObject.ObjectType.Key:
+                                interactableObject.UseKey();
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        // Otherwise, drop what we're holding
                         interactableObject.Drop();
-                        interactableObject = null;
-                        break;
-                    // Currently holding key, unlock if used on right lock
-                    case InteractableObject.ObjectType.Key:
-                        interactableObject.UseKey();
-                        break;
+                    }
                 }
             }
         }
