@@ -12,7 +12,7 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] private GameObject grabCam;
     [SerializeField] private GameObject playerDrop;
     [SerializeField] private LayerMask layerInteractable;
-    private InteractableObject interactableObject;
+    private InteractableObject thisInteractableObject;
  
     void Start()
     {
@@ -43,38 +43,48 @@ public class PlayerActions : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (interactableObject == null)
+            if (thisInteractableObject == null)
             {
-                // not carrying anything and trying to interact
-                if (Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, 
-                                out RaycastHit hit, interactDistance, layerInteractable))
+                if (Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, out RaycastHit hit, interactDistance, layerInteractable))
                 {
-                    Debug.DrawLine(playerCam.transform.position, hit.point, Color.green, 1f);
-                    //Debug.Log(hit.transform);
-
-                        if (hit.transform.TryGetComponent(out interactableObject))
+                    if (hit.collider.TryGetComponent(out thisInteractableObject))
+                    {
+                        switch (thisInteractableObject.objectType)
                         {
-                            //Debug.Log("Trying to pick up interactable object!");
-                            switch (interactableObject.objectType)
-                            {
-                                case InteractableObject.ObjectType.GrabObject:
-                                    interactableObject.Grab(grabCam);
-                                    break;
-                                case InteractableObject.ObjectType.Console:
-                                    Debug.Log("Looking at screen!");
-                                    FreeMouse();
-                                    break;
-                                case InteractableObject.ObjectType.Key:
-                                    interactableObject.Grab(grabCam);
-                                    break;
-                            }
+                            case InteractableObject.ObjectType.None:
+                                break;
+                            case InteractableObject.ObjectType.Key:
+                                thisInteractableObject.Grab(grabCam);
+                                break;
+                            case InteractableObject.ObjectType.GrabObject:
+                                thisInteractableObject.Grab(grabCam);
+                                break;
+                            case InteractableObject.ObjectType.Console:
+                                break;
                         }
+                    }
                 }
             }
             else
             {
-                interactableObject.Drop(playerDrop.transform);
-                interactableObject = null;
+                if (Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, out RaycastHit hit, interactDistance, layerInteractable))
+                {
+                    if (hit.collider.tag == "Door")
+                    {
+                        Debug.Log("Trying to open door");
+                        switch (thisInteractableObject.objectType)
+                        {
+                            case InteractableObject.ObjectType.Key:
+                                thisInteractableObject.UseKey();
+                                break;
+                        }
+                    }
+                }
+                else
+                {
+                    thisInteractableObject.Drop(playerDrop.transform);
+                    thisInteractableObject = null;
+                }
             }
         }
     }
@@ -106,7 +116,7 @@ public class PlayerActions : MonoBehaviour
         if (isActive)
         {
             UIText.text = "Press [E] to interact";
-            Debug.Log("Highlighting object");
+            //Debug.Log("Highlighting object");
         }
         else
         {

@@ -9,6 +9,7 @@ public class DoorAnimations : MonoBehaviour, IDoor
     private void Awake()
     {
         doorAnim = GetComponent<Animator>();
+        CloseDoor();
     }
 
     public void OpenDoor()
