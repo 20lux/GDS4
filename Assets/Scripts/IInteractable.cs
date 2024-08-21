@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface IInteractable
 {
-    void Grab (Transform playerLookTransform);
+    void Grab (GameObject grabCam);
     string GetObjectName();
 }

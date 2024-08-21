@@ -9,9 +9,10 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] private float interactDistance = 10f;
     [SerializeField] private Camera playerCam;
     [SerializeField] private TextMeshProUGUI UIText;
-    private InteractableObject interactableObject;
-    [SerializeField] private Transform grabCamTransform;
+    [SerializeField] private GameObject grabCam;
+    [SerializeField] private GameObject playerDrop;
     [SerializeField] private LayerMask layerInteractable;
+    private InteractableObject interactableObject;
  
     void Start()
     {
@@ -26,7 +27,7 @@ public class PlayerActions : MonoBehaviour
 
         // when looking at interactable object, highlight
         var ray = new Ray(playerCam.transform.position, playerCam.transform.forward);
-        if (Physics.Raycast(ray, out RaycastHit hit, interactDistance, layerInteractable))
+        if (Physics.Raycast(ray, interactDistance, layerInteractable))
         {
             HighlightObject(true);
         }
@@ -49,7 +50,7 @@ public class PlayerActions : MonoBehaviour
                                 out RaycastHit hit, interactDistance, layerInteractable))
                 {
                     Debug.DrawLine(playerCam.transform.position, hit.point, Color.green, 1f);
-                    Debug.Log(hit.transform);
+                    //Debug.Log(hit.transform);
 
                         if (hit.transform.TryGetComponent(out interactableObject))
                         {
@@ -57,14 +58,14 @@ public class PlayerActions : MonoBehaviour
                             switch (interactableObject.objectType)
                             {
                                 case InteractableObject.ObjectType.GrabObject:
-                                    interactableObject.Grab(grabCamTransform.transform);
+                                    interactableObject.Grab(grabCam);
                                     break;
                                 case InteractableObject.ObjectType.Console:
                                     Debug.Log("Looking at screen!");
                                     FreeMouse();
                                     break;
                                 case InteractableObject.ObjectType.Key:
-                                    interactableObject.Grab(grabCamTransform.transform);
+                                    interactableObject.Grab(grabCam);
                                     break;
                             }
                         }
@@ -72,32 +73,8 @@ public class PlayerActions : MonoBehaviour
             }
             else
             {
-                // Otherwise, if holding object and interacting, check to see what we're interacting with
-                if (Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, 
-                    out RaycastHit hit, interactDistance, layerInteractable))
-                {
-                    // If we hit something on the interatable layer, do something
-                    if (hit.collider)
-                    {
-                        switch (interactableObject.objectType)
-                        {
-                            // Currently carrying something, drop
-                            case InteractableObject.ObjectType.GrabObject:
-                                interactableObject.Drop();
-                                interactableObject = null;
-                                break;
-                            // Currently holding key, unlock if used on right lock
-                            case InteractableObject.ObjectType.Key:
-                                interactableObject.UseKey();
-                                break;
-                        }
-                    }
-                    else
-                    {
-                        // Otherwise, drop what we're holding
-                        interactableObject.Drop();
-                    }
-                }
+                interactableObject.Drop(playerDrop.transform);
+                interactableObject = null;
             }
         }
     }
