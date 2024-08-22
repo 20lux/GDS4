@@ -8,13 +8,13 @@ public class EngineRoomGrate : MonoBehaviour
     public GameObject grateObject;
     public Rigidbody rb;
 
-    void Awake()
+    public void Awake()
     {
         rb = grateObject.GetComponent<Rigidbody>();
         rb.isKinematic = true;
     }
 
-    void OnTriggerEnter()
+    public void OnTriggerEnter()
     {
         rb.isKinematic = false;
     }

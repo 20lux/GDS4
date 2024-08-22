@@ -22,7 +22,7 @@ public class DoorController : MonoBehaviour
     {
         if (!isGrate)
         {
-            if (other.GetComponent<FirstPersonDrifter>() != null)
+            if (other.tag == "Player")
             {
                 if (!isDoorLocked || doorNeedsKey)
                 {
@@ -42,7 +42,7 @@ public class DoorController : MonoBehaviour
     {
         if (!isGrate)
         {
-            if (other.GetComponent<FirstPersonDrifter>() != null)
+            if (other.tag == "Player")
             {
                 if (!isDoorLocked || doorNeedsKey)
                 {
