@@ -12,7 +12,7 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] private GameObject grabCam;
     [SerializeField] private GameObject playerDrop;
     [SerializeField] private LayerMask layerInteractable;
-    private InteractableObject thisInteractableObject;
+    [SerializeField] private InteractableObject thisInteractableObject;
  
     void Start()
     {
@@ -83,8 +83,9 @@ public class PlayerActions : MonoBehaviour
                 else
                 {
                     thisInteractableObject.Drop(playerDrop.transform);
-                    thisInteractableObject = null;
                 }
+
+                thisInteractableObject = null;
             }
         }
     }

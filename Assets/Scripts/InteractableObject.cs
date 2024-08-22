@@ -26,6 +26,7 @@ public class InteractableObject : MonoBehaviour, IInteractable
         // Puts object in front of grab camera
         gameObject.transform.SetParent(grabCam.transform);
         gameObject.transform.position = grabCam.transform.position;
+        gameObject.transform.rotation = grabCam.transform.rotation;
         objectRigidBody.isKinematic = true;
     }
 
@@ -52,7 +53,7 @@ public class InteractableObject : MonoBehaviour, IInteractable
             }
         }
 
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 
     public enum ObjectType 
