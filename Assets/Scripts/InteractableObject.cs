@@ -10,20 +10,28 @@ public class InteractableObject : MonoBehaviour, IInteractable
     [SerializeField] private Material newMaterial;
     private Rigidbody objectRigidBody;
     [SerializeField] private bool IsLocked;
+    public AudioClip pickUp;
+    public AudioClip putDown;
+    public AudioClip use;
+    private AudioSource audioSource;
     [HideInInspector] public bool isLocked => IsLocked;
 
     private void Start()
     {
         if (objectType == ObjectType.Key ||
-            objectType == ObjectType.GrabObject)
+            objectType == ObjectType.GrabObject ||
+            objectType == ObjectType.Cartridge)
         {
             objectRigidBody = GetComponent<Rigidbody>();
         }
+
+        audioSource = gameObject.AddComponent<AudioSource>();
     }
 
     public void Grab(GameObject grabCam)
     {
         // Puts object in front of grab camera
+        PickUpSound();
         gameObject.transform.SetParent(grabCam.transform);
         gameObject.transform.position = grabCam.transform.position;
         gameObject.transform.rotation = grabCam.transform.rotation;
@@ -33,6 +41,7 @@ public class InteractableObject : MonoBehaviour, IInteractable
     public void Drop(Transform playerCamTransform)
     {
         // Drops object in front of player
+        PutDownSound();
         gameObject.transform.SetParent(null);
         gameObject.transform.position = playerCamTransform.position;
         objectRigidBody.isKinematic = false;
@@ -43,6 +52,8 @@ public class InteractableObject : MonoBehaviour, IInteractable
         //Debug.Log("Interacting with lock");
         if (objectToInteractWith.TryGetComponent(out DoorController doorController))
         {
+            UseSound();
+
             if (doorController.isGrate)
             {
                 doorController.OpenGrate();
@@ -56,9 +67,29 @@ public class InteractableObject : MonoBehaviour, IInteractable
         Destroy(gameObject);
     }
 
-    public void UseConsole(InteractableObject interactableObject)
+    public void UseConsole(InteractableObject cartridge)
     {
-        
+        UseSound();
+        cartridge.gameObject.transform.position = objectToInteractWith.transform.position;
+        cartridge.gameObject.transform.rotation = objectToInteractWith.transform.rotation;
+    }
+
+    public void PickUpSound()
+    {
+        audioSource.clip = pickUp;
+        audioSource.Play();
+    }
+
+    public void PutDownSound()
+    {
+        audioSource.clip = putDown;
+        audioSource.Play();
+    }
+
+    public void UseSound()
+    {
+        audioSource.clip = use;
+        audioSource.Play();
     }
 
     public enum ObjectType 
@@ -68,7 +99,8 @@ public class InteractableObject : MonoBehaviour, IInteractable
         Key = 2,
         Lock = 3, 
         GrabObject = 4,
-        PlaceObject = 5 
+        PlaceObject = 5 ,
+        Cartridge = 6
     }
 
     public string GetObjectName()

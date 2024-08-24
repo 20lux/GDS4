@@ -22,7 +22,7 @@ public class TitleMenuController : MonoBehaviour
         audioSource.loop = false;
         audioSource.Play();
         waitForSound();
-        Initiate.Fade("Load", Color.black, fadeTime);
+        Loader.Load(Loader.Scene.Main);
     }
 
     public void ExitGame()
