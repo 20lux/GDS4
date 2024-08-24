@@ -12,7 +12,8 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] private GameObject grabCam;
     [SerializeField] private GameObject playerDrop;
     [SerializeField] private LayerMask layerInteractable;
-    [SerializeField] private InteractableObject thisInteractableObject;
+    private InteractableObject thisInteractableObject;
+    private ArrowKeyConsoleInteract arrowKeyConsoleInteract;
  
     void Start()
     {
@@ -45,7 +46,10 @@ public class PlayerActions : MonoBehaviour
         {
             if (thisInteractableObject == null)
             {
-                if (Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, out RaycastHit hit, interactDistance, layerInteractable))
+                if (Physics.Raycast(playerCam.transform.position, 
+                                    playerCam.transform.forward, out RaycastHit hit, 
+                                    interactDistance, 
+                                    layerInteractable))
                 {
                     if (hit.collider.TryGetComponent(out thisInteractableObject))
                     {
@@ -59,15 +63,27 @@ public class PlayerActions : MonoBehaviour
                             case InteractableObject.ObjectType.GrabObject:
                                 thisInteractableObject.Grab(grabCam);
                                 break;
+                            case InteractableObject.ObjectType.Cartridge:
+                                thisInteractableObject.Grab(grabCam);
+                                break;                                
                             case InteractableObject.ObjectType.Console:
                                 break;
                         }
+                    }
+                    
+                    if (hit.collider.TryGetComponent(out arrowKeyConsoleInteract))
+                    {
+                        arrowKeyConsoleInteract.KeyInteract();
                     }
                 }
             }
             else
             {
-                if (Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, out RaycastHit hit, interactDistance, layerInteractable))
+                if (Physics.Raycast(playerCam.transform.position, 
+                                    playerCam.transform.forward, 
+                                    out RaycastHit hit, 
+                                    interactDistance, 
+                                    layerInteractable))
                 {
                     if (hit.collider.tag == "Door")
                     {
@@ -76,6 +92,18 @@ public class PlayerActions : MonoBehaviour
                         {
                             case InteractableObject.ObjectType.Key:
                                 thisInteractableObject.UseKey();
+                                break;
+                        }
+                    }
+
+                    if (hit.collider.tag == "Console")
+                    {
+                        Debug.Log("Using console!");
+                        switch (thisInteractableObject.objectType)
+                        {
+                            case InteractableObject.ObjectType.Cartridge:
+                                Debug.Log("Putting in cartridge!");
+                                thisInteractableObject.UseConsole(thisInteractableObject);
                                 break;
                         }
                     }
@@ -88,6 +116,11 @@ public class PlayerActions : MonoBehaviour
                 thisInteractableObject = null;
             }
         }
+    }
+
+    public void InteractingWithObject()
+    {
+        
     }
 
     public void FreeMouse()

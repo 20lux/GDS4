@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class InteractableObject : MonoBehaviour, IInteractable
@@ -52,8 +53,6 @@ public class InteractableObject : MonoBehaviour, IInteractable
         //Debug.Log("Interacting with lock");
         if (objectToInteractWith.TryGetComponent(out DoorController doorController))
         {
-            UseSound();
-
             if (doorController.isGrate)
             {
                 doorController.OpenGrate();
@@ -63,8 +62,15 @@ public class InteractableObject : MonoBehaviour, IInteractable
                 doorController.isDoorLocked = false;
             }
         }
-
+        UseSound();
+        waitForSound(use);
         Destroy(gameObject);
+    }
+
+    IEnumerator waitForSound(AudioClip audio)
+    {
+        float audioLength = audio.length;
+        yield return new WaitForSeconds(audioLength);
     }
 
     public void UseConsole(InteractableObject cartridge)
