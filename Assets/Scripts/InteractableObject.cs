@@ -56,6 +56,11 @@ public class InteractableObject : MonoBehaviour, IInteractable
         Destroy(gameObject);
     }
 
+    public void UseConsole(InteractableObject interactableObject)
+    {
+        
+    }
+
     public enum ObjectType 
     {    
         None = 0, 
