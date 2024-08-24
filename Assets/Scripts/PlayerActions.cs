@@ -12,7 +12,8 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] private GameObject grabCam;
     [SerializeField] private GameObject playerDrop;
     [SerializeField] private LayerMask layerInteractable;
-    [SerializeField] private InteractableObject thisInteractableObject;
+    private InteractableObject thisInteractableObject;
+    private ArrowKeyConsoleInteract arrowKeyConsoleInteract;
  
     void Start()
     {
@@ -45,7 +46,10 @@ public class PlayerActions : MonoBehaviour
         {
             if (thisInteractableObject == null)
             {
-                if (Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, out RaycastHit hit, interactDistance, layerInteractable))
+                if (Physics.Raycast(playerCam.transform.position, 
+                                    playerCam.transform.forward, out RaycastHit hit, 
+                                    interactDistance, 
+                                    layerInteractable))
                 {
                     if (hit.collider.TryGetComponent(out thisInteractableObject))
                     {
@@ -66,11 +70,20 @@ public class PlayerActions : MonoBehaviour
                                 break;
                         }
                     }
+                    
+                    if (hit.collider.TryGetComponent(out arrowKeyConsoleInteract))
+                    {
+                        arrowKeyConsoleInteract.KeyInteract();
+                    }
                 }
             }
             else
             {
-                if (Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, out RaycastHit hit, interactDistance, layerInteractable))
+                if (Physics.Raycast(playerCam.transform.position, 
+                                    playerCam.transform.forward, 
+                                    out RaycastHit hit, 
+                                    interactDistance, 
+                                    layerInteractable))
                 {
                     if (hit.collider.tag == "Door")
                     {
@@ -103,6 +116,11 @@ public class PlayerActions : MonoBehaviour
                 thisInteractableObject = null;
             }
         }
+    }
+
+    public void InteractingWithObject()
+    {
+        
     }
 
     public void FreeMouse()
