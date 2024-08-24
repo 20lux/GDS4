@@ -1,13 +1,28 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class TitleMenuController : MonoBehaviour
 {
+    [SerializeField] private AudioClip titleMusic;
+    [SerializeField] private AudioClip buttonPress;
+    [SerializeField] private AudioSource audioSource;
+    public float fadeTime = 15f;
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = titleMusic;
+        audioSource.loop = true;
+        audioSource.Play();
+    }
+
     public void StartGame()
     {
-        SceneManager.LoadScene("Main");
+        audioSource.clip = buttonPress;
+        audioSource.loop = false;
+        audioSource.Play();
+        waitForSound();
+        Initiate.Fade("Load", Color.black, fadeTime);
     }
 
     public void ExitGame()
@@ -20,6 +35,14 @@ public class TitleMenuController : MonoBehaviour
         if (Input.GetKey(KeyCode.Escape))
         {
             ExitGame();
+        }
+    }
+
+    IEnumerator waitForSound()
+    {
+        while (audioSource.isPlaying)
+        {
+            yield return null;
         }
     }
 }
