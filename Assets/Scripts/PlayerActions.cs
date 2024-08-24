@@ -59,6 +59,9 @@ public class PlayerActions : MonoBehaviour
                             case InteractableObject.ObjectType.GrabObject:
                                 thisInteractableObject.Grab(grabCam);
                                 break;
+                            case InteractableObject.ObjectType.Cartridge:
+                                thisInteractableObject.Grab(grabCam);
+                                break;                                
                             case InteractableObject.ObjectType.Console:
                                 break;
                         }
@@ -76,6 +79,18 @@ public class PlayerActions : MonoBehaviour
                         {
                             case InteractableObject.ObjectType.Key:
                                 thisInteractableObject.UseKey();
+                                break;
+                        }
+                    }
+
+                    if (hit.collider.tag == "Console")
+                    {
+                        Debug.Log("Using console!");
+                        switch (thisInteractableObject.objectType)
+                        {
+                            case InteractableObject.ObjectType.Cartridge:
+                                Debug.Log("Putting in cartridge!");
+                                thisInteractableObject.UseConsole(thisInteractableObject);
                                 break;
                         }
                     }

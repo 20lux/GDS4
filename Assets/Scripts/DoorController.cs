@@ -10,8 +10,7 @@ public class DoorController : MonoBehaviour
     [Header("Door Properties (Not needed for grates)")]
     [SerializeField] private GameObject keyObject;
     private IDoor door;
-    public bool isDoorLocked;
-    public bool doorNeedsKey;
+    public bool isDoorLocked = true;
 
     private void Awake()
     {
@@ -24,16 +23,11 @@ public class DoorController : MonoBehaviour
         {
             if (other.tag == "Player")
             {
-                if (!isDoorLocked || doorNeedsKey)
+                if (!isDoorLocked)
                 {
                     // Player entered collider
                     door.OpenDoor();
                 }
-                else if (!doorNeedsKey)
-                {
-                    door.OpenDoor();
-                }
-
             }
         }
     }
@@ -44,13 +38,9 @@ public class DoorController : MonoBehaviour
         {
             if (other.tag == "Player")
             {
-                if (!isDoorLocked || doorNeedsKey)
+                if (!isDoorLocked)
                 {
                     // Player exited collider
-                    door.CloseDoor();
-                }
-                else if (!doorNeedsKey)
-                {
                     door.CloseDoor();
                 }
             }
