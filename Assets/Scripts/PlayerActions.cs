@@ -96,17 +96,17 @@ public class PlayerActions : MonoBehaviour
                         }
                     }
 
-                    if (hit.collider.tag == "Console")
-                    {
-                        Debug.Log("Using console!");
-                        switch (thisInteractableObject.objectType)
-                        {
-                            case InteractableObject.ObjectType.Cartridge:
-                                Debug.Log("Putting in cartridge!");
-                                thisInteractableObject.UseConsole(thisInteractableObject);
-                                break;
-                        }
-                    }
+                    // if (hit.collider.tag == "Console")
+                    // {
+                    //     Debug.Log("Using console!");
+                    //     switch (thisInteractableObject.objectType)
+                    //     {
+                    //         case InteractableObject.ObjectType.Cartridge:
+                    //             Debug.Log("Putting in cartridge!");
+                    //             thisInteractableObject.UseConsole(thisInteractableObject);
+                    //             break;
+                    //     }
+                    // }
                 }
                 else
                 {
