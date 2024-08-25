@@ -12,9 +12,9 @@ public class TechLabObjectBoundaryCheck : MonoBehaviour
         originalPosition = transform.position;
     }
 
-    void OnTriggerStay(Collider other)
+    void OnTriggerEnter(Collider other)
     {
-        if (other.tag != "Target")
+        if (other.tag == "Wall")
         {
             audioSource.Play();
             transform.position = originalPosition;
