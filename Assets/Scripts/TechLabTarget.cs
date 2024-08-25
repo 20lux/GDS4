@@ -7,6 +7,7 @@ public class TechLabTarget : MonoBehaviour
     [SerializeField] private GameObject[] particlesToEnable;
     [SerializeField] private AudioSource[] engineStartSounds;
     [SerializeField] private GameObject doorToOpenTrigger;
+    [SerializeField] private GameObject[] alarms;
 
     void Start()
     {
@@ -30,6 +31,12 @@ public class TechLabTarget : MonoBehaviour
                 {
                     lightFlickerer.isOn = true;
                 }
+            }
+
+            for (int i = 0; i < alarms.Length; i++)
+            {
+                alarms[i].GetComponent<Alarm>().thisLight.enabled = false;
+                alarms[i].GetComponent<Alarm>().audioSource.Stop();
             }
 
             for (int i = 0; i < particlesToEnable.Length; i++)
