@@ -3812,6 +3812,134 @@ AudioSource:
     type: 3}
   m_PrefabInstance: {fileID: 188521646}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &255525461
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 255525463}
+  - component: {fileID: 255525462}
+  m_Layer: 0
+  m_Name: ErrorAudio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &255525462
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255525461}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 3643c1ea36e883f49b213a6c7ccd4b17, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &255525463
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255525461}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.2094986, y: -0.576, z: -25.677}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &257592858
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7960,7 +8088,7 @@ GameObject:
   - component: {fileID: 465381269}
   - component: {fileID: 465381268}
   m_Layer: 0
-  m_Name: Spotlight (5)
+  m_Name: SpotlightGrate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14112,6 +14240,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a3f68c4e47daf24bad39a890f6d55a1, type: 3}
+--- !u!108 &734389768 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 7894747366968917008, guid: 71f4b896673fd2442bba35cabaa06761,
+    type: 3}
+  m_PrefabInstance: {fileID: 7440406840477395670}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &735129281
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17401,7 +17535,7 @@ GameObject:
   - component: {fileID: 864833793}
   - component: {fileID: 864833792}
   m_Layer: 0
-  m_Name: Spotlight (2)
+  m_Name: SpotlightControl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17457,7 +17591,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 2
   m_Range: 7.2786655
   m_SpotAngle: 46.475555
   m_InnerSpotAngle: 21.80208
@@ -22174,12 +22308,12 @@ GameObject:
   - component: {fileID: 1151577222}
   - component: {fileID: 1151577221}
   m_Layer: 0
-  m_Name: PointLight
+  m_Name: EngineRoomLight (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1151577220
 Transform:
   m_ObjectHideFlags: 0
@@ -22225,7 +22359,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1151577219}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
@@ -30466,6 +30600,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8320197250100919260, guid: 71f4b896673fd2442bba35cabaa06761,
+        type: 3}
+      propertyPath: m_Name
+      value: Point Light (R)
+      objectReference: {fileID: 0}
     - target: {fileID: 8962558671121493143, guid: 71f4b896673fd2442bba35cabaa06761,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
@@ -30722,7 +30861,7 @@ GameObject:
   - component: {fileID: 1614684555}
   - component: {fileID: 1614684554}
   m_Layer: 0
-  m_Name: Point Light
+  m_Name: TechlabLight (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30758,7 +30897,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1614684553}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
@@ -32404,6 +32543,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ba14cb72f0583c48b503f53a10e3439, type: 3}
+--- !u!108 &1694544767 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 7894747366968917008, guid: 71f4b896673fd2442bba35cabaa06761,
+    type: 3}
+  m_PrefabInstance: {fileID: 1580289569}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1699373407
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34748,7 +34893,7 @@ GameObject:
   - component: {fileID: 1813312024}
   - component: {fileID: 1813312023}
   m_Layer: 0
-  m_Name: Spotlight (1)
+  m_Name: SpotlightConsole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34762,13 +34907,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1813312021}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.95434284, y: -0.010600207, z: -0.04624169, w: 0.29492217}
+  m_LocalRotation: {x: 0.93132275, y: -0.007332811, z: -0.046870973, w: 0.36109167}
   m_LocalPosition: {x: -4.1036916, y: 0.8836231, z: -23.782267}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 145.81, y: 6.5610046, z: 3.2920074}
+  m_LocalEulerAnglesHint: {x: 137.786, y: 7.182007, z: 3.6779938}
 --- !u!114 &1813312023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34799,12 +34944,12 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1813312021}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 2
   m_Range: 7.2786655
   m_SpotAngle: 50.087616
   m_InnerSpotAngle: 21.474665
@@ -35444,7 +35589,7 @@ GameObject:
   - component: {fileID: 1826599134}
   - component: {fileID: 1826599133}
   m_Layer: 0
-  m_Name: Point Light (1)
+  m_Name: TechLabLight(2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35480,7 +35625,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1826599132}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
@@ -37665,12 +37810,12 @@ GameObject:
   - component: {fileID: 1932266353}
   - component: {fileID: 1932266352}
   m_Layer: 0
-  m_Name: PointLight
+  m_Name: EngineRoomLight (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1932266351
 Transform:
   m_ObjectHideFlags: 0
@@ -37716,7 +37861,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1932266350}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
@@ -41252,6 +41397,76 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5687436458835490012, guid: 0ca99ef2749d12d46a1636a4ac294459,
+        type: 3}
+      propertyPath: movingObject
+      value: 
+      objectReference: {fileID: 746100838}
+    - target: {fileID: 5687436458835490012, guid: 0ca99ef2749d12d46a1636a4ac294459,
+        type: 3}
+      propertyPath: lightsToEnable.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5687436458835490012, guid: 0ca99ef2749d12d46a1636a4ac294459,
+        type: 3}
+      propertyPath: lightsToEnable.Array.data[0]
+      value: 
+      objectReference: {fileID: 1614684555}
+    - target: {fileID: 5687436458835490012, guid: 0ca99ef2749d12d46a1636a4ac294459,
+        type: 3}
+      propertyPath: lightsToEnable.Array.data[1]
+      value: 
+      objectReference: {fileID: 1826599134}
+    - target: {fileID: 5687436458835490012, guid: 0ca99ef2749d12d46a1636a4ac294459,
+        type: 3}
+      propertyPath: lightsToEnable.Array.data[2]
+      value: 
+      objectReference: {fileID: 1932266353}
+    - target: {fileID: 5687436458835490012, guid: 0ca99ef2749d12d46a1636a4ac294459,
+        type: 3}
+      propertyPath: lightsToEnable.Array.data[3]
+      value: 
+      objectReference: {fileID: 1151577222}
+    - target: {fileID: 5687436458835490012, guid: 0ca99ef2749d12d46a1636a4ac294459,
+        type: 3}
+      propertyPath: lightsToEnable.Array.data[4]
+      value: 
+      objectReference: {fileID: 1813312024}
+    - target: {fileID: 5687436458835490012, guid: 0ca99ef2749d12d46a1636a4ac294459,
+        type: 3}
+      propertyPath: lightsToEnable.Array.data[5]
+      value: 
+      objectReference: {fileID: 1694544767}
+    - target: {fileID: 5687436458835490012, guid: 0ca99ef2749d12d46a1636a4ac294459,
+        type: 3}
+      propertyPath: lightsToEnable.Array.data[6]
+      value: 
+      objectReference: {fileID: 734389768}
+    - target: {fileID: 5687436458835490012, guid: 0ca99ef2749d12d46a1636a4ac294459,
+        type: 3}
+      propertyPath: particlesToEnable.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5687436458835490012, guid: 0ca99ef2749d12d46a1636a4ac294459,
+        type: 3}
+      propertyPath: particlesToEnable.Array.data[0]
+      value: 
+      objectReference: {fileID: 967922109}
+    - target: {fileID: 5687436458835490012, guid: 0ca99ef2749d12d46a1636a4ac294459,
+        type: 3}
+      propertyPath: particlesToEnable.Array.data[1]
+      value: 
+      objectReference: {fileID: 1391784983}
+    - target: {fileID: 5687436458835490012, guid: 0ca99ef2749d12d46a1636a4ac294459,
+        type: 3}
+      propertyPath: particlesToEnable.Array.data[2]
+      value: 
+      objectReference: {fileID: 1838626820}
+    - target: {fileID: 5687436458835490012, guid: 0ca99ef2749d12d46a1636a4ac294459,
+        type: 3}
+      propertyPath: particlesToEnable.Array.data[3]
+      value: 
+      objectReference: {fileID: 196110258}
     - target: {fileID: 8417171203103504765, guid: 0ca99ef2749d12d46a1636a4ac294459,
         type: 3}
       propertyPath: m_Name
@@ -41334,6 +41549,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8320197250100919260, guid: 71f4b896673fd2442bba35cabaa06761,
+        type: 3}
+      propertyPath: m_Name
+      value: Point Light (L)
       objectReference: {fileID: 0}
     - target: {fileID: 8962558671121493143, guid: 71f4b896673fd2442bba35cabaa06761,
         type: 3}
@@ -41563,6 +41783,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1581718044966677314, guid: 1d92ef690f780d54c91999ba3b847443,
+        type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 255525462}
     - target: {fileID: 1197495681480905928, guid: 1d92ef690f780d54c91999ba3b847443,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -41618,47 +41843,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: InteractObject
       objectReference: {fileID: 0}
-    - target: {fileID: 8227058930280558575, guid: 1d92ef690f780d54c91999ba3b847443,
+    - target: {fileID: 1962714469346102016, guid: 1d92ef690f780d54c91999ba3b847443,
         type: 3}
-      propertyPath: lightsToEnable.Array.size
-      value: 4
+      propertyPath: m_TagString
+      value: Target
       objectReference: {fileID: 0}
-    - target: {fileID: 8227058930280558575, guid: 1d92ef690f780d54c91999ba3b847443,
-        type: 3}
-      propertyPath: lightsToEnable.Array.data[0]
-      value: 
-      objectReference: {fileID: 1614684555}
-    - target: {fileID: 8227058930280558575, guid: 1d92ef690f780d54c91999ba3b847443,
-        type: 3}
-      propertyPath: lightsToEnable.Array.data[1]
-      value: 
-      objectReference: {fileID: 1826599134}
-    - target: {fileID: 8227058930280558575, guid: 1d92ef690f780d54c91999ba3b847443,
-        type: 3}
-      propertyPath: particlesToEnable.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8227058930280558575, guid: 1d92ef690f780d54c91999ba3b847443,
-        type: 3}
-      propertyPath: particlesToEnable.Array.data[0]
-      value: 
-      objectReference: {fileID: 1838626820}
-    - target: {fileID: 8227058930280558575, guid: 1d92ef690f780d54c91999ba3b847443,
-        type: 3}
-      propertyPath: particlesToEnable.Array.data[1]
-      value: 
-      objectReference: {fileID: 196110258}
-    - target: {fileID: 8227058930280558575, guid: 1d92ef690f780d54c91999ba3b847443,
-        type: 3}
-      propertyPath: particlesToEnable.Array.data[2]
-      value: 
-      objectReference: {fileID: 1391784983}
-    - target: {fileID: 8227058930280558575, guid: 1d92ef690f780d54c91999ba3b847443,
-        type: 3}
-      propertyPath: particlesToEnable.Array.data[3]
-      value: 
-      objectReference: {fileID: 967922109}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -41705,6 +41896,7 @@ SceneRoots:
   - {fileID: 1932266351}
   - {fileID: 1151577220}
   - {fileID: 864833791}
+  - {fileID: 255525463}
   - {fileID: 2014529081}
   - {fileID: 1776820370}
   - {fileID: 827016148}

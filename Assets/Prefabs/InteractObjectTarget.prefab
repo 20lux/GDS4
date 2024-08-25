@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8331434364005910070}
   - component: {fileID: 6350099615870465093}
   - component: {fileID: 6828532214222050182}
+  - component: {fileID: 5687436458835490012}
   m_Layer: 0
   m_Name: InteractObjectTarget
   m_TagString: Target
@@ -105,3 +106,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1.1773379}
   m_Center: {x: 0, y: 0, z: -0.58866894}
+--- !u!114 &5687436458835490012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8417171203103504765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00838f4de60781d40b9e27c11b91e385, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movingObject: {fileID: 0}
+  lightsToEnable: []
+  particlesToEnable: []

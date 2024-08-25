@@ -97,5 +97,10 @@ public class ArrowKeyConsoleInteract : MonoBehaviour
                 currentColor = idleColor;
             }
         }
+
+        if (techLabObject.transform.parent != null)
+        {
+            isActive = false;
+        }
     }
 }

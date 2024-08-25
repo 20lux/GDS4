@@ -10,13 +10,16 @@ public class LightFlickerer : MonoBehaviour
 
     private void Update()
     {
-        timer += Time.deltaTime;
-
-        if (timer > flickerInterval)
+        if (thisLight.enabled)
         {
-            thisLight.enabled = !thisLight.enabled;
-            flickerInterval = Random.Range(0f, 0.5f);
-            timer -= flickerInterval;
+            timer += Time.deltaTime;
+
+            if (timer > flickerInterval)
+            {
+                thisLight.enabled = !thisLight.enabled;
+                flickerInterval = Random.Range(0f, 0.5f);
+                timer -= flickerInterval;
+            }
         }
     }
 }

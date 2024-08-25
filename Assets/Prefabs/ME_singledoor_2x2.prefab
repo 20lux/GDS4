@@ -66,7 +66,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01843eb9498d20d4bbf0a9e1f7c71a4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGrate: 0
   doorGameObject: {fileID: 9001483360852458562}
+  keyObject: {fileID: 0}
+  isDoorLocked: 1
 --- !u!1001 &8082510789060985107
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -139,6 +142,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ME_singledoor_2x2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8837dfa39ad5be04d8e624f8ae08cbd0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: 3017196037951593631, guid: 8837dfa39ad5be04d8e624f8ae08cbd0,
         type: 3}
