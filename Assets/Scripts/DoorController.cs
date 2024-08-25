@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class DoorController : MonoBehaviour
@@ -9,24 +8,29 @@ public class DoorController : MonoBehaviour
     
     [Header("Door Properties (Not needed for grates)")]
     [SerializeField] private GameObject keyObject;
+    [SerializeField] private AudioSource doorAudio;
+    [SerializeField] private AudioClip[] doorSounds;
     private IDoor door;
     public bool isDoorLocked = true;
 
     private void Awake()
     {
         door = doorGameObject.GetComponent<DoorAnimations>();
+        doorAudio = GetComponent<AudioSource>();
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (!isGrate)
         {
-            if (other.tag == "Player")
+            if (other.CompareTag("Player"))
             {
                 if (!isDoorLocked)
                 {
                     // Player entered collider
                     door.OpenDoor();
+                    doorAudio.clip = doorSounds[0];
+                    doorAudio.Play();
                 }
             }
         }
@@ -42,6 +46,8 @@ public class DoorController : MonoBehaviour
                 {
                     // Player exited collider
                     door.CloseDoor();
+                    doorAudio.clip = doorSounds[1];
+                    doorAudio.Play();
                 }
             }
         }        
@@ -50,5 +56,7 @@ public class DoorController : MonoBehaviour
     public void OpenGrate()
     {
         door.OpenDoor();
+        doorAudio.clip = doorSounds[0];
+        doorAudio.Play();
     }
 }

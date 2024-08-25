@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class LightFlickerer : MonoBehaviour
 {
-    public Light thisLight;
+    private Light thisLight;
     public float flickerInterval = 1.0f;
     private float timer;
+    public bool isOn = false;
+
+    void Start()
+    {
+        thisLight = GetComponent<Light>();
+    }
 
     private void Update()
     {
-        if (thisLight.enabled)
+        if (isOn)
         {
             timer += Time.deltaTime;
 
