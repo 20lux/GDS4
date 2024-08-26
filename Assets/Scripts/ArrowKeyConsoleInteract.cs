@@ -79,7 +79,7 @@ public class ArrowKeyConsoleInteract : MonoBehaviour
         }
     }
 
-    public void FixedUpdate()
+    public void Update()
     {
         // Move towards target position
         if (isActive && isMoving)
@@ -88,9 +88,9 @@ public class ArrowKeyConsoleInteract : MonoBehaviour
             techLabObject.transform.position = Vector3.MoveTowards(techLabObject.transform.position, moveTarget, step);
             if (techLabObject.transform.position == moveTarget)
             {
-                isMoving = false;
                 key.GetComponent<Renderer>().material.color = idleColor;
                 animator.ResetTrigger("IsPressed");
+                isMoving = false;
             }
         }
 
