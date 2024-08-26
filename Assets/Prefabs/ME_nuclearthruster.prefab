@@ -131,8 +131,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8912a50cc278e2e4caddff881202faf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisLight: {fileID: 0}
   flickerInterval: 1
+  isOn: 0
 --- !u!1001 &2943074718767054558
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -195,7 +195,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 6bec0dc19fab54744887b9db64a88e49, type: 2}
+      objectReference: {fileID: 2100000, guid: 36e43fb65bf24a84ea09915be60fb368, type: 2}
     - target: {fileID: -4447679066267824660, guid: 666df0c22e96c104ebad6dfcfa13e754,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -427,7 +427,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 20
+      scalar: 5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
