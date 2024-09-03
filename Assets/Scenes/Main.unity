@@ -45529,6 +45529,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &2093924239 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5111022168313328256, guid: 78832862edf3e71428d7874cd904bddf,
+    type: 3}
+  m_PrefabInstance: {fileID: 815865633226208874}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e196dc884f87d2f45b51ec4c53f8d151, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2095657195
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46349,56 +46361,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 556131054887054194, guid: 78832862edf3e71428d7874cd904bddf,
-        type: 3}
-      propertyPath: doorAnim
-      value: 
-      objectReference: {fileID: 815865633226208876}
-    - target: {fileID: 3616133351423154326, guid: 78832862edf3e71428d7874cd904bddf,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.51
-      objectReference: {fileID: 0}
-    - target: {fileID: 3616133351423154326, guid: 78832862edf3e71428d7874cd904bddf,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.075
-      objectReference: {fileID: 0}
-    - target: {fileID: 3616133351423154326, guid: 78832862edf3e71428d7874cd904bddf,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.010665894
-      objectReference: {fileID: 0}
-    - target: {fileID: 3616133351423154326, guid: 78832862edf3e71428d7874cd904bddf,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.70710695
-      objectReference: {fileID: 0}
-    - target: {fileID: 3616133351423154326, guid: 78832862edf3e71428d7874cd904bddf,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071067
-      objectReference: {fileID: 0}
-    - target: {fileID: 3616133351423154326, guid: 78832862edf3e71428d7874cd904bddf,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.00000041723246
-      objectReference: {fileID: 0}
-    - target: {fileID: 3616133351423154326, guid: 78832862edf3e71428d7874cd904bddf,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.00000036879072
-      objectReference: {fileID: 0}
-    - target: {fileID: 3616133351423154326, guid: 78832862edf3e71428d7874cd904bddf,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5111022168313328256, guid: 78832862edf3e71428d7874cd904bddf,
-        type: 3}
-      propertyPath: doorController
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 8510772486254864960, guid: 78832862edf3e71428d7874cd904bddf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -46454,60 +46416,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EngineeringLiftDoorUp
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8918887492205184003, guid: 78832862edf3e71428d7874cd904bddf, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 947586395676048983, guid: 78832862edf3e71428d7874cd904bddf,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 815865633226208879}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78832862edf3e71428d7874cd904bddf, type: 3}
---- !u!1 &815865633226208875 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9031835837533516026, guid: 78832862edf3e71428d7874cd904bddf,
-    type: 3}
-  m_PrefabInstance: {fileID: 815865633226208874}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &815865633226208876 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 4366989619345566894, guid: 78832862edf3e71428d7874cd904bddf,
-    type: 3}
-  m_PrefabInstance: {fileID: 815865633226208874}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &815865633226208877 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 947586395676048983, guid: 78832862edf3e71428d7874cd904bddf,
-    type: 3}
-  m_PrefabInstance: {fileID: 815865633226208874}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &815865633226208878 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 909850537260626422, guid: 78832862edf3e71428d7874cd904bddf,
-    type: 3}
-  m_PrefabInstance: {fileID: 815865633226208874}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &815865633226208879
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 815865633226208877}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01843eb9498d20d4bbf0a9e1f7c71a4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isGrate: 0
-  doorGameObject: {fileID: 815865633226208875}
-  keyObject: {fileID: 0}
-  doorAudio: {fileID: 815865633226208878}
-  doorSounds:
-  - {fileID: 8300000, guid: 8574bd99125e02245a646cdf955a9c7b, type: 3}
-  - {fileID: 8300000, guid: 538c773ff2348e94a8b97216c223bc05, type: 3}
-  isDoorLocked: 1
 --- !u!1001 &837503385984849586
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47077,6 +46990,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5687436458835490012, guid: 0ca99ef2749d12d46a1636a4ac294459,
+        type: 3}
+      propertyPath: buttonPress
+      value: 
+      objectReference: {fileID: 2093924239}
     - target: {fileID: 5687436458835490012, guid: 0ca99ef2749d12d46a1636a4ac294459,
         type: 3}
       propertyPath: movingObject

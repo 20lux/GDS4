@@ -6,7 +6,7 @@ public class TechLabTarget : MonoBehaviour
     [SerializeField] private Light[] lightsToEnable;
     [SerializeField] private GameObject[] particlesToEnable;
     [SerializeField] private AudioSource[] engineStartSounds;
-    [SerializeField] private GameObject doorToOpenTrigger;
+    [SerializeField] private ButtonPress buttonPress;
     [SerializeField] private GameObject[] alarms;
 
     void Start()
@@ -54,10 +54,7 @@ public class TechLabTarget : MonoBehaviour
                 }
             }
 
-            if (doorToOpenTrigger.TryGetComponent(out DoorController doorController))
-            {
-                doorController.isDoorLocked = false;
-            }
+            buttonPress.Activate();
         }
     }
 }
