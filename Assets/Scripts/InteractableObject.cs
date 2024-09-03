@@ -20,8 +20,7 @@ public class InteractableObject : MonoBehaviour, IInteractable
     private void Start()
     {
         if (objectType == ObjectType.Key ||
-            objectType == ObjectType.GrabObject ||
-            objectType == ObjectType.Cartridge)
+            objectType == ObjectType.GrabObject)
         {
             objectRigidBody = GetComponent<Rigidbody>();
         }
@@ -105,8 +104,7 @@ public class InteractableObject : MonoBehaviour, IInteractable
         Key = 2,
         Lock = 3, 
         GrabObject = 4,
-        PlaceObject = 5 ,
-        Cartridge = 6
+        PlaceObject = 5
     }
 
     public string GetObjectName()

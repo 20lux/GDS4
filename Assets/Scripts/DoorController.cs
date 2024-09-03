@@ -19,19 +19,16 @@ public class DoorController : MonoBehaviour
         doorAudio = GetComponent<AudioSource>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void LiftButtonPress()
     {
         if (!isGrate)
         {
-            if (other.CompareTag("Player"))
+            if (!isDoorLocked)
             {
-                if (!isDoorLocked)
-                {
-                    // Player entered collider
-                    door.OpenDoor();
-                    doorAudio.clip = doorSounds[0];
-                    doorAudio.Play();
-                }
+                // Player entered collider
+                door.OpenDoor();
+                doorAudio.clip = doorSounds[0];
+                doorAudio.Play();
             }
         }
     }
