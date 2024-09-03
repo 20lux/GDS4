@@ -1,7 +1,7 @@
 using System;
 using TMPro;
-using UnityEditor;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerActions : MonoBehaviour
 {
@@ -42,7 +42,7 @@ public class PlayerActions : MonoBehaviour
 
     public void PlayerInteract()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0))
         {
             if (thisInteractableObject == null)
             {
@@ -62,10 +62,7 @@ public class PlayerActions : MonoBehaviour
                                 break;
                             case InteractableObject.ObjectType.GrabObject:
                                 thisInteractableObject.Grab(grabCam);
-                                break;
-                            case InteractableObject.ObjectType.Cartridge:
-                                thisInteractableObject.Grab(grabCam);
-                                break;                                
+                                break;                              
                             case InteractableObject.ObjectType.Console:
                                 break;
                         }
