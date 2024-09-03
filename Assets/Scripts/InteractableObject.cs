@@ -15,6 +15,8 @@ public class InteractableObject : MonoBehaviour, IInteractable
     public AudioClip putDown;
     public AudioClip use;
     private AudioSource audioSource;
+    private LayerMask currentLayer;
+    private ButtonPress buttonPress;
     [HideInInspector] public bool isLocked => IsLocked;
 
     private void Start()
@@ -54,6 +56,8 @@ public class InteractableObject : MonoBehaviour, IInteractable
         {
             if (doorController.isGrate)
             {
+                // Diable highlighting when used
+                currentLayer = LayerMask.NameToLayer("Default");
                 doorController.OpenGrate();
             }
             else
@@ -77,6 +81,11 @@ public class InteractableObject : MonoBehaviour, IInteractable
         UseSound();
         cartridge.gameObject.transform.position = objectToInteractWith.transform.position;
         cartridge.gameObject.transform.rotation = objectToInteractWith.transform.rotation;
+    }
+
+    public void PressButton()
+    {
+        buttonPress.Press();
     }
 
     public void PickUpSound()
@@ -104,7 +113,8 @@ public class InteractableObject : MonoBehaviour, IInteractable
         Key = 2,
         Lock = 3, 
         GrabObject = 4,
-        PlaceObject = 5
+        PlaceObject = 5,
+        Button = 6
     }
 
     public string GetObjectName()

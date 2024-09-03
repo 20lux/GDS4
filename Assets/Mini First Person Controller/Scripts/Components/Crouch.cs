@@ -88,29 +88,23 @@ public class Crouch : MonoBehaviour
         {
             if (IsCrouched)
             {
-                if (Physics.Raycast(Vector3.up *2, Vector3.up, out RaycastHit hit, 0.5f))
+                // Rise the head back up.
+                if (headToLower)
                 {
-                    if (hit.collider == null)
-                    {
-                        // Rise the head back up.
-                        if (headToLower)
-                        {
-                            headToLower.localPosition = new Vector3(headToLower.localPosition.x, defaultHeadYLocalPosition.Value, headToLower.localPosition.z);
-                        }
-
-                        // Reset the colliderToLower's height.
-                        if (colliderToLower)
-                        {
-                            colliderToLower.height = defaultColliderHeight.Value;
-                            colliderToLower.center = Vector3.up * colliderToLower.height * .5f;
-                        }
-
-                        // Reset IsCrouched.
-                        IsCrouched = false;
-                        SetSpeedOverrideActive(false);
-                        CrouchEnd?.Invoke();
-                    }
+                    headToLower.localPosition = new Vector3(headToLower.localPosition.x, defaultHeadYLocalPosition.Value, headToLower.localPosition.z);
                 }
+
+                // Reset the colliderToLower's height.
+                if (colliderToLower)
+                {
+                    colliderToLower.height = defaultColliderHeight.Value;
+                    colliderToLower.center = Vector3.up * colliderToLower.height * .5f;
+                }
+
+                // Reset IsCrouched.
+                IsCrouched = false;
+                SetSpeedOverrideActive(false);
+                CrouchEnd?.Invoke();
             }
         }
     }

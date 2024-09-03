@@ -40,6 +40,7 @@ public class PlayerActions : MonoBehaviour
         PlayerInteract();
     }
 
+#region Player Interact
     public void PlayerInteract()
     {
         if (Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0))
@@ -65,6 +66,9 @@ public class PlayerActions : MonoBehaviour
                                 break;                              
                             case InteractableObject.ObjectType.Console:
                                 break;
+                            case InteractableObject.ObjectType.Button:
+                                thisInteractableObject.PressButton();
+                                break;
                         }
                     }
                     
@@ -76,6 +80,7 @@ public class PlayerActions : MonoBehaviour
             }
             else
             {
+                // Checking if interactable
                 if (Physics.Raycast(playerCam.transform.position, 
                                     playerCam.transform.forward, 
                                     out RaycastHit hit, 
@@ -84,7 +89,7 @@ public class PlayerActions : MonoBehaviour
                 {
                     if (hit.collider.tag == "Door")
                     {
-                        Debug.Log("Trying to open door");
+                        //Debug.Log("Trying to open door");
                         switch (thisInteractableObject.objectType)
                         {
                             case InteractableObject.ObjectType.Key:
@@ -105,8 +110,19 @@ public class PlayerActions : MonoBehaviour
                     //     }
                     // }
                 }
+                else if (Physics.Raycast(playerCam.transform.position, 
+                                    playerCam.transform.forward, 
+                                    out RaycastHit wallHit, 
+                                    interactDistance, LayerMask.GetMask("Default")))
+                {
+                    if (wallHit.collider.tag == "Wall")
+                    {
+                        // Play a sound
+                    }
+                }
                 else
                 {
+                    // Only drop an object if not near a wall
                     thisInteractableObject.Drop(playerDrop.transform);
                 }
 
@@ -115,11 +131,16 @@ public class PlayerActions : MonoBehaviour
         }
     }
 
+    // Use for video or audio consoles
     public void InteractingWithObject()
     {
         
     }
 
+#endregion
+
+#region Inventory
+    // Use for inventory
     public void FreeMouse()
     {
         Debug.Log("Freeing mouse!");
@@ -141,7 +162,8 @@ public class PlayerActions : MonoBehaviour
         LockMouse();
         Debug.Log("Closing console!");
     }
-
+#endregion
+    // TODO: Change to icons
     public void HighlightObject(bool isActive)
     {
         if (isActive)

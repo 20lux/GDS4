@@ -99,6 +99,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleporter
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0f28b7db9a9ddbf44852780a0ed6142a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 3380080921822813343, guid: 0f28b7db9a9ddbf44852780a0ed6142a, type: 3}
