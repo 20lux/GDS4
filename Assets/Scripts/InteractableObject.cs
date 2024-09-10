@@ -55,8 +55,8 @@ public class InteractableObject : MonoBehaviour, IInteractable
         {
             if (doorController.isGrate)
             {
-                // Diable highlighting when used
-                currentLayer = LayerMask.NameToLayer("Default");
+                // Disable highlighting when used
+                currentLayer = LayerMask.NameToLayer("IgnoreRaycast");
                 doorController.OpenGrate();
             }
             else
@@ -74,21 +74,6 @@ public class InteractableObject : MonoBehaviour, IInteractable
     {
         float audioLength = audio.length;
         yield return new WaitForSeconds(audioLength);
-    }
-
-    public void UseConsole(InteractableObject cartridge)
-    {
-        UseSound();
-        cartridge.gameObject.transform.position = objectToInteractWith.transform.position;
-        cartridge.gameObject.transform.rotation = objectToInteractWith.transform.rotation;
-    }
-
-    public void PressButton()
-    {
-        if (TryGetComponent(out ButtonPress buttonPress))
-        {
-            buttonPress.Press();
-        }
     }
 
     public void PickUpSound()
@@ -116,8 +101,7 @@ public class InteractableObject : MonoBehaviour, IInteractable
         Key = 2,
         Lock = 3, 
         GrabObject = 4,
-        PlaceObject = 5,
-        Button = 6
+        Inventory = 5,
     }
 
     public string GetObjectName()

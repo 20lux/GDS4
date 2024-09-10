@@ -12,6 +12,7 @@ public class DoorController : MonoBehaviour
     [SerializeField] private AudioClip[] doorSounds;
     private IDoor door;
     public bool isDoorLocked = true;
+    public bool isManualDoor = true;
 
     private void Awake()
     {
@@ -21,7 +22,7 @@ public class DoorController : MonoBehaviour
 
     public void LiftButtonPress()
     {
-        if (!isGrate)
+        if (!isGrate && isManualDoor)
         {
             if (!isDoorLocked)
             {
@@ -41,13 +42,25 @@ public class DoorController : MonoBehaviour
             {
                 if (!isDoorLocked)
                 {
-                    // Player exited collider
                     door.CloseDoor();
                     doorAudio.clip = doorSounds[1];
                     doorAudio.Play();
                 }
             }
         }        
+    }
+
+    private void OnTriggerEnter (Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            if (!isDoorLocked)
+            {
+                door.OpenDoor();
+                doorAudio.clip = doorSounds[0];
+                doorAudio.Play();
+            }                   
+        }
     }
 
     public void OpenGrate()

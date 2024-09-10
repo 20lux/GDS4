@@ -67,18 +67,17 @@ public class PlayerActions : MonoBehaviour
                                 break;                              
                             case InteractableObject.ObjectType.Console:
                                 break;
-                            case InteractableObject.ObjectType.Button:
-                                if (TryGetComponent(out ButtonPress buttonPress))
-                                {
-                                    buttonPress.Press();
-                                }
-                                break;
                         }
                     }
                     
                     if (hit.collider.TryGetComponent(out arrowKeyConsoleInteract))
                     {
                         arrowKeyConsoleInteract.KeyInteract();
+                    }
+
+                    if (hit.collider.TryGetComponent(out ButtonPress button))
+                    {
+                        button.Press();
                     }
                 }
             }
@@ -91,6 +90,13 @@ public class PlayerActions : MonoBehaviour
                                     interactDistance, 
                                     layerInteractable))
                 {
+                    switch (thisInteractableObject.objectType)
+                    {
+                        case InteractableObject.ObjectType.Key:
+                            thisInteractableObject.UseKey();
+                            break;
+                    }
+
                     // if (hit.collider.tag == "Console")
                     // {
                     //     Debug.Log("Using console!");
@@ -103,16 +109,16 @@ public class PlayerActions : MonoBehaviour
                     //     }
                     // }
                 }
-                else if (Physics.Raycast(playerCam.transform.position, 
-                                    playerCam.transform.forward, 
-                                    out RaycastHit wallHit, 
-                                    interactDistance, LayerMask.GetMask("Default")))
-                {
-                    if (wallHit.collider.tag == "Wall")
-                    {
-                        // Play a sound
-                    }
-                }
+                // else if (Physics.Raycast(playerCam.transform.position, 
+                //                     playerCam.transform.forward, 
+                //                     out RaycastHit wallHit, 
+                //                     interactDistance))
+                // {
+                //     if (wallHit.collider.tag == "Wall")
+                //     {
+                //         // Play a sound
+                //     }
+                // }
                 else
                 {
                     // Only drop an object if not near a wall
