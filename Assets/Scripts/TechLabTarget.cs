@@ -9,6 +9,8 @@ public class TechLabTarget : MonoBehaviour
     [SerializeField] private ButtonPress buttonPress;
     [SerializeField] private GameObject[] alarms;
 
+    public ArrowKeyConsoleInteract[] associatedConsoleKeys;
+
     void Start()
     {
         for (int i = 0; i < lightsToEnable.Length; i++)
@@ -17,6 +19,7 @@ public class TechLabTarget : MonoBehaviour
         }
     }
 
+    // Turn on engine sequence
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Target")
@@ -24,6 +27,13 @@ public class TechLabTarget : MonoBehaviour
             movingObject.transform.SetParent(gameObject.transform);
             movingObject.transform.position = gameObject.transform.position;
             
+            // Disable highlight on associated console
+            for (int i = 0; i < associatedConsoleKeys.Length; i++)
+            {
+                associatedConsoleKeys[i].isPuzzleComplete = true;
+            }
+
+            // Switch lights on
             for (int i = 0; i < lightsToEnable.Length; i++)
             {
                 lightsToEnable[i].enabled = true;
@@ -33,18 +43,21 @@ public class TechLabTarget : MonoBehaviour
                 }
             }
 
+            // Turn off alarms
             for (int i = 0; i < alarms.Length; i++)
             {
                 alarms[i].GetComponent<Alarm>().thisLight.enabled = false;
                 alarms[i].GetComponent<Alarm>().audioSource.Stop();
             }
 
+            // Fire up engine particles
             for (int i = 0; i < particlesToEnable.Length; i++)
             {
                 var ps = particlesToEnable[i].GetComponent<ParticleSystem>().emission;
                 ps.rateOverTime = 100;
             }
 
+            // Play engine startup and running sounds
             for (int i = 0; i < engineStartSounds.Length; i++)
             {
                 if (!engineStartSounds[i].isPlaying)
@@ -54,6 +67,7 @@ public class TechLabTarget : MonoBehaviour
                 }
             }
 
+            // Engine room lift button active
             buttonPress.Activate();
         }
     }

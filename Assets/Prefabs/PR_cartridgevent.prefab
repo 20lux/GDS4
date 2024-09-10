@@ -58,6 +58,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 56991ba89b1603b42a0aaae195ac94d5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5e647e92312dd1447bc3e9cb68be6809, type: 2}
     - target: {fileID: 919132149155446097, guid: 56991ba89b1603b42a0aaae195ac94d5,
         type: 3}
       propertyPath: m_Name
@@ -134,6 +139,12 @@ MonoBehaviour:
   objectToInteractWith: {fileID: 0}
   newMaterial: {fileID: 0}
   IsLocked: 0
+  pickUp: {fileID: 0}
+  putDown: {fileID: 0}
+  use: {fileID: 0}
+  currentLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!54 &2146484827561385301
 Rigidbody:
   m_ObjectHideFlags: 0

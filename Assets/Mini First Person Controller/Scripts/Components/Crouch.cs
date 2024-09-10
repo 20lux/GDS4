@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Crouch : MonoBehaviour
@@ -15,6 +16,7 @@ public class Crouch : MonoBehaviour
     public Transform headToLower;
     [HideInInspector]
     public float? defaultHeadYLocalPosition;
+    private Vector3 defaultHeadLocalPosition;
     public float crouchYHeadPosition = 1;
     
     [Tooltip("Collider to lower when crouched.")]
@@ -45,6 +47,7 @@ public class Crouch : MonoBehaviour
                 if (!defaultHeadYLocalPosition.HasValue)
                 {
                     defaultHeadYLocalPosition = headToLower.localPosition.y;
+                    defaultHeadLocalPosition = headToLower.localPosition;
                 }
 
                 // Lower the head.
@@ -91,13 +94,13 @@ public class Crouch : MonoBehaviour
                 // Rise the head back up.
                 if (headToLower)
                 {
-                    headToLower.localPosition = new Vector3(headToLower.localPosition.x, defaultHeadYLocalPosition.Value, headToLower.localPosition.z);
+                    headToLower.localPosition = Vector3.Lerp(headToLower.localPosition, defaultHeadLocalPosition, 50);
                 }
 
                 // Reset the colliderToLower's height.
                 if (colliderToLower)
                 {
-                    colliderToLower.height = defaultColliderHeight.Value;
+                    colliderToLower.height = Mathf.Lerp(colliderToLower.height, defaultColliderHeight.Value, 50);
                     colliderToLower.center = Vector3.up * colliderToLower.height * .5f;
                 }
 

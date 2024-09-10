@@ -482,7 +482,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: c1c9a10cb52fdfc48968c05ca6259e8e, type: 2}
+      objectReference: {fileID: 2100000, guid: 399d8722816b38044aba52718e350b1d, type: 2}
     - target: {fileID: -7023974396876390944, guid: 164c49e3249cdf6429471bfdcf0b3b4d,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -497,6 +497,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ME_wall_1x3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 164c49e3249cdf6429471bfdcf0b3b4d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 164c49e3249cdf6429471bfdcf0b3b4d,
         type: 3}
