@@ -15,8 +15,7 @@ public class InteractableObject : MonoBehaviour, IInteractable
     public AudioClip putDown;
     public AudioClip use;
     private AudioSource audioSource;
-    private LayerMask currentLayer;
-    private ButtonPress buttonPress;
+    public LayerMask currentLayer;
     [HideInInspector] public bool isLocked => IsLocked;
 
     private void Start()
@@ -65,6 +64,7 @@ public class InteractableObject : MonoBehaviour, IInteractable
                 doorController.isDoorLocked = false;
             }
         }
+        
         UseSound();
         waitForSound(use);
         Destroy(gameObject);
@@ -85,7 +85,10 @@ public class InteractableObject : MonoBehaviour, IInteractable
 
     public void PressButton()
     {
-        buttonPress.Press();
+        if (TryGetComponent(out ButtonPress buttonPress))
+        {
+            buttonPress.Press();
+        }
     }
 
     public void PickUpSound()

@@ -11,17 +11,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 3d8f7206ff558044cb95b75b050ee572,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.261
+      value: -3.2610018
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3d8f7206ff558044cb95b75b050ee572,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.998
+      value: -1.185
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3d8f7206ff558044cb95b75b050ee572,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -26.14
+      value: -25.939995
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3d8f7206ff558044cb95b75b050ee572,
         type: 3}
@@ -58,15 +58,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4938898129750038402, guid: 3d8f7206ff558044cb95b75b050ee572,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 21cbb6875abe53d4da4aa5e1d5923066, type: 2}
     - target: {fileID: -3682220819101255440, guid: 3d8f7206ff558044cb95b75b050ee572,
         type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: -2057484238129453486, guid: 3d8f7206ff558044cb95b75b050ee572,
         type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3d8f7206ff558044cb95b75b050ee572,
         type: 3}
@@ -76,12 +81,12 @@ PrefabInstance:
     - target: {fileID: 8693063560617626566, guid: 3d8f7206ff558044cb95b75b050ee572,
         type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8896112885207063288, guid: 3d8f7206ff558044cb95b75b050ee572,
         type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -182,6 +187,9 @@ MonoBehaviour:
   pickUp: {fileID: 0}
   putDown: {fileID: 0}
   use: {fileID: 0}
+  currentLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &925729600168045709 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2057484238129453486, guid: 3d8f7206ff558044cb95b75b050ee572,
@@ -243,7 +251,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   techLabObject: {fileID: 0}
-  key: {fileID: 0}
   direction: 1
   speed: 2
   distance: 0.2
@@ -404,7 +411,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   techLabObject: {fileID: 0}
-  key: {fileID: 0}
   direction: 2
   speed: 2
   distance: 0.2
@@ -565,7 +571,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   techLabObject: {fileID: 0}
-  key: {fileID: 0}
   direction: 3
   speed: 2
   distance: 0.2
@@ -726,7 +731,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   techLabObject: {fileID: 0}
-  key: {fileID: 0}
   direction: 0
   speed: 2
   distance: 0.2

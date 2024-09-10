@@ -19,6 +19,7 @@ public class ArrowKeyConsoleInteract : MonoBehaviour
     private bool isMoving = false;
     private AudioSource audioSource;
     private Animator animator;
+    public bool isPuzzleComplete = false;
     
     void Awake()
     {
@@ -61,12 +62,10 @@ public class ArrowKeyConsoleInteract : MonoBehaviour
                     posZ = techLabObject.transform.position.z;
                     break;
                 case Direction.Left:
-                    Debug.Log("Moving left!");
                     moveTarget = new Vector3(posX - distance, posY, posZ);
                     posX = techLabObject.transform.position.x;
                     break;
                 case Direction.Right:
-                    Debug.Log("Moving right!");
                     moveTarget = new Vector3(posX + distance, posY, posZ);
                     posX = techLabObject.transform.position.x;
                     break;
@@ -81,6 +80,11 @@ public class ArrowKeyConsoleInteract : MonoBehaviour
 
     public void Update()
     {
+        if (isPuzzleComplete)
+        {
+            LayerMask.NameToLayer("IgnoreRaycast");
+        }
+
         // Move towards target position
         if (isActive && isMoving)
         {

@@ -11,7 +11,8 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] private TextMeshProUGUI UIText;
     [SerializeField] private GameObject grabCam;
     [SerializeField] private GameObject playerDrop;
-    [SerializeField] private LayerMask layerInteractable;
+    private LayerMask layerInteractable;
+    private LayerMask ignoreRaycastLayer;
     private InteractableObject thisInteractableObject;
     private ArrowKeyConsoleInteract arrowKeyConsoleInteract;
  
@@ -67,7 +68,10 @@ public class PlayerActions : MonoBehaviour
                             case InteractableObject.ObjectType.Console:
                                 break;
                             case InteractableObject.ObjectType.Button:
-                                thisInteractableObject.PressButton();
+                                if (TryGetComponent(out ButtonPress buttonPress))
+                                {
+                                    buttonPress.Press();
+                                }
                                 break;
                         }
                     }
@@ -87,17 +91,6 @@ public class PlayerActions : MonoBehaviour
                                     interactDistance, 
                                     layerInteractable))
                 {
-                    if (hit.collider.tag == "Door")
-                    {
-                        //Debug.Log("Trying to open door");
-                        switch (thisInteractableObject.objectType)
-                        {
-                            case InteractableObject.ObjectType.Key:
-                                thisInteractableObject.UseKey();
-                                break;
-                        }
-                    }
-
                     // if (hit.collider.tag == "Console")
                     // {
                     //     Debug.Log("Using console!");
