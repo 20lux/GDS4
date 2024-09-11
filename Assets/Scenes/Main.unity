@@ -40753,16 +40753,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6108475466866468632, guid: a980ea095095026418fa9b3a1ad7b170,
-        type: 3}
-      propertyPath: doorNeedsKey
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6108475466866468632, guid: a980ea095095026418fa9b3a1ad7b170,
-        type: 3}
-      propertyPath: isDoorLocked
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: -8868460792422032706, guid: 3c86707aaf8d8f54da751c3bb19bc090,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -40836,6 +40826,16 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3c86707aaf8d8f54da751c3bb19bc090,
         type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6108475466866468632, guid: a980ea095095026418fa9b3a1ad7b170,
+        type: 3}
+      propertyPath: doorNeedsKey
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6108475466866468632, guid: a980ea095095026418fa9b3a1ad7b170,
+        type: 3}
+      propertyPath: isDoorLocked
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -46033,6 +46033,74 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 677425579}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1840133481
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 833196013781812950, guid: e4ebe9d3bf09912478169ab9b77ce433,
+        type: 3}
+      propertyPath: m_Name
+      value: FullScreenEffectController
+      objectReference: {fileID: 0}
+    - target: {fileID: 3568012266436054086, guid: e4ebe9d3bf09912478169ab9b77ce433,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.7769682
+      objectReference: {fileID: 0}
+    - target: {fileID: 3568012266436054086, guid: e4ebe9d3bf09912478169ab9b77ce433,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 12.884957
+      objectReference: {fileID: 0}
+    - target: {fileID: 3568012266436054086, guid: e4ebe9d3bf09912478169ab9b77ce433,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -15.870673
+      objectReference: {fileID: 0}
+    - target: {fileID: 3568012266436054086, guid: e4ebe9d3bf09912478169ab9b77ce433,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3568012266436054086, guid: e4ebe9d3bf09912478169ab9b77ce433,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3568012266436054086, guid: e4ebe9d3bf09912478169ab9b77ce433,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3568012266436054086, guid: e4ebe9d3bf09912478169ab9b77ce433,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3568012266436054086, guid: e4ebe9d3bf09912478169ab9b77ce433,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3568012266436054086, guid: e4ebe9d3bf09912478169ab9b77ce433,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3568012266436054086, guid: e4ebe9d3bf09912478169ab9b77ce433,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e4ebe9d3bf09912478169ab9b77ce433, type: 3}
 --- !u!1001 &1841601746
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -55198,6 +55266,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 177880661}
+  - {fileID: 1840133481}
   - {fileID: 2013972480}
   - {fileID: 188521646}
   - {fileID: 725917587}
