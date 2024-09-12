@@ -42,9 +42,7 @@ public class DoorController : MonoBehaviour
             {
                 if (!isDoorLocked)
                 {
-                    door.CloseDoor();
-                    doorAudio.clip = doorSounds[1];
-                    doorAudio.Play();
+                    Close();
                 }
             }
         }        
@@ -56,11 +54,23 @@ public class DoorController : MonoBehaviour
         {
             if (!isDoorLocked)
             {
-                door.OpenDoor();
-                doorAudio.clip = doorSounds[0];
-                doorAudio.Play();
+                Open();
             }                   
         }
+    }
+
+    public void Close()
+    {
+        door.CloseDoor();
+        doorAudio.clip = doorSounds[1];
+        doorAudio.Play();
+    }
+
+    public void Open()
+    {
+        door.OpenDoor();
+        doorAudio.clip = doorSounds[0];
+        doorAudio.Play();
     }
 
     public void OpenGrate()

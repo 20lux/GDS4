@@ -1,4 +1,5 @@
 using System;
+using NavKeypad;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -78,6 +79,11 @@ public class PlayerActions : MonoBehaviour
                     if (hit.collider.TryGetComponent(out ButtonPress button))
                     {
                         button.Press();
+                    }
+
+                    if (hit.collider.TryGetComponent(out KeypadButton keypadButton))
+                    {
+                        keypadButton.PressButton();
                     }
                 }
             }
