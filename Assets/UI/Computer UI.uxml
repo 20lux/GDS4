@@ -1,0 +1,28 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/ComputerText.uss?fileID=7433441132597879392&amp;guid=0020e4dc18e40a14d8bd83c246aa8c4e&amp;type=3#ComputerText" />
+    <ui:VisualElement name="Backing" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.77); position: absolute; height: 522px; width: 694px; opacity: 1;">
+        <ui:VisualElement name="Main_Menu" style="flex-grow: 1; opacity: 1; display: none;">
+            <ui:Label tabindex="-1" text="PROJECT EDEN INTERFACE (PEI)&#10;---- authorised access only-----&#10;&#10;&gt;&gt; SHIP DATABASE&#10;&#10;&gt;&gt; AUDIO LOGS&#10;&#10;&gt;&gt; MAINTANCE LOGS&#10;&#10;Awaiting input ... " parse-escape-sequences="true" display-tooltip-when-elided="true" name="text" class="text" style="height: 406px; color: rgb(80, 195, 80); -unity-font: url(&apos;project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&amp;guid=68192318e75975f4994b3ca6b07632e9&amp;type=3#NotInter-Regular&apos;); -unity-font-style: normal; font-size: 18px; -unity-text-align: upper-left; text-overflow: clip; position: absolute; width: 704px;" />
+            <ui:VisualElement style="flex-grow: 1; height: 142px; width: 718px; position: absolute; top: 65px; left: -3px;">
+                <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ship" style="height: 39px; width: 194px; background-color: rgba(188, 188, 188, 0); font-size: 0; -unity-text-outline-color: rgba(0, 0, 0, 0); color: rgba(27, 27, 27, 0);" />
+                <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Audio" style="height: 40px; width: 151px; background-color: rgba(188, 188, 188, 0); font-size: 0; -unity-text-outline-color: rgba(0, 0, 0, 0); color: rgba(27, 27, 27, 0);" />
+                <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Maintance" style="height: 43px; width: 200px; background-color: rgba(188, 188, 188, 0); font-size: 0; -unity-text-outline-color: rgba(0, 0, 0, 0); color: rgba(27, 27, 27, 0);" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="border" style="flex-grow: 1; height: 43px; display: flex;" />
+    <ui:VisualElement name="Audio_Logs" style="flex-grow: 1; flex-direction: column; position: relative; height: 412px; width: 710px; opacity: 1; color: rgb(27, 27, 27); display: none;">
+        <ui:Label tabindex="-1" text="--- ACCESSING AUDIO LOGS ---&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;--- AUDIO RECALL ----&#10;" parse-escape-sequences="true" display-tooltip-when-elided="true" class="text" style="height: 405px; position: absolute; width: 652px; top: 3px; left: 51px;">
+            <ui:TextField picking-mode="Ignore" label="ENTER PASSWORD" name="Enter_password" max-length="12" password="true" class="buttons" style="height: 83px; position: absolute; top: 52px; left: 110px; width: 342px; -unity-text-align: upper-center; justify-content: space-between; flex-direction: column; align-self: auto; -unity-background-image-tint-color: rgba(255, 255, 255, 0.98);" />
+            <ui:ListView style="height: 213px; width: 709px; position: absolute; top: 202px;" />
+            <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" class="buttons" style="position: absolute; top: 212px; left: 4px; width: 215px; height: 35px; background-color: rgba(188, 188, 188, 0); -unity-text-align: middle-left;" />
+        </ui:Label>
+    </ui:VisualElement>
+    <ui:Button text="&gt;&gt; BACK" parse-escape-sequences="true" display-tooltip-when-elided="true" class="buttons" style="position: absolute; top: 110px; left: 521px; display: none;" />
+    <ui:VisualElement name="SINGULARITY" style="flex-grow: 1; height: 194px; opacity: 1; display: flex;">
+        <ui:Label tabindex="-1" text="--- SINGULARITY PROTOCAL COMMAND CENTER ---&#10;&#10;//UPLOAD.exe Initialised&#10;&#10;Awaiting Input...&#10;" parse-escape-sequences="true" display-tooltip-when-elided="true" class="text" style="height: 124px; -unity-text-align: upper-left; width: 485px; position: absolute; top: 3px; left: 98px;">
+            <ui:TextField picking-mode="Ignore" label="PASSWORD REQUIRED" value="filler text" password="false" max-length="4" is-delayed="false" usage-hints="None" focusable="true" class="text" style="flex-direction: column; align-items: center; justify-content: space-around; width: 455px; align-self: center; position: absolute; top: 130px; left: 14px; -unity-background-image-tint-color: rgb(255, 255, 255);" />
+        </ui:Label>
+    </ui:VisualElement>
+    <ui:VisualElement name="border" style="flex-grow: 1; height: 50px;" />
+</ui:UXML>
