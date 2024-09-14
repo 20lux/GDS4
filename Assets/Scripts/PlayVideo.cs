@@ -13,6 +13,7 @@ public class PlayVideo : MonoBehaviour
     public int videoClipIndex;
     private double duration;
     private bool isPlaying;
+    public bool beingHeld;
 
     private void Start()
     {
@@ -22,12 +23,13 @@ public class PlayVideo : MonoBehaviour
 
     public void playVideo()
     {
-        if (isPlaying == false)
+        if (isPlaying == false && beingHeld == true)
         {
             player.clip = videos[videoClipIndex];
             player.Play();
             duration = videos[videoClipIndex].length;
             isPlaying = true;
+            GetComponentInChildren<MeshRenderer>().enabled = true;
         }
         
     }
@@ -42,7 +44,13 @@ public class PlayVideo : MonoBehaviour
             player.clip = videos[0];
             player.Play();
             isPlaying = false;
+            GetComponentInChildren<MeshRenderer>().enabled = false;
         }
+    }
+
+    private void OnMouseDown()
+    {
+        playVideo();
     }
 
 }
