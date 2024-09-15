@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destination: {fileID: 3739595813729554242}
-  teleportAudio: {fileID: 0}
+  teleportAudio: {fileID: 8300000, guid: d6441af127a2441429fcc99cc87b52d4, type: 3}
 --- !u!82 &8333370351710520658
 AudioSource:
   m_ObjectHideFlags: 0
