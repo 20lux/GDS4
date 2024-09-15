@@ -12,7 +12,8 @@ public static class Loader
     {
         Title,
         Load,
-        Main
+        Main,
+        Bridge_Ending
     }
     private static Action OnLoaderCallback;
     public static void Load(Scene scene)

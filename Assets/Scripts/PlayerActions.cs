@@ -16,6 +16,7 @@ public class PlayerActions : MonoBehaviour
     private LayerMask ignoreRaycastLayer;
     private InteractableObject thisInteractableObject;
     private ArrowKeyConsoleInteract arrowKeyConsoleInteract;
+    [HideInInspector] public bool isEnd = false;
  
     void Start()
     {
@@ -67,6 +68,14 @@ public class PlayerActions : MonoBehaviour
                                 thisInteractableObject.Grab(grabCam);
                                 break;                              
                             case InteractableObject.ObjectType.Console:
+                                thisInteractableObject.GetComponent<PlayVideo>().beingHeld = true;
+                                thisInteractableObject.GetComponent<PlayVideo>().videoClipIndex = 0;
+                                thisInteractableObject.GetComponent<PlayVideo>().playVideo();
+
+                                if (thisInteractableObject.tag == "BridgeEnding")
+                                {
+                                    isEnd = true;
+                                }
                                 break;
                         }
                     }

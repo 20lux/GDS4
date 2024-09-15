@@ -48,9 +48,9 @@ public class PlayVideo : MonoBehaviour
         }
     }
 
-    private void OnMouseDown()
-    {
-        playVideo();
-    }
+    // private void OnMouseDown()
+    // {
+    //     playVideo();
+    // }
 
 }

@@ -2,15 +2,51 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class GameController : MonoBehaviour
 {
-    // Update is called once per frame
+
+    UnityEvent bridgeEnding = new UnityEvent();
+    UnityEvent restartLevel = new UnityEvent();
+    [SerializeField] private AudioClip bridgeEndingClip;
+    public PlayerActions playerActions;
+    AudioSource audioSource;
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        bridgeEnding.AddListener(BridgeEnding);
+        restartLevel.AddListener(RestartLevel);
+    }
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (playerActions.isEnd)
         {
-            SceneManager.LoadScene("Main");
+            bridgeEnding.Invoke();
+        }
+    }
+
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene("Main");
+    }
+
+    void BridgeEnding()
+    {
+        audioSource.clip = bridgeEndingClip;
+        audioSource.loop = false;
+        audioSource.Play();
+        waitForSound();
+        Loader.Load(Loader.Scene.Bridge_Ending);
+    }
+
+    IEnumerator waitForSound()
+    {
+        while (audioSource.isPlaying)
+        {
+            yield return null;
         }
     }
 }
