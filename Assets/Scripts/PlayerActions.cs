@@ -138,31 +138,6 @@ public class PlayerActions : MonoBehaviour
         }
     }
 
-#region Inventory
-    // Use for inventory
-    public void FreeMouse()
-    {
-        Debug.Log("Freeing mouse!");
-    }
-
-    public void LockMouse()
-    {
-        Debug.Log("Locking mouse!");
-    }
-
-    public void UseConsole()
-    {
-        FreeMouse();
-        Debug.Log("Using console!");
-    }
-
-    public void CloseConsole()
-    {
-        LockMouse();
-        Debug.Log("Closing console!");
-    }
-#endregion
-    // TODO: Change to icons
     public void HighlightObject(bool isActive)
     {
         if (isActive)
