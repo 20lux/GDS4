@@ -17,9 +17,10 @@ public class Teleporter : MonoBehaviour
     {
         if (other.CompareTag("Player") && other.TryGetComponent(out FirstPersonMovement player))
         {
-            audioSource.time = 1f;
+            audioSource.time = 1.5f;
             audioSource.Play();
             player.Teleport(destination.position, destination.rotation);
+            player.isTeleporting = false;
         }
     }
 

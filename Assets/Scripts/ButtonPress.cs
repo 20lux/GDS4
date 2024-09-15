@@ -26,7 +26,7 @@ public class ButtonPress : MonoBehaviour
     {
         if (isActive)
         {
-            Debug.Log("Pressing button!");
+            //Debug.Log("Pressing button!");
             doorController.isDoorLocked = false;
             doorController.LiftButtonPress();
             animator.SetTrigger("isPressed");

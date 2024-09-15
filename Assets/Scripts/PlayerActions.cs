@@ -1,4 +1,5 @@
 using System;
+using Assets.Diamondhenge.HengeVideoPlayer;
 using NavKeypad;
 using TMPro;
 using UnityEngine;
@@ -68,14 +69,14 @@ public class PlayerActions : MonoBehaviour
                                 thisInteractableObject.Grab(grabCam);
                                 break;                              
                             case InteractableObject.ObjectType.Console:
-                                thisInteractableObject.GetComponent<PlayVideo>().beingHeld = true;
-                                thisInteractableObject.GetComponent<PlayVideo>().videoClipIndex = 1;
-                                thisInteractableObject.GetComponent<PlayVideo>().playVideo();
-
-                                if (thisInteractableObject.tag == "BridgeEnding" && 
-                                    thisInteractableObject.GetComponent<PlayVideo>().IsPlaying == false)
+                                var videoPlayer = thisInteractableObject.GetComponent<PlayVideo>();
+                                if (!videoPlayer.hengeVideo.isPlaying)
                                 {
-                                    isEnd = true;
+                                    videoPlayer.hengeVideo.PlayVideo();
+                                }
+                                else
+                                {
+                                    videoPlayer.hengeVideo.TogglePauseState();
                                 }
                                 break;
                         }
@@ -112,29 +113,7 @@ public class PlayerActions : MonoBehaviour
                             thisInteractableObject.UseKey();
                             break;
                     }
-
-                    // if (hit.collider.tag == "Console")
-                    // {
-                    //     Debug.Log("Using console!");
-                    //     switch (thisInteractableObject.objectType)
-                    //     {
-                    //         case InteractableObject.ObjectType.Cartridge:
-                    //             Debug.Log("Putting in cartridge!");
-                    //             thisInteractableObject.UseConsole(thisInteractableObject);
-                    //             break;
-                    //     }
-                    // }
                 }
-                // else if (Physics.Raycast(playerCam.transform.position, 
-                //                     playerCam.transform.forward, 
-                //                     out RaycastHit wallHit, 
-                //                     interactDistance))
-                // {
-                //     if (wallHit.collider.tag == "Wall")
-                //     {
-                //         // Play a sound
-                //     }
-                // }
                 else
                 {
                     // Only drop an object if not near a wall
@@ -144,12 +123,6 @@ public class PlayerActions : MonoBehaviour
                 thisInteractableObject = null;
             }
         }
-    }
-
-    // Use for video or audio consoles
-    public void InteractingWithObject()
-    {
-        
     }
 
 #endregion
