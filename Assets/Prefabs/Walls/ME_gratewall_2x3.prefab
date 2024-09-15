@@ -300,7 +300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ddb035a15436484cbc7a09298e15b56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorAnim: {fileID: 0}
+  doorAnim: {fileID: 2334147872525669516}
 --- !u!114 &3291918813496734387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -319,7 +319,10 @@ MonoBehaviour:
   doorAudio: {fileID: 155553029454577287}
   doorSounds:
   - {fileID: 8300000, guid: 966bf78b53f914b4690b463c08cf6791, type: 3}
-  isDoorLocked: 0
+  door: {fileID: 4606981020055158773}
+  isManualDoor: 0
+  timeToClose: 5
+  isOpen: 0
 --- !u!114 &7318805346111401285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,6 +343,7 @@ MonoBehaviour:
   pickUp: {fileID: 0}
   putDown: {fileID: 0}
   use: {fileID: 0}
+  error: {fileID: 8300000, guid: 667b4131d82e9b9408254a56ed8eee8a, type: 3}
   currentLayer:
     serializedVersion: 2
     m_Bits: 0
@@ -354,7 +358,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

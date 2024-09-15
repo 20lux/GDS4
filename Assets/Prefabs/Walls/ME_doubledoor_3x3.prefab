@@ -74,8 +74,10 @@ MonoBehaviour:
   doorSounds:
   - {fileID: 8300000, guid: 8574bd99125e02245a646cdf955a9c7b, type: 3}
   - {fileID: 8300000, guid: 538c773ff2348e94a8b97216c223bc05, type: 3}
-  isDoorLocked: 1
+  door: {fileID: 337234196660737230}
   isManualDoor: 0
+  timeToClose: 5
+  isOpen: 0
 --- !u!82 &4996527597396271838
 AudioSource:
   m_ObjectHideFlags: 0
@@ -97,7 +99,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 2
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -132,7 +134,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

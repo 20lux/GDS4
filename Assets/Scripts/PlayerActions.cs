@@ -3,14 +3,14 @@ using Assets.Diamondhenge.HengeVideoPlayer;
 using NavKeypad;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class PlayerActions : MonoBehaviour
 {
     [Header("Player Interation Properties")]
     [SerializeField] private float interactDistance = 10f;
+    [SerializeField] private Image playerCrosshair;
     [SerializeField] private Camera playerCam;
-    [SerializeField] private TextMeshProUGUI UIText;
     [SerializeField] private GameObject grabCam;
     [SerializeField] private GameObject playerDrop;
     private LayerMask layerInteractable;
@@ -62,22 +62,14 @@ public class PlayerActions : MonoBehaviour
                         {
                             case InteractableObject.ObjectType.None:
                                 break;
-                            case InteractableObject.ObjectType.Key:
+                            case InteractableObject.ObjectType.Tool:
                                 thisInteractableObject.Grab(grabCam);
                                 break;
                             case InteractableObject.ObjectType.GrabObject:
                                 thisInteractableObject.Grab(grabCam);
                                 break;                              
                             case InteractableObject.ObjectType.Console:
-                                var videoPlayer = thisInteractableObject.GetComponent<PlayVideo>();
-                                if (!videoPlayer.hengeVideo.isPlaying)
-                                {
-                                    videoPlayer.hengeVideo.PlayVideo();
-                                }
-                                else
-                                {
-                                    videoPlayer.hengeVideo.TogglePauseState();
-                                }
+                                InteractWithVideo();
                                 break;
                         }
                     }
@@ -95,6 +87,11 @@ public class PlayerActions : MonoBehaviour
                     if (hit.collider.TryGetComponent(out KeypadButton keypadButton))
                     {
                         keypadButton.PressButton();
+                    }
+
+                    if (hit.collider.TryGetComponent(out BridgeEnding bridgeEnding))
+                    {
+                        isEnd = true;
                     }
                 }
             }
@@ -127,6 +124,19 @@ public class PlayerActions : MonoBehaviour
 
 #endregion
 
+    public void InteractWithVideo()
+    {
+        var videoPlayer = thisInteractableObject.GetComponent<PlayVideo>();
+        if (!videoPlayer.hengeVideo.isPlaying)
+        {
+            videoPlayer.hengeVideo.PlayVideo();
+        }
+        else
+        {
+            videoPlayer.hengeVideo.TogglePauseState();
+        }
+    }
+
 #region Inventory
     // Use for inventory
     public void FreeMouse()
@@ -156,12 +166,12 @@ public class PlayerActions : MonoBehaviour
     {
         if (isActive)
         {
-            UIText.text = "Press [E] to interact";
             //Debug.Log("Highlighting object");
+            playerCrosshair.color = Color.green;
         }
         else
         {
-            UIText.text = " ";
+            playerCrosshair.color = Color.white;
         }
     }
 }

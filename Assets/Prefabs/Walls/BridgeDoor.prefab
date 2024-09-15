@@ -106,6 +106,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 399d8722816b38044aba52718e350b1d, type: 2}
+    - target: {fileID: 4996527597396271838, guid: a980ea095095026418fa9b3a1ad7b170,
+        type: 3}
+      propertyPath: MaxDistance
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996527597396271838, guid: a980ea095095026418fa9b3a1ad7b170,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6108475466866468632, guid: a980ea095095026418fa9b3a1ad7b170,
+        type: 3}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 1047715522627574510}
     - target: {fileID: 6108475466866468632, guid: a980ea095095026418fa9b3a1ad7b170,
         type: 3}
       propertyPath: needKey
@@ -142,6 +157,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 730747524292464160}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1047715522627574510 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 337234196660737230, guid: a980ea095095026418fa9b3a1ad7b170,
+    type: 3}
+  m_PrefabInstance: {fileID: 730747524292464160}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ddb035a15436484cbc7a09298e15b56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6836896423421765944 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6108475466866468632, guid: a980ea095095026418fa9b3a1ad7b170,

@@ -14,6 +14,7 @@ public class InteractableObject : MonoBehaviour, IInteractable
     public AudioClip pickUp;
     public AudioClip putDown;
     public AudioClip use;
+    public AudioClip error;
     private AudioSource audioSource;
     public LayerMask currentLayer;
     [HideInInspector] public bool isLocked => IsLocked;
@@ -53,21 +54,26 @@ public class InteractableObject : MonoBehaviour, IInteractable
         //Debug.Log("Interacting with lock");
         if (objectToInteractWith.TryGetComponent(out DoorController doorController))
         {
-            if (doorController.isGrate)
-            {
-                // Disable highlighting when used
-                currentLayer = LayerMask.NameToLayer("IgnoreRaycast");
-                doorController.OpenGrate();
-            }
-            else
-            {
-                doorController.isDoorLocked = false;
-            }
+            
+        }
+        else
+        {
+            ErrorSound();
         }
         
-        UseSound();
-        waitForSound(use);
-        Destroy(gameObject);
+    }
+
+    public void UseTool()
+    {
+        if (objectToInteractWith.TryGetComponent(out GrateController grateController))
+        {
+            grateController.OpenGrate();
+            Destroy(gameObject);
+        }
+        else
+        {
+            ErrorSound();
+        }
     }
 
     IEnumerator waitForSound(AudioClip audio)
@@ -94,6 +100,12 @@ public class InteractableObject : MonoBehaviour, IInteractable
         audioSource.Play();
     }
 
+    public void ErrorSound()
+    {
+        audioSource.clip = error;
+        audioSource.Play();
+    }
+
     public enum ObjectType 
     {    
         None = 0, 
@@ -102,6 +114,8 @@ public class InteractableObject : MonoBehaviour, IInteractable
         Lock = 3, 
         GrabObject = 4,
         Inventory = 5,
+        Button = 6,
+        Tool = 7
     }
 
     public string GetObjectName()

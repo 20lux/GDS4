@@ -1,24 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorAnimations : MonoBehaviour, IDoor
+public class DoorAnimations : MonoBehaviour
 {
     [SerializeField] private Animator doorAnim;
 
     private void Awake()
     {
         doorAnim = GetComponent<Animator>();
-        CloseDoor();
     }
 
     public void OpenDoor()
     {
-        doorAnim.SetBool("isEntering", true);
-    }
-
-    public void CloseDoor()
-    {
-        doorAnim.SetBool("isEntering", false);
+        doorAnim.Play("DoorOpen");
     }
 }
