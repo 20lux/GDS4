@@ -384,8 +384,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 856278453}
-  - component: {fileID: 856278452}
   - component: {fileID: 856278451}
+  - component: {fileID: 856278455}
+  - component: {fileID: 856278454}
   m_Layer: 0
   m_Name: MenuController
   m_TagString: Untagged
@@ -489,22 +490,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &856278452
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 856278450}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 467a57c5296e59645a80018792cbde65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  titleMusic: {fileID: 8300000, guid: a4055edcbb2fe224f87a0ab33ce3ace2, type: 3}
-  buttonPress: {fileID: 8300000, guid: 96f0a0da17c43a5488a333e83dbe0738, type: 3}
-  audioSource: {fileID: 856278451}
-  fadeTime: 15
 --- !u!4 &856278453
 Transform:
   m_ObjectHideFlags: 0
@@ -520,6 +505,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &856278454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 856278450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02c6c1782d2456e4b900699cacb467b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endingMusic: {fileID: 8300000, guid: 2a1087bdd541a7744ad099adab254d3b, type: 3}
+  buttonPress: {fileID: 8300000, guid: d2a70a9127f8a4e459a16cedc425e887, type: 3}
+  audioSource: {fileID: 0}
+  fadeTime: 15
+--- !u!114 &856278455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 856278450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ed4f64b757662347bd2ab88e7894b35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1034405732
 GameObject:
   m_ObjectHideFlags: 0
@@ -554,8 +567,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 57, y: -96}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 57, y: 97}
+  m_SizeDelta: {x: 200, y: 308.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1034405734
 MonoBehaviour:
@@ -577,7 +590,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: White Ending
+  m_text: 'You enter the code to start the self-destruct sequence.
+
+
+    Everything
+    goes white. Then nothing.
+
+
+    Congratulations. You''ve destroyed the singularity
+    and yourself.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -604,8 +625,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 120
-  m_fontSizeBase: 120
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -640,7 +661,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -402.86014, y: -124.2988, z: -292.73322, w: 0}
+  m_margin: {x: -840.1644, y: -179.41559, z: -730.56537, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -805,8 +826,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 856278452}
-        m_TargetAssemblyTypeName: TitleMenuController, Assembly-CSharp
+      - m_Target: {fileID: 856278454}
+        m_TargetAssemblyTypeName: EndingSceneController, Assembly-CSharp
         m_MethodName: MainMenu
         m_Mode: 1
         m_Arguments:
@@ -1313,8 +1334,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 856278452}
-        m_TargetAssemblyTypeName: TitleMenuController, Assembly-CSharp
+      - m_Target: {fileID: 856278454}
+        m_TargetAssemblyTypeName: EndingSceneController, Assembly-CSharp
         m_MethodName: ExitGame
         m_Mode: 1
         m_Arguments:
