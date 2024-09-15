@@ -88,6 +88,12 @@ public class PlayerActions : MonoBehaviour
                     {
                         keypadButton.PressButton();
                     }
+
+                    if (hit.collider.TryGetComponent(out BridgeEnding bridgeEnding))
+                    {
+                        Debug.Log("This is the end!");
+                        isEnd = true;
+                    }
                 }
             }
             else

@@ -102,8 +102,17 @@ PrefabInstance:
       propertyPath: isManualDoor
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4623873860042995701, guid: afaf37948711993478fe3fddbbd1a580, type: 3}
+    - target: {fileID: 9092621871657830213, guid: afaf37948711993478fe3fddbbd1a580,
+        type: 3}
+      propertyPath: MaxDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9092621871657830213, guid: afaf37948711993478fe3fddbbd1a580,
+        type: 3}
+      propertyPath: MinDistance
+      value: 0.1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

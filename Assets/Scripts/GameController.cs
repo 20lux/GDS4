@@ -24,7 +24,7 @@ public class GameController : MonoBehaviour
     {
         if (playerActions.isEnd)
         {
-            bridgeEnding.Invoke();
+            BridgeEnding();
         }
     }
 
