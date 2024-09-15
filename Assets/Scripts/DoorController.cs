@@ -12,7 +12,8 @@ public class DoorController : MonoBehaviour
     [SerializeField] private AudioClip[] doorSounds;
     private IDoor door;
     public bool isDoorLocked = true;
-    public bool isManualDoor = true;
+    public bool isManualDoor = false;
+    private bool isOpen = false;
 
     private void Awake()
     {
@@ -40,9 +41,10 @@ public class DoorController : MonoBehaviour
         {
             if (other.tag == "Player")
             {
-                if (!isDoorLocked)
+                if (!isDoorLocked && isOpen)
                 {
                     Close();
+                    isOpen = false;
                 }
             }
         }        
@@ -52,9 +54,10 @@ public class DoorController : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            if (!isDoorLocked)
+            if (!isDoorLocked && !isOpen && !isManualDoor)
             {
                 Open();
+                isOpen = true;
             }                   
         }
     }

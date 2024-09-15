@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2281945371142426433}
   - component: {fileID: 7788642095272303612}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Collider1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,6 +120,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ME_meshhexfloor_4x4
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 667be7fde370a48428e33145b66ecd9e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

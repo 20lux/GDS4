@@ -58,10 +58,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: -2097818049374146338, guid: 2cc5a194f8b9a1349962f92979c619a9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2cc5a194f8b9a1349962f92979c619a9,
         type: 3}
       propertyPath: m_Name
       value: ME_deskchair
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2cc5a194f8b9a1349962f92979c619a9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

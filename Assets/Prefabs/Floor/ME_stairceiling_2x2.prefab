@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2131928286015746940}
   - component: {fileID: 4211664115615369142}
   - component: {fileID: -3943606028630574728}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ME_stairceiling_2x2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

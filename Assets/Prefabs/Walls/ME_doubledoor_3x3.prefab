@@ -75,6 +75,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8574bd99125e02245a646cdf955a9c7b, type: 3}
   - {fileID: 8300000, guid: 538c773ff2348e94a8b97216c223bc05, type: 3}
   isDoorLocked: 1
+  isManualDoor: 0
 --- !u!82 &4996527597396271838
 AudioSource:
   m_ObjectHideFlags: 0

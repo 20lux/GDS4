@@ -25,6 +25,15 @@ public class TitleMenuController : MonoBehaviour
         Loader.Load(Loader.Scene.Main);
     }
 
+    public void MainMenu()
+    {
+        audioSource.clip = buttonPress;
+        audioSource.loop = false;
+        audioSource.Play();
+        waitForSound();
+        Loader.Load(Loader.Scene.Title);
+    }
+
     public void ExitGame()
     {
         Application.Quit();
