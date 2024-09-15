@@ -233,11 +233,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2f3b3afd0ae60cd4eb7c70e7ae065737,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4606981020055158773}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2f3b3afd0ae60cd4eb7c70e7ae065737,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3291918813496734387}
+      addedObject: {fileID: 1339060214463020001}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2f3b3afd0ae60cd4eb7c70e7ae065737,
         type: 3}
       insertIndex: -1
@@ -288,7 +284,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &4606981020055158773
+--- !u!114 &1339060214463020001
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -297,32 +293,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3364945894572212402}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ddb035a15436484cbc7a09298e15b56, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f17668a5a402e74f8f3ed2030ca0bba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorAnim: {fileID: 2334147872525669516}
---- !u!114 &3291918813496734387
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3364945894572212402}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01843eb9498d20d4bbf0a9e1f7c71a4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isGrate: 1
-  doorGameObject: {fileID: 3364945894572212402}
-  keyObject: {fileID: 0}
-  doorAudio: {fileID: 155553029454577287}
-  doorSounds:
-  - {fileID: 8300000, guid: 966bf78b53f914b4690b463c08cf6791, type: 3}
-  door: {fileID: 4606981020055158773}
-  isManualDoor: 0
-  timeToClose: 5
-  isOpen: 0
 --- !u!114 &7318805346111401285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -357,7 +330,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 966bf78b53f914b4690b463c08cf6791, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

@@ -9,8 +9,13 @@ public class DoorAnimations : MonoBehaviour
         doorAnim = GetComponent<Animator>();
     }
 
-    public void OpenDoor()
+    public void OpenAnimation()
     {
-        doorAnim.Play("DoorOpen");
+        doorAnim.SetBool("OpenDoor", true);
+    }
+
+    public void CloseAnimation()
+    {
+        doorAnim.SetBool("OpenDoor", false);
     }
 }

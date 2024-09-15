@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEditor.Build.Content;
 using UnityEngine;
 
@@ -12,7 +13,6 @@ public class DoorController : MonoBehaviour
     public DoorAnimations door;
     public bool isManualDoor = false;
     public int timeToClose = 5;
-    public bool isOpen = false;
 
     private void Awake()
     {
@@ -24,19 +24,37 @@ public class DoorController : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            if (!isManualDoor && !isOpen)
+            if (!isManualDoor)
             {
                 Open();
             }    
         }
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            if (!isManualDoor)
+            {
+                Close();
+            }    
+        }
+    }
+
     public void Open()
     {
-        isOpen = true;
-        door.OpenDoor();
+        door.OpenAnimation();
         doorAudio.time = 2f;
         doorAudio.clip = doorSounds[0];
+        doorAudio.Play();
+    }
+
+    public void Close()
+    {
+        door.CloseAnimation();
+        doorAudio.time = 1f;
+        doorAudio.clip = doorSounds[1];
         doorAudio.Play();
     }
 }

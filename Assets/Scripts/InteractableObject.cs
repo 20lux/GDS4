@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class InteractableObject : MonoBehaviour, IInteractable
@@ -17,6 +18,7 @@ public class InteractableObject : MonoBehaviour, IInteractable
     public AudioClip error;
     private AudioSource audioSource;
     public LayerMask currentLayer;
+    private int layerIgnoreRaycast;
     [HideInInspector] public bool isLocked => IsLocked;
 
     private void Start()
@@ -28,6 +30,8 @@ public class InteractableObject : MonoBehaviour, IInteractable
         }
 
         audioSource = gameObject.AddComponent<AudioSource>();
+
+        layerIgnoreRaycast = LayerMask.GetMask("Ignore Raycast");
     }
 
     public void Grab(GameObject grabCam)
@@ -54,19 +58,17 @@ public class InteractableObject : MonoBehaviour, IInteractable
         //Debug.Log("Interacting with lock");
         if (objectToInteractWith.TryGetComponent(out DoorController doorController))
         {
-            
+            // Only opens door once
+            // Door closes after 5 seconds (see animation controller)
+            doorController.Open();
+            UseSound();
+            waitForSound(use);
+            Destroy(gameObject);
         }
-        else
+        else if (objectToInteractWith.TryGetComponent(out GrateController grateController))
         {
-            ErrorSound();
-        }
-        
-    }
-
-    public void UseTool()
-    {
-        if (objectToInteractWith.TryGetComponent(out GrateController grateController))
-        {
+            // Disable highlighting when used
+            grateController.gameObject.layer = layerIgnoreRaycast;
             grateController.OpenGrate();
             Destroy(gameObject);
         }
@@ -74,6 +76,7 @@ public class InteractableObject : MonoBehaviour, IInteractable
         {
             ErrorSound();
         }
+        
     }
 
     IEnumerator waitForSound(AudioClip audio)
@@ -114,8 +117,7 @@ public class InteractableObject : MonoBehaviour, IInteractable
         Lock = 3, 
         GrabObject = 4,
         Inventory = 5,
-        Button = 6,
-        Tool = 7
+        Button = 6
     }
 
     public string GetObjectName()

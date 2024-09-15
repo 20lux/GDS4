@@ -73,6 +73,7 @@ public class ArrowKeyConsoleInteract : MonoBehaviour
 
             key.GetComponent<Renderer>().material.color = pressedColor;
             isMoving = true;
+            audioSource.pitch = Random.Range(1f, 1.5f);
             audioSource.Play();
             animator.SetTrigger("IsPressed");
         }

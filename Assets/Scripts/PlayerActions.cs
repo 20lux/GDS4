@@ -62,7 +62,7 @@ public class PlayerActions : MonoBehaviour
                         {
                             case InteractableObject.ObjectType.None:
                                 break;
-                            case InteractableObject.ObjectType.Tool:
+                            case InteractableObject.ObjectType.Key:
                                 thisInteractableObject.Grab(grabCam);
                                 break;
                             case InteractableObject.ObjectType.GrabObject:
@@ -87,11 +87,6 @@ public class PlayerActions : MonoBehaviour
                     if (hit.collider.TryGetComponent(out KeypadButton keypadButton))
                     {
                         keypadButton.PressButton();
-                    }
-
-                    if (hit.collider.TryGetComponent(out BridgeEnding bridgeEnding))
-                    {
-                        isEnd = true;
                     }
                 }
             }

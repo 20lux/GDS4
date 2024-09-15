@@ -4,16 +4,13 @@ using UnityEngine;
 
 public class GrateController : MonoBehaviour
 {
-    [Header("Grate Properties")]
-    [SerializeField] private GameObject grateGameObject;
-    [SerializeField] private GameObject keyObject;
-    [SerializeField] private AudioSource grateAudioSource;
-    public GrateAnimation grateAnimation;
+    private AudioSource grateAudioSource;
     private Animator grateAnimator;
 
     void Awake()
     {
         grateAnimator = GetComponent<Animator>();
+        grateAudioSource = GetComponent<AudioSource>();
     }
 
     public void OpenGrate()
