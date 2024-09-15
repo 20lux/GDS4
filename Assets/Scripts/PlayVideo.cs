@@ -13,10 +13,12 @@ public class PlayVideo : MonoBehaviour
     public int videoClipIndex;
     private double duration;
     private bool isPlaying;
+    [HideInInspector] public bool IsPlaying => isPlaying;
     public bool beingHeld;
 
     private void Start()
     {
+        player = GetComponent<VideoPlayer>();
         player.clip = videos[0];
         player.Play();
     }

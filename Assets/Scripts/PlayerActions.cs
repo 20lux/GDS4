@@ -69,10 +69,11 @@ public class PlayerActions : MonoBehaviour
                                 break;                              
                             case InteractableObject.ObjectType.Console:
                                 thisInteractableObject.GetComponent<PlayVideo>().beingHeld = true;
-                                thisInteractableObject.GetComponent<PlayVideo>().videoClipIndex = 0;
+                                thisInteractableObject.GetComponent<PlayVideo>().videoClipIndex = 1;
                                 thisInteractableObject.GetComponent<PlayVideo>().playVideo();
 
-                                if (thisInteractableObject.tag == "BridgeEnding")
+                                if (thisInteractableObject.tag == "BridgeEnding" && 
+                                    thisInteractableObject.GetComponent<PlayVideo>().IsPlaying == false)
                                 {
                                     isEnd = true;
                                 }
