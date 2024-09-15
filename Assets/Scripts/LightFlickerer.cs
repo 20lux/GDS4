@@ -23,7 +23,7 @@ public class LightFlickerer : MonoBehaviour
             if (timer > flickerInterval)
             {
                 thisLight.enabled = !thisLight.enabled;
-                flickerInterval = Random.Range(0f, 0.5f);
+                flickerInterval = Random.Range(0f, flickerInterval);
                 timer -= flickerInterval;
             }
         }

@@ -4907,6 +4907,7 @@ GameObject:
   - component: {fileID: 194812730}
   - component: {fileID: 194812729}
   - component: {fileID: 194812728}
+  - component: {fileID: 194812731}
   m_Layer: 0
   m_Name: LivingPodLiftCoreLight
   m_TagString: Untagged
@@ -5014,6 +5015,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &194812731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194812727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8912a50cc278e2e4caddff881202faf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flickerInterval: 20
+  isOn: 0
 --- !u!1 &196110258 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1399553045871219095, guid: 71f4b896673fd2442bba35cabaa06761,
@@ -10948,6 +10963,7 @@ GameObject:
   - component: {fileID: 429259472}
   - component: {fileID: 429259471}
   - component: {fileID: 429259470}
+  - component: {fileID: 429259473}
   m_Layer: 0
   m_Name: Spot Light (3)
   m_TagString: Untagged
@@ -11055,6 +11071,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &429259473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429259469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8912a50cc278e2e4caddff881202faf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flickerInterval: 5
+  isOn: 0
 --- !u!4 &430341363 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4397885231740812245, guid: 710dfe793625c7d4f946c69fab20fee8,
@@ -17774,6 +17804,7 @@ GameObject:
   - component: {fileID: 636435459}
   - component: {fileID: 636435458}
   - component: {fileID: 636435457}
+  - component: {fileID: 636435460}
   m_Layer: 0
   m_Name: MainCorridorFloorLight (11)
   m_TagString: Untagged
@@ -17881,6 +17912,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 46.26, y: 329.999, z: 0}
+--- !u!114 &636435460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 636435456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8912a50cc278e2e4caddff881202faf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flickerInterval: 1
+  isOn: 0
 --- !u!4 &636674685 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4598061015160491530, guid: 9f1918ad006365645bb692e7963608b0,
@@ -18717,6 +18762,7 @@ GameObject:
   - component: {fileID: 678884529}
   - component: {fileID: 678884528}
   - component: {fileID: 678884527}
+  - component: {fileID: 678884530}
   m_Layer: 0
   m_Name: EngineRoomLight
   m_TagString: Untagged
@@ -18824,6 +18870,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &678884530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 678884526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8912a50cc278e2e4caddff881202faf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flickerInterval: 10
+  isOn: 0
 --- !u!4 &683325662 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7949314384034025015, guid: 30eaabe53efd57d4bb026d380f3b9b65,
@@ -26434,6 +26494,7 @@ GameObject:
   - component: {fileID: 934614921}
   - component: {fileID: 934614920}
   - component: {fileID: 934614919}
+  - component: {fileID: 934614922}
   m_Layer: 0
   m_Name: MainCorridorFloorLight (3)
   m_TagString: Untagged
@@ -26541,6 +26602,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 46.26, y: -30, z: 0}
+--- !u!114 &934614922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 934614918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8912a50cc278e2e4caddff881202faf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flickerInterval: 10
+  isOn: 0
 --- !u!1 &934959826
 GameObject:
   m_ObjectHideFlags: 0
@@ -42157,6 +42232,7 @@ GameObject:
   - component: {fileID: 1615295038}
   - component: {fileID: 1615295037}
   - component: {fileID: 1615295036}
+  - component: {fileID: 1615295039}
   m_Layer: 0
   m_Name: Rec Room Light (1)
   m_TagString: Untagged
@@ -42264,6 +42340,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1615295039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615295035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8912a50cc278e2e4caddff881202faf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flickerInterval: 10
+  isOn: 0
 --- !u!1001 &1615360028
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48602,6 +48692,7 @@ GameObject:
   - component: {fileID: 1828177837}
   - component: {fileID: 1828177836}
   - component: {fileID: 1828177835}
+  - component: {fileID: 1828177838}
   m_Layer: 0
   m_Name: Rec Room Light (2)
   m_TagString: Untagged
@@ -48709,6 +48800,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1828177838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828177834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8912a50cc278e2e4caddff881202faf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flickerInterval: 5
+  isOn: 0
 --- !u!1001 &1829710816
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -55045,6 +55150,7 @@ GameObject:
   - component: {fileID: 2089688463}
   - component: {fileID: 2089688462}
   - component: {fileID: 2089688461}
+  - component: {fileID: 2089688464}
   m_Layer: 0
   m_Name: Spot Light
   m_TagString: Untagged
@@ -55152,6 +55258,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &2089688464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089688460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8912a50cc278e2e4caddff881202faf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flickerInterval: 2
+  isOn: 1
 --- !u!114 &2093924239 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5111022168313328256, guid: 78832862edf3e71428d7874cd904bddf,

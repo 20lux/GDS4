@@ -1,8 +1,16 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Teleporter : MonoBehaviour
 {
     [SerializeField] private Transform destination;
+    [SerializeField] private AudioClip teleportAudio;
+    private AudioSource audioSource;
+
+    void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     
     void OnTriggerEnter(Collider other)
     {
