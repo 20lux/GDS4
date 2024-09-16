@@ -1,25 +1,34 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Events;
 
 public class GameController : MonoBehaviour
 {
+    [Header("Game Controller Properties")]
+    public InventoryMenu inventoryMenu;
+    public CursorLockControl cursorLockControl;
 
-    UnityEvent bridgeEnding = new UnityEvent();
-    UnityEvent restartLevel = new UnityEvent();
-    [SerializeField] private AudioClip bridgeEndingClip;
+    [Header("Asset Links")]
     public PlayerActions playerActions;
     public FirstPersonLook firstPersonLook;
-    public InventoryMenu inventoryMenu;
+
+
+    [Header("Bridge Ending Properties")]
+    [SerializeField] private AudioClip bridgeEndingClip;
     AudioSource audioSource;
+
+    void Awake()
+    {
+        cursorLockControl.LockCursor();
+    }
 
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        bridgeEnding.AddListener(BridgeEnding);
-        restartLevel.AddListener(RestartLevel);
+        inventoryMenu = GetComponent<InventoryMenu>();
+        cursorLockControl = GetComponent<CursorLockControl>();
+        playerActions = FindObjectOfType<PlayerActions>();
+        firstPersonLook = FindObjectOfType<FirstPersonLook>();
     }
 
     void Update()
@@ -27,6 +36,25 @@ public class GameController : MonoBehaviour
         if (playerActions.isEnd)
         {
             BridgeEnding();
+        }
+
+        // For debugging
+        if (Input.GetKey(KeyCode.R))
+        {
+            RestartLevel();
+        }
+
+        if (Input.GetKeyUp(KeyCode.I) && !inventoryMenu.paused)
+        {
+            cursorLockControl.UnlockCursor();
+            firstPersonLook.inventoryOpen = true;
+            inventoryMenu.OpenInventory(true);
+        }
+        else if (Input.GetKeyUp(KeyCode.I) && inventoryMenu.paused)
+        {
+            cursorLockControl.LockCursor();
+            firstPersonLook.inventoryOpen = false;
+            inventoryMenu.OpenInventory(false);
         }
     }
 
