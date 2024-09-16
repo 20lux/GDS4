@@ -6,6 +6,7 @@ public class FirstPersonLook : MonoBehaviour
     Transform character;
     public float sensitivity = 2;
     public float smoothing = 1.5f;
+    public bool inventoryOpen = false;
 
     Vector2 velocity;
     Vector2 frameVelocity;
@@ -17,13 +18,16 @@ public class FirstPersonLook : MonoBehaviour
         character = GetComponentInParent<FirstPersonMovement>().transform;
     }
 
-    void Start()
+    void Update()
     {
-        // Lock the mouse cursor to the game screen.
-        Cursor.lockState = CursorLockMode.Locked;
+        // When inventory is closed, allow camera and mouse movement
+        if (!inventoryOpen)
+        {
+            CursorLook();
+        }
     }
 
-    void Update()
+    public void CursorLook()
     {
         // Get smooth velocity.
         Vector2 mouseDelta = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));

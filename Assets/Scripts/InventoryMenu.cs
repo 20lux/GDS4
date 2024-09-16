@@ -1,14 +1,16 @@
 using UnityEngine;
 
-public class PauseMenu : MonoBehaviour
+public class InventoryMenu : MonoBehaviour
 {
     public static bool Paused = false;
     public GameObject pauseMenuCanvas;
+    public CursorLockControl cursorLockControl;
 
     // Start is called before the first frame update
     void Start()
     {
         Time.timeScale = 1.0f;
+        cursorLockControl = GetComponent<CursorLockControl>();
     }
 
     // Update is called once per frame
@@ -18,23 +20,36 @@ public class PauseMenu : MonoBehaviour
         {
             if (Paused)
             {
-                Play();
+                OpenInventory(false);
             }
             else
             {
-                Stop();
+                // Get into menu and pause game
+                OpenInventory(true);
             }
         }
     }
 
-    public void Stop()
+    public void OpenInventory(bool state)
+    {
+        if (state)
+        {
+            GameStop();
+        }
+        else
+        {
+            GamePlay();
+        }
+    }
+
+    public void GameStop()
     {
         pauseMenuCanvas.SetActive(true);
         Time.timeScale = 0.0f;
         Paused = true;
     }
 
-    public void Play()
+    public void GamePlay()
     {
         pauseMenuCanvas.SetActive(false);
         Time.timeScale = 1.0f;

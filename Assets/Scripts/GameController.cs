@@ -11,6 +11,8 @@ public class GameController : MonoBehaviour
     UnityEvent restartLevel = new UnityEvent();
     [SerializeField] private AudioClip bridgeEndingClip;
     public PlayerActions playerActions;
+    public FirstPersonLook firstPersonLook;
+    public InventoryMenu inventoryMenu;
     AudioSource audioSource;
 
     void Start()
