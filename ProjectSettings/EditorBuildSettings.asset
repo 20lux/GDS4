@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Title.unity
+    guid: bd3671ba7f687f241a7d8b7a3e747ab4
+  - enabled: 1
+    path: Assets/Scenes/Load.unity
+    guid: 8f6afc2754811844c9244da095b14360
+  - enabled: 1
+    path: Assets/Scenes/Main.unity
+    guid: 7348b4f8109750648a592b80445585ab
+  - enabled: 1
+    path: Assets/Scenes/Bridge_Ending.unity
+    guid: 7d9f16ee8e87cda4a80b0ee787b76bf3
+  m_configObjects: {}
