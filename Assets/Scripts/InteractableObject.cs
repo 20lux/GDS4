@@ -88,6 +88,15 @@ public class InteractableObject : MonoBehaviour, IInteractable
         }
         
     }
+
+    public void InteractWithVideo()
+    {
+        var videoPlayer = GetComponent<PlayVideo>();
+        videoPlayer.beingHeld = true;
+        videoPlayer.videoClipIndex = 1;
+        videoPlayer.player.Play();
+        Debug.Log("Playing video!");
+    }
 #endregion
 
     #region Sounds

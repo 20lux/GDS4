@@ -88,7 +88,7 @@ public class PlayerActions : MonoBehaviour
                                 thisInteractableObject.Grab(grabCam);
                                 break;                              
                             case InteractableObject.ObjectType.Console:
-                                InteractWithVideo();
+                                thisInteractableObject.InteractWithVideo();
                                 break;
                         }
                     }
@@ -111,14 +111,6 @@ public class PlayerActions : MonoBehaviour
                     if (hit.collider.TryGetComponent(out BridgeEnding bridgeEnding))
                     {
                         isEnd = true;
-                    }
-
-                    // Allows for inventory control
-                    if (hit.collider.TryGetComponent(out CartridgeID cartridge))
-                    {
-                        cartridge.obtained = true;
-                        cartridgeCollection.Add(cartridge.ID);
-                        cartridge.gameObject.SetActive(false);
                     }
                 }
             }
@@ -149,20 +141,6 @@ public class PlayerActions : MonoBehaviour
     }
 
 #endregion
-
-    // TODO: Move to interactable object
-    public void InteractWithVideo()
-    {
-        var videoPlayer = thisInteractableObject.GetComponent<PlayVideo>();
-        if (!videoPlayer.hengeVideo.isPlaying)
-        {
-            videoPlayer.hengeVideo.PlayVideo();
-        }
-        else
-        {
-            videoPlayer.hengeVideo.TogglePauseState();
-        }
-    }
 
     // Differentiate between interactive objects
     // and non-interactive objects
