@@ -5,5 +5,4 @@ using UnityEngine;
 public interface IInteractable
 {
     void Grab (GameObject grabCam);
-    string GetObjectName();
 }

@@ -71,12 +71,12 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6a66dd75bdbcca24daf776d55a5637c7,
         type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6a66dd75bdbcca24daf776d55a5637c7,
         type: 3}
       propertyPath: m_TagString
-      value: InteractObject
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -164,11 +164,8 @@ MonoBehaviour:
   objectType: 2
   ObjectName: Bridge Door
   objectToInteractWith: {fileID: 0}
-  newMaterial: {fileID: 0}
   IsLocked: 0
   pickUp: {fileID: 0}
   putDown: {fileID: 0}
   use: {fileID: 0}
-  currentLayer:
-    serializedVersion: 2
-    m_Bits: 0
+  error: {fileID: 0}

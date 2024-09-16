@@ -7,16 +7,16 @@ using UnityEngine.UI;
 public class CartridgeInventory : MonoBehaviour
 {
     [Header("Cartridge Data")]
-    [SerializeField] private GameObject[] cartridges;
-    public PlayerActions playerActions;
+    [SerializeField] private GameObject[] inventoryCartridges;
+    [SerializeField] private GameObject[] inGameCartridges;
 
     void Awake()
     {
         // All cartridges are invisible at the start
         // and will enable once they are picked up
-        for (int i = 0; i < cartridges.Length; i++)
+        for (int i = 0; i < inventoryCartridges.Length; i++)
         {
-            cartridges[i].SetActive(false);
+            inventoryCartridges[i].SetActive(false);
         }
     }
 
@@ -25,5 +25,10 @@ public class CartridgeInventory : MonoBehaviour
         // If player picks up cartridge
         // check to see what ID it matches
         // and enable the relevant game object
+
+        for (int i = 0; i < inventoryCartridges.Length; i++)
+        {
+
+        }
     }
 }

@@ -1,26 +1,39 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class InteractableObject : MonoBehaviour, IInteractable
 {
+    #region Properties
+    [Tooltip("Changes how the object works depending on type")]
     [Header("Interactable Object Properties")]
     public ObjectType objectType;
     [SerializeField] private string ObjectName;
     [HideInInspector] public string objectName => ObjectName;
+
+    [Tooltip("Chose object for key to interact with (typically a door)")]
+    [Header("Key Properties")]
     [SerializeField] private GameObject objectToInteractWith;
-    [SerializeField] private Material newMaterial;
-    private Rigidbody objectRigidBody;
     [SerializeField] private bool IsLocked;
+    [HideInInspector] public bool isLocked => IsLocked;
+
+    [Tooltip("Different sounds to call")]
+    [Header("Sound Properties")]
     public AudioClip pickUp;
     public AudioClip putDown;
     public AudioClip use;
     public AudioClip error;
     private AudioSource audioSource;
-    public LayerMask currentLayer;
-    private int layerIgnoreRaycast;
-    [HideInInspector] public bool isLocked => IsLocked;
+    private Rigidbody objectRigidBody;
+    #endregion
 
+    public enum ObjectType 
+    {    
+        None = 0, 
+        Console = 1, 
+        Key = 2,
+        GrabObject = 3,
+    }
+    
     private void Start()
     {
         if (objectType == ObjectType.Key ||
@@ -30,17 +43,17 @@ public class InteractableObject : MonoBehaviour, IInteractable
         }
 
         audioSource = gameObject.AddComponent<AudioSource>();
-
-        layerIgnoreRaycast = LayerMask.GetMask("Ignore Raycast");
     }
 
+    #region Interactions
     public void Grab(GameObject grabCam)
     {
-        // Puts object in front of grab camera
+        // Puts object in front of grabcam
+        // Shows the object in composite camera
         PickUpSound();
-        gameObject.transform.SetParent(grabCam.transform);
-        gameObject.transform.position = grabCam.transform.position;
-        gameObject.transform.rotation = grabCam.transform.rotation;
+        transform.SetParent(grabCam.transform);
+        transform.position = grabCam.transform.position;
+        transform.rotation = grabCam.transform.rotation;
         objectRigidBody.isKinematic = true;
     }
 
@@ -55,7 +68,6 @@ public class InteractableObject : MonoBehaviour, IInteractable
 
     public void UseKey()
     {
-        //Debug.Log("Interacting with lock");
         if (objectToInteractWith.TryGetComponent(out DoorController doorController))
         {
             // Only opens door once
@@ -67,8 +79,6 @@ public class InteractableObject : MonoBehaviour, IInteractable
         }
         else if (objectToInteractWith.TryGetComponent(out GrateController grateController))
         {
-            // Disable highlighting when used
-            grateController.gameObject.layer = layerIgnoreRaycast;
             grateController.OpenGrate();
             Destroy(gameObject);
         }
@@ -78,7 +88,9 @@ public class InteractableObject : MonoBehaviour, IInteractable
         }
         
     }
+#endregion
 
+    #region Sounds
     IEnumerator waitForSound(AudioClip audio)
     {
         float audioLength = audio.length;
@@ -108,20 +120,6 @@ public class InteractableObject : MonoBehaviour, IInteractable
         audioSource.clip = error;
         audioSource.Play();
     }
+#endregion
 
-    public enum ObjectType 
-    {    
-        None = 0, 
-        Console = 1, 
-        Key = 2,
-        Lock = 3, 
-        GrabObject = 4,
-        Inventory = 5,
-        Button = 6
-    }
-
-    public string GetObjectName()
-    {
-        return ObjectName;
-    }
 }

@@ -8,6 +8,9 @@ public class GameController : MonoBehaviour
     public InventoryMenu inventoryMenu;
     public CursorLockControl cursorLockControl;
 
+    [Header("Player Inventory Properties")]
+    public PlayerInventory playerInventory;
+
     [Header("Asset Links")]
     public PlayerActions playerActions;
     public FirstPersonLook firstPersonLook;
@@ -28,6 +31,7 @@ public class GameController : MonoBehaviour
         inventoryMenu = GetComponent<InventoryMenu>();
         cursorLockControl = GetComponent<CursorLockControl>();
         playerActions = FindObjectOfType<PlayerActions>();
+        playerInventory = FindObjectOfType<PlayerInventory>();
         firstPersonLook = FindObjectOfType<FirstPersonLook>();
     }
 

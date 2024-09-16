@@ -67,7 +67,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f17687a3c1ac80540bcd8769ffdafb96, type: 2}
+      objectReference: {fileID: 2100000, guid: 24c62f544c0651540adebead6947cd6b, type: 2}
     - target: {fileID: 919132149155446097, guid: b9300b927b859f94c954ae02bf7759c2,
         type: 3}
       propertyPath: m_Name
@@ -121,6 +121,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 3280280320291560080}
+    - targetCorrespondingSourceObject: {fileID: -7640558969779515294, guid: b9300b927b859f94c954ae02bf7759c2,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8252322224400987576}
   m_SourcePrefab: {fileID: 100100000, guid: b9300b927b859f94c954ae02bf7759c2, type: 3}
 --- !u!1 &5886887820867561118 stripped
 GameObject:
@@ -191,11 +195,20 @@ MonoBehaviour:
   objectType: 2
   ObjectName: Cartridge 01
   objectToInteractWith: {fileID: 0}
-  newMaterial: {fileID: 0}
   IsLocked: 0
   pickUp: {fileID: 0}
   putDown: {fileID: 0}
   use: {fileID: 0}
-  currentLayer:
-    serializedVersion: 2
-    m_Bits: 0
+  error: {fileID: 0}
+--- !u!114 &8252322224400987576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5886887820867561118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddf095acb8937014384600ba234b0e35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
