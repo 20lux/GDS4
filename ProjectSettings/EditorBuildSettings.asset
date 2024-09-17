@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Bridge_Ending.unity
     guid: 7d9f16ee8e87cda4a80b0ee787b76bf3
+  - enabled: 1
+    path: Assets/Scenes/Singularity_Ending.unity
+    guid: 6ee6cd93c38590845831dcc07d8d032d
   m_configObjects: {}
