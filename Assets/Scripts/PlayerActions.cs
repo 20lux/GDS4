@@ -132,7 +132,7 @@ public class PlayerActions : MonoBehaviour
                 }
                 else
                 {
-                    //thisInteractableObject.Drop(playerDrop.transform);
+                    thisInteractableObject.Drop(playerDrop.transform);
                 }
 
                 thisInteractableObject = null;

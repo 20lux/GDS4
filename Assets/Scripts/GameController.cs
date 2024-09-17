@@ -20,6 +20,9 @@ public class GameController : MonoBehaviour
     [SerializeField] private AudioClip bridgeEndingClip;
     AudioSource audioSource;
 
+    // Countdown timer to decide ending sequence
+    private float timeRemaining = 60;
+
     void Awake()
     {
         cursorLockControl.LockCursor();
@@ -39,7 +42,7 @@ public class GameController : MonoBehaviour
     {
         if (playerActions.isEnd)
         {
-            BridgeEnding();
+            BeginCountDown();
         }
 
         // For debugging
@@ -67,6 +70,18 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene("Main");
     }
 
+    void BeginCountDown()
+    {
+        if (timeRemaining > 0)
+        {
+            timeRemaining += Time.deltaTime;
+        }
+        else
+        {
+            SingularityEnding();
+        }
+    }
+
     void BridgeEnding()
     {
         audioSource.clip = bridgeEndingClip;
@@ -74,6 +89,11 @@ public class GameController : MonoBehaviour
         audioSource.Play();
         waitForSound();
         Loader.Load(Loader.Scene.Bridge_Ending);
+    }
+
+    void SingularityEnding()
+    {
+        Loader.Load(Loader.Scene.Singularity_Ending);
     }
 
     IEnumerator waitForSound()
