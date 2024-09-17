@@ -97,7 +97,7 @@ public class InteractableObject : MonoBehaviour, IInteractable
         videoPlayer.player.Play();
         Debug.Log("Playing video!");
     }
-#endregion
+    #endregion
 
     #region Sounds
     IEnumerator waitForSound(AudioClip audio)
