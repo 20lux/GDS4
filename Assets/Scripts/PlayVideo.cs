@@ -6,8 +6,7 @@ public class PlayVideo : MonoBehaviour
     public VideoPlayer player;
     public GameObject cartridge;
     private double duration = 0;
-    public VideoClip[] clips = new VideoClip[8];
-    public VideoClip defaultClip;
+    public VideoClip[] clips = new VideoClip[9];
     public clipIndex clipID;
 
     public enum clipIndex
@@ -22,27 +21,37 @@ public class PlayVideo : MonoBehaviour
         OrangeCart = 7
     }
 
+    void Start()
+    {
+        player.clip = clips[0];
+        player.playOnAwake = false;
+        player.isLooping = true;
+        player.loopPointReached += EndReached;
+        player.Play();
+    }
+
     public void PlayCartridge(int i)
     {
+        if (i < 0 || i >= clips.Length)
+        {
+            Debug.LogErrorFormat(   "Cannot play video #{0}. The array contains {1} video(s)",
+                                    i, clips.Length);
+        }
+
         Debug.Log("Playing clip: " + clipID.ToString());
         player.clip = clips[i];
-        duration = clips[i].length;
+
+        player.Prepare();
+
+        while (!player.isPrepared)
+        {
+            Debug.Log("Preparing video");
+        }
+        Debug.Log("Done prearing video!");
     }
 
-    private void Update()
+    public void EndReached(VideoPlayer player)
     {
-        if (duration >= 0)
-        {
-            duration -= Time.deltaTime;
-        }
-        else if (duration <= 0)
-        {
-            PlayStatic();
-        }
-    }
-
-    public void PlayStatic()
-    {
-        player.clip = defaultClip;
+        player.clip = clips[0];
     }
 }
