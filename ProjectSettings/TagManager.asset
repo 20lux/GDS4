@@ -11,6 +11,7 @@ TagManager:
   - Console
   - CCTV Cam
   - BridgeEnding
+  - Cartridge
   layers:
   - Default
   - TransparentFX
