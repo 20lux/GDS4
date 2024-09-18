@@ -32,12 +32,14 @@ public class InteractableObject : MonoBehaviour, IInteractable
         Console = 1, 
         Key = 2,
         GrabObject = 3,
+        ConsoleCartridge = 4
     }
     
     private void Start()
     {
         if (objectType == ObjectType.Key ||
-            objectType == ObjectType.GrabObject)
+            objectType == ObjectType.GrabObject ||
+            objectType == ObjectType.ConsoleCartridge)
         {
             objectRigidBody = GetComponent<Rigidbody>();
         }
@@ -50,11 +52,11 @@ public class InteractableObject : MonoBehaviour, IInteractable
     {
         // Puts object in front of grabcam
         // Shows the object in composite camera
+        objectRigidBody.isKinematic = true;
         PickUpSound();
         transform.SetParent(grabCam.transform);
         transform.position = grabCam.transform.position;
         transform.rotation = grabCam.transform.rotation;
-        objectRigidBody.isKinematic = true;
     }
 
     public void Drop(Transform playerCamTransform)
@@ -89,12 +91,23 @@ public class InteractableObject : MonoBehaviour, IInteractable
         
     }
 
-    public void InteractWithVideo()
+    public void InteractWithVideo(GameObject cartridge)
     {
+        UseSound();
+        // Adds the cartridge to the cartridge slot in console
+        var cartridgeHolder = gameObject.transform.GetChild(0);
+        cartridge.gameObject.transform.SetParent(cartridgeHolder);
+        cartridge.transform.localPosition = Vector3.zero;
+        cartridge.transform.localRotation = Quaternion.identity;
+        Destroy(cartridge.GetComponent<InteractableObject>());
+
         var videoPlayer = GetComponent<PlayVideo>();
-        videoPlayer.beingHeld = true;
-        videoPlayer.videoClipIndex = 1;
-        videoPlayer.player.Play();
+        if (cartridge.TryGetComponent(out cartridgeInteract clip))
+        {
+            videoPlayer.player.clip = clip.videoClip;
+            videoPlayer.player.Play();
+        }
+        
         Debug.Log("Playing video!");
     }
     #endregion

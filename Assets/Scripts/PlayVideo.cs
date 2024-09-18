@@ -1,32 +1,20 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
-
 
 public class PlayVideo : MonoBehaviour
 {
     public VideoPlayer player;
-    public VideoClip[] videos;
-    public int videoClipIndex;
     private double duration;
-    public bool beingHeld;
+    public VideoClip defaultClip;
 
-    private void Start()
+    public void PlayCartridge(VideoClip clip)
     {
-        player.clip = videos[0];
+        player.clip = clip;
         player.Play();
+        duration = clip.length;
     }
 
-    public void playVideo()
-    {
-        if (beingHeld == true)
-        {
-            player.clip = videos[videoClipIndex];
-            player.Play();
-            duration = videos[videoClipIndex].length;
-            //GetComponentInChildren<MeshRenderer>().enabled = true;
-        }
-        
-    }
     private void Update()
     {
         if (duration >= 0)
@@ -35,9 +23,14 @@ public class PlayVideo : MonoBehaviour
         }
         else if (duration < 0)
         {
-            player.clip = videos[0];
-            player.Play();
-            //GetComponentInChildren<MeshRenderer>().enabled = false;
+            PlayStatic();
         }
+    }
+
+    public void PlayStatic()
+    {
+        player.clip = defaultClip;
+        player.isLooping = true;
+        player.Play();
     }
 }

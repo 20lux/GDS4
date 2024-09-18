@@ -1,5 +1,5 @@
-using System.Collections.Generic;
 using NavKeypad;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,10 +16,11 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] private GameObject grabCam;
     [Tooltip("Drop location for objects that player has dropped")]
     [SerializeField] private GameObject playerDrop;
+    private bool isHolding = false;
 
     // Properties of objects that the player interacts with
     private LayerMask layerInteractable;
-    private InteractableObject thisInteractableObject;
+    private InteractableObject item;
 
     // Used for controlling arrow keys for arrow key puzzle
     private ArrowKeyConsoleInteract arrowKeyConsoleInteract;
@@ -35,10 +36,8 @@ public class PlayerActions : MonoBehaviour
         HighlightObject(false);
     }
 
-    public void FixedUpdate()
+    public void Update()
     {
-        Debug.DrawRay(playerCam.transform.position, playerCam.transform.forward, Color.red);
-
         // when looking at interactable object, change crosshair colour
         var ray = new Ray(playerCam.transform.position, playerCam.transform.forward);
         if (Physics.Raycast(ray, interactDistance, layerInteractable))
@@ -59,76 +58,93 @@ public class PlayerActions : MonoBehaviour
         // If the player presses E or presses left mouse button,
         // interact with an object on the interactable layer and
         // do things depending on what type of object it is
-        if (Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0))
+        if (Input.GetKeyUp(KeyCode.E) || Input.GetMouseButtonDown(0))
         {
-            if (thisInteractableObject == null)
+            if (item == null)
             {
                 if (Physics.Raycast(playerCam.transform.position, 
                                     playerCam.transform.forward, out RaycastHit hit, 
-                                    interactDistance, 
-                                    layerInteractable))
+                                    interactDistance))
                 {
-                    if (hit.collider.TryGetComponent(out thisInteractableObject))
+                    if (hit.collider.TryGetComponent(out item))
                     {
-                        switch (thisInteractableObject.objectType)
+                        switch (item.objectType)
                         {
                             case InteractableObject.ObjectType.None:
+                                Destroy(item.gameObject);
                                 break;
                             case InteractableObject.ObjectType.Key:
-                                thisInteractableObject.Grab(grabCam);
+                                item.Grab(grabCam);
+                                isHolding = true;
                                 break;
                             case InteractableObject.ObjectType.GrabObject:
-                                thisInteractableObject.Grab(grabCam);
-                                break;                              
-                            case InteractableObject.ObjectType.Console:
-                                thisInteractableObject.InteractWithVideo();
+                                item.Grab(grabCam);
+                                isHolding = true;
                                 break;
+                            case InteractableObject.ObjectType.ConsoleCartridge:
+                                item.Grab(grabCam);
+                                isHolding = true;
+                                break;                            
                         }
                     }
                     
-                    if (hit.collider.TryGetComponent(out arrowKeyConsoleInteract))
+                    // Can't interact with objects if you're holding a cartridge
+                    // You must drop of the cartridge first
+                    if (!isHolding)
                     {
-                        arrowKeyConsoleInteract.KeyInteract();
-                    }
+                        if (hit.collider.TryGetComponent(out arrowKeyConsoleInteract))
+                        {
+                            arrowKeyConsoleInteract.KeyInteract();
+                        }
 
-                    if (hit.collider.TryGetComponent(out ButtonPress button))
-                    {
-                        button.Press();
-                    }
+                        if (hit.collider.TryGetComponent(out ButtonPress button))
+                        {
+                            button.Press();
+                        }
 
-                    if (hit.collider.TryGetComponent(out KeypadButton keypadButton))
-                    {
-                        keypadButton.PressButton();
-                    }
+                        if (hit.collider.TryGetComponent(out KeypadButton keypadButton))
+                        {
+                            keypadButton.PressButton();
+                        }
 
-                    if (hit.collider.TryGetComponent(out BridgeEnding bridgeEnding))
-                    {
-                        isEnd = true;
+                        if (hit.collider.TryGetComponent(out BridgeEnding bridgeEnding))
+                        {
+                            isEnd = true;
+                        }
                     }
                 }
             }
             else
             {
-                // Checking if interactable
+                // Checking if interactable, otherwise drop what we're holding
                 if (Physics.Raycast(playerCam.transform.position, 
                                     playerCam.transform.forward, 
                                     out RaycastHit hit, 
                                     interactDistance, 
                                     layerInteractable))
                 {
-                    switch (thisInteractableObject.objectType)
+                    switch (item.objectType)
                     {
                         case InteractableObject.ObjectType.Key:
-                            thisInteractableObject.UseKey();
+                            item.UseKey();
+                            break;
+                        case InteractableObject.ObjectType.ConsoleCartridge:
+                            Debug.Log("Trying to insert cartridge!");
+                            if (hit.collider.TryGetComponent(out InteractableObject interaction))
+                            {
+                                interaction.InteractWithVideo(item.gameObject);
+                            }
                             break;
                     }
+
+                    item = null;
                 }
                 else
                 {
-                    thisInteractableObject.Drop(playerDrop.transform);
+                    item.Drop(playerDrop.transform);
+                    item = null;
+                    isHolding = false;
                 }
-
-                thisInteractableObject = null;
             }
         }
     }
