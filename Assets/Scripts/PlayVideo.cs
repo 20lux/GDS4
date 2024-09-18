@@ -6,8 +6,9 @@ public class PlayVideo : MonoBehaviour
     public VideoPlayer player;
     public GameObject cartridge;
     public AudioSource audioSource;
-    public VideoClip[] clips = new VideoClip[9];
     public clipIndex clipID;
+    public VideoClip[] clips = new VideoClip[9];
+    public Material[] materials = new Material[8];
 
     public enum clipIndex
     {
@@ -23,6 +24,7 @@ public class PlayVideo : MonoBehaviour
 
     void Awake()
     {
+        cartridge.SetActive(false);
         player = GetComponent<VideoPlayer>();
         audioSource = GetComponent<AudioSource>();
         player.clip = clips[0];
@@ -37,6 +39,36 @@ public class PlayVideo : MonoBehaviour
                                     i, clips.Length);
         }
 
+        switch (clipID)
+        {
+            case clipIndex.BlueCart:
+                cartridge.GetComponent<MeshRenderer>().material = materials[0];
+                break;
+            case clipIndex.GreenCart:
+                cartridge.GetComponent<MeshRenderer>().material = materials[1];
+                break;
+            case clipIndex.CreamCart:
+                cartridge.GetComponent<MeshRenderer>().material = materials[2];
+                break;
+            case clipIndex.RedCart:
+                cartridge.GetComponent<MeshRenderer>().material = materials[3];
+                break;
+            case clipIndex.PurpleCart:
+                cartridge.GetComponent<MeshRenderer>().material = materials[4];
+                break;
+            case clipIndex.PinkCart:
+                cartridge.GetComponent<MeshRenderer>().material = materials[5];
+                break;
+            case clipIndex.WhiteCart:
+                cartridge.GetComponent<MeshRenderer>().material = materials[6];
+                break;
+            case clipIndex.OrangeCart:
+                cartridge.GetComponent<MeshRenderer>().material = materials[7];
+                break;
+        }
+
+        cartridge.SetActive(true);
+
         Debug.Log("Playing clip: " + clipID.ToString());
         player.clip = clips[i];
     }
@@ -45,5 +77,6 @@ public class PlayVideo : MonoBehaviour
     {
         vp = player;
         vp.clip = clips[0];
+        cartridge.SetActive(false);
     }
 }
