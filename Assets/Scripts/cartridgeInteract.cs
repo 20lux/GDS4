@@ -1,8 +1,9 @@
 using UnityEngine;
+using UnityEngine.Video;
 
 public class cartridgeInteract : MonoBehaviour 
 {
-    public int cartridgeIndex;
+    public VideoClip videoClip;
     public PlayVideo consoleForCartridge;
 
     public void pickUpCartridge()
