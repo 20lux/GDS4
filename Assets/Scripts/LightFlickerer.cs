@@ -5,7 +5,7 @@ using UnityEngine;
 public class LightFlickerer : MonoBehaviour
 {
     private Light thisLight;
-    public float flickerInterval = 1.0f;
+    public float flickerInterval = 10f;
     private float timer;
     public bool isOn = false;
 

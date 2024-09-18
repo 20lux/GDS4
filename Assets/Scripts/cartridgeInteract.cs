@@ -3,21 +3,21 @@ using UnityEngine;
 public class cartridgeInteract : MonoBehaviour 
 {
     public int cartridgeIndex;
-    public PlayVideo PlayVideo;
+    public PlayVideo consoleForCartridge;
 
     public void pickUpCartridge()
     {
-        if (PlayVideo.beingHeld == false)
+        if (consoleForCartridge.beingHeld == false)
         {
-            PlayVideo.beingHeld = true;
+            consoleForCartridge.beingHeld = true;
         }
     }
 
     public void dropCartridge()
     {
-        if (PlayVideo.beingHeld == true)
+        if (consoleForCartridge.beingHeld == true)
         {
-            PlayVideo.beingHeld = false;
+            consoleForCartridge.beingHeld = false;
         }
     }
 }

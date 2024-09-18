@@ -4,16 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-    [Header("Game Controller Properties")]
-    public InventoryMenu inventoryMenu;
-    public CursorLockControl cursorLockControl;
-
-    [Header("Player Inventory Properties")]
-    public PlayerInventory playerInventory;
-
     [Header("Asset Links")]
     public PlayerActions playerActions;
-    public FirstPersonLook firstPersonLook;
 
 
     [Header("Bridge Ending Properties")]
@@ -23,19 +15,10 @@ public class GameController : MonoBehaviour
     // Countdown timer to decide ending sequence
     private float timeRemaining = 60;
 
-    void Awake()
-    {
-        cursorLockControl.LockCursor();
-    }
-
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        inventoryMenu = GetComponent<InventoryMenu>();
-        cursorLockControl = GetComponent<CursorLockControl>();
         playerActions = FindObjectOfType<PlayerActions>();
-        playerInventory = FindObjectOfType<PlayerInventory>();
-        firstPersonLook = FindObjectOfType<FirstPersonLook>();
     }
 
     void Update()
@@ -49,19 +32,6 @@ public class GameController : MonoBehaviour
         if (Input.GetKey(KeyCode.R))
         {
             RestartLevel();
-        }
-
-        if (Input.GetKeyUp(KeyCode.I) && !inventoryMenu.paused)
-        {
-            cursorLockControl.UnlockCursor();
-            firstPersonLook.inventoryOpen = true;
-            inventoryMenu.OpenInventory(true);
-        }
-        else if (Input.GetKeyUp(KeyCode.I) && inventoryMenu.paused)
-        {
-            cursorLockControl.LockCursor();
-            firstPersonLook.inventoryOpen = false;
-            inventoryMenu.OpenInventory(false);
         }
     }
 

@@ -1,8 +1,5 @@
-using System;
 using System.Collections.Generic;
-using Assets.Diamondhenge.HengeVideoPlayer;
 using NavKeypad;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,10 +24,6 @@ public class PlayerActions : MonoBehaviour
     // Used for controlling arrow keys for arrow key puzzle
     private ArrowKeyConsoleInteract arrowKeyConsoleInteract;
 
-    // Used for keeping track of cartridge collections
-    private List<int> cartridgeCollection;
-    [HideInInspector] public List<int> CartridgeCollection => cartridgeCollection;
-
     // Ending detection
     // TODO: move to game controller
     [HideInInspector] public bool isEnd = false;
@@ -42,7 +35,7 @@ public class PlayerActions : MonoBehaviour
         HighlightObject(false);
     }
 
-    public void Update()
+    public void FixedUpdate()
     {
         Debug.DrawRay(playerCam.transform.position, playerCam.transform.forward, Color.red);
 
