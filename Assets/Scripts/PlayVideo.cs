@@ -1,18 +1,32 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
 
 public class PlayVideo : MonoBehaviour
 {
     public VideoPlayer player;
-    private double duration;
+    public GameObject cartridge;
+    private double duration = 0;
+    public VideoClip[] clips = new VideoClip[8];
     public VideoClip defaultClip;
+    public clipIndex clipID;
 
-    public void PlayCartridge(VideoClip clip)
+    public enum clipIndex
     {
-        player.clip = clip;
-        player.Play();
-        duration = clip.length;
+        BlueCart = 0,
+        GreenCart = 1,
+        CreamCart = 2,
+        RedCart = 3,
+        PurpleCart = 4,
+        PinkCart = 5,
+        WhiteCart = 6,
+        OrangeCart = 7
+    }
+
+    public void PlayCartridge(int i)
+    {
+        Debug.Log("Playing clip: " + clipID.ToString());
+        player.clip = clips[i];
+        duration = clips[i].length;
     }
 
     private void Update()
@@ -21,7 +35,7 @@ public class PlayVideo : MonoBehaviour
         {
             duration -= Time.deltaTime;
         }
-        else if (duration < 0)
+        else if (duration <= 0)
         {
             PlayStatic();
         }
@@ -30,7 +44,5 @@ public class PlayVideo : MonoBehaviour
     public void PlayStatic()
     {
         player.clip = defaultClip;
-        player.isLooping = true;
-        player.Play();
     }
 }

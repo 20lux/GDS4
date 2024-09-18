@@ -38,8 +38,7 @@ public class InteractableObject : MonoBehaviour, IInteractable
     private void Start()
     {
         if (objectType == ObjectType.Key ||
-            objectType == ObjectType.GrabObject ||
-            objectType == ObjectType.ConsoleCartridge)
+            objectType == ObjectType.GrabObject)
         {
             objectRigidBody = GetComponent<Rigidbody>();
         }
@@ -89,26 +88,6 @@ public class InteractableObject : MonoBehaviour, IInteractable
             ErrorSound();
         }
         
-    }
-
-    public void InteractWithVideo(GameObject cartridge)
-    {
-        UseSound();
-        // Adds the cartridge to the cartridge slot in console
-        var cartridgeHolder = gameObject.transform.GetChild(0);
-        cartridge.gameObject.transform.SetParent(cartridgeHolder);
-        cartridge.transform.localPosition = Vector3.zero;
-        cartridge.transform.localRotation = Quaternion.identity;
-        Destroy(cartridge.GetComponent<InteractableObject>());
-
-        var videoPlayer = GetComponent<PlayVideo>();
-        if (cartridge.TryGetComponent(out cartridgeInteract clip))
-        {
-            videoPlayer.player.clip = clip.videoClip;
-            videoPlayer.player.Play();
-        }
-        
-        Debug.Log("Playing video!");
     }
     #endregion
 

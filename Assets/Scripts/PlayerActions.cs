@@ -1,5 +1,5 @@
+using System.Collections.Generic;
 using NavKeypad;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,13 +17,11 @@ public class PlayerActions : MonoBehaviour
     [Tooltip("Drop location for objects that player has dropped")]
     [SerializeField] private GameObject playerDrop;
     private bool isHolding = false;
+    public List<int> clipIndex;
 
     // Properties of objects that the player interacts with
     private LayerMask layerInteractable;
     private InteractableObject item;
-
-    // Used for controlling arrow keys for arrow key puzzle
-    private ArrowKeyConsoleInteract arrowKeyConsoleInteract;
 
     // Ending detection
     // TODO: move to game controller
@@ -82,17 +80,21 @@ public class PlayerActions : MonoBehaviour
                                 isHolding = true;
                                 break;
                             case InteractableObject.ObjectType.ConsoleCartridge:
-                                item.Grab(grabCam);
-                                isHolding = true;
+                                if (item.TryGetComponent(out cartridgeInteract index))
+                                {
+                                    clipIndex.Add(index.clipIndex);
+                                }
+                                Destroy(item.gameObject);
+                                isHolding = false;
                                 break;                            
                         }
                     }
                     
-                    // Can't interact with objects if you're holding a cartridge
+                    // Can't interact with objects if you're holding an object
                     // You must drop of the cartridge first
                     if (!isHolding)
                     {
-                        if (hit.collider.TryGetComponent(out arrowKeyConsoleInteract))
+                        if (hit.collider.TryGetComponent(out ArrowKeyConsoleInteract arrowKeyConsoleInteract))
                         {
                             arrowKeyConsoleInteract.KeyInteract();
                         }
@@ -111,6 +113,62 @@ public class PlayerActions : MonoBehaviour
                         {
                             isEnd = true;
                         }
+
+                        if (hit.collider.TryGetComponent(out PlayVideo videoPlayer))
+                        {
+                            Debug.Log("Clicking on player!");
+                            switch (videoPlayer.clipID)
+                            {
+                                case PlayVideo.clipIndex.BlueCart:
+                                    if (clipIndex.Contains(0))
+                                    {
+                                        videoPlayer.PlayCartridge(0);
+                                    }
+                                    break;
+                                case PlayVideo.clipIndex.GreenCart:
+                                    if (clipIndex.Contains(1))
+                                    {
+                                        videoPlayer.PlayCartridge(1);
+                                    }
+                                    break;
+                                case PlayVideo.clipIndex.CreamCart:
+                                    if (clipIndex.Contains(2))
+                                    {
+                                        videoPlayer.PlayCartridge(2);
+                                    }
+                                    break;
+                                case PlayVideo.clipIndex.RedCart:
+                                    if (clipIndex.Contains(3))
+                                    {
+                                        videoPlayer.PlayCartridge(3);
+                                    }
+                                    break;
+                                case PlayVideo.clipIndex.PurpleCart:
+                                    if (clipIndex.Contains(4))
+                                    {
+                                        videoPlayer.PlayCartridge(4);
+                                    }
+                                    break;
+                                case PlayVideo.clipIndex.PinkCart:
+                                    if (clipIndex.Contains(5))
+                                    {
+                                        videoPlayer.PlayCartridge(5);
+                                    }
+                                    break;
+                                case PlayVideo.clipIndex.WhiteCart:
+                                    if (clipIndex.Contains(6))
+                                    {
+                                        videoPlayer.PlayCartridge(6);
+                                    }
+                                    break;
+                                case PlayVideo.clipIndex.OrangeCart:
+                                    if (clipIndex.Contains(7))
+                                    {
+                                        videoPlayer.PlayCartridge(7);
+                                    }
+                                    break;
+                            }
+                        }
                     }
                 }
             }
@@ -128,20 +186,12 @@ public class PlayerActions : MonoBehaviour
                         case InteractableObject.ObjectType.Key:
                             item.UseKey();
                             break;
-                        case InteractableObject.ObjectType.ConsoleCartridge:
-                            Debug.Log("Trying to insert cartridge!");
-                            if (hit.collider.TryGetComponent(out InteractableObject interaction))
-                            {
-                                interaction.InteractWithVideo(item.gameObject);
-                            }
-                            break;
                     }
 
                     item = null;
                 }
                 else
                 {
-                    item.Drop(playerDrop.transform);
                     item = null;
                     isHolding = false;
                 }
