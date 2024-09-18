@@ -5,7 +5,7 @@ public class PlayVideo : MonoBehaviour
 {
     public VideoPlayer player;
     public GameObject cartridge;
-    private double duration = 0;
+    public AudioSource audioSource;
     public VideoClip[] clips = new VideoClip[9];
     public clipIndex clipID;
 
@@ -21,13 +21,12 @@ public class PlayVideo : MonoBehaviour
         OrangeCart = 7
     }
 
-    void Start()
+    void Awake()
     {
+        player = GetComponent<VideoPlayer>();
+        audioSource = GetComponent<AudioSource>();
         player.clip = clips[0];
-        player.playOnAwake = false;
-        player.isLooping = true;
         player.loopPointReached += EndReached;
-        player.Play();
     }
 
     public void PlayCartridge(int i)
@@ -40,18 +39,11 @@ public class PlayVideo : MonoBehaviour
 
         Debug.Log("Playing clip: " + clipID.ToString());
         player.clip = clips[i];
-
-        player.Prepare();
-
-        while (!player.isPrepared)
-        {
-            Debug.Log("Preparing video");
-        }
-        Debug.Log("Done prearing video!");
     }
 
-    public void EndReached(VideoPlayer player)
+    public void EndReached(VideoPlayer vp)
     {
-        player.clip = clips[0];
+        vp = player;
+        vp.clip = clips[0];
     }
 }

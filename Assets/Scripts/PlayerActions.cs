@@ -120,51 +120,51 @@ public class PlayerActions : MonoBehaviour
                             switch (videoPlayer.clipID)
                             {
                                 case PlayVideo.clipIndex.BlueCart:
-                                    if (clipIndex.Contains(0))
-                                    {
-                                        videoPlayer.PlayCartridge(0);
-                                    }
-                                    break;
-                                case PlayVideo.clipIndex.GreenCart:
                                     if (clipIndex.Contains(1))
                                     {
                                         videoPlayer.PlayCartridge(1);
                                     }
                                     break;
-                                case PlayVideo.clipIndex.CreamCart:
+                                case PlayVideo.clipIndex.GreenCart:
                                     if (clipIndex.Contains(2))
                                     {
                                         videoPlayer.PlayCartridge(2);
                                     }
                                     break;
-                                case PlayVideo.clipIndex.RedCart:
+                                case PlayVideo.clipIndex.CreamCart:
                                     if (clipIndex.Contains(3))
                                     {
                                         videoPlayer.PlayCartridge(3);
                                     }
                                     break;
-                                case PlayVideo.clipIndex.PurpleCart:
+                                case PlayVideo.clipIndex.RedCart:
                                     if (clipIndex.Contains(4))
                                     {
                                         videoPlayer.PlayCartridge(4);
                                     }
                                     break;
-                                case PlayVideo.clipIndex.PinkCart:
+                                case PlayVideo.clipIndex.PurpleCart:
                                     if (clipIndex.Contains(5))
                                     {
                                         videoPlayer.PlayCartridge(5);
                                     }
                                     break;
-                                case PlayVideo.clipIndex.WhiteCart:
+                                case PlayVideo.clipIndex.PinkCart:
                                     if (clipIndex.Contains(6))
                                     {
                                         videoPlayer.PlayCartridge(6);
                                     }
                                     break;
-                                case PlayVideo.clipIndex.OrangeCart:
+                                case PlayVideo.clipIndex.WhiteCart:
                                     if (clipIndex.Contains(7))
                                     {
                                         videoPlayer.PlayCartridge(7);
+                                    }
+                                    break;
+                                case PlayVideo.clipIndex.OrangeCart:
+                                    if (clipIndex.Contains(8))
+                                    {
+                                        videoPlayer.PlayCartridge(8);
                                     }
                                     break;
                             }
