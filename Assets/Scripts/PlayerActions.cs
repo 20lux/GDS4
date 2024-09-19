@@ -115,6 +115,11 @@ public class PlayerActions : MonoBehaviour
                             isEnd = true;
                         }
 
+                        if (hit.collider.TryGetComponent(out SoundEvent soundEvent))
+                        {
+                            soundEvent.PlaySoundEvent();
+                        }
+
                         if (hit.collider.TryGetComponent(out PlayVideo videoPlayer))
                         {
                             Debug.Log("Clicking on player!");

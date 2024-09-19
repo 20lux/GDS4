@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
     [Header("Bridge Ending Properties")]
     [SerializeField] private AudioClip bridgeEndingClip;
     AudioSource audioSource;
+    private bool isOtherEnding = false;
 
     // Countdown timer to decide ending sequence
     private float timeRemaining = 60;
@@ -52,25 +53,24 @@ public class GameController : MonoBehaviour
         }
     }
 
-    void BridgeEnding()
+    public void BridgeEnding()
     {
-        audioSource.clip = bridgeEndingClip;
-        audioSource.loop = false;
-        audioSource.Play();
-        waitForSound();
-        Loader.Load(Loader.Scene.Bridge_Ending);
+        isOtherEnding = true;
+        audioSource.PlayOneShot(bridgeEndingClip);
+        Initiate.Fade("Bridge_Ending", Color.white, 5f);
     }
 
-    void SingularityEnding()
+    public void SingularityEnding()
     {
-        Loader.Load(Loader.Scene.Singularity_Ending);
-    }
-
-    IEnumerator waitForSound()
-    {
-        while (audioSource.isPlaying)
+        if (!isOtherEnding)
         {
-            yield return null;
+            Initiate.Fade("Singularity_Ending", Color.red, 5f);
         }
+    }
+
+    public void AirlockEnding()
+    {
+        isOtherEnding = true;
+        Initiate.Fade("Airlock_Ending", Color.black, 5f);
     }
 }
