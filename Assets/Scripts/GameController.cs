@@ -1,4 +1,4 @@
-using System.Collections;
+using UnityEngine.Events;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,9 +8,9 @@ public class GameController : MonoBehaviour
     public PlayerActions playerActions;
 
 
-    [Header("Bridge Ending Properties")]
-    [SerializeField] private AudioClip bridgeEndingClip;
-    AudioSource audioSource;
+    [Header("Singularity Ending Properties")]
+    public UnityEvent singularityEndingStart;
+    public UnityEvent countdownStart;
     private bool isOtherEnding = false;
 
     // Countdown timer to decide ending sequence
@@ -18,7 +18,6 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
         playerActions = FindObjectOfType<PlayerActions>();
     }
 
@@ -45,10 +44,12 @@ public class GameController : MonoBehaviour
     {
         if (timeRemaining > 0)
         {
-            timeRemaining += Time.deltaTime;
+            countdownStart?.Invoke();
+            timeRemaining -= Time.deltaTime;
         }
         else
         {
+            singularityEndingStart?.Invoke();
             SingularityEnding();
         }
     }
@@ -56,7 +57,6 @@ public class GameController : MonoBehaviour
     public void BridgeEnding()
     {
         isOtherEnding = true;
-        audioSource.PlayOneShot(bridgeEndingClip);
         Initiate.Fade("Bridge_Ending", Color.white, 5f);
     }
 

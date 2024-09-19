@@ -12,6 +12,12 @@ public class PlayerSounds : MonoBehaviour
     public AudioClip[] screwdriverSounds;
     public AudioClip[] progressionSounds;
     public AudioClip[] movePlayer;
+    public AudioClip[] screamSounds;
+    public AudioClip[] panicSounds;
+    public AudioClip aiAirlockAudio;
+    public AudioClip hellProtocolAudio;
+    public AudioClip shipDestructAudio;
+    public AudioClip selfDestructAudio;
 
     void Awake()
     {
@@ -58,5 +64,29 @@ public class PlayerSounds : MonoBehaviour
         var i = Random.Range(0, movePlayer.Length);
         playerAudioSource.clip = movePlayer[i];
         playerAudioSource.Play();
+    }
+
+    public void PlayScreamSounds()
+    {
+        var i = Random.Range(0, screamSounds.Length);
+        playerAudioSource.clip = screamSounds[i];
+        playerAudioSource.Play();
+    }
+
+    public void PlayPanicSounds()
+    {
+        var i = Random.Range(0, panicSounds.Length);
+        playerAudioSource.clip = panicSounds[i];
+        playerAudioSource.Play();
+    }
+
+    public void PlayAIAirlockUnlock()
+    {
+        playerAudioSource.PlayOneShot(aiAirlockAudio);
+    }
+
+    public void PlayHellProtocol()
+    {
+        playerAudioSource.PlayOneShot(hellProtocolAudio);
     }
 }

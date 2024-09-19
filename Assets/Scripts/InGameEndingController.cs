@@ -5,6 +5,9 @@ public class InGameEndingController : MonoBehaviour
     public GameController gameController;
     public EndingType ending;
     public bool isThisObjectACollider = false;
+    public AudioSource audioSource;
+    public AudioClip bridgeEndingStartAudio;
+    public AudioClip airlockEndingStartAudio;
 
     public enum EndingType
     {
