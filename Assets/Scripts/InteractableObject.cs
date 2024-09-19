@@ -75,7 +75,6 @@ public class InteractableObject : MonoBehaviour, IInteractable
             // Door closes after 5 seconds (see animation controller)
             doorController.Open();
             UseSound();
-            waitForSound(use);
             Destroy(gameObject);
         }
         else if (objectToInteractWith.TryGetComponent(out GrateController grateController))
@@ -92,34 +91,25 @@ public class InteractableObject : MonoBehaviour, IInteractable
     #endregion
 
     #region Sounds
-    IEnumerator waitForSound(AudioClip audio)
-    {
-        float audioLength = audio.length;
-        yield return new WaitForSeconds(audioLength);
-    }
 
     public void PickUpSound()
     {
-        audioSource.clip = pickUp;
-        audioSource.Play();
+        audioSource.PlayOneShot(pickUp);
     }
 
     public void PutDownSound()
     {
-        audioSource.clip = putDown;
-        audioSource.Play();
+        audioSource.PlayOneShot(putDown);
     }
 
     public void UseSound()
     {
-        audioSource.clip = use;
-        audioSource.Play();
+        audioSource.PlayOneShot(use);
     }
 
     public void ErrorSound()
     {
-        audioSource.clip = error;
-        audioSource.Play();
+        audioSource.PlayOneShot(error);
     }
 #endregion
 

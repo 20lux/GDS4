@@ -6,9 +6,14 @@ public class PlayVideo : MonoBehaviour
     public VideoPlayer player;
     public GameObject cartridge;
     public AudioSource audioSource;
+    public AudioClip cartridgeClickSound;
+    public SoundTrigger soundTrigger;
     public clipIndex clipID;
     public VideoClip[] clips = new VideoClip[9];
     public Material[] materials = new Material[8];
+
+    // Only trigger story audio once after video has been played
+    private bool hasPlayed = false;
 
     public enum clipIndex
     {
@@ -33,6 +38,9 @@ public class PlayVideo : MonoBehaviour
 
     public void PlayCartridge(int i)
     {
+        audioSource.clip = cartridgeClickSound;
+        audioSource.Play();
+        
         if (i < 0 || i >= clips.Length)
         {
             Debug.LogErrorFormat(   "Cannot play video #{0}. The array contains {1} video(s)",
@@ -71,6 +79,7 @@ public class PlayVideo : MonoBehaviour
 
         Debug.Log("Playing clip: " + clipID.ToString());
         player.clip = clips[i];
+        hasPlayed = true;
     }
 
     public void EndReached(VideoPlayer vp)
@@ -78,5 +87,11 @@ public class PlayVideo : MonoBehaviour
         vp = player;
         vp.clip = clips[0];
         cartridge.SetActive(false);
+
+        if (hasPlayed)
+        {
+            soundTrigger.PlayAudio();
+            hasPlayed = false;
+        }
     }
 }

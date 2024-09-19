@@ -84,6 +84,7 @@ public class PlayerActions : MonoBehaviour
                                 {
                                     clipIndex.Add(index.clipIndex);
                                 }
+                                index.gameObject.GetComponent<InteractableObject>().PickUpSound();
                                 Destroy(item.gameObject);
                                 isHolding = false;
                                 break;                            

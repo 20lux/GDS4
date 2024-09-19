@@ -115,6 +115,59 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3346108417094572595}
     m_Modifications:
+    - target: {fileID: 3761196005070064345, guid: 8933c5fdf5dc38541bffa608566cf959,
+        type: 3}
+      propertyPath: cartridgeClickSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 890496f31d648b3459b184efd8d15559, type: 3}
+    - target: {fileID: 3761196005070064345, guid: 8933c5fdf5dc38541bffa608566cf959,
+        type: 3}
+      propertyPath: clips.Array.data[0]
+      value: 
+      objectReference: {fileID: 32900000, guid: 13ca93036b9f6404680790ccda93ecc4,
+        type: 3}
+    - target: {fileID: 3761196005070064345, guid: 8933c5fdf5dc38541bffa608566cf959,
+        type: 3}
+      propertyPath: clips.Array.data[1]
+      value: 
+      objectReference: {fileID: 32900000, guid: 059ad17bb3115784d86b7eeff9c6fd4e,
+        type: 3}
+    - target: {fileID: 3761196005070064345, guid: 8933c5fdf5dc38541bffa608566cf959,
+        type: 3}
+      propertyPath: clips.Array.data[3]
+      value: 
+      objectReference: {fileID: 32900000, guid: 8b3ae728bde1aee48b057cec7727f646,
+        type: 3}
+    - target: {fileID: 3761196005070064345, guid: 8933c5fdf5dc38541bffa608566cf959,
+        type: 3}
+      propertyPath: clips.Array.data[4]
+      value: 
+      objectReference: {fileID: 32900000, guid: 8daf1ee4f6470d242abb6bd026c5373b,
+        type: 3}
+    - target: {fileID: 3761196005070064345, guid: 8933c5fdf5dc38541bffa608566cf959,
+        type: 3}
+      propertyPath: clips.Array.data[5]
+      value: 
+      objectReference: {fileID: 32900000, guid: 6b1b4c570c19ebf409a01fbc7e55f2c4,
+        type: 3}
+    - target: {fileID: 3761196005070064345, guid: 8933c5fdf5dc38541bffa608566cf959,
+        type: 3}
+      propertyPath: clips.Array.data[6]
+      value: 
+      objectReference: {fileID: 32900000, guid: 14a979075d8110b4aaa36dd8d81c97ff,
+        type: 3}
+    - target: {fileID: 3761196005070064345, guid: 8933c5fdf5dc38541bffa608566cf959,
+        type: 3}
+      propertyPath: clips.Array.data[7]
+      value: 
+      objectReference: {fileID: 32900000, guid: 468671586588bd2489bbf9fe9d16104c,
+        type: 3}
+    - target: {fileID: 3761196005070064345, guid: 8933c5fdf5dc38541bffa608566cf959,
+        type: 3}
+      propertyPath: clips.Array.data[8]
+      value: 
+      objectReference: {fileID: 32900000, guid: 9fd6680b15a27e646a5988802328783c,
+        type: 3}
     - target: {fileID: 7274092920186087661, guid: 8933c5fdf5dc38541bffa608566cf959,
         type: 3}
       propertyPath: m_Name

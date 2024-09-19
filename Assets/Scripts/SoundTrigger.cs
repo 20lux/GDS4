@@ -3,14 +3,19 @@ using UnityEngine;
 public class SoundTrigger : MonoBehaviour
 {
     AudioSource audioSource;
+    private bool hasPlayed = false;
 
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
     }
 
-    void OnTriggerStay()
+    public void PlayAudio()
     {
-        audioSource.Play();
+        if (!hasPlayed)
+        {
+            audioSource.Play();
+            hasPlayed = true;
+        }
     }
 }
