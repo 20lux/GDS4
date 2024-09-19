@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using NavKeypad;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -50,7 +51,7 @@ public class PlayerActions : MonoBehaviour
         PlayerInteract();
     }
 
-#region Player Interact
+    #region Player Interact
     public void PlayerInteract()
     {
         // If the player presses E or presses left mouse button,
@@ -60,8 +61,8 @@ public class PlayerActions : MonoBehaviour
         {
             if (item == null)
             {
-                if (Physics.Raycast(playerCam.transform.position, 
-                                    playerCam.transform.forward, out RaycastHit hit, 
+                if (Physics.Raycast(playerCam.transform.position,
+                                    playerCam.transform.forward, out RaycastHit hit,
                                     interactDistance))
                 {
                     if (hit.collider.TryGetComponent(out item))
@@ -84,13 +85,12 @@ public class PlayerActions : MonoBehaviour
                                 {
                                     clipIndex.Add(index.clipIndex);
                                 }
-                                index.gameObject.GetComponent<InteractableObject>().PickUpSound();
-                                Destroy(item.gameObject);
+                                item.Grab(grabCam);
                                 isHolding = false;
-                                break;                            
+                                break;
                         }
                     }
-                    
+
                     // Can't interact with objects if you're holding an object
                     // You must drop of the cartridge first
                     if (!isHolding)
@@ -122,7 +122,12 @@ public class PlayerActions : MonoBehaviour
 
                         if (hit.collider.TryGetComponent(out PlayVideo videoPlayer))
                         {
-                            Debug.Log("Clicking on player!");
+                            if (grabCam.transform.childCount > 0)
+                            {
+                                var itemHeld = grabCam.transform.GetChild(0).gameObject;
+                                Destroy(itemHeld);
+                            }
+
                             switch (videoPlayer.clipID)
                             {
                                 case PlayVideo.clipIndex.BlueCart:
@@ -174,6 +179,8 @@ public class PlayerActions : MonoBehaviour
                                     }
                                     break;
                             }
+
+                            item = null;
                         }
                     }
                 }
@@ -181,12 +188,13 @@ public class PlayerActions : MonoBehaviour
             else
             {
                 // Checking if interactable, otherwise drop what we're holding
-                if (Physics.Raycast(playerCam.transform.position, 
-                                    playerCam.transform.forward, 
-                                    out RaycastHit hit, 
-                                    interactDistance, 
+                if (Physics.Raycast(playerCam.transform.position,
+                                    playerCam.transform.forward,
+                                    out RaycastHit hit,
+                                    interactDistance,
                                     layerInteractable))
                 {
+                    // If hit returns associated lock for key
                     switch (item.objectType)
                     {
                         case InteractableObject.ObjectType.Key:
@@ -198,6 +206,7 @@ public class PlayerActions : MonoBehaviour
                 }
                 else
                 {
+                    item.Drop(playerDrop.transform);
                     item = null;
                     isHolding = false;
                 }
@@ -205,7 +214,7 @@ public class PlayerActions : MonoBehaviour
         }
     }
 
-#endregion
+    #endregion
 
     // Differentiate between interactive objects
     // and non-interactive objects

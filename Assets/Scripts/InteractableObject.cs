@@ -38,7 +38,8 @@ public class InteractableObject : MonoBehaviour, IInteractable
     private void Start()
     {
         if (objectType == ObjectType.Key ||
-            objectType == ObjectType.GrabObject)
+            objectType == ObjectType.GrabObject ||
+            objectType == ObjectType.ConsoleCartridge)
         {
             objectRigidBody = GetComponent<Rigidbody>();
         }
