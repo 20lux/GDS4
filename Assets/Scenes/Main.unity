@@ -3076,6 +3076,16 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5f0c07b690efbb241b8fc97a1e80cad3, type: 3}
   - {fileID: 8300000, guid: 91c6ff2904372d74c9df370284547b08, type: 3}
   - {fileID: 8300000, guid: fa333823efbfcd840b72519484cd7dfd, type: 3}
+  - {fileID: 8300000, guid: 50b7d2b883d38b149a454401977315e8, type: 3}
+  screamSounds:
+  - {fileID: 8300000, guid: b64adc33876c20546b29a1f94aee952f, type: 3}
+  panicSounds:
+  - {fileID: 8300000, guid: 31a117b6853b9e4498825bb9751daec1, type: 3}
+  - {fileID: 8300000, guid: 22cab51dc033fe24daebdc38009e76f8, type: 3}
+  aiAirlockAudio: {fileID: 8300000, guid: d697d241a149c4b4da61c6760d13e444, type: 3}
+  hellProtocolAudio: {fileID: 8300000, guid: 76c4b90e1853b6142b7cb4452cd97280, type: 3}
+  shipDestructAudio: {fileID: 8300000, guid: 5da55c3a5103eac42bf91bebf61afd2d, type: 3}
+  selfDestructAudio: {fileID: 8300000, guid: 3dc68073ff57d564fbbf488df196092a, type: 3}
 --- !u!4 &86365097 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2598143677819546012, guid: 5bdc09d9f7c667144b8c249086d0925f,
@@ -5011,7 +5021,6 @@ GameObject:
   m_Component:
   - component: {fileID: 177880661}
   - component: {fileID: 177880660}
-  - component: {fileID: 177880663}
   - component: {fileID: 177880664}
   m_Layer: 0
   m_Name: GameController
@@ -5033,7 +5042,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerActions: {fileID: 77856603}
-  bridgeEndingClip: {fileID: 8300000, guid: 96f0a0da17c43a5488a333e83dbe0738, type: 3}
+  singularityEndingStart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 77856610}
+        m_TargetAssemblyTypeName: PlayerSounds, Assembly-CSharp
+        m_MethodName: PlayScreamSounds
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  countdownStart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 77856610}
+        m_TargetAssemblyTypeName: PlayerSounds, Assembly-CSharp
+        m_MethodName: PlayPanicSounds
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &177880661
 Transform:
   m_ObjectHideFlags: 0
@@ -5049,102 +5087,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &177880663
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 177880659}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!114 &177880664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43514,6 +43456,9 @@ MonoBehaviour:
   gameController: {fileID: 177880660}
   ending: 1
   isThisObjectACollider: 1
+  audioSource: {fileID: 0}
+  bridgeEndingStartAudio: {fileID: 0}
+  airlockEndingStartAudio: {fileID: 0}
 --- !u!4 &1474027405 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2598143677819546012, guid: 5bdc09d9f7c667144b8c249086d0925f,
