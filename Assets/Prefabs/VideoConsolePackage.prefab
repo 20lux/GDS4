@@ -306,6 +306,12 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 3761196005070064345, guid: 8933c5fdf5dc38541bffa608566cf959,
         type: 3}
+      propertyPath: clips.Array.data[2]
+      value: 
+      objectReference: {fileID: 32900000, guid: fc766fc649195af48a76ef68c477579f,
+        type: 3}
+    - target: {fileID: 3761196005070064345, guid: 8933c5fdf5dc38541bffa608566cf959,
+        type: 3}
       propertyPath: clips.Array.data[3]
       value: 
       objectReference: {fileID: 32900000, guid: 8b3ae728bde1aee48b057cec7727f646,
@@ -345,6 +351,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PR_consolewithcartridge
       objectReference: {fileID: 0}
+    - target: {fileID: 8044441914859544869, guid: 8933c5fdf5dc38541bffa608566cf959,
+        type: 3}
+      propertyPath: soundTrigger
+      value: 
+      objectReference: {fileID: 392186231265767332}
     - target: {fileID: 8050488159916552791, guid: 8933c5fdf5dc38541bffa608566cf959,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -117,7 +117,7 @@ public class PlayerActions : MonoBehaviour
                             soundEvent.PlaySoundEvent();
                         }
 
-                        if (hit.collider.TryGetComponent(out PlayVideo videoPlayer))
+                        if (hit.collider.TryGetComponent(out VideoConsole videoPlayer))
                         {
                             if (grabCam.transform.childCount > 0)
                             {
@@ -127,49 +127,49 @@ public class PlayerActions : MonoBehaviour
 
                             switch (videoPlayer.clipID)
                             {
-                                case PlayVideo.clipIndex.BlueCart:
+                                case VideoConsole.clipIndex.BlueCart:
                                     if (clipIndex.Contains(1))
                                     {
                                         videoPlayer.PlayCartridge(1);
                                     }
                                     break;
-                                case PlayVideo.clipIndex.GreenCart:
+                                case VideoConsole.clipIndex.GreenCart:
                                     if (clipIndex.Contains(2))
                                     {
                                         videoPlayer.PlayCartridge(2);
                                     }
                                     break;
-                                case PlayVideo.clipIndex.CreamCart:
+                                case VideoConsole.clipIndex.CreamCart:
                                     if (clipIndex.Contains(3))
                                     {
                                         videoPlayer.PlayCartridge(3);
                                     }
                                     break;
-                                case PlayVideo.clipIndex.RedCart:
+                                case VideoConsole.clipIndex.RedCart:
                                     if (clipIndex.Contains(4))
                                     {
                                         videoPlayer.PlayCartridge(4);
                                     }
                                     break;
-                                case PlayVideo.clipIndex.PurpleCart:
+                                case VideoConsole.clipIndex.PurpleCart:
                                     if (clipIndex.Contains(5))
                                     {
                                         videoPlayer.PlayCartridge(5);
                                     }
                                     break;
-                                case PlayVideo.clipIndex.PinkCart:
+                                case VideoConsole.clipIndex.PinkCart:
                                     if (clipIndex.Contains(6))
                                     {
                                         videoPlayer.PlayCartridge(6);
                                     }
                                     break;
-                                case PlayVideo.clipIndex.WhiteCart:
+                                case VideoConsole.clipIndex.WhiteCart:
                                     if (clipIndex.Contains(7))
                                     {
                                         videoPlayer.PlayCartridge(7);
                                     }
                                     break;
-                                case PlayVideo.clipIndex.OrangeCart:
+                                case VideoConsole.clipIndex.OrangeCart:
                                     if (clipIndex.Contains(8))
                                     {
                                         videoPlayer.PlayCartridge(8);
