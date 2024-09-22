@@ -12399,6 +12399,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1453677728588249432, guid: b57079c0b4a602149971a7d1154409c6,
+        type: 3}
+      propertyPath: clipID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1453677728588249432, guid: b57079c0b4a602149971a7d1154409c6,
+        type: 3}
+      propertyPath: videoPlayer
+      value: 
+      objectReference: {fileID: 631875629}
     - target: {fileID: 1456366003159116330, guid: b57079c0b4a602149971a7d1154409c6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12539,6 +12549,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 03711950581c8f54397deb895771ea73, type: 2}
+    - target: {fileID: 6946606518408729183, guid: b57079c0b4a602149971a7d1154409c6,
+        type: 3}
+      propertyPath: MaxDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6946606518408729183, guid: b57079c0b4a602149971a7d1154409c6,
+        type: 3}
+      propertyPath: MinDistance
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6946606518408729183, guid: b57079c0b4a602149971a7d1154409c6,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20873,6 +20898,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 260289d83c6f41a48972be983704ca0b, type: 3}
+--- !u!114 &631875629 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2358972272335455589, guid: c3dc03d233d39cb46b0bd02a5cc48827,
+    type: 3}
+  m_PrefabInstance: {fileID: 7903228267180405042}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63d13160db20a7a4c88d300348a24651, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &635429294 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2598143677819546012, guid: 5bdc09d9f7c667144b8c249086d0925f,
@@ -68508,11 +68545,31 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2010950344438909474, guid: 8933c5fdf5dc38541bffa608566cf959,
+        type: 3}
+      propertyPath: MaxDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2010950344438909474, guid: 8933c5fdf5dc38541bffa608566cf959,
+        type: 3}
+      propertyPath: MinDistance
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2010950344438909474, guid: 8933c5fdf5dc38541bffa608566cf959,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7274092920186087661, guid: 8933c5fdf5dc38541bffa608566cf959,
         type: 3}
       propertyPath: m_Name
       value: ME_console_child
       objectReference: {fileID: 0}
+    - target: {fileID: 8044441914859544869, guid: 8933c5fdf5dc38541bffa608566cf959,
+        type: 3}
+      propertyPath: videoPlayer
+      value: 
+      objectReference: {fileID: 631875629}
     - target: {fileID: 8044441914859544869, guid: 8933c5fdf5dc38541bffa608566cf959,
         type: 3}
       propertyPath: soundTrigger
