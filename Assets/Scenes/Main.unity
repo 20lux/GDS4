@@ -68508,63 +68508,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2010950344438909474, guid: 8933c5fdf5dc38541bffa608566cf959,
-        type: 3}
-      propertyPath: MaxDistance
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2010950344438909474, guid: 8933c5fdf5dc38541bffa608566cf959,
-        type: 3}
-      propertyPath: MinDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2010950344438909474, guid: 8933c5fdf5dc38541bffa608566cf959,
-        type: 3}
-      propertyPath: rolloffMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2010950344438909474, guid: 8933c5fdf5dc38541bffa608566cf959,
-        type: 3}
-      propertyPath: DopplerLevel
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2010950344438909474, guid: 8933c5fdf5dc38541bffa608566cf959,
-        type: 3}
-      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3391802368434582806, guid: 8933c5fdf5dc38541bffa608566cf959,
-        type: 3}
-      propertyPath: m_VideoClip
-      value: 
-      objectReference: {fileID: 32900000, guid: 13ca93036b9f6404680790ccda93ecc4,
-        type: 3}
-    - target: {fileID: 3391802368434582806, guid: 8933c5fdf5dc38541bffa608566cf959,
-        type: 3}
-      propertyPath: m_TargetAudioSources.Array.data[0]
-      value: 
-      objectReference: {fileID: 646658439676622615}
-    - target: {fileID: 3761196005070064345, guid: 8933c5fdf5dc38541bffa608566cf959,
-        type: 3}
-      propertyPath: soundTrigger
-      value: 
-      objectReference: {fileID: 35477325}
-    - target: {fileID: 3761196005070064345, guid: 8933c5fdf5dc38541bffa608566cf959,
-        type: 3}
-      propertyPath: cartridgeClickSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 890496f31d648b3459b184efd8d15559, type: 3}
-    - target: {fileID: 3761196005070064345, guid: 8933c5fdf5dc38541bffa608566cf959,
-        type: 3}
-      propertyPath: clips.Array.data[0]
-      value: 
-      objectReference: {fileID: 32900000, guid: 13ca93036b9f6404680790ccda93ecc4,
-        type: 3}
     - target: {fileID: 7274092920186087661, guid: 8933c5fdf5dc38541bffa608566cf959,
         type: 3}
       propertyPath: m_Name
       value: ME_console_child
       objectReference: {fileID: 0}
+    - target: {fileID: 8044441914859544869, guid: 8933c5fdf5dc38541bffa608566cf959,
+        type: 3}
+      propertyPath: soundTrigger
+      value: 
+      objectReference: {fileID: 35477325}
     - target: {fileID: 8050488159916552791, guid: 8933c5fdf5dc38541bffa608566cf959,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -68620,12 +68573,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8933c5fdf5dc38541bffa608566cf959, type: 3}
---- !u!82 &646658439676622615 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 2010950344438909474, guid: 8933c5fdf5dc38541bffa608566cf959,
-    type: 3}
-  m_PrefabInstance: {fileID: 646658439676622614}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &710495803615531562
 PrefabInstance:
   m_ObjectHideFlags: 0

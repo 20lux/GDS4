@@ -12,6 +12,7 @@ TagManager:
   - CCTV Cam
   - BridgeEnding
   - Cartridge
+  - Lock
   layers:
   - Default
   - TransparentFX
