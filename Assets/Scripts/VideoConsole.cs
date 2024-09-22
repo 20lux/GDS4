@@ -66,6 +66,7 @@ public class VideoConsole : MonoBehaviour
 
         cartridge.SetActive(true);
 
+        audioSource.clip = null;
         videoPlayer.LoadClip(i, audioSource);
         Debug.Log("Playing clip: " + clipID.ToString());
 

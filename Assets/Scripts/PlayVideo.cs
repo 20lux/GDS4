@@ -22,7 +22,11 @@ public class PlayVideo : MonoBehaviour
             Debug.LogErrorFormat(   "Cannot play video #{0}. The array contains {1} video(s)",
                                     i, clips.Length);
         }
-        player.SetTargetAudioSource(1, audioSource);
+        player.audioOutputMode = VideoAudioOutputMode.AudioSource;
+        player.EnableAudioTrack(0, true);
+        player.SetTargetAudioSource(0, audioSource);
+        player.controlledAudioTrackCount = 1;
+        audioSource.volume = 1.0f;
         player.clip = clips[i];
     }
 
