@@ -38,7 +38,6 @@ public class PlayVideo : MonoBehaviour
 
     public void PlayCartridge(int i)
     {
-        Destroy(cartridge);
         audioSource.clip = cartridgeClickSound;
         audioSource.Play();
         

@@ -13,12 +13,20 @@ public class GameController : MonoBehaviour
     public UnityEvent countdownStart;
     private bool isOtherEnding = false;
 
+    [Header("Engine Start Up Properties")]
+    public Light[] lightsToEnable;
+    public GameObject[] particlesToEnable;
+    public AudioSource[] engineStartSounds;
+    public ButtonPress buttonPress;
+    public GameObject[] alarms;
+
     // Countdown timer to decide ending sequence
     private float timeRemaining = 60;
 
     void Start()
     {
         playerActions = FindObjectOfType<PlayerActions>();
+        ShipEngineDisabled();
     }
 
     void Update()
@@ -72,5 +80,54 @@ public class GameController : MonoBehaviour
     {
         isOtherEnding = true;
         Initiate.Fade("Airlock_Ending", Color.black, 5f);
+    }
+
+    public void ShipEngineStart()
+    {
+            // Switch lights on
+            for (int i = 0; i < lightsToEnable.Length; i++)
+            {
+                lightsToEnable[i].enabled = true;
+            }
+
+            // Turn off alarms
+            for (int i = 0; i < alarms.Length; i++)
+            {
+                alarms[i].GetComponent<Alarm>().thisLight.enabled = false;
+                alarms[i].GetComponent<Alarm>().audioSource.Stop();
+            }
+
+            // Fire up engine particles
+            for (int i = 0; i < particlesToEnable.Length; i++)
+            {
+                var emission = particlesToEnable[i].GetComponent<ParticleSystem>().emission;
+                emission.enabled = true;
+            }
+
+            // Play engine startup and running sounds
+            for (int i = 0; i < engineStartSounds.Length; i++)
+            {
+                if (!engineStartSounds[i].isPlaying)
+                {
+                    engineStartSounds[i].Play();
+                }
+            }
+
+            // Engine room lift button active
+            buttonPress.Activate();
+    }
+
+    public void ShipEngineDisabled()
+    {
+        for (int i = 0; i < lightsToEnable.Length; i++)
+        {
+            lightsToEnable[i].enabled = false;
+        }
+
+        for (int i = 0; i < particlesToEnable.Length; i++)
+        {
+            var emission = particlesToEnable[i].GetComponent<ParticleSystem>().emission;
+            emission.enabled = false;
+        }
     }
 }

@@ -69,9 +69,6 @@ public class PlayerActions : MonoBehaviour
                     {
                         switch (item.objectType)
                         {
-                            case InteractableObject.ObjectType.None:
-                                Destroy(item.gameObject);
-                                break;
                             case InteractableObject.ObjectType.Key:
                                 item.Grab(grabCam);
                                 isHolding = true;
@@ -187,10 +184,9 @@ public class PlayerActions : MonoBehaviour
             }
             else
             {
-                // Checking if interactable, otherwise drop what we're holding
+                // Checking if interactable
                 if (Physics.Raycast(playerCam.transform.position,
                                     playerCam.transform.forward,
-                                    out RaycastHit hit,
                                     interactDistance,
                                     layerInteractable))
                 {
@@ -202,11 +198,6 @@ public class PlayerActions : MonoBehaviour
                             break;
                     }
 
-                    item = null;
-                }
-                else
-                {
-                    item.Drop(playerDrop.transform);
                     item = null;
                     isHolding = false;
                 }

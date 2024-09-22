@@ -1,5 +1,3 @@
-using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class ArrowKeyConsoleInteract : MonoBehaviour
@@ -19,11 +17,12 @@ public class ArrowKeyConsoleInteract : MonoBehaviour
     private bool isMoving = false;
     private AudioSource audioSource;
     private Animator animator;
-    public bool isPuzzleComplete = false;
+    private int layerIgnoreRaycast;
     
     void Awake()
     {
         key = gameObject;
+        layerIgnoreRaycast = LayerMask.NameToLayer("Ignore Raycast");
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
         key.GetComponent<Renderer>().material.color = idleColor;
@@ -81,11 +80,6 @@ public class ArrowKeyConsoleInteract : MonoBehaviour
 
     public void Update()
     {
-        if (isPuzzleComplete)
-        {
-            LayerMask.NameToLayer("IgnoreRaycast");
-        }
-
         // Move towards target position
         if (isActive && isMoving)
         {
@@ -103,5 +97,11 @@ public class ArrowKeyConsoleInteract : MonoBehaviour
         {
             isActive = false;
         }
+    }
+
+    public void OnPuzzleComplete()
+    {
+        key.GetComponent<Renderer>().material.color = pressedColor;
+        gameObject.layer = layerIgnoreRaycast;
     }
 }
