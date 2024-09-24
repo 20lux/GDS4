@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ArrowKeyConsoleInteract : MonoBehaviour
 {
-    [SerializeField] private GameObject techLabObject;
+    [SerializeField] private GameObject droneObject;
     private GameObject key;
     private Color pressedColor = Color.green;
     private Color idleColor = Color.white;
@@ -27,9 +27,9 @@ public class ArrowKeyConsoleInteract : MonoBehaviour
         animator = GetComponent<Animator>();
         key.GetComponent<Renderer>().material.color = idleColor;
 
-        posX = techLabObject.transform.position.x;
-        posY = techLabObject.transform.position.y;
-        posZ = techLabObject.transform.rotation.z;
+        posX = droneObject.transform.position.x;
+        posY = droneObject.transform.position.y;
+        posZ = droneObject.transform.rotation.z;
     }
 
     public enum Direction
@@ -43,9 +43,9 @@ public class ArrowKeyConsoleInteract : MonoBehaviour
     public void KeyInteract()
     {
         // Get current position
-        posZ = techLabObject.transform.position.z;
-        posX = techLabObject.transform.position.x;
-        posY = techLabObject.transform.position.y;
+        posZ = droneObject.transform.position.z;
+        posX = droneObject.transform.position.x;
+        posY = droneObject.transform.position.y;
 
         if (isActive)
         {
@@ -54,19 +54,19 @@ public class ArrowKeyConsoleInteract : MonoBehaviour
             {
                 case Direction.Forward:
                     moveTarget = new Vector3(posX, posY, posZ + distance);
-                    posZ = techLabObject.transform.position.z;
+                    posZ = droneObject.transform.position.z;
                     break;
                 case Direction.Backward:
                     moveTarget = new Vector3(posX, posY, posZ - distance);
-                    posZ = techLabObject.transform.position.z;
+                    posZ = droneObject.transform.position.z;
                     break;
                 case Direction.Left:
                     moveTarget = new Vector3(posX - distance, posY, posZ);
-                    posX = techLabObject.transform.position.x;
+                    posX = droneObject.transform.position.x;
                     break;
                 case Direction.Right:
                     moveTarget = new Vector3(posX + distance, posY, posZ);
-                    posX = techLabObject.transform.position.x;
+                    posX = droneObject.transform.position.x;
                     break;
             }
 
@@ -84,8 +84,8 @@ public class ArrowKeyConsoleInteract : MonoBehaviour
         if (isActive && isMoving)
         {
             var step = speed * Time.deltaTime;
-            techLabObject.transform.position = Vector3.MoveTowards(techLabObject.transform.position, moveTarget, step);
-            if (techLabObject.transform.position == moveTarget)
+            droneObject.transform.position = Vector3.MoveTowards(droneObject.transform.position, moveTarget, step);
+            if (droneObject.transform.position == moveTarget)
             {
                 key.GetComponent<Renderer>().material.color = idleColor;
                 animator.ResetTrigger("IsPressed");
@@ -93,7 +93,7 @@ public class ArrowKeyConsoleInteract : MonoBehaviour
             }
         }
 
-        if (techLabObject.transform.parent != null)
+        if (droneObject.transform.parent != null)
         {
             isActive = false;
         }

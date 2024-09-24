@@ -16,7 +16,6 @@ public class PlayerActions : MonoBehaviour
     [Tooltip("Composite camera that shows object the player is currently holding")]
     [SerializeField] private GameObject grabCam;
     [Tooltip("Drop location for objects that player has dropped")]
-    [SerializeField] private GameObject playerDrop;
     private bool isHolding = false;
     public List<int> clipIndex;
 
