@@ -311,15 +311,11 @@ MonoBehaviour:
   objectType: 3
   ObjectName: Grate
   objectToInteractWith: {fileID: 0}
-  newMaterial: {fileID: 0}
   IsLocked: 1
   pickUp: {fileID: 0}
   putDown: {fileID: 0}
   use: {fileID: 0}
   error: {fileID: 8300000, guid: 667b4131d82e9b9408254a56ed8eee8a, type: 3}
-  currentLayer:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!82 &155553029454577287
 AudioSource:
   m_ObjectHideFlags: 0
@@ -329,7 +325,8 @@ AudioSource:
   m_GameObject: {fileID: 3364945894572212402}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -974354491434805846, guid: 69cee73eb5a5f9b4ab6a5caa114296a8,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 966bf78b53f914b4690b463c08cf6791, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1

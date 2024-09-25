@@ -44,7 +44,7 @@ public class InteractableObject : MonoBehaviour, IInteractable
             objectRigidBody = GetComponent<Rigidbody>();
         }
 
-        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     #region Interactions

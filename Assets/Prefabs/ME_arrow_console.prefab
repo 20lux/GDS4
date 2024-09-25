@@ -182,14 +182,11 @@ MonoBehaviour:
   objectType: 1
   ObjectName: Engine Console
   objectToInteractWith: {fileID: 0}
-  newMaterial: {fileID: 0}
   IsLocked: 0
   pickUp: {fileID: 0}
   putDown: {fileID: 0}
   use: {fileID: 0}
-  currentLayer:
-    serializedVersion: 2
-    m_Bits: 0
+  error: {fileID: 0}
 --- !u!1 &925729600168045709 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2057484238129453486, guid: 3d8f7206ff558044cb95b75b050ee572,
@@ -250,7 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ad7ad946885f8c47823960cd6ecd7f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  techLabObject: {fileID: 0}
+  droneObject: {fileID: 0}
   direction: 1
   speed: 2
   distance: 0.2
@@ -263,7 +260,8 @@ AudioSource:
   m_GameObject: {fileID: 925729600168045709}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -974354491434805846, guid: 69cee73eb5a5f9b4ab6a5caa114296a8,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: d2a70a9127f8a4e459a16cedc425e887, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -410,7 +408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ad7ad946885f8c47823960cd6ecd7f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  techLabObject: {fileID: 0}
+  droneObject: {fileID: 0}
   direction: 2
   speed: 2
   distance: 0.2
@@ -423,7 +421,8 @@ AudioSource:
   m_GameObject: {fileID: 1504155405566758951}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -974354491434805846, guid: 69cee73eb5a5f9b4ab6a5caa114296a8,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: d2a70a9127f8a4e459a16cedc425e887, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -570,7 +569,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ad7ad946885f8c47823960cd6ecd7f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  techLabObject: {fileID: 0}
+  droneObject: {fileID: 0}
   direction: 3
   speed: 2
   distance: 0.2
@@ -583,7 +582,8 @@ AudioSource:
   m_GameObject: {fileID: 1659987224965480729}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -974354491434805846, guid: 69cee73eb5a5f9b4ab6a5caa114296a8,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: d2a70a9127f8a4e459a16cedc425e887, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -730,7 +730,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ad7ad946885f8c47823960cd6ecd7f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  techLabObject: {fileID: 0}
+  droneObject: {fileID: 0}
   direction: 0
   speed: 2
   distance: 0.2
@@ -743,7 +743,8 @@ AudioSource:
   m_GameObject: {fileID: 2543581039883416111}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -974354491434805846, guid: 69cee73eb5a5f9b4ab6a5caa114296a8,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: d2a70a9127f8a4e459a16cedc425e887, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1

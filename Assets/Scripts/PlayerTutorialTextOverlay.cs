@@ -27,4 +27,9 @@ public class PlayerTutorialTextOverlay : MonoBehaviour
     {
         tutorialText.text = "Some doors are manual, some are automatic and some are just... locked";
     }
+
+    public void Jump()
+    {
+        tutorialText.text = "Press space to jump";
+    }
 }

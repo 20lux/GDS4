@@ -64,7 +64,8 @@ AudioSource:
   m_GameObject: {fileID: 6279475909645724279}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -974354491434805846, guid: 69cee73eb5a5f9b4ab6a5caa114296a8,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 8574bd99125e02245a646cdf955a9c7b, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -163,14 +164,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01843eb9498d20d4bbf0a9e1f7c71a4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isGrate: 0
   doorGameObject: {fileID: 7462854339689215416}
   keyObject: {fileID: 0}
   doorAudio: {fileID: 2551406955780527887}
   doorSounds:
   - {fileID: 8300000, guid: 8574bd99125e02245a646cdf955a9c7b, type: 3}
   - {fileID: 8300000, guid: 538c773ff2348e94a8b97216c223bc05, type: 3}
-  isDoorLocked: 1
+  door: {fileID: 0}
+  isManualDoor: 0
+  timeToClose: 5
 --- !u!1001 &2025555904957353738
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -330,14 +332,11 @@ MonoBehaviour:
   objectType: 6
   ObjectName: Lift Button
   objectToInteractWith: {fileID: 0}
-  newMaterial: {fileID: 0}
   IsLocked: 0
   pickUp: {fileID: 0}
   putDown: {fileID: 0}
   use: {fileID: 8300000, guid: 77e1fd2cc33e4354fa1bd4ad056d6d0f, type: 3}
-  currentLayer:
-    serializedVersion: 2
-    m_Bits: 0
+  error: {fileID: 0}
 --- !u!1001 &7732693387176134889
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -400,7 +399,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: -2370013265074306593, guid: 3f864a24303671946b2b1c36b5eb33b9,
+      objectReference: {fileID: 2227606581714051935, guid: bbc4d9b7875e19b488ab4aeaa7779c94,
         type: 3}
     - target: {fileID: -7511558181221131132, guid: 8837dfa39ad5be04d8e624f8ae08cbd0,
         type: 3}

@@ -54,4 +54,9 @@ public class DoorController : MonoBehaviour
         doorAudio.Play();
         isOpen = false;
     }
+
+    public void MakeDoorAuto()
+    {
+        isManualDoor = false;
+    }
 }
