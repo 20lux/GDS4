@@ -82,7 +82,7 @@ public class PlayerActions : MonoBehaviour
                                     clipIndex.Add(index.clipIndex);
                                 }
                                 item.Grab(grabCam);
-                                isHolding = false;
+                                isHolding = true;
                                 break;
                         }
                     }
@@ -115,7 +115,9 @@ public class PlayerActions : MonoBehaviour
                         {
                             soundEvent.PlaySoundEvent();
                         }
-
+                    }
+                    else
+                    {
                         if (hit.collider.TryGetComponent(out VideoConsole videoPlayer))
                         {
                             if (grabCam.transform.childCount > 0)

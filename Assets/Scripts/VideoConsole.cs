@@ -72,9 +72,9 @@ public class VideoConsole : MonoBehaviour
 
         if (videoPlayer.endClip && !hasPlayed)
         {
-            soundTrigger.PlayAudio();
             hasPlayed = true;
             videoPlayer.endClip = false;
+            soundTrigger.PlayAudio();
         }
     }
 }

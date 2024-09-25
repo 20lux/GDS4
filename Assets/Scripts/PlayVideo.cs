@@ -26,7 +26,6 @@ public class PlayVideo : MonoBehaviour
         player.EnableAudioTrack(0, true);
         player.SetTargetAudioSource(0, audioSource);
         player.controlledAudioTrackCount = 1;
-        //audioSource.volume = 1.0f;
         player.clip = clips[i];
     }
 
