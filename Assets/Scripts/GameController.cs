@@ -65,14 +65,14 @@ public class GameController : MonoBehaviour
     public void BridgeEnding()
     {
         isOtherEnding = true;
-        Initiate.Fade("Bridge_Ending", Color.white, 5f);
+        Initiate.Fade("Bridge_Ending", Color.white, 60f);
     }
 
     public void SingularityEnding()
     {
         if (!isOtherEnding)
         {
-            Initiate.Fade("Singularity_Ending", Color.red, 5f);
+            Initiate.Fade("Singularity_Ending", Color.red, 60f);
         }
     }
 

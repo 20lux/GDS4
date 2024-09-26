@@ -1572,6 +1572,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8731780733147456475, guid: 5c142d7af9081e148a74250fdc1f7504,
         type: 3}
+      propertyPath: m_Name
+      value: BridgeEnding
+      objectReference: {fileID: 0}
+    - target: {fileID: -8731780733147456475, guid: 5c142d7af9081e148a74250fdc1f7504,
+        type: 3}
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
@@ -1891,6 +1896,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 245558987}
+    - targetCorrespondingSourceObject: {fileID: -8731780733147456475, guid: 5c142d7af9081e148a74250fdc1f7504,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 245558988}
   m_SourcePrefab: {fileID: 100100000, guid: 5c142d7af9081e148a74250fdc1f7504, type: 3}
 --- !u!1001 &42920615
 PrefabInstance:
@@ -5753,6 +5762,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 245558982}
+        m_TargetAssemblyTypeName: BridgeEnding, Assembly-CSharp
+        m_MethodName: PlayBridgeEnding
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   lightsToEnable:
   - {fileID: 1932266353}
   - {fileID: 1151577222}
@@ -8130,6 +8151,7 @@ MonoBehaviour:
   bridgeVideoClips:
   - {fileID: 32900000, guid: 93b1c5fb69dd7594a9ed0741c43bbdf7, type: 3}
   - {fileID: 32900000, guid: c45965e19a5f233478e89572461a9e22, type: 3}
+  bridgeAudioSource: {fileID: 0}
 --- !u!65 &245558983
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8185,6 +8207,103 @@ VideoPlayer:
   m_WaitForFirstFrame: 1
   m_FrameReadyEventEnabled: 0
   m_VideoShaders: []
+--- !u!82 &245558988
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245558978}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -6700112325996413305, guid: 69cee73eb5a5f9b4ab6a5caa114296a8,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 3a3f894e05fc6f647bbdad34b9cb743c, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &246515359
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39698,6 +39817,24 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9654787e65a8af441b63b839dd5cf2af, type: 3}
+--- !u!1 &1107400688 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 494310226593517917, guid: 9f58748d49faf944a85ae5a53328e1e2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1129138498}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1107400691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107400688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06217c31d363440429856c0cba6fb491, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1107806311
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40470,7 +40607,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 494310226593517917, guid: 9f58748d49faf944a85ae5a53328e1e2,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1107400691}
   m_SourcePrefab: {fileID: 100100000, guid: 9f58748d49faf944a85ae5a53328e1e2, type: 3}
 --- !u!4 &1130005442 stripped
 Transform:
@@ -76268,7 +76409,7 @@ PrefabInstance:
     - target: {fileID: 3596319912797519324, guid: 4f532b3a7ceb6b84681fe4be1a7e11aa,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.787
+      value: 2.944
       objectReference: {fileID: 0}
     - target: {fileID: 3596319912797519327, guid: 4f532b3a7ceb6b84681fe4be1a7e11aa,
         type: 3}
@@ -79416,7 +79557,7 @@ PrefabInstance:
     - target: {fileID: 3481576106460547094, guid: 4b1be4e80b91bae4b8c1b7e140b64411,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.349
+      value: -4.065
       objectReference: {fileID: 0}
     - target: {fileID: 3481576106460547094, guid: 4b1be4e80b91bae4b8c1b7e140b64411,
         type: 3}
@@ -79426,7 +79567,7 @@ PrefabInstance:
     - target: {fileID: 3481576106460547094, guid: 4b1be4e80b91bae4b8c1b7e140b64411,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.92
+      value: -12.03
       objectReference: {fileID: 0}
     - target: {fileID: 3481576106460547094, guid: 4b1be4e80b91bae4b8c1b7e140b64411,
         type: 3}

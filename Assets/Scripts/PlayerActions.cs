@@ -116,6 +116,11 @@ public class PlayerActions : MonoBehaviour
                             tapePlayer.PlayTape();
                         }
 
+                        if (hit.collider.TryGetComponent(out BridgeEnding bridgeEnding))
+                        {
+                            isEnd = true;
+                        }
+
                         if (hit.collider.TryGetComponent(out VideoConsole videoPlayer))
                         {
                             if (grabCam.transform.childCount > 0)
