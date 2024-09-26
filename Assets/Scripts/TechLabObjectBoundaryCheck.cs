@@ -9,12 +9,13 @@ public class TechLabObjectBoundaryCheck : MonoBehaviour
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         originalPosition = transform.position;
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Wall")
+        if (other.CompareTag("Wall"))
         {
             audioSource.Play();
             transform.position = originalPosition;

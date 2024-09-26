@@ -82,7 +82,7 @@ public class PlayerActions : MonoBehaviour
                                     clipIndex.Add(index.clipIndex);
                                 }
                                 item.Grab(grabCam);
-                                isHolding = true;
+                                isHolding = false;
                                 break;
                         }
                     }
@@ -115,9 +115,7 @@ public class PlayerActions : MonoBehaviour
                         {
                             tapePlayer.PlayTape();
                         }
-                    }
-                    else
-                    {
+
                         if (hit.collider.TryGetComponent(out VideoConsole videoPlayer))
                         {
                             if (grabCam.transform.childCount > 0)
@@ -129,48 +127,56 @@ public class PlayerActions : MonoBehaviour
                             switch (videoPlayer.clipID)
                             {
                                 case VideoConsole.clipIndex.BlueCart:
+                                // "I'm stuck here"
                                     if (clipIndex.Contains(1))
                                     {
                                         videoPlayer.PlayCartridge(1);
                                     }
                                     break;
                                 case VideoConsole.clipIndex.GreenCart:
+                                // Morse code
                                     if (clipIndex.Contains(2))
                                     {
                                         videoPlayer.PlayCartridge(2);
                                     }
                                     break;
                                 case VideoConsole.clipIndex.CreamCart:
+                                // "Dodgy coding"
                                     if (clipIndex.Contains(3))
                                     {
                                         videoPlayer.PlayCartridge(3);
                                     }
                                     break;
                                 case VideoConsole.clipIndex.RedCart:
+                                // Medical interview
                                     if (clipIndex.Contains(4))
                                     {
                                         videoPlayer.PlayCartridge(4);
                                     }
                                     break;
                                 case VideoConsole.clipIndex.PurpleCart:
+                                // "In over my head"
                                     if (clipIndex.Contains(5))
                                     {
                                         videoPlayer.PlayCartridge(5);
                                     }
                                     break;
                                 case VideoConsole.clipIndex.PinkCart:
+                                // "I can't save them"
                                     if (clipIndex.Contains(6))
                                     {
                                         videoPlayer.PlayCartridge(6);
                                     }
                                     break;
                                 case VideoConsole.clipIndex.WhiteCart:
+                                // "Last few patients"
                                     if (clipIndex.Contains(7))
                                     {
                                         videoPlayer.PlayCartridge(7);
                                     }
                                     break;
                                 case VideoConsole.clipIndex.OrangeCart:
+                                // "I know what he's gonna do"
                                     if (clipIndex.Contains(8))
                                     {
                                         videoPlayer.PlayCartridge(8);

@@ -4,7 +4,7 @@ using UnityEngine.Video;
 public class PlayVideo : MonoBehaviour
 {
     public VideoPlayer player;
-    public VideoClip[] clips = new VideoClip[9];
+    public VideoClip[] clips = new VideoClip[8];
     public bool endClip = false;
 
     void Awake()
