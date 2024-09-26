@@ -1650,6 +1650,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 988546d727a475d4283b59011fa0af07, type: 2}
+    - target: {fileID: -6093592463355912122, guid: 5c142d7af9081e148a74250fdc1f7504,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 24c62f544c0651540adebead6947cd6b, type: 2}
     - target: {fileID: -6053822501969745754, guid: 5c142d7af9081e148a74250fdc1f7504,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1702,9 +1707,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4914359083932871964, guid: 5c142d7af9081e148a74250fdc1f7504,
         type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4914359083932871964, guid: 5c142d7af9081e148a74250fdc1f7504,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 314ec4aff3b5f904b8230544dafaf68d, type: 2}
+      objectReference: {fileID: 2100000, guid: 21cbb6875abe53d4da4aa5e1d5923066, type: 2}
+    - target: {fileID: -4683669308469848369, guid: 5c142d7af9081e148a74250fdc1f7504,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d024e0df8645d994b92b3ede87e59de8, type: 2}
     - target: {fileID: -2093772787462966335, guid: 5c142d7af9081e148a74250fdc1f7504,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -1735,6 +1750,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: -108.897
       objectReference: {fileID: 0}
+    - target: {fileID: -1806680513116206669, guid: 5c142d7af9081e148a74250fdc1f7504,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 03711950581c8f54397deb895771ea73, type: 2}
     - target: {fileID: -1599826595754709761, guid: 5c142d7af9081e148a74250fdc1f7504,
         type: 3}
       propertyPath: m_Name
@@ -1845,6 +1865,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: -108.897
       objectReference: {fileID: 0}
+    - target: {fileID: 6745302439343835087, guid: 5c142d7af9081e148a74250fdc1f7504,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d2e30b8b6d0674f48a5310a678c67bc8, type: 2}
     - target: {fileID: 8426533165150412666, guid: 5c142d7af9081e148a74250fdc1f7504,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1862,6 +1887,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 245558982}
+    - targetCorrespondingSourceObject: {fileID: -8731780733147456475, guid: 5c142d7af9081e148a74250fdc1f7504,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 245558987}
   m_SourcePrefab: {fileID: 100100000, guid: 5c142d7af9081e148a74250fdc1f7504, type: 3}
 --- !u!1001 &42920615
 PrefabInstance:
@@ -8097,6 +8126,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf4940b3f5bec7d4eb4603c3b4e25932, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bridgeVideoPlayer: {fileID: 245558987}
+  bridgeVideoClips:
+  - {fileID: 32900000, guid: 93b1c5fb69dd7594a9ed0741c43bbdf7, type: 3}
+  - {fileID: 32900000, guid: c45965e19a5f233478e89572461a9e22, type: 3}
 --- !u!65 &245558983
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8118,6 +8151,40 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.0005472001, y: 0.009258871, z: 0.006826621}
   m_Center: {x: -0.0024207786, y: -0.0010259332, z: 0.0049066837}
+--- !u!328 &245558987
+VideoPlayer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245558978}
+  m_Enabled: 1
+  m_VideoClip: {fileID: 32900000, guid: 93b1c5fb69dd7594a9ed0741c43bbdf7, type: 3}
+  m_TargetCameraAlpha: 1
+  m_TargetCamera3DLayout: 0
+  m_TargetCamera: {fileID: 0}
+  m_TargetTexture: {fileID: 0}
+  m_TimeReference: 0
+  m_TargetMaterialRenderer: {fileID: 0}
+  m_TargetMaterialProperty: <noninit>
+  m_RenderMode: 3
+  m_AspectRatio: 2
+  m_DataSource: 0
+  m_TimeUpdateMode: 2
+  m_PlaybackSpeed: 1
+  m_AudioOutputMode: 2
+  m_TargetAudioSources: []
+  m_DirectAudioVolumes: []
+  m_Url: 
+  m_EnabledAudioTracks: 
+  m_DirectAudioMutes: 
+  m_ControlledAudioTrackCount: 0
+  m_PlayOnAwake: 1
+  m_SkipOnDrop: 1
+  m_Looping: 1
+  m_WaitForFirstFrame: 1
+  m_FrameReadyEventEnabled: 0
+  m_VideoShaders: []
 --- !u!1001 &246515359
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17194,7 +17261,7 @@ PrefabInstance:
     - target: {fileID: 1197495681480905928, guid: 1d92ef690f780d54c91999ba3b847443,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -23.428
+      value: -23.504
       objectReference: {fileID: 0}
     - target: {fileID: 1197495681480905928, guid: 1d92ef690f780d54c91999ba3b847443,
         type: 3}
