@@ -106,14 +106,14 @@ public class PlayerActions : MonoBehaviour
                             keypadButton.PressButton();
                         }
 
-                        if (hit.collider.TryGetComponent(out BridgeEnding bridgeEnding))
-                        {
-                            isEnd = true;
-                        }
-
                         if (hit.collider.TryGetComponent(out SoundEvent soundEvent))
                         {
                             soundEvent.PlaySoundEvent();
+                        }
+
+                        if (hit.collider.TryGetComponent(out TapePlayerController tapePlayer))
+                        {
+                            tapePlayer.PlayTape();
                         }
                     }
                     else
