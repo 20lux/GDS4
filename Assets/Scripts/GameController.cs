@@ -7,13 +7,22 @@ public class GameController : MonoBehaviour
 {
     [Header("Asset Links")]
     public PlayerActions playerActions;
+    public AudioSource gameAudioSource;
+    public AudioClip errorSound;
+    public AudioClip grantedSound;
 
-
-    [Header("Singularity Ending Properties")]
-    public UnityEvent singularityEndingStart;
-    public UnityEvent countdownStart;
+    [Header("Countdown Properties")]
     public TextMeshProUGUI countdownText;
-    private bool isOtherEnding = false;
+    public bool startCountdown = false;
+
+    [Header("Airlock Ending Properties")]
+    public UnityEvent onAirlockEndingEnable;
+
+    [Header("Self-Destruct Ending Properties")]
+    public UnityEvent onSelfDestructionEnable;
+
+    [Header("SOS Ending Properties")]
+    public UnityEvent onSOSEnable;
 
     [Header("Engine Start Up Properties")]
     public Light[] lightsToEnable;
@@ -34,7 +43,7 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        if (playerActions.isEnd)
+        if (startCountdown)
         {
             BeginCountDown();
         }
@@ -55,35 +64,28 @@ public class GameController : MonoBehaviour
     {
         if (timeRemaining > 0)
         {
-            countdownStart?.Invoke();
             timeRemaining -= Time.deltaTime;
             countdownText.text = timeRemaining.ToString();
         }
         else
         {
-            singularityEndingStart?.Invoke();
             SingularityEnding();
         }
     }
 
     public void BridgeEnding()
     {
-        isOtherEnding = true;
         Initiate.Fade("Bridge_Ending", Color.white, 60f);
     }
 
     public void SingularityEnding()
     {
-        if (!isOtherEnding)
-        {
-            Initiate.Fade("Singularity_Ending", Color.red, 60f);
-        }
+        Initiate.Fade("Singularity_Ending", Color.red, 60f);
     }
 
     public void AirlockEnding()
     {
-        isOtherEnding = true;
-        Initiate.Fade("Airlock_Ending", Color.black, 5f);
+        Initiate.Fade("Airlock_Ending", Color.black, 60f);
     }
 
     public void ShipEngineStart()
@@ -133,5 +135,17 @@ public class GameController : MonoBehaviour
             var emission = particlesToEnable[i].GetComponent<ParticleSystem>().emission;
             emission.enabled = false;
         }
+    }
+
+    public void PlayErrorSound()
+    {
+        gameAudioSource.clip = errorSound;
+        gameAudioSource.Play();
+    }
+
+    public void PlayGrantedSound()
+    {
+        gameAudioSource.clip = grantedSound;
+        gameAudioSource.Play();
     }
 }

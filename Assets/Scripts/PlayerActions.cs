@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using NavKeypad;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,16 +17,13 @@ public class PlayerActions : MonoBehaviour
     [Tooltip("Drop location for objects that player has dropped")]
     private bool isHolding = false;
     public List<int> clipIndex;
+    public List<int> leverComboInput;
 
     // Properties of objects that the player interacts with
     private LayerMask layerInteractable;
     private InteractableObject item;
-
-    // Ending detection
-    // TODO: move to game controller
-    [HideInInspector] public bool isEnd = false;
  
-    void Start()
+    void Awake()
     {
         playerCam = Camera.main;
         layerInteractable = LayerMask.GetMask("InteractObjects");
@@ -118,7 +114,7 @@ public class PlayerActions : MonoBehaviour
 
                         if (hit.collider.TryGetComponent(out BridgeEnding bridgeEnding))
                         {
-                            isEnd = true;
+                            bridgeEnding.PlayBridgeEnding();
                         }
 
                         if (hit.collider.TryGetComponent(out VideoConsole videoPlayer))
@@ -190,6 +186,16 @@ public class PlayerActions : MonoBehaviour
                             }
 
                             item = null;
+                        }
+
+                        if (hit.collider.TryGetComponent(out LeverComboCheck leverComboCheck))
+                        {
+                            leverComboCheck.CheckLeverCombination();
+                        }
+
+                        if (hit.collider.TryGetComponent(out LeverComboID lever))
+                        {
+                            lever.PullLever();
                         }
                     }
                 }
