@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Airlock_Ending.unity
     guid: 1e87ea84aa7b1bd4ba73e802d1b992a5
+  - enabled: 1
+    path: Assets/Scenes/SOS_Ending.unity
+    guid: 26e70de4c93d66b48b6fe2dc24a88e5e
   m_configObjects: {}
