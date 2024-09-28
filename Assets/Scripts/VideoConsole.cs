@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class VideoConsole : MonoBehaviour
@@ -7,13 +8,10 @@ public class VideoConsole : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip cartridgeClickSound;
     public SoundTrigger soundTrigger;
-    public clipIndex clipID;
+    public ClipIndex clipIndex;
     public Material[] materials = new Material[8];
 
-    // Only trigger story audio once after video has been played
-    private bool hasPlayed = false;
-
-    public enum clipIndex
+    public enum ClipIndex
     {
         BlueCart = 0,
         GreenCart = 1,
@@ -36,45 +34,46 @@ public class VideoConsole : MonoBehaviour
         audioSource.clip = cartridgeClickSound;
         audioSource.Play();
 
-        switch (clipID)
+        switch (clipIndex)
         {
-            case clipIndex.BlueCart:
+            case ClipIndex.BlueCart:
                 cartridge.GetComponent<MeshRenderer>().material = materials[0];
+                Debug.Log("Changing material to: " + materials[0].name);
                 break;
-            case clipIndex.GreenCart:
+            case ClipIndex.GreenCart:
                 cartridge.GetComponent<MeshRenderer>().material = materials[1];
+                Debug.Log("Changing material to: " + materials[0].name);
                 break;
-            case clipIndex.CreamCart:
+            case ClipIndex.CreamCart:
                 cartridge.GetComponent<MeshRenderer>().material = materials[2];
+                Debug.Log("Changing material to: " + materials[0].name);
                 break;
-            case clipIndex.RedCart:
+            case ClipIndex.RedCart:
                 cartridge.GetComponent<MeshRenderer>().material = materials[3];
+                Debug.Log("Changing material to: " + materials[0].name);
                 break;
-            case clipIndex.PurpleCart:
+            case ClipIndex.PurpleCart:
                 cartridge.GetComponent<MeshRenderer>().material = materials[4];
+                Debug.Log("Changing material to: " + materials[0].name);
                 break;
-            case clipIndex.PinkCart:
+            case ClipIndex.PinkCart:
                 cartridge.GetComponent<MeshRenderer>().material = materials[5];
+                Debug.Log("Changing material to: " + materials[0].name);
                 break;
-            case clipIndex.WhiteCart:
+            case ClipIndex.WhiteCart:
                 cartridge.GetComponent<MeshRenderer>().material = materials[6];
+                Debug.Log("Changing material to: " + materials[0].name);
                 break;
-            case clipIndex.OrangeCart:
+            case ClipIndex.OrangeCart:
                 cartridge.GetComponent<MeshRenderer>().material = materials[7];
+                Debug.Log("Changing material to: " + materials[0].name);
                 break;
         }
 
         cartridge.SetActive(true);
 
-        audioSource.clip = null;
-        videoPlayer.LoadClip(i, audioSource);
-        Debug.Log("Playing clip: " + clipID.ToString());
-
-        if (videoPlayer.endClip && !hasPlayed)
-        {
-            hasPlayed = true;
-            videoPlayer.endClip = false;
-            soundTrigger.PlayAudio();
-        }
+        var soundTriggerAudioSource = soundTrigger.gameObject.GetComponent<AudioSource>();
+        videoPlayer.LoadClip(i, audioSource, soundTriggerAudioSource);
+        Debug.Log("Playing clip: " + i.ToString());
     }
 }

@@ -129,58 +129,58 @@ public class PlayerActions : MonoBehaviour
                                 Destroy(itemHeld);
                             }
 
-                            switch (videoPlayer.clipID)
+                            switch (videoPlayer.clipIndex)
                             {
-                                case VideoConsole.clipIndex.BlueCart:
+                                case VideoConsole.ClipIndex.BlueCart:
                                 // "I'm stuck here"
                                     if (clipIndex.Contains(1))
                                     {
                                         videoPlayer.PlayCartridge(1);
                                     }
                                     break;
-                                case VideoConsole.clipIndex.GreenCart:
+                                case VideoConsole.ClipIndex.GreenCart:
                                 // Morse code
                                     if (clipIndex.Contains(2))
                                     {
                                         videoPlayer.PlayCartridge(2);
                                     }
                                     break;
-                                case VideoConsole.clipIndex.CreamCart:
+                                case VideoConsole.ClipIndex.CreamCart:
                                 // "Dodgy coding"
                                     if (clipIndex.Contains(3))
                                     {
                                         videoPlayer.PlayCartridge(3);
                                     }
                                     break;
-                                case VideoConsole.clipIndex.RedCart:
+                                case VideoConsole.ClipIndex.RedCart:
                                 // Medical interview
                                     if (clipIndex.Contains(4))
                                     {
                                         videoPlayer.PlayCartridge(4);
                                     }
                                     break;
-                                case VideoConsole.clipIndex.PurpleCart:
+                                case VideoConsole.ClipIndex.PurpleCart:
                                 // "In over my head"
                                     if (clipIndex.Contains(5))
                                     {
                                         videoPlayer.PlayCartridge(5);
                                     }
                                     break;
-                                case VideoConsole.clipIndex.PinkCart:
+                                case VideoConsole.ClipIndex.PinkCart:
                                 // "I can't save them"
                                     if (clipIndex.Contains(6))
                                     {
                                         videoPlayer.PlayCartridge(6);
                                     }
                                     break;
-                                case VideoConsole.clipIndex.WhiteCart:
+                                case VideoConsole.ClipIndex.WhiteCart:
                                 // "Last few patients"
                                     if (clipIndex.Contains(7))
                                     {
                                         videoPlayer.PlayCartridge(7);
                                     }
                                     break;
-                                case VideoConsole.clipIndex.OrangeCart:
+                                case VideoConsole.ClipIndex.OrangeCart:
                                 // "I know what he's gonna do"
                                     if (clipIndex.Contains(8))
                                     {

@@ -24,30 +24,40 @@ public class FirstPersonMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    void FixedUpdate()
+    void Update()
     {
-        // Update IsRunning from input.
-        IsRunning = canRun && Input.GetKey(runningKey) && !isTeleporting;
-
-        // Get targetMovingSpeed.
-        float targetMovingSpeed = IsRunning ? runSpeed : speed;
-        if (speedOverrides.Count > 0)
+        if (!isTeleporting)
         {
-            targetMovingSpeed = speedOverrides[speedOverrides.Count - 1]();
+            // Update IsRunning from input.
+            IsRunning = canRun && Input.GetKey(runningKey) && !isTeleporting;
+
+            // Get targetMovingSpeed.
+            float targetMovingSpeed = IsRunning ? runSpeed : speed;
+            if (speedOverrides.Count > 0)
+            {
+                targetMovingSpeed = speedOverrides[speedOverrides.Count - 1]();
+            }
+
+            // Get targetVelocity from input.
+            Vector2 targetVelocity =new Vector2( 
+                Input.GetAxis("Horizontal") * targetMovingSpeed, 
+                Input.GetAxis("Vertical") * targetMovingSpeed);
+
+            // Apply movement.
+            rb.velocity = transform.rotation * new Vector3(targetVelocity.x, rb.velocity.y, targetVelocity.y);
         }
-
-        // Get targetVelocity from input.
-        Vector2 targetVelocity =new Vector2( Input.GetAxis("Horizontal") * targetMovingSpeed, Input.GetAxis("Vertical") * targetMovingSpeed);
-
-        // Apply movement.
-        rb.velocity = transform.rotation * new Vector3(targetVelocity.x, rb.velocity.y, targetVelocity.y);
     }
 
     public void Teleport(Vector3 position, Quaternion rotation)
     {
         isTeleporting = true;
+        var currentPosition = transform.position;
         transform.SetPositionAndRotation(position, rotation);
         Physics.SyncTransforms();
-        rb.velocity = Vector3.zero;
+
+        if (currentPosition != transform.position)
+        {
+            isTeleporting = false;
+        }
     }
 }

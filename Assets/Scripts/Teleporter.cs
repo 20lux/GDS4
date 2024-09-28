@@ -15,12 +15,12 @@ public class Teleporter : MonoBehaviour
     
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && other.TryGetComponent(out FirstPersonMovement player))
+        if (other.CompareTag("Player"))
         {
+            var playerMovement = other.GetComponent<FirstPersonMovement>();
             audioSource.time = 1f;
             audioSource.Play();
-            player.Teleport(destination.position, destination.rotation);
-            player.isTeleporting = false;
+            playerMovement.Teleport(destination.position, destination.rotation);
         }
     }
 

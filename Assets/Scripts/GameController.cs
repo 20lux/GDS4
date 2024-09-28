@@ -1,6 +1,7 @@
 using UnityEngine.Events;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameController : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class GameController : MonoBehaviour
     [Header("Singularity Ending Properties")]
     public UnityEvent singularityEndingStart;
     public UnityEvent countdownStart;
+    public TextMeshProUGUI countdownText;
     private bool isOtherEnding = false;
 
     [Header("Engine Start Up Properties")]
@@ -26,6 +28,7 @@ public class GameController : MonoBehaviour
     void Start()
     {
         playerActions = FindObjectOfType<PlayerActions>();
+        countdownText.text = " ";
         ShipEngineDisabled();
     }
 
@@ -54,6 +57,7 @@ public class GameController : MonoBehaviour
         {
             countdownStart?.Invoke();
             timeRemaining -= Time.deltaTime;
+            countdownText.text = timeRemaining.ToString();
         }
         else
         {
