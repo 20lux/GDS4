@@ -7,7 +7,7 @@ public class BridgeEnding : MonoBehaviour
     public VideoClip[] bridgeClips = new VideoClip[2];
     public AudioSource bridgeAudioSource;
     public GameController gameController;
-    private bool hasInteracted = false;
+    public bool hasInteracted;
 
     void Awake()
     {
@@ -16,12 +16,14 @@ public class BridgeEnding : MonoBehaviour
         bridgeMonitor = GetComponent<VideoPlayer>();
         bridgeMonitor.clip = bridgeClips[0];
         bridgeMonitor.isLooping = true;
+        hasInteracted = false;
     }
 
     public void PlayBridgeEnding()
     {
         if (!hasInteracted)
         {
+            Debug.Log("Playing loading clip");
             bridgeAudioSource.Play();
             bridgeMonitor.clip = bridgeClips[1];
             bridgeMonitor.isLooping = false;

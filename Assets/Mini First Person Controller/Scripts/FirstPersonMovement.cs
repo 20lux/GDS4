@@ -11,8 +11,6 @@ public class FirstPersonMovement : MonoBehaviour
     public bool IsRunning { get; private set; }
     public float runSpeed = 9;
     public KeyCode runningKey = KeyCode.LeftShift;
-    [HideInInspector] public bool isTeleporting = false;
-    private Vector3 previousPosition;
 
     Rigidbody rb;
     /// <summary> Functions to override movement speed. Will use the last added override. </summary>
@@ -27,7 +25,7 @@ public class FirstPersonMovement : MonoBehaviour
     void Update()
     {
         // Update IsRunning from input.
-        IsRunning = canRun && Input.GetKey(runningKey) && !isTeleporting;
+        IsRunning = canRun && Input.GetKey(runningKey);
 
         // Get targetMovingSpeed.
         float targetMovingSpeed = IsRunning ? runSpeed : speed;
@@ -43,17 +41,10 @@ public class FirstPersonMovement : MonoBehaviour
 
         // Apply movement.
         rb.velocity = transform.rotation * new Vector3(targetVelocity.x, rb.velocity.y, targetVelocity.y);
-
-        if (previousPosition != transform.position)
-        {
-            isTeleporting = false;
-        }
     }
 
     public void Teleport(Vector3 position, Quaternion rotation)
     {
-        previousPosition = transform.position;
-        isTeleporting = true;
         transform.SetPositionAndRotation(position, rotation);
         Physics.SyncTransforms();
     }

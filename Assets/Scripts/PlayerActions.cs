@@ -114,6 +114,7 @@ public class PlayerActions : MonoBehaviour
 
                         if (hit.collider.TryGetComponent(out BridgeEnding bridgeEnding))
                         {
+                            Debug.Log("Interacting with bridge console");
                             bridgeEnding.PlayBridgeEnding();
                         }
 
