@@ -13,6 +13,7 @@ TagManager:
   - BridgeEnding
   - Cartridge
   - Lock
+  - Lever
   layers:
   - Default
   - TransparentFX
