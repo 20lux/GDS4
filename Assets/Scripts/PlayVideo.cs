@@ -27,10 +27,12 @@ public class PlayVideo : MonoBehaviour
         player.SetTargetAudioSource(0, audioSource);
         player.controlledAudioTrackCount = 1;
         player.clip = clips[i];
+        Debug.Log("Loading clip: " + i.ToString());
     }
 
     public void EndReached(VideoPlayer vp)
     {
+        Debug.Log("End reached");
         vp = player;
         vp.clip = clips[0];
         endClip = true;
