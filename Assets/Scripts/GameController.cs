@@ -88,6 +88,11 @@ public class GameController : MonoBehaviour
         Initiate.Fade("Airlock_Ending", Color.black, 60f);
     }
 
+    public void SOSEnding()
+    {
+        Initiate.Fade("SOS_Ending", Color.blue, 60f);
+    }
+
     public void ShipEngineStart()
     {
             // Switch lights on
