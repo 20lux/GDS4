@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2375113347610697699}
   - component: {fileID: 4908955629627494704}
-  m_Layer: 7
+  m_Layer: 2
   m_Name: ColliderR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63,7 +63,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6841077699775940244}
   - component: {fileID: 7193423510257583907}
-  m_Layer: 7
+  m_Layer: 2
   m_Name: ColliderL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,12 +192,12 @@ PrefabInstance:
     - target: {fileID: -2647056028957120739, guid: 2f3b3afd0ae60cd4eb7c70e7ae065737,
         type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: -2647056028957120739, guid: 2f3b3afd0ae60cd4eb7c70e7ae065737,
         type: 3}
       propertyPath: m_TagString
-      value: Door
+      value: Inspect
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2f3b3afd0ae60cd4eb7c70e7ae065737,
         type: 3}
@@ -207,7 +207,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 2f3b3afd0ae60cd4eb7c70e7ae065737,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2f3b3afd0ae60cd4eb7c70e7ae065737,
         type: 3}

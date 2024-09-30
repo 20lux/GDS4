@@ -76,12 +76,17 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 95ac6d7b35996004cb63376de903d46c,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 95ac6d7b35996004cb63376de903d46c,
         type: 3}
       propertyPath: m_TagString
       value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419693368496524261, guid: 95ac6d7b35996004cb63376de903d46c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

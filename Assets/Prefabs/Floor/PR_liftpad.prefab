@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7650397858196146158}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: PR_liftpad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: fcd56c76b717a2c469b97e5f15faa72a,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -179,3 +179,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destination: {fileID: 0}
+  teleportAudio: {fileID: 0}

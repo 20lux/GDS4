@@ -68,6 +68,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ME_exteriorwall_1x3
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e86b1f176d9f852418c81f74f4a84b66,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -1,15 +1,12 @@
 using System.Collections.Generic;
 using NavKeypad;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayerActions : MonoBehaviour
 {
     [Header("Player Interation Properties")]
     [Tooltip("Sets interaction distance of player")]
     [SerializeField] private float interactDistance = 10f;
-    [Tooltip("Changes crosshair image")]
-    [SerializeField] private Image playerCrosshair;
     [Tooltip("Player camera object")]
     [SerializeField] private Camera playerCam;
     [Tooltip("Composite camera that shows object the player is currently holding")]
@@ -18,6 +15,7 @@ public class PlayerActions : MonoBehaviour
     private bool isHolding = false;
     public List<int> clipIndex;
     public List<int> leverComboInput;
+    private HighlightObjectController highlightObjectController;
 
     // Properties of objects that the player interacts with
     private LayerMask layerInteractable;
@@ -27,23 +25,39 @@ public class PlayerActions : MonoBehaviour
     {
         playerCam = Camera.main;
         layerInteractable = LayerMask.GetMask("InteractObjects");
-        HighlightObject(false);
+        highlightObjectController = GetComponent<HighlightObjectController>();
     }
 
     public void Update()
     {
-        // when looking at interactable object, change crosshair colour
-        var ray = new Ray(playerCam.transform.position, playerCam.transform.forward);
-        if (Physics.Raycast(ray, interactDistance, layerInteractable))
-        {
-            HighlightObject(true);
-        }
-        else
-        {
-            HighlightObject(false);
-        }
-
         PlayerInteract();
+    }
+
+    public void LateUpdate()
+    {
+        #region Highlight
+        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, interactDistance))
+        {
+            switch (hit.collider.tag)
+            {
+                case "Inspect":
+                    highlightObjectController.Inspect();
+                    break;
+                case "Grab":
+                    highlightObjectController.Grab();
+                    break;
+                case "Lock":
+                    highlightObjectController.Lock();
+                    break;
+                case "InteractObject":
+                    highlightObjectController.CrosshairActive();
+                    break;
+                default:
+                    highlightObjectController.CrosshairActive();
+                    break;
+            }
+        }
+        #endregion
     }
 
     #region Player Interact
@@ -60,6 +74,7 @@ public class PlayerActions : MonoBehaviour
                                     playerCam.transform.forward, out RaycastHit hit,
                                     interactDistance))
                 {
+                    #region Interacting
                     if (hit.collider.TryGetComponent(out item))
                     {
                         switch (item.objectType)
@@ -82,7 +97,9 @@ public class PlayerActions : MonoBehaviour
                                 break;
                         }
                     }
+                    #endregion
 
+                    #region CheckingIfHolding
                     // Can't interact with objects if you're holding an object
                     // You must drop of the cartridge first
                     if (!isHolding)
@@ -199,6 +216,7 @@ public class PlayerActions : MonoBehaviour
                             lever.PullLever();
                         }
                     }
+                    #endregion
                 }
             }
             else
@@ -225,18 +243,4 @@ public class PlayerActions : MonoBehaviour
     }
 
     #endregion
-
-    // Differentiate between interactive objects
-    // and non-interactive objects
-    public void HighlightObject(bool isActive)
-    {
-        if (isActive)
-        {
-            playerCrosshair.color = Color.white;
-        }
-        else
-        {
-            playerCrosshair.color = Color.grey;
-        }
-    }
 }

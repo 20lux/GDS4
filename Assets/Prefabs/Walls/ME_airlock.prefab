@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5695347280001294945}
   - component: {fileID: 7084869059936195832}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,6 +131,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 399d8722816b38044aba52718e350b1d, type: 2}
+    - target: {fileID: -7640558969779515294, guid: 28d9eeddc14a66f4082a4dadd26d7900,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7146521406498821007, guid: 28d9eeddc14a66f4082a4dadd26d7900,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: -6093592463355912122, guid: 28d9eeddc14a66f4082a4dadd26d7900,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -141,6 +151,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 005530e974ea5ec4c9ae9df7303a47f9, type: 2}
+    - target: {fileID: -1599826595754709761, guid: 28d9eeddc14a66f4082a4dadd26d7900,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: -1120989108687609925, guid: 28d9eeddc14a66f4082a4dadd26d7900,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -151,10 +166,30 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 399d8722816b38044aba52718e350b1d, type: 2}
+    - target: {fileID: -466329591000292508, guid: 28d9eeddc14a66f4082a4dadd26d7900,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -208595431880416365, guid: 28d9eeddc14a66f4082a4dadd26d7900,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 281855664364225751, guid: 28d9eeddc14a66f4082a4dadd26d7900,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 28d9eeddc14a66f4082a4dadd26d7900,
         type: 3}
       propertyPath: m_Name
       value: ME_airlock
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 28d9eeddc14a66f4082a4dadd26d7900,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6745302439343835087, guid: 28d9eeddc14a66f4082a4dadd26d7900,
         type: 3}

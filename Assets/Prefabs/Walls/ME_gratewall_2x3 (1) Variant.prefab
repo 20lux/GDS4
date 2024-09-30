@@ -63,11 +63,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: ME_gratewall_2x3 (1) Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 3364945894572212402, guid: 0c9c52958d17e0a46abd0c0acb145c26,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3869238619739611495, guid: 0c9c52958d17e0a46abd0c0acb145c26,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 399d8722816b38044aba52718e350b1d, type: 2}
+    - target: {fileID: 7222409571527912277, guid: 0c9c52958d17e0a46abd0c0acb145c26,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7810088793754543077, guid: 0c9c52958d17e0a46abd0c0acb145c26,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -77,6 +87,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.15000042
+      objectReference: {fileID: 0}
+    - target: {fileID: 8634281875139130413, guid: 0c9c52958d17e0a46abd0c0acb145c26,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8732511801261660926, guid: 0c9c52958d17e0a46abd0c0acb145c26,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7318805346111401285, guid: 0c9c52958d17e0a46abd0c0acb145c26, type: 3}

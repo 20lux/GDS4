@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2429125135574875247}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: PR_meshhexfloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 93e716e0fbcb08a4aaf6d78f123a0723,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -223,7 +223,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 93e716e0fbcb08a4aaf6d78f123a0723,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -338,7 +338,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 93e716e0fbcb08a4aaf6d78f123a0723,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -453,7 +453,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 93e716e0fbcb08a4aaf6d78f123a0723,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -568,7 +568,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 93e716e0fbcb08a4aaf6d78f123a0723,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -683,7 +683,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 93e716e0fbcb08a4aaf6d78f123a0723,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

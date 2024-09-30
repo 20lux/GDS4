@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1474176299793768099}
   - component: {fileID: 2551406955780527887}
   - component: {fileID: 186259523283060795}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -186,6 +186,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 2683372103145173791, guid: 5ca086c5cac2a5b47bfa078a6baa7d1a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Inspect
+      objectReference: {fileID: 0}
     - target: {fileID: 3512579137618062787, guid: 5ca086c5cac2a5b47bfa078a6baa7d1a,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -251,6 +256,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ME_button
       objectReference: {fileID: 0}
+    - target: {fileID: 4320324997221218169, guid: 5ca086c5cac2a5b47bfa078a6baa7d1a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4935340011686938581, guid: 5ca086c5cac2a5b47bfa078a6baa7d1a,
         type: 3}
       propertyPath: doorController
@@ -266,6 +276,11 @@ PrefabInstance:
       propertyPath: disabledMaterial
       value: 
       objectReference: {fileID: 2100000, guid: 6bec0dc19fab54744887b9db64a88e49, type: 2}
+    - target: {fileID: 5408834112186572069, guid: 5ca086c5cac2a5b47bfa078a6baa7d1a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8748454304325576935, guid: 5ca086c5cac2a5b47bfa078a6baa7d1a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -425,7 +440,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 8837dfa39ad5be04d8e624f8ae08cbd0,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8837dfa39ad5be04d8e624f8ae08cbd0,
         type: 3}
@@ -437,6 +452,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: bd9cd9b6377477c4f954fa73f677a71c, type: 2}
+    - target: {fileID: 7036343253195251627, guid: 8837dfa39ad5be04d8e624f8ae08cbd0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6278664689579229836}
   - component: {fileID: 5317811576251757198}
   - component: {fileID: 5758881359627270776}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -186,10 +186,20 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5e647e92312dd1447bc3e9cb68be6809, type: 2}
+    - target: {fileID: -5506070400618958933, guid: 4a6cd024ccc3a8c48b57fd96a8e5ae08,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4a6cd024ccc3a8c48b57fd96a8e5ae08,
         type: 3}
       propertyPath: m_Name
-      value: ME_tableLamp
+      value: ME_tableLamp_lit
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4a6cd024ccc3a8c48b57fd96a8e5ae08,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
