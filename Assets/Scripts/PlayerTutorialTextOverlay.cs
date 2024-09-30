@@ -1,6 +1,5 @@
 using UnityEngine;
 using TMPro;
-using System.Collections;
 
 public class PlayerTutorialTextOverlay : MonoBehaviour
 {
@@ -15,7 +14,7 @@ public class PlayerTutorialTextOverlay : MonoBehaviour
 
     public void Crouch()
     {
-        tutorialText.text = "Press left control to crouch";
+        tutorialText.text = "Press left shift to crouch";
     }
 
     public void GrabCartridge()
@@ -23,13 +22,8 @@ public class PlayerTutorialTextOverlay : MonoBehaviour
         tutorialText.text = "You'll need to find a console to play this on.\nMaybe there's one nearby...";
     }
 
-    public void InteractWithDoors()
-    {
-        tutorialText.text = "Some doors are manual, some are automatic and some are just... locked";
-    }
-
     public void Jump()
     {
-        tutorialText.text = "Press space to jump";
+        tutorialText.text = "Press space to jump, WASD to move, mouse to look around";
     }
 }
