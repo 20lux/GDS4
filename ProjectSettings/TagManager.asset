@@ -14,6 +14,8 @@ TagManager:
   - Cartridge
   - Lock
   - Lever
+  - Grab
+  - Inspect
   layers:
   - Default
   - TransparentFX

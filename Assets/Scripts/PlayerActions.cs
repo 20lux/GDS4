@@ -19,45 +19,49 @@ public class PlayerActions : MonoBehaviour
 
     // Properties of objects that the player interacts with
     private LayerMask layerInteractable;
+    // private LayerMask layerInspect;
+    // private LayerMask layerGrab;
+    // private LayerMask layerLock;
     private InteractableObject item;
  
     void Awake()
     {
         playerCam = Camera.main;
         layerInteractable = LayerMask.GetMask("InteractObjects");
+        // layerInspect = LayerMask.GetMask("Inspect");
+        // layerGrab = LayerMask.GetMask("Grab");
+        // layerLock = LayerMask.GetMask("Lock");
         highlightObjectController = GetComponent<HighlightObjectController>();
     }
 
     public void Update()
     {
-        PlayerInteract();
-    }
-
-    public void LateUpdate()
-    {
         #region Highlight
-        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, interactDistance))
+        if (Physics.Raycast(transform.position, 
+                            transform.forward, 
+                            out RaycastHit hit, 
+                            interactDistance))
         {
-            switch (hit.collider.tag)
+            if (hit.collider.CompareTag("Inspect"))
             {
-                case "Inspect":
-                    highlightObjectController.Inspect();
-                    break;
-                case "Grab":
-                    highlightObjectController.Grab();
-                    break;
-                case "Lock":
-                    highlightObjectController.Lock();
-                    break;
-                case "InteractObject":
-                    highlightObjectController.CrosshairActive();
-                    break;
-                default:
-                    highlightObjectController.CrosshairActive();
-                    break;
+                highlightObjectController.Inspect();
+            }
+            else if (hit.collider.CompareTag("Grab"))
+            {
+                highlightObjectController.Grab();
+            }
+            else if (hit.collider.CompareTag("Lock"))
+            {
+                highlightObjectController.Lock();
+            }
+            else
+            {
+                highlightObjectController.CrosshairInactive();
             }
         }
         #endregion
+
+        PlayerInteract();
     }
 
     #region Player Interact
@@ -72,7 +76,7 @@ public class PlayerActions : MonoBehaviour
             {
                 if (Physics.Raycast(playerCam.transform.position,
                                     playerCam.transform.forward, out RaycastHit hit,
-                                    interactDistance))
+                                    interactDistance, layerInteractable))
                 {
                     #region Interacting
                     if (hit.collider.TryGetComponent(out item))
@@ -99,7 +103,6 @@ public class PlayerActions : MonoBehaviour
                     }
                     #endregion
 
-                    #region CheckingIfHolding
                     // Can't interact with objects if you're holding an object
                     // You must drop of the cartridge first
                     if (!isHolding)
@@ -241,6 +244,4 @@ public class PlayerActions : MonoBehaviour
             }
         }
     }
-
-    #endregion
 }

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class ArrowKeyConsoleInteract : MonoBehaviour
@@ -9,6 +10,7 @@ public class ArrowKeyConsoleInteract : MonoBehaviour
     public Direction direction;
     public float speed = 10f;
     public float distance = 0.2f;
+    public float clickDelay = 1f;
     private float posX;
     private float posY;
     private float posZ;
@@ -55,18 +57,22 @@ public class ArrowKeyConsoleInteract : MonoBehaviour
                 case Direction.Forward:
                     moveTarget = new Vector3(posX, posY, posZ + distance);
                     posZ = droneObject.transform.position.z;
+                    Wait();
                     break;
                 case Direction.Backward:
                     moveTarget = new Vector3(posX, posY, posZ - distance);
                     posZ = droneObject.transform.position.z;
+                    Wait();
                     break;
                 case Direction.Left:
                     moveTarget = new Vector3(posX - distance, posY, posZ);
                     posX = droneObject.transform.position.x;
+                    Wait();
                     break;
                 case Direction.Right:
                     moveTarget = new Vector3(posX + distance, posY, posZ);
                     posX = droneObject.transform.position.x;
+                    Wait();
                     break;
             }
 
@@ -103,5 +109,10 @@ public class ArrowKeyConsoleInteract : MonoBehaviour
     {
         key.GetComponent<Renderer>().material.color = pressedColor;
         gameObject.layer = layerIgnoreRaycast;
+    }
+
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(clickDelay);
     }
 }

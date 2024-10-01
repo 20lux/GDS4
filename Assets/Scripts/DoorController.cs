@@ -40,7 +40,6 @@ public class DoorController : MonoBehaviour
     public void Open()
     {
         door.OpenAnimation();
-        doorAudio.time = 2f;
         doorAudio.clip = doorSounds[0];
         doorAudio.Play();
         isOpen = true;
