@@ -1,9 +1,8 @@
-using System.Collections;
+using UnityEngine.Events;
 using UnityEngine;
 
 public class ButtonPress : MonoBehaviour
 {
-    public DoorController doorController;
     private Animator animator;
     public Material disabledMaterial;
     public Material enabledMaterial;
@@ -11,6 +10,7 @@ public class ButtonPress : MonoBehaviour
     private AudioSource audioSource;
     public AudioClip lockedAudio;
     public bool isActive = false;
+    public UnityEvent onButtonPress;
 
     void Awake()
     {
@@ -42,8 +42,7 @@ public class ButtonPress : MonoBehaviour
     {
         if (isActive)
         {
-            //Debug.Log("Pressing button!");
-            doorController.Open();
+            onButtonPress?.Invoke();
         }
         else
         {

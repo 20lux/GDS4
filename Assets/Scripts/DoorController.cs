@@ -9,7 +9,6 @@ public class DoorController : MonoBehaviour
     [SerializeField] private AudioClip[] doorSounds;
     public DoorAnimations door;
     public bool isManualDoor = false;
-    private bool isOpen;
     public int timeToClose = 5;
 
     private void Awake()
@@ -24,16 +23,8 @@ public class DoorController : MonoBehaviour
         {
             if (!isManualDoor)
             {
-                Open();
+                Close();
             }    
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "Player" && isOpen)
-        {
-            Close();  
         }
     }
 
@@ -42,7 +33,6 @@ public class DoorController : MonoBehaviour
         door.OpenAnimation();
         doorAudio.clip = doorSounds[0];
         doorAudio.Play();
-        isOpen = true;
     }
 
     public void Close()
@@ -51,7 +41,6 @@ public class DoorController : MonoBehaviour
         doorAudio.time = 1f;
         doorAudio.clip = doorSounds[1];
         doorAudio.Play();
-        isOpen = false;
     }
 
     public void MakeDoorAuto()
