@@ -2628,7 +2628,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5513506636931460162, guid: 5c142d7af9081e148a74250fdc1f7504,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 903551410}
+      addedObject: {fileID: 530442996}
     - targetCorrespondingSourceObject: {fileID: -4817443383077895981, guid: 5c142d7af9081e148a74250fdc1f7504,
         type: 3}
       insertIndex: -1
@@ -28071,6 +28071,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1704451935}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &530442996
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 903551405}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d12bd08d96fd45c47b07ff8535b1444b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &530807603
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44043,6 +44064,7 @@ MonoBehaviour:
   consolePartMaterial: {fileID: 2100000, guid: 24c62f544c0651540adebead6947cd6b, type: 2}
   defaultMaterial: {fileID: 2100000, guid: 21cbb6875abe53d4da4aa5e1d5923066, type: 2}
   leverComboCheck: {fileID: 903551409}
+  leverAnimator: {fileID: 0}
 --- !u!114 &903551407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44060,6 +44082,7 @@ MonoBehaviour:
   consolePartMaterial: {fileID: 2100000, guid: 03711950581c8f54397deb895771ea73, type: 2}
   defaultMaterial: {fileID: 2100000, guid: 21cbb6875abe53d4da4aa5e1d5923066, type: 2}
   leverComboCheck: {fileID: 903551409}
+  leverAnimator: {fileID: 0}
 --- !u!114 &903551408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44077,6 +44100,7 @@ MonoBehaviour:
   consolePartMaterial: {fileID: 2100000, guid: d2e30b8b6d0674f48a5310a678c67bc8, type: 2}
   defaultMaterial: {fileID: 2100000, guid: 21cbb6875abe53d4da4aa5e1d5923066, type: 2}
   leverComboCheck: {fileID: 903551409}
+  leverAnimator: {fileID: 0}
 --- !u!114 &903551409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44092,33 +44116,13 @@ MonoBehaviour:
   leverCombination: 
   gameController: {fileID: 177880660}
   airlockCombination: 121
-  selfdestructCombination: 000
+  selfdestructCombination: 012
   SOSCombination: 110
+  mainLeverAnimator: {fileID: 0}
   leverComboIDs:
   - {fileID: 903551406}
   - {fileID: 903551407}
   - {fileID: 903551408}
---- !u!95 &903551410
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 903551405}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d12bd08d96fd45c47b07ff8535b1444b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!95 &903551413
 Animator:
   serializedVersion: 5
@@ -89100,7 +89104,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: f5f76ad185617ba4cb4d67ad1a81a9e7, type: 2}
+      objectReference: {fileID: 2100000, guid: 399d8722816b38044aba52718e350b1d, type: 2}
     - target: {fileID: 919132149155446097, guid: 18b4b292f53bad347a7a68e3c7c1bcd2,
         type: 3}
       propertyPath: m_Name

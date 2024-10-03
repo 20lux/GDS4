@@ -1,9 +1,7 @@
-using UnityEditor;
 using UnityEngine;
 
 public class DrawGizmos : MonoBehaviour
 {
-    [DrawGizmo(GizmoType.NonSelected | GizmoType.Selected)]
     void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
