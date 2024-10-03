@@ -2,8 +2,16 @@ using UnityEngine;
 
 public class DestroyTentacle : MonoBehaviour
 {
-    public void DestroyThis()
+    public GameObject[] tentaclesToDestroy;
+    public ButtonPress airlockDoorButton;
+
+    public void OpenAirlock()
     {
-        Destroy(gameObject);
+        airlockDoorButton.isActive = true;
+
+        for (int i = 0; i < tentaclesToDestroy.Length; i++)
+        {
+            Destroy(tentaclesToDestroy[i]);
+        }
     }
 }

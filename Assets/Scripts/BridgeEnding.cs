@@ -15,7 +15,7 @@ public class BridgeEnding : MonoBehaviour
         gameController = FindObjectOfType<GameController>();
         bridgeMonitor = GetComponent<VideoPlayer>();
         bridgeMonitor.clip = bridgeClips[0];
-        bridgeMonitor.isLooping = true;
+        bridgeMonitor.isLooping = false;
         hasInteracted = false;
     }
 

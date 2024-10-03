@@ -23,7 +23,7 @@ public class DoorController : MonoBehaviour
         {
             if (!isManualDoor)
             {
-                Close();
+                Open();
             }    
         }
     }

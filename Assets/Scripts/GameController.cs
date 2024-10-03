@@ -85,7 +85,7 @@ public class GameController : MonoBehaviour
 
     public void AirlockEnding()
     {
-        Initiate.Fade("Airlock_Ending", Color.black, 60f);
+        onAirlockEndingEnable?.Invoke();
     }
 
     public void SOSEnding()

@@ -15,7 +15,6 @@ public class PlayerActions : MonoBehaviour
     private bool isHolding = false;
     public List<int> clipIndex;
     public List<int> leverComboInput;
-    private HighlightObjectController highlightObjectController;
 
     // Properties of objects that the player interacts with
     private LayerMask layerInteractable;
@@ -28,39 +27,10 @@ public class PlayerActions : MonoBehaviour
     {
         playerCam = Camera.main;
         layerInteractable = LayerMask.GetMask("InteractObjects");
-        // layerInspect = LayerMask.GetMask("Inspect");
-        // layerGrab = LayerMask.GetMask("Grab");
-        // layerLock = LayerMask.GetMask("Lock");
-        highlightObjectController = GetComponent<HighlightObjectController>();
     }
 
     public void Update()
     {
-        #region Highlight
-        if (Physics.Raycast(transform.position, 
-                            transform.forward, 
-                            out RaycastHit hit, 
-                            interactDistance))
-        {
-            if (hit.collider.CompareTag("Inspect"))
-            {
-                highlightObjectController.Inspect();
-            }
-            else if (hit.collider.CompareTag("Grab"))
-            {
-                highlightObjectController.Grab();
-            }
-            else if (hit.collider.CompareTag("Lock"))
-            {
-                highlightObjectController.Lock();
-            }
-            else
-            {
-                highlightObjectController.CrosshairInactive();
-            }
-        }
-        #endregion
-
         PlayerInteract();
     }
 
@@ -84,10 +54,6 @@ public class PlayerActions : MonoBehaviour
                         switch (item.objectType)
                         {
                             case InteractableObject.ObjectType.Key:
-                                item.Grab(grabCam);
-                                isHolding = true;
-                                break;
-                            case InteractableObject.ObjectType.GrabObject:
                                 item.Grab(grabCam);
                                 isHolding = true;
                                 break;
