@@ -356,6 +356,41 @@ PrefabInstance:
       propertyPath: soundTrigger
       value: 
       objectReference: {fileID: 392186231265767332}
+    - target: {fileID: 8044441914859544869, guid: 8933c5fdf5dc38541bffa608566cf959,
+        type: 3}
+      propertyPath: materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4ab914da0eb6f274aaccd987785a6e27, type: 2}
+    - target: {fileID: 8044441914859544869, guid: 8933c5fdf5dc38541bffa608566cf959,
+        type: 3}
+      propertyPath: materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d6a575bf5e7e2d54186f153cf401f97d, type: 2}
+    - target: {fileID: 8044441914859544869, guid: 8933c5fdf5dc38541bffa608566cf959,
+        type: 3}
+      propertyPath: materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: d15891d5f458f504fb0e59e8648ee149, type: 2}
+    - target: {fileID: 8044441914859544869, guid: 8933c5fdf5dc38541bffa608566cf959,
+        type: 3}
+      propertyPath: materials.Array.data[4]
+      value: 
+      objectReference: {fileID: 2100000, guid: ec8c47739758f4b4782dd0fc3f8f428a, type: 2}
+    - target: {fileID: 8044441914859544869, guid: 8933c5fdf5dc38541bffa608566cf959,
+        type: 3}
+      propertyPath: materials.Array.data[5]
+      value: 
+      objectReference: {fileID: 2100000, guid: d851810e177d6524cad60ed890c6ee3a, type: 2}
+    - target: {fileID: 8044441914859544869, guid: 8933c5fdf5dc38541bffa608566cf959,
+        type: 3}
+      propertyPath: materials.Array.data[6]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8d4d941531cd49c46adb2a5147b2d84b, type: 2}
+    - target: {fileID: 8044441914859544869, guid: 8933c5fdf5dc38541bffa608566cf959,
+        type: 3}
+      propertyPath: materials.Array.data[7]
+      value: 
+      objectReference: {fileID: 2100000, guid: 119547a6d1713c1458cdb208c943302d, type: 2}
     - target: {fileID: 8050488159916552791, guid: 8933c5fdf5dc38541bffa608566cf959,
         type: 3}
       propertyPath: m_LocalPosition.x

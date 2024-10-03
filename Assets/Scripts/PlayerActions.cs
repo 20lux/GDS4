@@ -15,22 +15,25 @@ public class PlayerActions : MonoBehaviour
     private bool isHolding = false;
     public List<int> clipIndex;
     public List<int> leverComboInput;
+    public SpriteRenderer crosshair;
 
     // Properties of objects that the player interacts with
     private LayerMask layerInteractable;
-    // private LayerMask layerInspect;
-    // private LayerMask layerGrab;
-    // private LayerMask layerLock;
+
     private InteractableObject item;
+    private Vector3 rayOrigin = new Vector3(0.5f, 0.5f, 0f);
+    private Ray ray;
  
     void Awake()
     {
         playerCam = Camera.main;
         layerInteractable = LayerMask.GetMask("InteractObjects");
+        ray = playerCam.ViewportPointToRay(rayOrigin);
     }
 
     public void Update()
     {
+        HighlightObject();
         PlayerInteract();
     }
 
@@ -44,8 +47,7 @@ public class PlayerActions : MonoBehaviour
         {
             if (item == null)
             {
-                if (Physics.Raycast(playerCam.transform.position,
-                                    playerCam.transform.forward, out RaycastHit hit,
+                if (Physics.Raycast(ray, out RaycastHit hit,
                                     interactDistance, layerInteractable))
                 {
                     #region Interacting
@@ -208,6 +210,18 @@ public class PlayerActions : MonoBehaviour
                     isHolding = false;
                 }
             }
+        }
+    }
+
+    void HighlightObject()
+    {
+        if (item)
+        {
+            crosshair.color = Color.white;
+        }
+        else
+        {
+            crosshair.color = Color.grey;
         }
     }
 }
