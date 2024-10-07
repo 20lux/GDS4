@@ -381,7 +381,7 @@ PrefabInstance:
         type: 3}
       propertyPath: OutputAudioMixerGroup
       value: 
-      objectReference: {fileID: 24300002, guid: 69cee73eb5a5f9b4ab6a5caa114296a8,
+      objectReference: {fileID: 285502766976672185, guid: 69cee73eb5a5f9b4ab6a5caa114296a8,
         type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -537,6 +537,33 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!1 &1969639922 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4499721806644147562, guid: 0b770fa8cef5c074a88ff2776fa2a255,
+    type: 3}
+  m_PrefabInstance: {fileID: 4228392861174407440}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1969639924
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1969639922}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1e8784548a999504ba43994091950e60, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &4228392861174407440
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -663,11 +690,17 @@ PrefabInstance:
     - target: {fileID: 4749144030133587521, guid: 0b770fa8cef5c074a88ff2776fa2a255,
         type: 3}
       propertyPath: m_text
-      value: "With your courage and ingenuity, you perservered and destroyed the
-        Great Guidance and his singularity. \n\nAlthough all the other crew died
-        with him, you - the sole survivor of Project Eden - know the truth. \n\nWhen
-        the rescue ship eventually arrives, the rescue team take you back to the
-        world you tried to leave behind - Earth."
+      value: "All the screens around you go white, black text flashes on the terminal,
+        \u2018Distress Beacon: Activated\u2019 and \u2018Singularity.exe initialisation:
+        Cancelled\u2019. \n\nYou let your breath out, shaking, almost colapsing over
+        the bridge\u2019s console in front of you. You didn\u2019t even know for
+        sure if this ship had a working distress signal and now you had hope. \n\nHelp
+        was on the way. \n\nYou curl up on the floor and let out a sob. Your memories
+        still felt out of reach, no one was left that truly knew the tradgedy of
+        Project Eden. No one knew your friends stories. No one could tell their loved
+        ones. No one surived, not really. \n\nAs the rescue team arrives, boarding
+        the ship and helping you out of the tangle of machine and flesh, you look
+        back at the lifeless body of the captain.\n\nMaybe that was for the best."
       objectReference: {fileID: 0}
     - target: {fileID: 4749144030133587521, guid: 0b770fa8cef5c074a88ff2776fa2a255,
         type: 3}
@@ -676,20 +709,62 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4749144030133587521, guid: 0b770fa8cef5c074a88ff2776fa2a255,
         type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 6d6a7dab1cfe64541b4648ed451eda14,
+        type: 2}
+    - target: {fileID: 4749144030133587521, guid: 0b770fa8cef5c074a88ff2776fa2a255,
+        type: 3}
       propertyPath: m_fontSizeBase
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4749144030133587521, guid: 0b770fa8cef5c074a88ff2776fa2a255,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -4734047387454783482, guid: 6d6a7dab1cfe64541b4648ed451eda14,
+        type: 2}
+    - target: {fileID: 4749144030133587521, guid: 0b770fa8cef5c074a88ff2776fa2a255,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4961975040378368613, guid: 0b770fa8cef5c074a88ff2776fa2a255,
         type: 3}
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 5337672805975628771, guid: 0b770fa8cef5c074a88ff2776fa2a255,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5406922556857459088, guid: 0b770fa8cef5c074a88ff2776fa2a255,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5865515301548923568, guid: 0b770fa8cef5c074a88ff2776fa2a255,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 9d02e36a40f68fc4b9af801cec2034ed,
+      objectReference: {fileID: 21300000, guid: 2156a5146bd2ff94696e305be063148c,
         type: 3}
+    - target: {fileID: 5865515301548923568, guid: 0b770fa8cef5c074a88ff2776fa2a255,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.4943396
+      objectReference: {fileID: 0}
+    - target: {fileID: 5865515301548923568, guid: 0b770fa8cef5c074a88ff2776fa2a255,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.4943396
+      objectReference: {fileID: 0}
+    - target: {fileID: 5865515301548923568, guid: 0b770fa8cef5c074a88ff2776fa2a255,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.4943396
+      objectReference: {fileID: 0}
     - target: {fileID: 7929985961574166183, guid: 0b770fa8cef5c074a88ff2776fa2a255,
         type: 3}
       propertyPath: m_UiScaleMode
@@ -718,7 +793,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4499721806644147562, guid: 0b770fa8cef5c074a88ff2776fa2a255,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1969639924}
   m_SourcePrefab: {fileID: 100100000, guid: 0b770fa8cef5c074a88ff2776fa2a255, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
