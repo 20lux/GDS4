@@ -118,12 +118,6 @@ public class PlayerActions : MonoBehaviour
                             tapePlayer.PlayTape();
                         }
 
-                        if (hit.collider.TryGetComponent(out BridgeEnding bridgeEnding))
-                        {
-                            Debug.Log("Interacting with bridge console");
-                            bridgeEnding.PlayBridgeEnding();
-                        }
-
                         if (hit.collider.TryGetComponent(out VideoConsole videoPlayer))
                         {
                             if (grabCam.transform.childCount > 0)

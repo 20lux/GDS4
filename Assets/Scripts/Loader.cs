@@ -12,10 +12,9 @@ public static class Loader
     {
         Title,
         Load,
-        Main,
-        Bridge_Ending,
-        Singularity_Ending
+        Main
     }
+    
     private static Action OnLoaderCallback;
     public static void Load(Scene scene)
     {

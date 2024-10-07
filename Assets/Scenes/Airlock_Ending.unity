@@ -260,6 +260,60 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!1 &604284673 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4499721806644147562, guid: 0b770fa8cef5c074a88ff2776fa2a255,
+    type: 3}
+  m_PrefabInstance: {fileID: 1984330729}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &604284675
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 604284673}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a0d25183d22e9664eb7986478cae780b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &892092196 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3966707073519304705, guid: 0b770fa8cef5c074a88ff2776fa2a255,
+    type: 3}
+  m_PrefabInstance: {fileID: 1984330729}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &892092198
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 892092196}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8f1f4fe279857c841bc12c11bda69763, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1614022561
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,10 +641,85 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4749144030133587521, guid: 0b770fa8cef5c074a88ff2776fa2a255,
+        type: 3}
+      propertyPath: m_text
+      value: "The vaccume seal opens and air floods out, pushing you into the cold
+        expanse of space. \n\nWas it all too much for you? \n\nThe weight of choosing
+        to condemn the souls of innocent people, passangers that might have been
+        your friends, to death. \n\nThey didn\u2019t do anything wrong after all.
+        You were all just a cog in the machine. \n\nAs you gasp for air and feel
+        your body begin to shut down, you raise your middle finger to flip off the
+        ship. You were never going to join them, you still had your agency. You\u2019ve
+        proven at least that much. Great job, you really showed them all."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4749144030133587521, guid: 0b770fa8cef5c074a88ff2776fa2a255,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4749144030133587521, guid: 0b770fa8cef5c074a88ff2776fa2a255,
+        type: 3}
+      propertyPath: m_margin.w
+      value: -386.03177
+      objectReference: {fileID: 0}
+    - target: {fileID: 4749144030133587521, guid: 0b770fa8cef5c074a88ff2776fa2a255,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 6d6a7dab1cfe64541b4648ed451eda14,
+        type: 2}
+    - target: {fileID: 4749144030133587521, guid: 0b770fa8cef5c074a88ff2776fa2a255,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4749144030133587521, guid: 0b770fa8cef5c074a88ff2776fa2a255,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -4734047387454783482, guid: 6d6a7dab1cfe64541b4648ed451eda14,
+        type: 2}
+    - target: {fileID: 4749144030133587521, guid: 0b770fa8cef5c074a88ff2776fa2a255,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4961975040378368613, guid: 0b770fa8cef5c074a88ff2776fa2a255,
         type: 3}
       propertyPath: m_Name
       value: Ending_Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5337672805975628771, guid: 0b770fa8cef5c074a88ff2776fa2a255,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5406922556857459088, guid: 0b770fa8cef5c074a88ff2776fa2a255,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5865515301548923568, guid: 0b770fa8cef5c074a88ff2776fa2a255,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 82f6173e2fe6d004386bddab9a71f02e,
+        type: 3}
+    - target: {fileID: 5865515301548923568, guid: 0b770fa8cef5c074a88ff2776fa2a255,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.509434
+      objectReference: {fileID: 0}
+    - target: {fileID: 5865515301548923568, guid: 0b770fa8cef5c074a88ff2776fa2a255,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.509434
+      objectReference: {fileID: 0}
+    - target: {fileID: 5865515301548923568, guid: 0b770fa8cef5c074a88ff2776fa2a255,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.509434
       objectReference: {fileID: 0}
     - target: {fileID: 7929985961574166183, guid: 0b770fa8cef5c074a88ff2776fa2a255,
         type: 3}
@@ -615,7 +744,15 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3966707073519304705, guid: 0b770fa8cef5c074a88ff2776fa2a255,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 892092198}
+    - targetCorrespondingSourceObject: {fileID: 4499721806644147562, guid: 0b770fa8cef5c074a88ff2776fa2a255,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 604284675}
   m_SourcePrefab: {fileID: 100100000, guid: 0b770fa8cef5c074a88ff2776fa2a255, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

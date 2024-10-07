@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TitleMenuController : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public class TitleMenuController : MonoBehaviour
         audioSource.loop = false;
         audioSource.Play();
         waitForSound();
-        Loader.Load(Loader.Scene.Main);
+        Initiate.Fade("Main", Color.black, fadeTime);
     }
 
     public void MainMenu()
@@ -36,7 +37,7 @@ public class TitleMenuController : MonoBehaviour
         audioSource.loop = false;
         audioSource.Play();
         waitForSound();
-        Loader.Load(Loader.Scene.Title);
+        Initiate.Fade("Title", Color.black, fadeTime);
     }
 
     public void ExitGame()
@@ -49,6 +50,14 @@ public class TitleMenuController : MonoBehaviour
         if (Input.GetKey(KeyCode.Escape))
         {
             ExitGame();
+        }
+
+        if (Input.GetKey(KeyCode.Space) && 
+            SceneManager.GetActiveScene().name != "Main" &&
+            SceneManager.GetActiveScene().name != "Title" &&
+            SceneManager.GetActiveScene().name != "Credits")
+        {
+            Initiate.Fade("Credits", Color.black, fadeTime);
         }
     }
 
