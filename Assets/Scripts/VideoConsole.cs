@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class VideoConsole : MonoBehaviour
@@ -12,14 +11,14 @@ public class VideoConsole : MonoBehaviour
 
     public enum ClipIndex
     {
-        BlueCart = 0,
-        GreenCart = 1,
-        CreamCart = 2,
-        RedCart = 3,
-        PurpleCart = 4,
-        PinkCart = 5,
-        WhiteCart = 6,
-        OrangeCart = 7
+        BlueCart = 1,
+        GreenCart = 2,
+        CreamCart = 3,
+        RedCart = 4,
+        PurpleCart = 5,
+        PinkCart = 6,
+        WhiteCart = 7,
+        OrangeCart = 8
     }
 
     void Awake()

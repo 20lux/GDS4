@@ -15,25 +15,40 @@ public class PlayerActions : MonoBehaviour
     private bool isHolding = false;
     public List<int> clipIndex;
     public List<int> leverComboInput;
-    public SpriteRenderer crosshair;
 
     // Properties of objects that the player interacts with
     private LayerMask layerInteractable;
 
     private InteractableObject item;
-    private Vector3 rayOrigin = new Vector3(0.5f, 0.5f, 0f);
-    private Ray ray;
+    private HighlightObjectController highlight;
+    private GameObject itemHeld;
+    private GameController gameController;
  
     void Awake()
     {
+        highlight = GetComponent<HighlightObjectController>();
         playerCam = Camera.main;
         layerInteractable = LayerMask.GetMask("InteractObjects");
-        ray = playerCam.ViewportPointToRay(rayOrigin);
+        gameController = FindObjectOfType<GameController>();
     }
 
     public void Update()
     {
-        HighlightObject();
+        if (Physics.Raycast(playerCam.transform.position, 
+                            playerCam.transform.forward, 
+                            interactDistance, layerInteractable))
+        {
+            Debug.DrawRay(playerCam.transform.position, 
+                            playerCam.transform.forward, Color.red);
+            highlight.CrosshairActive();
+        }
+        else
+        {
+            Debug.DrawRay(playerCam.transform.position, 
+                            playerCam.transform.forward, Color.red);
+            highlight.CrosshairInactive();
+        }
+
         PlayerInteract();
     }
 
@@ -47,9 +62,12 @@ public class PlayerActions : MonoBehaviour
         {
             if (item == null)
             {
-                if (Physics.Raycast(ray, out RaycastHit hit,
+                if (Physics.Raycast(playerCam.transform.position, 
+                                    playerCam.transform.forward, 
+                                    out RaycastHit hit,
                                     interactDistance, layerInteractable))
                 {
+                    Debug.Log(hit);
                     #region Interacting
                     if (hit.collider.TryGetComponent(out item))
                     {
@@ -110,66 +128,113 @@ public class PlayerActions : MonoBehaviour
                         {
                             if (grabCam.transform.childCount > 0)
                             {
-                                var itemHeld = grabCam.transform.GetChild(0).gameObject;
-                                Destroy(itemHeld);
+                                itemHeld = grabCam.transform.GetChild(0).gameObject;
                             }
 
                             switch (videoPlayer.clipIndex)
                             {
                                 case VideoConsole.ClipIndex.BlueCart:
                                 // "I'm stuck here"
-                                    if (clipIndex.Contains(1))
+                                    if (clipIndex.Contains(1) && 
+                                        itemHeld.GetComponent<cartridgeInteract>().clipIndex == (int) videoPlayer.clipIndex)
                                     {
                                         videoPlayer.PlayCartridge(1);
+                                        Destroy(itemHeld);
+                                    }
+                                    else
+                                    {
+                                        gameController.PlayErrorSound();
                                     }
                                     break;
                                 case VideoConsole.ClipIndex.GreenCart:
                                 // Morse code
-                                    if (clipIndex.Contains(2))
+                                    if (clipIndex.Contains(2) && 
+                                        itemHeld.GetComponent<cartridgeInteract>().clipIndex == (int) videoPlayer.clipIndex)
                                     {
                                         videoPlayer.PlayCartridge(2);
+                                        Destroy(itemHeld);
+                                    }
+                                    else
+                                    {
+                                        gameController.PlayErrorSound();
                                     }
                                     break;
                                 case VideoConsole.ClipIndex.CreamCart:
                                 // "Dodgy coding"
-                                    if (clipIndex.Contains(3))
+                                    if (clipIndex.Contains(3) && 
+                                        itemHeld.GetComponent<cartridgeInteract>().clipIndex == (int) videoPlayer.clipIndex)
                                     {
                                         videoPlayer.PlayCartridge(3);
+                                        Destroy(itemHeld);
+                                    }
+                                    else
+                                    {
+                                        gameController.PlayErrorSound();
                                     }
                                     break;
                                 case VideoConsole.ClipIndex.RedCart:
                                 // Medical interview
-                                    if (clipIndex.Contains(4))
+                                    if (clipIndex.Contains(4) && 
+                                        itemHeld.GetComponent<cartridgeInteract>().clipIndex == (int) videoPlayer.clipIndex)
                                     {
                                         videoPlayer.PlayCartridge(4);
+                                        Destroy(itemHeld);
+                                    }
+                                    else
+                                    {
+                                        gameController.PlayErrorSound();
                                     }
                                     break;
                                 case VideoConsole.ClipIndex.PurpleCart:
                                 // "In over my head"
-                                    if (clipIndex.Contains(5))
+                                    if (clipIndex.Contains(5) && 
+                                        itemHeld.GetComponent<cartridgeInteract>().clipIndex == (int) videoPlayer.clipIndex)
                                     {
                                         videoPlayer.PlayCartridge(5);
+                                        Destroy(itemHeld);
+                                    }
+                                    else
+                                    {
+                                        gameController.PlayErrorSound();
                                     }
                                     break;
                                 case VideoConsole.ClipIndex.PinkCart:
                                 // "I can't save them"
-                                    if (clipIndex.Contains(6))
+                                    if (clipIndex.Contains(6) && 
+                                        itemHeld.GetComponent<cartridgeInteract>().clipIndex == (int) videoPlayer.clipIndex)
                                     {
                                         videoPlayer.PlayCartridge(6);
+                                        Destroy(itemHeld);
+                                    }
+                                    else
+                                    {
+                                        gameController.PlayErrorSound();
                                     }
                                     break;
                                 case VideoConsole.ClipIndex.WhiteCart:
                                 // "Last few patients"
-                                    if (clipIndex.Contains(7))
+                                    if (clipIndex.Contains(7) && 
+                                        itemHeld.GetComponent<cartridgeInteract>().clipIndex == (int) videoPlayer.clipIndex)
                                     {
                                         videoPlayer.PlayCartridge(7);
+                                        Destroy(itemHeld);
+                                    }
+                                    else
+                                    {
+                                        gameController.PlayErrorSound();
                                     }
                                     break;
                                 case VideoConsole.ClipIndex.OrangeCart:
                                 // "I know what he's gonna do"
-                                    if (clipIndex.Contains(8))
+                                    if (clipIndex.Contains(8) && 
+                                        itemHeld.GetComponent<cartridgeInteract>().clipIndex == (int) videoPlayer.clipIndex)
                                     {
                                         videoPlayer.PlayCartridge(8);
+                                        Destroy(itemHeld);
+                                    }
+                                    else
+                                    {
+                                        gameController.PlayErrorSound();
                                     }
                                     break;
                             }
@@ -210,18 +275,6 @@ public class PlayerActions : MonoBehaviour
                     isHolding = false;
                 }
             }
-        }
-    }
-
-    void HighlightObject()
-    {
-        if (item)
-        {
-            crosshair.color = Color.white;
-        }
-        else
-        {
-            crosshair.color = Color.grey;
         }
     }
 }
