@@ -1,6 +1,10 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream:Assets/FirstPersonDrifter.meta
 guid: 0e06da3b7398c4c4d8bec2faa78baadd
 folderAsset: yes
+=======
+guid: 4c9781c2ec8c18246bca75f4bd9d5627
+>>>>>>> Stashed changes:Assets/Scenes/Superceded/SampleScene.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

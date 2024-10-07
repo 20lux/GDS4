@@ -1,8 +1,12 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
 --- !u!114 &-3020950358053518546
+=======
+--- !u!114 &-6696358377914258307
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15,6 +19,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 7
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 --- !u!21 &2100000
 Material:
@@ -42,9 +49,13 @@ Material:
     m_TexEnvs:
     - _BaseMap:
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         m_Texture: {fileID: 2800000, guid: aec93d9c62edcce41999d823f3032417, type: 3}
 =======
         m_Texture: {fileID: 2800000, guid: 88af889d5e3e8b44b91af390c35a4bd8, type: 3}
+>>>>>>> Stashed changes
+=======
+        m_Texture: {fileID: 2800000, guid: aec93d9c62edcce41999d823f3032417, type: 3}
 >>>>>>> Stashed changes
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -70,9 +81,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _MainTex:
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         m_Texture: {fileID: 2800000, guid: aec93d9c62edcce41999d823f3032417, type: 3}
 =======
         m_Texture: {fileID: 2800000, guid: 88af889d5e3e8b44b91af390c35a4bd8, type: 3}
+>>>>>>> Stashed changes
+=======
+        m_Texture: {fileID: 2800000, guid: aec93d9c62edcce41999d823f3032417, type: 3}
 >>>>>>> Stashed changes
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -143,6 +158,7 @@ Material:
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!114 &2092863172292508474
 MonoBehaviour:
   m_ObjectHideFlags: 11
@@ -156,5 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 7
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
