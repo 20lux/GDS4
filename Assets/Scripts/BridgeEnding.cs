@@ -7,28 +7,34 @@ public class BridgeEnding : MonoBehaviour
     public VideoClip[] bridgeClips = new VideoClip[2];
     public AudioSource bridgeAudioSource;
     public GameController gameController;
+    public DoorAnimations doorAnimations;
     public bool hasInteracted;
 
     void Awake()
     {
-        bridgeAudioSource = GetComponent<AudioSource>();
-        gameController = FindObjectOfType<GameController>();
-        bridgeMonitor = GetComponent<VideoPlayer>();
         bridgeMonitor.clip = bridgeClips[0];
         bridgeMonitor.isLooping = false;
         hasInteracted = false;
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (!hasInteracted)
+        {
+            doorAnimations.CloseAnimation();
+            PlayBridgeEnding();
+        }
     }
 
     public void PlayBridgeEnding()
     {
         if (!hasInteracted)
         {
-            Debug.Log("Playing loading clip");
             bridgeAudioSource.Play();
             bridgeMonitor.clip = bridgeClips[1];
             bridgeMonitor.isLooping = false;
-            gameController.startCountdown = true;
             hasInteracted = true;
+            gameController.startCountdown = true;
         }
     }
 }

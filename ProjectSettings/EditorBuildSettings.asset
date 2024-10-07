@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SOS_Ending.unity
     guid: 26e70de4c93d66b48b6fe2dc24a88e5e
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 048d40c342b8fc9438262fd31bf220e0
   m_configObjects: {}
