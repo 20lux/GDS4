@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerSounds : MonoBehaviour
@@ -9,7 +7,7 @@ public class PlayerSounds : MonoBehaviour
     public AudioClip[] thinkingSounds;
     public AudioClip[] needMoreDataSounds;
     public AudioClip[] lockedSounds;
-    public AudioClip[] screwdriverSounds;
+    public AudioClip[] notWorkingSounds;
     public AudioClip[] progressionSounds;
     public AudioClip[] movePlayer;
     public AudioClip[] screamSounds;
@@ -45,10 +43,10 @@ public class PlayerSounds : MonoBehaviour
         playerAudioSource.Play();
     }
 
-    public void PlayScrewdriverSounds()
+    public void PlayNotWorkingSounds()
     {
-        var i = Random.Range(0, screwdriverSounds.Length);
-        playerAudioSource.clip = screwdriverSounds[i];
+        var i = Random.Range(0, notWorkingSounds.Length);
+        playerAudioSource.clip = notWorkingSounds[i];
         playerAudioSource.Play();
     }
 

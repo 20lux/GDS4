@@ -1,11 +1,9 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class TitleMenuController : MonoBehaviour
 {
     [SerializeField] private AudioClip titleMusic;
-    [SerializeField] private AudioClip buttonPress;
     [SerializeField] private AudioSource audioSource;
     public float fadeTime = 15f;
 
@@ -24,19 +22,11 @@ public class TitleMenuController : MonoBehaviour
 
     public void StartGame()
     {
-        audioSource.clip = buttonPress;
-        audioSource.loop = false;
-        audioSource.Play();
-        waitForSound();
         Initiate.Fade("Main", Color.black, fadeTime);
     }
 
     public void MainMenu()
     {
-        audioSource.clip = buttonPress;
-        audioSource.loop = false;
-        audioSource.Play();
-        waitForSound();
         Initiate.Fade("Title", Color.black, fadeTime);
     }
 
@@ -59,13 +49,10 @@ public class TitleMenuController : MonoBehaviour
         {
             Initiate.Fade("Credits", Color.black, fadeTime);
         }
-    }
-
-    IEnumerator waitForSound()
-    {
-        while (audioSource.isPlaying)
+        else if (Input.GetKey(KeyCode.Space) && 
+            SceneManager.GetActiveScene().name == "Credits")
         {
-            yield return null;
+            Initiate.Fade("Title", Color.black, fadeTime);
         }
     }
 }

@@ -22,14 +22,14 @@ public class PlayerActions : MonoBehaviour
     private InteractableObject item;
     private HighlightObjectController highlight;
     private GameObject itemHeld;
-    private GameController gameController;
+    private PlayerSounds playerSounds;
  
     void Awake()
     {
         highlight = GetComponent<HighlightObjectController>();
         playerCam = Camera.main;
         layerInteractable = LayerMask.GetMask("InteractObjects");
-        gameController = FindObjectOfType<GameController>();
+        playerSounds = FindObjectOfType<PlayerSounds>();
     }
 
     public void Update()
@@ -137,7 +137,7 @@ public class PlayerActions : MonoBehaviour
                                     }
                                     else
                                     {
-                                        gameController.PlayErrorSound();
+                                        playerSounds.PlayNotWorkingSounds();
                                     }
                                     break;
                                 case VideoConsole.ClipIndex.GreenCart:
@@ -150,7 +150,7 @@ public class PlayerActions : MonoBehaviour
                                     }
                                     else
                                     {
-                                        gameController.PlayErrorSound();
+                                        playerSounds.PlayNotWorkingSounds();
                                     }
                                     break;
                                 case VideoConsole.ClipIndex.CreamCart:
@@ -163,7 +163,7 @@ public class PlayerActions : MonoBehaviour
                                     }
                                     else
                                     {
-                                        gameController.PlayErrorSound();
+                                        playerSounds.PlayNotWorkingSounds();
                                     }
                                     break;
                                 case VideoConsole.ClipIndex.RedCart:
@@ -176,7 +176,7 @@ public class PlayerActions : MonoBehaviour
                                     }
                                     else
                                     {
-                                        gameController.PlayErrorSound();
+                                        playerSounds.PlayNotWorkingSounds();
                                     }
                                     break;
                                 case VideoConsole.ClipIndex.PurpleCart:
@@ -189,7 +189,7 @@ public class PlayerActions : MonoBehaviour
                                     }
                                     else
                                     {
-                                        gameController.PlayErrorSound();
+                                        playerSounds.PlayNotWorkingSounds();
                                     }
                                     break;
                                 case VideoConsole.ClipIndex.PinkCart:
@@ -202,7 +202,7 @@ public class PlayerActions : MonoBehaviour
                                     }
                                     else
                                     {
-                                        gameController.PlayErrorSound();
+                                        playerSounds.PlayNotWorkingSounds();
                                     }
                                     break;
                                 case VideoConsole.ClipIndex.WhiteCart:
@@ -215,7 +215,7 @@ public class PlayerActions : MonoBehaviour
                                     }
                                     else
                                     {
-                                        gameController.PlayErrorSound();
+                                        playerSounds.PlayNotWorkingSounds();
                                     }
                                     break;
                                 case VideoConsole.ClipIndex.OrangeCart:
@@ -228,7 +228,7 @@ public class PlayerActions : MonoBehaviour
                                     }
                                     else
                                     {
-                                        gameController.PlayErrorSound();
+                                        playerSounds.PlayNotWorkingSounds();
                                     }
                                     break;
                             }
