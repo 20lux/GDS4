@@ -3,18 +3,32 @@ using UnityEngine;
 public class TapePlayerController : MonoBehaviour
 {
     public AudioSource tapePlayerAudioSource;
-    public GameObject reelOne;
-    public GameObject reelTwo;
+    public Animator reelOne;
+    public Animator reelTwo;
+
+    void Awake()
+    {
+        reelOne.enabled = false;
+        reelTwo.enabled = false;
+    }
+
+    void Update()
+    {
+        if (!tapePlayerAudioSource.isPlaying)
+        {
+            reelOne.enabled = false;
+            reelTwo.enabled = false;
+            reelOne.SetInteger("AudioState", 0);
+            reelTwo.SetInteger("AudioState", 0);
+        }
+    }
 
     public void PlayTape()
     {
-        var count = 0;
+        reelOne.enabled = true;
+        reelTwo.enabled = true;
         tapePlayerAudioSource.Play();
-        while (tapePlayerAudioSource.isPlaying)
-        {
-            count += 1;
-            reelOne.transform.localRotation = new Quaternion(0, 0, count, 0);
-            reelTwo.transform.localRotation = new Quaternion(0, 0, count, 0);
-        }
+        reelOne.SetInteger("AudioState", 1);
+        reelTwo.SetInteger("AudioState", 1);
     }
 }

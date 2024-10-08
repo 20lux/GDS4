@@ -36,40 +36,31 @@ public class VideoConsole : MonoBehaviour
         {
             case ClipIndex.BlueCart:
                 cartridge.GetComponent<MeshRenderer>().material = materials[0];
-                Debug.Log("Changing material to: " + materials[0].name);
                 break;
             case ClipIndex.GreenCart:
                 cartridge.GetComponent<MeshRenderer>().material = materials[1];
-                Debug.Log("Changing material to: " + materials[0].name);
                 break;
             case ClipIndex.CreamCart:
                 cartridge.GetComponent<MeshRenderer>().material = materials[2];
-                Debug.Log("Changing material to: " + materials[0].name);
                 break;
             case ClipIndex.RedCart:
                 cartridge.GetComponent<MeshRenderer>().material = materials[3];
-                Debug.Log("Changing material to: " + materials[0].name);
                 break;
             case ClipIndex.PurpleCart:
                 cartridge.GetComponent<MeshRenderer>().material = materials[4];
-                Debug.Log("Changing material to: " + materials[0].name);
                 break;
             case ClipIndex.PinkCart:
                 cartridge.GetComponent<MeshRenderer>().material = materials[5];
-                Debug.Log("Changing material to: " + materials[0].name);
                 break;
             case ClipIndex.WhiteCart:
                 cartridge.GetComponent<MeshRenderer>().material = materials[6];
-                Debug.Log("Changing material to: " + materials[0].name);
                 break;
             case ClipIndex.OrangeCart:
                 cartridge.GetComponent<MeshRenderer>().material = materials[7];
-                Debug.Log("Changing material to: " + materials[0].name);
                 break;
         }
 
         cartridge.SetActive(true);
         videoPlayer.LoadClip(i, consoleAudioSource);
-        Debug.Log("Playing clip: " + i.ToString());
     }
 }
