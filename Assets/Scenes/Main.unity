@@ -45089,16 +45089,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ME_coffeetable (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 1358973845150095822, guid: 4991fb9f47276e847b34bb064c86cdc8,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: dd259a590578e8043a5fc84b8859657a, type: 2}
-    - target: {fileID: 1555659116299192383, guid: 4991fb9f47276e847b34bb064c86cdc8,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: dd259a590578e8043a5fc84b8859657a, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -68414,7 +68404,7 @@ Transform:
   m_GameObject: {fileID: 1457991976}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.343621, y: 14.311148, z: -24.803562}
+  m_LocalPosition: {x: -12.379, y: 14.148, z: -24.803562}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -108207,16 +108197,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ME_coffeetable
       objectReference: {fileID: 0}
-    - target: {fileID: 1358973845150095822, guid: 4991fb9f47276e847b34bb064c86cdc8,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: dd259a590578e8043a5fc84b8859657a, type: 2}
-    - target: {fileID: 1555659116299192383, guid: 4991fb9f47276e847b34bb064c86cdc8,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: dd259a590578e8043a5fc84b8859657a, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
