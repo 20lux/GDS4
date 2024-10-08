@@ -135,9 +135,13 @@ public class PlayerActions : MonoBehaviour
                                         videoPlayer.PlayCartridge(1);
                                         Destroy(itemHeld);
                                     }
-                                    else
+                                    else if (itemHeld.GetComponent<cartridgeInteract>().clipIndex != (int) videoPlayer.clipIndex)
                                     {
                                         playerSounds.PlayNotWorkingSounds();
+                                    }
+                                    else
+                                    {
+                                        videoPlayer.PlayCartridge(1);
                                     }
                                     break;
                                 case VideoConsole.ClipIndex.GreenCart:
@@ -148,9 +152,13 @@ public class PlayerActions : MonoBehaviour
                                         videoPlayer.PlayCartridge(2);
                                         Destroy(itemHeld);
                                     }
-                                    else
+                                    else if (itemHeld.GetComponent<cartridgeInteract>().clipIndex != (int) videoPlayer.clipIndex)
                                     {
                                         playerSounds.PlayNotWorkingSounds();
+                                    }
+                                    else
+                                    {
+                                        videoPlayer.PlayCartridge(2);
                                     }
                                     break;
                                 case VideoConsole.ClipIndex.CreamCart:
@@ -161,9 +169,13 @@ public class PlayerActions : MonoBehaviour
                                         videoPlayer.PlayCartridge(3);
                                         Destroy(itemHeld);
                                     }
-                                    else
+                                    else if (itemHeld.GetComponent<cartridgeInteract>().clipIndex != (int) videoPlayer.clipIndex)
                                     {
                                         playerSounds.PlayNotWorkingSounds();
+                                    }
+                                    else
+                                    {
+                                        videoPlayer.PlayCartridge(3);
                                     }
                                     break;
                                 case VideoConsole.ClipIndex.RedCart:
@@ -174,9 +186,13 @@ public class PlayerActions : MonoBehaviour
                                         videoPlayer.PlayCartridge(4);
                                         Destroy(itemHeld);
                                     }
-                                    else
+                                    else if (itemHeld.GetComponent<cartridgeInteract>().clipIndex != (int) videoPlayer.clipIndex)
                                     {
                                         playerSounds.PlayNotWorkingSounds();
+                                    }
+                                    else
+                                    {
+                                        videoPlayer.PlayCartridge(4);
                                     }
                                     break;
                                 case VideoConsole.ClipIndex.PurpleCart:
@@ -187,9 +203,13 @@ public class PlayerActions : MonoBehaviour
                                         videoPlayer.PlayCartridge(5);
                                         Destroy(itemHeld);
                                     }
-                                    else
+                                    else if (itemHeld.GetComponent<cartridgeInteract>().clipIndex != (int) videoPlayer.clipIndex)
                                     {
                                         playerSounds.PlayNotWorkingSounds();
+                                    }
+                                    else
+                                    {
+                                        videoPlayer.PlayCartridge(5);
                                     }
                                     break;
                                 case VideoConsole.ClipIndex.PinkCart:
@@ -200,9 +220,13 @@ public class PlayerActions : MonoBehaviour
                                         videoPlayer.PlayCartridge(6);
                                         Destroy(itemHeld);
                                     }
-                                    else
+                                    else if (itemHeld.GetComponent<cartridgeInteract>().clipIndex != (int) videoPlayer.clipIndex)
                                     {
                                         playerSounds.PlayNotWorkingSounds();
+                                    }
+                                    else
+                                    {
+                                        videoPlayer.PlayCartridge(6);
                                     }
                                     break;
                                 case VideoConsole.ClipIndex.WhiteCart:
@@ -213,9 +237,13 @@ public class PlayerActions : MonoBehaviour
                                         videoPlayer.PlayCartridge(7);
                                         Destroy(itemHeld);
                                     }
-                                    else
+                                    else if (itemHeld.GetComponent<cartridgeInteract>().clipIndex != (int) videoPlayer.clipIndex)
                                     {
                                         playerSounds.PlayNotWorkingSounds();
+                                    }
+                                    else
+                                    {
+                                        videoPlayer.PlayCartridge(7);
                                     }
                                     break;
                                 case VideoConsole.ClipIndex.OrangeCart:
@@ -226,9 +254,13 @@ public class PlayerActions : MonoBehaviour
                                         videoPlayer.PlayCartridge(8);
                                         Destroy(itemHeld);
                                     }
-                                    else
+                                    else if (itemHeld.GetComponent<cartridgeInteract>().clipIndex != (int) videoPlayer.clipIndex)
                                     {
                                         playerSounds.PlayNotWorkingSounds();
+                                    }
+                                    else
+                                    {
+                                        videoPlayer.PlayCartridge(8);
                                     }
                                     break;
                             }
