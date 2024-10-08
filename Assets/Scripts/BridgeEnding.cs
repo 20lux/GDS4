@@ -4,7 +4,6 @@ using UnityEngine.Video;
 public class BridgeEnding : MonoBehaviour
 {
     public VideoPlayer bridgeMonitor;
-    public VideoClip[] bridgeClips = new VideoClip[2];
     public AudioSource bridgeAudioSource;
     public GameController gameController;
     public DoorAnimations doorAnimations;
@@ -12,7 +11,6 @@ public class BridgeEnding : MonoBehaviour
 
     void Awake()
     {
-        bridgeMonitor.clip = bridgeClips[0];
         bridgeMonitor.isLooping = false;
         hasInteracted = false;
     }
@@ -31,8 +29,6 @@ public class BridgeEnding : MonoBehaviour
         if (!hasInteracted)
         {
             bridgeAudioSource.Play();
-            bridgeMonitor.clip = bridgeClips[1];
-            bridgeMonitor.isLooping = false;
             hasInteracted = true;
             gameController.startCountdown = true;
         }
