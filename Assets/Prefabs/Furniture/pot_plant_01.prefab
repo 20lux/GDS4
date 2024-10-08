@@ -58,6 +58,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 54acf14968ad6774a8ccd23f8e82f422,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6e43a5312370161458e33a661802aa96, type: 2}
     - target: {fileID: -7162702281153419392, guid: 54acf14968ad6774a8ccd23f8e82f422,
         type: 3}
       propertyPath: m_Layer
@@ -72,7 +77,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ed8fca74c8a96c54ab34bfd5ca3909b7, type: 2}
+      objectReference: {fileID: 2100000, guid: cc48bfcdc247d114f99af2e31af168fc, type: 2}
     - target: {fileID: 919132149155446097, guid: 54acf14968ad6774a8ccd23f8e82f422,
         type: 3}
       propertyPath: m_Name
@@ -91,36 +96,5 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: -7162702281153419392, guid: 54acf14968ad6774a8ccd23f8e82f422,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4379730334217377726}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54acf14968ad6774a8ccd23f8e82f422, type: 3}
---- !u!1 &5962259863633424101 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -7162702281153419392, guid: 54acf14968ad6774a8ccd23f8e82f422,
-    type: 3}
-  m_PrefabInstance: {fileID: 5631412651118037349}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &4379730334217377726
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5962259863633424101}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.004902134, y: 0.0049021333, z: 0.0042613465}
-  m_Center: {x: 0, y: 0, z: 0.002105278}
