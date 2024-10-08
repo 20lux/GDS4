@@ -10,6 +10,7 @@ public class DoorController : MonoBehaviour
     public DoorAnimations door;
     public bool isManualDoor = false;
     public int timeToClose = 5;
+    private string endAnimationEvent;
 
     private void Awake()
     {

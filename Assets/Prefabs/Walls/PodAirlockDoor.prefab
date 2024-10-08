@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2551406955780527887}
   - component: {fileID: 186259523283060795}
   m_Layer: 2
-  m_Name: Trigger
+  m_Name: Open
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49,12 +49,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.61533415, y: 1, z: 4.151327}
-  m_Center: {x: 0.031481683, y: 0, z: 0.102433205}
+  m_Size: {x: 1, y: 1, z: 1.543447}
+  m_Center: {x: 0, y: 0, z: 0.2717235}
 --- !u!82 &2551406955780527887
 AudioSource:
   m_ObjectHideFlags: 0
@@ -171,8 +171,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8574bd99125e02245a646cdf955a9c7b, type: 3}
   - {fileID: 8300000, guid: 538c773ff2348e94a8b97216c223bc05, type: 3}
   door: {fileID: 0}
-  isManualDoor: 0
-  timeToClose: 5
+  isManualDoor: 1
+  timeToClose: 1
 --- !u!1001 &2025555904957353738
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -199,7 +199,7 @@ PrefabInstance:
     - target: {fileID: 3512579137618062787, guid: 5ca086c5cac2a5b47bfa078a6baa7d1a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.749
+      value: 0.529
       objectReference: {fileID: 0}
     - target: {fileID: 3512579137618062787, guid: 5ca086c5cac2a5b47bfa078a6baa7d1a,
         type: 3}
@@ -209,7 +209,7 @@ PrefabInstance:
     - target: {fileID: 3512579137618062787, guid: 5ca086c5cac2a5b47bfa078a6baa7d1a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.010665894
+      value: 0.011
       objectReference: {fileID: 0}
     - target: {fileID: 3512579137618062787, guid: 5ca086c5cac2a5b47bfa078a6baa7d1a,
         type: 3}
@@ -263,6 +263,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4935340011686938581, guid: 5ca086c5cac2a5b47bfa078a6baa7d1a,
         type: 3}
+      propertyPath: isActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4935340011686938581, guid: 5ca086c5cac2a5b47bfa078a6baa7d1a,
+        type: 3}
       propertyPath: doorController
       value: 
       objectReference: {fileID: 186259523283060795}
@@ -276,6 +281,11 @@ PrefabInstance:
       propertyPath: disabledMaterial
       value: 
       objectReference: {fileID: 2100000, guid: 6bec0dc19fab54744887b9db64a88e49, type: 2}
+    - target: {fileID: 4935340011686938581, guid: 5ca086c5cac2a5b47bfa078a6baa7d1a,
+        type: 3}
+      propertyPath: onButtonPress.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 186259523283060795}
     - target: {fileID: 5408834112186572069, guid: 5ca086c5cac2a5b47bfa078a6baa7d1a,
         type: 3}
       propertyPath: m_Layer
@@ -294,10 +304,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 5050084752860817830}
-    - targetCorrespondingSourceObject: {fileID: 2683372103145173791, guid: 5ca086c5cac2a5b47bfa078a6baa7d1a,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8775821446761493292}
   m_SourcePrefab: {fileID: 100100000, guid: 5ca086c5cac2a5b47bfa078a6baa7d1a, type: 3}
 --- !u!4 &3216423631529812681 stripped
 Transform:
@@ -332,26 +338,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.02, z: 0.036561284}
   m_Center: {x: 9.413997e-16, y: 3.088968e-16, z: 0.008280164}
---- !u!114 &8775821446761493292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4116704476172434453}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aab9c10c1a47e0941b6a79e6d0397606, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectType: 6
-  ObjectName: Lift Button
-  objectToInteractWith: {fileID: 0}
-  IsLocked: 0
-  pickUp: {fileID: 0}
-  putDown: {fileID: 0}
-  use: {fileID: 8300000, guid: 77e1fd2cc33e4354fa1bd4ad056d6d0f, type: 3}
-  error: {fileID: 0}
 --- !u!1001 &7732693387176134889
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -414,7 +400,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 2227606581714051935, guid: bbc4d9b7875e19b488ab4aeaa7779c94,
+      objectReference: {fileID: 7096188091609005389, guid: b7479163b8b4ea145a2ae6d1bbbce344,
         type: 3}
     - target: {fileID: -7511558181221131132, guid: 8837dfa39ad5be04d8e624f8ae08cbd0,
         type: 3}
@@ -426,6 +412,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: dd259a590578e8043a5fc84b8859657a, type: 2}
+    - target: {fileID: -6144664332425919048, guid: 8837dfa39ad5be04d8e624f8ae08cbd0,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.34
+      objectReference: {fileID: 0}
+    - target: {fileID: -6144664332425919048, guid: 8837dfa39ad5be04d8e624f8ae08cbd0,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.24585
+      objectReference: {fileID: 0}
     - target: {fileID: -5754084199372789682, guid: 8837dfa39ad5be04d8e624f8ae08cbd0,
         type: 3}
       propertyPath: m_Mesh
@@ -451,7 +447,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: bd9cd9b6377477c4f954fa73f677a71c, type: 2}
+      objectReference: {fileID: 2100000, guid: 55436644484fa8845b64a776c2402a37, type: 2}
     - target: {fileID: 7036343253195251627, guid: 8837dfa39ad5be04d8e624f8ae08cbd0,
         type: 3}
       propertyPath: m_Layer
