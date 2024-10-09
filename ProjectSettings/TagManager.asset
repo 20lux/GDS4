@@ -16,6 +16,7 @@ TagManager:
   - Lever
   - Grab
   - Inspect
+  - SOS
   layers:
   - Default
   - TransparentFX
