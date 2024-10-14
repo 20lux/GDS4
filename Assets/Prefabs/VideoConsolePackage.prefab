@@ -277,6 +277,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3346108417094572595}
     m_Modifications:
+    - target: {fileID: 2010950344438909474, guid: 8933c5fdf5dc38541bffa608566cf959,
+        type: 3}
+      propertyPath: BypassEffects
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2010950344438909474, guid: 8933c5fdf5dc38541bffa608566cf959,
+        type: 3}
+      propertyPath: BypassReverbZones
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3761196005070064345, guid: 8933c5fdf5dc38541bffa608566cf959,
         type: 3}
       propertyPath: soundTrigger
@@ -361,6 +371,11 @@ PrefabInstance:
       propertyPath: soundTrigger
       value: 
       objectReference: {fileID: 392186231265767332}
+    - target: {fileID: 8044441914859544869, guid: 8933c5fdf5dc38541bffa608566cf959,
+        type: 3}
+      propertyPath: consoleAudioSource
+      value: 
+      objectReference: {fileID: 6946606518408729183}
     - target: {fileID: 8044441914859544869, guid: 8933c5fdf5dc38541bffa608566cf959,
         type: 3}
       propertyPath: materials.Array.data[0]
@@ -454,6 +469,12 @@ PrefabInstance:
 --- !u!4 &1456366003159116330 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8050488159916552791, guid: 8933c5fdf5dc38541bffa608566cf959,
+    type: 3}
+  m_PrefabInstance: {fileID: 8903363016906594429}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &6946606518408729183 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2010950344438909474, guid: 8933c5fdf5dc38541bffa608566cf959,
     type: 3}
   m_PrefabInstance: {fileID: 8903363016906594429}
   m_PrefabAsset: {fileID: 0}
