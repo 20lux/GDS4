@@ -37,6 +37,7 @@ public class PlayerActions : MonoBehaviour
         if (Physics.Raycast(playerCam.transform.position, 
                             playerCam.transform.forward, 
                             interactDistance, layerInteractable))
+                            //
         {
             highlight.CrosshairActive();
         }
