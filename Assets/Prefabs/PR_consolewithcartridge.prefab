@@ -274,10 +274,9 @@ MonoBehaviour:
   videoPlayer: {fileID: 2358972272335455589, guid: c3dc03d233d39cb46b0bd02a5cc48827,
     type: 3}
   cartridge: {fileID: 6074566050246163832}
-  audioSource: {fileID: 2010950344438909474}
+  consoleAudioSource: {fileID: 2010950344438909474}
   cartridgeClickSound: {fileID: 8300000, guid: 890496f31d648b3459b184efd8d15559, type: 3}
-  soundTrigger: {fileID: 0}
-  clipID: 0
+  clipIndex: 0
   materials:
   - {fileID: 2100000, guid: 24c62f544c0651540adebead6947cd6b, type: 2}
   - {fileID: 2100000, guid: 03711950581c8f54397deb895771ea73, type: 2}
@@ -312,9 +311,9 @@ AudioSource:
   MaxDistance: 2
   Pan2D: 0
   rolloffMode: 0
-  BypassEffects: 1
+  BypassEffects: 0
   BypassListenerEffects: 0
-  BypassReverbZones: 1
+  BypassReverbZones: 0
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:

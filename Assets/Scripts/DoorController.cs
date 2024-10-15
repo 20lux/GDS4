@@ -9,8 +9,7 @@ public class DoorController : MonoBehaviour
     [SerializeField] private AudioClip[] doorSounds;
     public DoorAnimations door;
     public bool isManualDoor = false;
-    public int timeToClose = 5;
-    private string endAnimationEvent;
+    private bool isDoorOpen = false;
 
     private void Awake()
     {
@@ -20,11 +19,24 @@ public class DoorController : MonoBehaviour
 
     private void OnTriggerEnter (Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && !isDoorOpen)
         {
             if (!isManualDoor)
             {
                 Open();
+                isDoorOpen = true;
+            }    
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player" && isDoorOpen)
+        {
+            if (!isManualDoor)
+            {
+                Close();
+                isDoorOpen = false;
             }    
         }
     }
