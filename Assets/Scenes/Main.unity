@@ -112031,6 +112031,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2358972272335455589, guid: c3dc03d233d39cb46b0bd02a5cc48827,
         type: 3}
+      propertyPath: clips.Array.data[1]
+      value: 
+      objectReference: {fileID: 32900000, guid: 5ca568e84e3743543a0ed62adfb7f6a8,
+        type: 3}
+    - target: {fileID: 2358972272335455589, guid: c3dc03d233d39cb46b0bd02a5cc48827,
+        type: 3}
       propertyPath: clips.Array.data[3]
       value: 
       objectReference: {fileID: 32900000, guid: 82813e0fe812b264dbfe08d6f3649a2c,
