@@ -79,7 +79,7 @@ public class GameController : MonoBehaviour
 
     public void BridgeEnding()
     {
-        Initiate.Fade("Bridge_Ending", Color.white, 60f);
+        Initiate.Fade("Bridge_Ending", Color.yellow, 60f);
     }
 
     public void SingularityEnding()
@@ -94,7 +94,7 @@ public class GameController : MonoBehaviour
 
     public void SOSEnding()
     {
-        Initiate.Fade("SOS_Ending", Color.blue, 60f);
+        Initiate.Fade("SOS_Ending", Color.white, 60f);
     }
 
     public void ShipEngineStart()

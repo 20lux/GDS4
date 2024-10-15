@@ -6,20 +6,24 @@ public class LeverComboCheck : MonoBehaviour
     public string leverCombination;
     public PlayerSounds playerSounds;
     public GameController gameController;
-    public const string airlockCombination = "201";
-    public const string selfdestructCombination = "012";
-    public const string SOSCombination = "220";
+    public AudioSource leverAudioSource;
+    const string airlockCombination = "201";
+    const string selfdestructCombination = "012";
+    const string SOSCombination = "220";
     public Animator mainLeverAnimator;
     public LeverComboID[] leverComboIDs = new LeverComboID[3];
 
     void Awake()
     {
         mainLeverAnimator = GetComponent<Animator>();
+        leverAudioSource = GetComponent<AudioSource>();
     }
 
     public void CheckLeverCombination()
     {
+        leverAudioSource.Play();
         mainLeverAnimator.SetBool("CheckCombo", true);
+        Wait();
 
         if (leverCombination.Length > 3)
         {
