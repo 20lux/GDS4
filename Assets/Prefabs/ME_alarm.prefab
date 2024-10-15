@@ -255,7 +255,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 3b7c85d5eb8e724408be74c3349d5d30, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -353,3 +353,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisLight: {fileID: 3269088932093477731}
   audioSource: {fileID: 934729365024744291}
+  isOff: 0

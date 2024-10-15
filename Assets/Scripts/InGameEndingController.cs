@@ -3,42 +3,17 @@ using UnityEngine;
 public class InGameEndingController : MonoBehaviour
 {
     public GameController gameController;
-    public EndingType ending;
-    public bool isThisObjectACollider = false;
-    public AudioSource audioSource;
-    public AudioClip bridgeEndingStartAudio;
-    public AudioClip airlockEndingStartAudio;
-
-    public enum EndingType
-    {
-        Bridge,
-        Airlock,
-        Hell
-    }
 
     public void StartEnding()
     {
-        switch (ending)
-        {
-            case EndingType.Bridge:
-                gameController.BridgeEnding();
-                break;
-            case EndingType.Airlock:
-                gameController.AirlockEnding();
-                break;
-            case EndingType.Hell:
-                break;
-        }
+        Initiate.Fade("Airlock_Ending", Color.black, 60f);
     }
 
     public void OnTriggerEnter(Collider other)
     {
-        if (isThisObjectACollider)
+        if (other.CompareTag("Player"))
         {
-            if (other.CompareTag("Player"))
-            {
-                StartEnding();
-            }
+            StartEnding();
         }
     }
 }

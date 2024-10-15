@@ -4,6 +4,7 @@ public class LeverComboID : MonoBehaviour
 {
     public int leverID = 0;
     public GameObject consolePart;
+    public AudioSource leverAudioSource;
     public Material consolePartMaterial;
     public Material defaultMaterial;
     public LeverComboCheck leverComboCheck;
@@ -17,7 +18,17 @@ public class LeverComboID : MonoBehaviour
 
     public void PullLever()
     {
-        leverAnimator.SetBool("PullUp", true);
+        leverAudioSource.Play();
+        
+        if (leverAnimator.GetBool("PullUp"))
+        {
+            leverAnimator.SetBool("PullUp", false);
+        }
+        else
+        {
+            leverAnimator.SetBool("PullUp", true);
+        }
+
         leverComboCheck.leverCombination += leverID;
         consolePart.GetComponent<Renderer>().material = consolePartMaterial;
     }

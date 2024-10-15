@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour
     [Header("Asset Links")]
     public PlayerActions playerActions;
     public AudioSource gameAudioSource;
+    public PlayerSounds playerSounds;
     public AudioClip errorSound;
     public AudioClip grantedSound;
 
@@ -17,12 +18,15 @@ public class GameController : MonoBehaviour
 
     [Header("Airlock Ending Properties")]
     public UnityEvent onAirlockEndingEnable;
+    
 
     [Header("Self-Destruct Ending Properties")]
     public UnityEvent onSelfDestructionEnable;
+    
 
     [Header("SOS Ending Properties")]
     public UnityEvent onSOSEnable;
+
 
     [Header("Engine Start Up Properties")]
     public Light[] lightsToEnable;

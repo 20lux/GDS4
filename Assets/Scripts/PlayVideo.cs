@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Experimental.Audio;
 using UnityEngine.Video;
 
 public class PlayVideo : MonoBehaviour
@@ -23,12 +24,11 @@ public class PlayVideo : MonoBehaviour
         }
         
         player.audioOutputMode = VideoAudioOutputMode.AudioSource;
-        player.EnableAudioTrack(0, true);
+        player.EnableAudioTrack(0, false);
         player.SetTargetAudioSource(0, consoleAudioSource);
         player.controlledAudioTrackCount = 1;
         player.SetDirectAudioVolume(0, 1.0f);
         player.clip = clips[i];
-        Debug.Log("Loading clip: " + i.ToString());
     }
 
     public void EndReached(VideoPlayer vp)

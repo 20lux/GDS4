@@ -4,16 +4,16 @@ using UnityEngine;
 public class LeverComboCheck : MonoBehaviour
 {
     public string leverCombination;
+    public PlayerSounds playerSounds;
     public GameController gameController;
-    public string airlockCombination = "121";
-    public string selfdestructCombination = "000";
-    public string SOSCombination = "110";
+    public const string airlockCombination = "201";
+    public const string selfdestructCombination = "012";
+    public const string SOSCombination = "220";
     public Animator mainLeverAnimator;
     public LeverComboID[] leverComboIDs = new LeverComboID[3];
 
     void Awake()
     {
-        gameController = FindObjectOfType<GameController>();
         mainLeverAnimator = GetComponent<Animator>();
     }
 
@@ -25,31 +25,32 @@ public class LeverComboCheck : MonoBehaviour
         {
             WrongCombination();
         }
-        
-        if (leverCombination == airlockCombination)
-        {
-            gameController.PlayGrantedSound();
-            Wait();
-            gameController.onAirlockEndingEnable?.Invoke();
-        }
-        else if (leverCombination == selfdestructCombination)
-        {
-            gameController.PlayGrantedSound();
-            Wait();
-            gameController.onSelfDestructionEnable?.Invoke();
-        }
-        else if (leverCombination == SOSCombination)
-        {
-            gameController.PlayGrantedSound();
-            Wait();
-            gameController.onSOSEnable?.Invoke();
-        }
-        else
-        {
-            WrongCombination();
-        }
 
-        mainLeverAnimator.SetBool("CheckCombo", false);
+        switch(leverCombination)
+        {
+            case airlockCombination:
+                mainLeverAnimator.SetBool("CheckCombo", false);
+                playerSounds.PlayAirlockAccessSound();
+                Wait();
+                gameController.onAirlockEndingEnable?.Invoke();
+                break;
+            case selfdestructCombination:
+                mainLeverAnimator.SetBool("CheckCombo", false);
+                playerSounds.PlaySelfDestructSound();
+                Wait();
+                gameController.onSelfDestructionEnable?.Invoke();
+                break;
+            case SOSCombination:
+                mainLeverAnimator.SetBool("CheckCombo", false);
+                playerSounds.PlaySOSAccessSound();
+                Wait();
+                gameController.onSOSEnable?.Invoke();
+                break;
+            default:
+                mainLeverAnimator.SetBool("CheckCombo", false);
+                WrongCombination();
+                break;
+        }
     }
 
     public void WrongCombination()

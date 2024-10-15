@@ -37,7 +37,6 @@ public class FirstPersonMovement : MonoBehaviour
         Vector2 targetVelocity = new Vector2( 
             Input.GetAxis("Horizontal") * targetMovingSpeed, 
             Input.GetAxis("Vertical") * targetMovingSpeed);
-        Debug.Log(targetVelocity);
 
         // Apply movement.
         rb.velocity = transform.rotation * new Vector3(targetVelocity.x, rb.velocity.y, targetVelocity.y);

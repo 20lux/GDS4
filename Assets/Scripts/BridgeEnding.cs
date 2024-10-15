@@ -6,7 +6,6 @@ public class BridgeEnding : MonoBehaviour
     public VideoPlayer bridgeMonitor;
     public AudioSource bridgeAudioSource;
     public GameController gameController;
-    public DoorAnimations doorAnimations;
     public bool hasInteracted;
 
     void Awake()
@@ -19,7 +18,6 @@ public class BridgeEnding : MonoBehaviour
     {
         if (!hasInteracted)
         {
-            doorAnimations.CloseAnimation();
             PlayBridgeEnding();
         }
     }
