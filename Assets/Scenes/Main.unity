@@ -22855,7 +22855,7 @@ PrefabInstance:
         type: 3}
       propertyPath: cartAudio
       value: 
-      objectReference: {fileID: 8300000, guid: 4166b0c64b4027d4aa5aa6057480f41f, type: 3}
+      objectReference: {fileID: 8300000, guid: 7ef83228b7651c247bc1233a2b9619c6, type: 3}
     - target: {fileID: 3822131927717726843, guid: b57079c0b4a602149971a7d1154409c6,
         type: 3}
       propertyPath: clipIndex
