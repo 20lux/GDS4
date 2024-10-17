@@ -279,6 +279,7 @@ MonoBehaviour:
   cartridge: {fileID: 6074566050246163832}
   consoleAudioSource: {fileID: 2612983352198707409}
   cartridgeClickSound: {fileID: 8300000, guid: 890496f31d648b3459b184efd8d15559, type: 3}
+  cartAudio: {fileID: 0}
   clipIndex: 1
   materials:
   - {fileID: 2100000, guid: 4ab914da0eb6f274aaccd987785a6e27, type: 2}
@@ -298,7 +299,8 @@ AudioSource:
   m_GameObject: {fileID: 7274092920186087661}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 708821117389791135, guid: 69cee73eb5a5f9b4ab6a5caa114296a8,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -315,7 +317,7 @@ AudioSource:
   rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0
-  BypassReverbZones: 0
+  BypassReverbZones: 1
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:

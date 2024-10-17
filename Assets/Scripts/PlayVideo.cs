@@ -15,19 +15,14 @@ public class PlayVideo : MonoBehaviour
         player.loopPointReached += EndReached;
     }
 
-    public void LoadClip(int i, AudioSource consoleAudioSource)
+    public void LoadClip(int i)
     {   
         if (i < 0 || i >= clips.Length)
         {
             Debug.LogErrorFormat(   "Cannot play video #{0}. The array contains {1} video(s)",
                                     i, clips.Length);
         }
-        
-        player.audioOutputMode = VideoAudioOutputMode.AudioSource;
-        player.EnableAudioTrack(0, false);
-        player.SetTargetAudioSource(0, consoleAudioSource);
-        player.controlledAudioTrackCount = 1;
-        player.SetDirectAudioVolume(0, 1.0f);
+
         player.clip = clips[i];
     }
 

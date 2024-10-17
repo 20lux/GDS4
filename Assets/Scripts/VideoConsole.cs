@@ -6,6 +6,7 @@ public class VideoConsole : MonoBehaviour
     public GameObject cartridge;
     public AudioSource consoleAudioSource;
     public AudioClip cartridgeClickSound;
+    public AudioClip cartAudio;
     public ClipIndex clipIndex;
     public Material[] materials = new Material[8];
 
@@ -24,6 +25,7 @@ public class VideoConsole : MonoBehaviour
     void Awake()
     {
         consoleAudioSource = GetComponent<AudioSource>();
+        consoleAudioSource.loop = false;
         cartridge.SetActive(false);
     }
 
@@ -61,6 +63,8 @@ public class VideoConsole : MonoBehaviour
         }
 
         cartridge.SetActive(true);
-        videoPlayer.LoadClip(i, consoleAudioSource);
+        videoPlayer.LoadClip(i);
+        consoleAudioSource.clip = cartAudio;
+        consoleAudioSource.Play();
     }
 }
