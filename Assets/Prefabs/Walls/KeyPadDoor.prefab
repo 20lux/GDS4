@@ -105,7 +105,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 399d8722816b38044aba52718e350b1d, type: 2}
+      objectReference: {fileID: 2100000, guid: 122d98c59e0aee943857a8472e1d745a, type: 2}
     - target: {fileID: 4996527597396271838, guid: a980ea095095026418fa9b3a1ad7b170,
         type: 3}
       propertyPath: MaxDistance

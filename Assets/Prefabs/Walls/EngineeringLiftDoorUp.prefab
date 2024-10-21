@@ -172,7 +172,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 538c773ff2348e94a8b97216c223bc05, type: 3}
   door: {fileID: 556131054887054194}
   isManualDoor: 1
-  timeToClose: 5
 --- !u!1001 &184689377961129301
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -435,7 +434,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 399d8722816b38044aba52718e350b1d, type: 2}
+      objectReference: {fileID: 2100000, guid: 122d98c59e0aee943857a8472e1d745a, type: 2}
     - target: {fileID: -6144664332425919048, guid: 8837dfa39ad5be04d8e624f8ae08cbd0,
         type: 3}
       propertyPath: m_LocalScale.x
