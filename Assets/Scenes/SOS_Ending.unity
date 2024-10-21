@@ -691,16 +691,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: "All the screens around you go white, black text flashes on the terminal,
-        \u2018Distress Beacon: Activated\u2019 and \u2018Singularity.exe initialisation:
-        Cancelled\u2019. \n\nYou let your breath out, shaking, almost colapsing over
-        the bridge\u2019s console in front of you. You didn\u2019t even know for
-        sure if this ship had a working distress signal and now you had hope. \n\nHelp
-        was on the way. \n\nYou curl up on the floor and let out a sob. Your memories
-        still felt out of reach, no one was left that truly knew the tradgedy of
-        Project Eden. No one knew your friends stories. No one could tell their loved
-        ones. No one surived, not really. \n\nAs the rescue team arrives, boarding
-        the ship and helping you out of the tangle of machine and flesh, you look
-        back at the lifeless body of the captain.\n\nMaybe that was for the best."
+        \u2018Distress Beacon: Activated\u2019 and then \u2018Singularity.exe initialisation:
+        Cancelled\u2019.\n\nYou let your breath out, shaking, almost collapsing over
+        the bridge\u2019s console in front of you. You had no way of knowing if the
+        ship had a working distress signal, but you let the relief wash over you
+        regardless. Help was on the way. \n\nYou look back at the body of the captain,
+        his body entangled with wires, left in a peaceful sleep. Your memories still
+        felt out of reach, no one was left that truly knew the tradgedy of Project
+        Eden. No one knew your friends stories. No one could tell their loved ones.
+        No one surived, not really. \n\nYou sink to the floor and it all feels so
+        cold around you. Now all you can do is wait."
       objectReference: {fileID: 0}
     - target: {fileID: 4749144030133587521, guid: 0b770fa8cef5c074a88ff2776fa2a255,
         type: 3}
@@ -764,6 +764,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.r
       value: 0.4943396
+      objectReference: {fileID: 0}
+    - target: {fileID: 7162478889205173983, guid: 0b770fa8cef5c074a88ff2776fa2a255,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7162478889205173983, guid: 0b770fa8cef5c074a88ff2776fa2a255,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99878174
+      objectReference: {fileID: 0}
+    - target: {fileID: 7162478889205173983, guid: 0b770fa8cef5c074a88ff2776fa2a255,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.049346253
+      objectReference: {fileID: 0}
+    - target: {fileID: 7162478889205173983, guid: 0b770fa8cef5c074a88ff2776fa2a255,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7162478889205173983, guid: 0b770fa8cef5c074a88ff2776fa2a255,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7162478889205173983, guid: 0b770fa8cef5c074a88ff2776fa2a255,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 166
+      objectReference: {fileID: 0}
+    - target: {fileID: 7162478889205173983, guid: 0b770fa8cef5c074a88ff2776fa2a255,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 5.657
       objectReference: {fileID: 0}
     - target: {fileID: 7929985961574166183, guid: 0b770fa8cef5c074a88ff2776fa2a255,
         type: 3}
