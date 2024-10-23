@@ -9,7 +9,7 @@ public class LeverComboCheck : MonoBehaviour
     public AudioSource leverAudioSource;
     const string airlockCombination = "201";
     const string selfdestructCombination = "012";
-    const string SOSCombination = "220";
+    const string SOSCombination = "221";
     public Animator mainLeverAnimator;
     public LeverComboID[] leverComboIDs = new LeverComboID[3];
 
